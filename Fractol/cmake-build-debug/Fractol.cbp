@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Fractol"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Fractol">
+				<Option output="/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Fractol" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/nfs/2016/a/aradiuk/Projects/Fractol/./includes"/>
+					<Add directory="/nfs/2016/a/aradiuk/Projects/Fractol/./libft/includes"/>
+					<Add directory="/nfs/2016/a/aradiuk/Projects/Fractol/."/>
+					<Add directory="/nfs/2016/a/aradiuk/Projects/Fractol/includes"/>
+					<Add directory="/nfs/2016/a/aradiuk/Projects/Fractol/libft"/>
+					<Add directory="/nfs/2016/a/aradiuk/Projects/Fractol/src"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 Fractol"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Fractol/fast">
+				<Option output="/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Fractol" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/nfs/2016/a/aradiuk/Projects/Fractol/./includes"/>
+					<Add directory="/nfs/2016/a/aradiuk/Projects/Fractol/./libft/includes"/>
+					<Add directory="/nfs/2016/a/aradiuk/Projects/Fractol/."/>
+					<Add directory="/nfs/2016/a/aradiuk/Projects/Fractol/includes"/>
+					<Add directory="/nfs/2016/a/aradiuk/Projects/Fractol/libft"/>
+					<Add directory="/nfs/2016/a/aradiuk/Projects/Fractol/src"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 Fractol/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/nfs/2016/a/aradiuk/Projects/Fractol/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/Makefile">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/auteur">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/includes/fractol.h">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_atoi.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_bzero.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_isalnum.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_isalpha.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_isascii.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_isdigit.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_isprint.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_itoa.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_list_reverse.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_lstadd.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_lstdel.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_lstdelone.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_lstiter.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_lstmap.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_lstnew.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_map.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_memalloc.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_memccpy.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_memchr.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_memcmp.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_memcpy.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_memdel.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_memmove.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_memset.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_putchar.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_putchar_fd.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_putendl.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_putendl_fd.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_putnbr.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_putnbr_fd.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_putstr.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_putstr_fd.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strcapitalize.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strcat.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strchr.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strclr.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strcmp.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strcpy.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strdel.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strdup.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strequ.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_striter.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_striteri.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strjoin.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strlcat.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strlen.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strlowcase.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strmap.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strmapi.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strncat.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strncmp.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strncpy.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strnequ.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strnew.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strnstr.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strrchr.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strsplit.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strstr.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strsub.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strtrim.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_strupcase.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_tolower.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/ft_toupper.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/get_next_line.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/includes/get_next_line.h">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/libft/includes/libft.h">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/src/common.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/src/fractal.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/src/fractol.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/src/ft_itoa_double.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/src/hooks.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/src/hooks_extra.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/src/julia_3_4.c">
+			<Option target="Fractol"/>
+		</Unit>
+		<Unit filename="/nfs/2016/a/aradiuk/Projects/Fractol/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
