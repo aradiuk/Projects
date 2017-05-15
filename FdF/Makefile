@@ -20,8 +20,7 @@ SRC_FILES = $(shell ls $(SRC_DIR))
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 INC =	-I includes/ \
-		-I ./libft/includes/ \
-		-I ./minilibx/
+		-I ./libft/includes/
 
 OBJ_FILES = $(SRC_FILES:.c=.o)
 OBJ = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
@@ -31,7 +30,7 @@ GCC = gcc -Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME): $(OBJ) ./libft/libft.a
-	$(GCC) $(OBJ) -L./libft/ -lft -L./minilibx/ -lmlx -lXext -lX11 -lm -o $(NAME)
+	$(GCC) $(OBJ) -L./libft/ -lft -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 ./libft/libft.a:
 	make -C libft

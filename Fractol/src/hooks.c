@@ -6,7 +6,7 @@
 /*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 14:08:38 by aradiuk           #+#    #+#             */
-/*   Updated: 2017/03/27 14:08:40 by aradiuk          ###   ########.fr       */
+/*   Updated: 2017/05/12 17:19:14 by aradiuk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 int		key_hook(int keycode, t_fract *fr)
 {
-	if (keycode == 65307)
+	if (keycode == 53)
 		exit(0);
-	if (keycode == 65438)
+	if (keycode == 82)
 		key_react(fr, 0);
-	if (keycode == 65451)
+	if (keycode == 69)
 		key_react(fr, 1);
-	if (keycode == 65453)
+	if (keycode == 78)
 		key_react(fr, -1);
-	if (keycode == 65361)
+	if (keycode == 123)
 		key_react(fr, -2);
-	if (keycode == 65363)
+	if (keycode == 124)
 		key_react(fr, 2);
-	if (keycode == 65364)
+	if (keycode == 125)
 		key_react(fr, -3);
-	if (keycode == 65362)
+	if (keycode == 126)
 		key_react(fr, 3);
-	if (keycode == 105)
+	if (keycode == 34)
 		key_react(fr, -4);
-	if (keycode == 114)
+	if (keycode == 15)
 		key_react(fr, 4);
-	if (keycode == 32)
+	if (keycode == 49)
 		key_react(fr, 5);
-	if (keycode == 108)
+	if (keycode == 37)
 		key_react(fr, 6);
 	return (0);
 }
@@ -44,8 +44,7 @@ int		key_hook(int keycode, t_fract *fr)
 int		mouse_hook_vary(int x, int y, void *fr)
 {
 	t_fract *fr_p;
-	
-	printf("aa\n");	
+
 	fr_p = ((t_fract *)fr);
 	if (fr_p->type == 0)
 	{
@@ -100,8 +99,8 @@ void	key_react(t_fract *fr, int code)
 {
 	if (code == 1 || code == -1)
 	{
-		if (code == 1 && fr->fr_d.max_iter > 2147483647 - 25)
-			fr->fr_d.max_iter = 2147483647;
+		if (code == 1 && fr->fr_d.max_iter > INT32_MAX - 25)
+			fr->fr_d.max_iter = INT32_MAX;
 		else
 			fr->fr_d.max_iter += 25 * code;
 		fr->fr_d.max_iter = fr->fr_d.max_iter <= 0 ? 1 : fr->fr_d.max_iter;

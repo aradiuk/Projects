@@ -14,42 +14,54 @@
 
 void	plane_params(t_rtv *rtv)
 {
-	rtv->plane->pos = m_apply(rtv->mxs.multed, vec3_create(0, -15, -35));
-//	rtv->plane->pos = vec3_create(0, -15, -35);
-	rtv->plane->normal = vec3_norm(vec3_create(0, 1, 0));
-	rtv->plane->color.rgb = vec3_create(192, 192, 192);
+	rtv->num[0] = 2;
+	rtv->plane = (t_plane *)malloc(sizeof(t_plane) * rtv->num[0]);
+	rtv->plane[0].pos = vec3_create(0, -1, -50);
+	rtv->plane[0].normal = vec3_norm(vec3_create(0, 0, 1));
+	rtv->plane[0].color.rgb = vec3_create(192, 192, 192);
+	rtv->plane[1].pos = vec3_create(0, -15, -35);
+	rtv->plane[1].normal = vec3_norm(vec3_create(0, 1, 0));
+	rtv->plane[1].color.rgb = vec3_create(192, 192, 192);
 }
 
 void	sphere_params(t_rtv *rtv)
 {
-	rtv->sphere->pos = m_apply(rtv->mxs.multed ,vec3_create(0, 0, -10));
-//	rtv->sphere->pos = vec3_create(-10, 5, -10);
-	rtv->sphere->rad = 5.0;
-	rtv->sphere->color.rgb = vec3_create(204, 102, 0);
+	rtv->num[1] = 1;
+	rtv->sphere = (t_sphere *)malloc(sizeof(t_sphere) * rtv->num[1]);
+	rtv->sphere[0].pos = vec3_create(0, 0, -10);
+	rtv->sphere[0].rad = 5.0;
+	rtv->sphere[0].color.rgb = vec3_create(204, 102, 0);
 }
 
 void	cylinder_params(t_rtv *rtv)
 {
-	rtv->cyl->pos = m_apply(rtv->mxs.multed, vec3_create(10, 0, -10));
-//	rtv->cyl->pos = vec3_create(10, 0, -10);
-	rtv->cyl->axis = vec3_norm(vec3_create(0, 1, 0));
-	rtv->cyl->rad = 5.0;
-	rtv->cyl->color.rgb = vec3_create(0, 102, 204);
+	rtv->num[2] = 1;
+	rtv->cyl = (t_cylinder *)malloc(sizeof(t_cylinder) * rtv->num[2]);
+	rtv->cyl[0].pos = vec3_create(10, 0, -10);
+	rtv->cyl[0].axis = vec3_norm(vec3_create(0, 1, 0));
+	rtv->cyl[0].rad = 2.0;
+	rtv->cyl[0].color.rgb = vec3_create(0, 102, 204);
 }
 
 void	cone_params(t_rtv *rtv)
 {
-	rtv->cone->pos = m_apply(rtv->mxs.multed, vec3_create(10, -2, -20));
-//	rtv->cone->pos = vec3_create(10, -2, -20);
-	rtv->cone->axis = vec3_norm(vec3_create(1, 1, 0));
-	rtv->cone->angle = 15. * (double)M_PI / 180.;
-	rtv->cone->color.rgb = vec3_create(0, 153, 76);
+	rtv->num[3] = 1;
+	rtv->cone = (t_cone *)malloc(sizeof(t_cone) * rtv->num[3]);
+	rtv->cone[0].pos = vec3_create(10, 0, -30);
+	rtv->cone[0].axis = vec3_norm(vec3_create(1, 1, 0));
+	rtv->cone[0].angle = 20. * (double)M_PI / 180.;
+	rtv->cone[0].color.rgb = vec3_create(0, 153, 76);
 }
 
-void	composed_params(t_rtv *rtv)
+void	cam_params(t_rtv *rtv)
 {
-	plane_params(rtv);
-	sphere_params(rtv);
-	cylinder_params(rtv);
-	cone_params(rtv);
+	rtv->cam->pos = vec3_create(0. / WIDTH, 0 / HEIGHT, 100);
+	rtv->light[0].pos = vec3_create(15, 10, 50);
+	rtv->light[0].color.rgb = vec3_create(100, 100, 100);
+	rtv->light[1].pos = vec3_create(-20, 5, 0);
+	rtv->light[1].color.rgb = vec3_create(100, 100, 100);
+	matrices(rtv);
+	rtv->cam->start = rtv->cam->pos;
+	rtv->cam->pos = m_apply(rtv->mxs.rot_cam, rtv->cam->pos);
+	rtv->cam->ray.pos = rtv->cam->pos;
 }

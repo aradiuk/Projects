@@ -6,7 +6,7 @@
 /*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 16:51:04 by aradiuk           #+#    #+#             */
-/*   Updated: 2017/04/05 18:34:38 by aradiuk          ###   ########.fr       */
+/*   Updated: 2017/04/24 15:02:48 by aradiuk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@
 # include "libft.h"
 
 # define PI 3.141596265
-# define WIDTH 2000
-# define HEIGHT 1250
+# define WIDTH 1200
+# define HEIGHT 700
 # define X_ANGLE 0 * PI / 180
 # define Y_ANGLE 0 * PI / 180
 # define Z_ANGLE 0 * PI / 180
 # define SCALE 0.5
-# define ROT_ON_PRESS 2
+# define ROT_ON_PRESS 1
 
 typedef struct		s_swap
 {

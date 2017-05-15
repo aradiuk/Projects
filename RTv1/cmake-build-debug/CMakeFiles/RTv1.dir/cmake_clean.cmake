@@ -74,7 +74,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/RTv1.dir/src/composed.c.o"
   "CMakeFiles/RTv1.dir/src/object_parameters.c.o"
   "CMakeFiles/RTv1.dir/src/vector_count.c.o"
-  "CMakeFiles/RTv1.dir/src/matrices.c.o"
+  "CMakeFiles/RTv1.dir/src/hooks.c.o"
+  "CMakeFiles/RTv1.dir/src/matrix_func.c.o"
+  "CMakeFiles/RTv1.dir/src/objects_intersection.c.o"
   "RTv1.pdb"
   "RTv1"
 )

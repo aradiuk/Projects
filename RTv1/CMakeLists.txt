@@ -3,7 +3,7 @@ project(RTv1)
 
 set(CMAKE_CXX_STANDARD 11)
 
-include_directories(./includes ./libft/includes ./minilibx)
+include_directories(./includes ./libft/includes)
 
 set(SOURCE_FILES
     libft/includes/get_next_line.h
@@ -73,14 +73,12 @@ set(SOURCE_FILES
     libft/ft_toupper.c
     libft/get_next_line.c
     author
-    Makefile
-    src/main.c src/common.c src/sphere.c src/plane.c src/cylinder.c src/cone.c src/vector_operations_1.c src/vector_operations_2.c src/composed.c src/object_parameters.c src/vector_count.c src/matrices.c)
+    Makefile src/main.c src/common.c src/sphere.c src/plane.c src/cylinder.c src/cone.c src/vector_operations_1.c src/vector_operations_2.c src/composed.c src/object_parameters.c src/vector_count.c src/hooks.c src/matrix_func.c src/objects_intersection.c)
 
 include_directories(.)
 include_directories(includes)
 include_directories(libft)
 include_directories(src)
-include_directories(minilibx)
 
 add_executable(RTv1 ${SOURCE_FILES})
-target_link_libraries(RTv1 "-lXext" "-lX11" "-lmlx")
+target_link_libraries(RTv1 libmlx.a "-framework AppKit" "-framework OpenGl")

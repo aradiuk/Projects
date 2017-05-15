@@ -33,34 +33,20 @@ void	obj_alloc(t_rtv *rtv)
 	rtv->types[3] = ft_strdup("cone");
 	rtv->types[4] = ft_strdup("composed");
 	rtv->types[5] = 0;
-	rtv->cam->vec3_x = vec3_create(1, 0, 0);
-	rtv->cam->vec3_y = vec3_create(0, 1, 0);
-	rtv->cam->vec3_z = vec3_create(0, 0, 1);
 }
 
-int		obj_type(char *str, t_rtv *rtv)
+int		obj_type(char *str)
 {
-	if (ft_strcmp(str, "plane") == 0 &&
-			(rtv->plane = (t_plane *)malloc(sizeof(t_plane))))
+	if (ft_strcmp(str, "plane") == 0)
 		return (0);
-	else if (ft_strcmp(str, "sphere") == 0 &&
-			(rtv->sphere = (t_sphere *)malloc(sizeof(t_sphere))))
+	else if (ft_strcmp(str, "sphere") == 0)
 		return (1);
-	else if (ft_strcmp(str, "cylinder") == 0 &&
-			(rtv->cyl = (t_cylinder *)malloc(sizeof(t_cylinder))))
+	else if (ft_strcmp(str, "cylinder") == 0)
 		return (2);
-	else if (ft_strcmp(str, "cone") == 0 &&
-			(rtv->cone = (t_cone *)malloc(sizeof(t_cone))))
+	else if (ft_strcmp(str, "cone") == 0)
 		return (3);
 	else if (ft_strcmp(str, "composed") == 0)
-	{
-		rtv->plane = (t_plane *)malloc(sizeof(t_plane));
-		rtv->sphere = (t_sphere *)malloc(sizeof(t_sphere));
-		rtv->cyl = (t_cylinder *)malloc(sizeof(t_cylinder));
-		rtv->cone = (t_cone *)malloc(sizeof(t_cone));
-		rtv->comp = (t_composed *)malloc(sizeof(t_composed));
 		return (4);
-	}
 	else
 		return (-1);
 }
@@ -68,13 +54,13 @@ int		obj_type(char *str, t_rtv *rtv)
 void	obj_func(t_rtv *rtv)
 {
 	if (rtv->type == 0)
-		plane_entry(rtv);
+		plane_entry(rtv, 0);
 	else if (rtv->type == 1)
-		sphere_entry(rtv);
+		sphere_entry(rtv, 0);
 	else if (rtv->type == 2)
-		cylinder_entry(rtv);
+		cylinder_entry(rtv, 0);
 	else if (rtv->type == 3)
-		cone_entry(rtv);
+		cone_entry(rtv, 0);
 	else if (rtv->type == 4)
 		composed_entry(rtv);
 }
@@ -86,7 +72,7 @@ int		main(int argc, char **argv)
 	if (argc != 2)
 		error(1);
 	rtv = (t_rtv *)malloc(sizeof(t_rtv));
-	if ((rtv->type = obj_type(argv[1], rtv)) != -1)
+	if ((rtv->type = obj_type(argv[1])) != -1)
 	{
 		obj_alloc(rtv);
 		common(rtv);

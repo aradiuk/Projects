@@ -12,25 +12,25 @@
 
 #include "rtv1.h"
 
-double	p_intersection_find(t_rtv *rtv, t_ray *ray)
+double	p_intersection_find(t_rtv *rtv, t_plane *plane, t_ray *ray)
 {
 	t_vec3	cam_to_plane;
 	double	contained;
 	double	denom;
 
-	denom = vec3_dp(rtv->plane->normal, ray->dir);
-	cam_to_plane = vec3_sub(rtv->plane->pos, ray->pos);
-	contained = vec3_dp(cam_to_plane, rtv->plane->normal);
+	denom = vec3_dp(plane->normal, ray->dir);
+	cam_to_plane = vec3_sub(plane->pos, ray->pos);
+	contained = vec3_dp(cam_to_plane, plane->normal);
 	ray->t = contained / denom;
 	if ((denom <= 0.000001 && denom >= -0.000001) || contained == 0 ||
 																	ray->t < 0)
 		return (0);
 	if (rtv->type == 0)
-		plane_vectors(rtv, ray);
+		plane_vectors(rtv, plane, ray);
 	return (ray->t);
 }
 
-void	plane_entry(t_rtv *rtv)
+void	plane_entry(t_rtv *rtv, int i)
 {
 	int		x;
 	int		y;
@@ -48,9 +48,8 @@ void	plane_entry(t_rtv *rtv)
 			pixel_coor.z = rtv->cam->pos.z - 1;
 			rtv->cam->ray.dir = vec3_norm(vec3_sub(pixel_coor,
 												rtv->cam->ray.pos));
-			if (p_intersection_find(rtv, &rtv->cam->ray) != 0.0)
-				mlx_pixel_put(rtv->mlx->mlx, rtv->mlx->window, x, y,
-							color_count(rtv, rtv->plane->color));
+			if (p_intersection_find(rtv, &rtv->plane[i], &rtv->cam->ray) != 0.0)
+				ipp_fill(rtv, x, y, color_count(rtv, rtv->plane->color));
 			x++;
 		}
 		y++;

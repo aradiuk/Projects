@@ -254,66 +254,70 @@ CMakeFiles/RTv1.dir/libft/get_next_line.c.o: ../libft/includes/libft.h
 CMakeFiles/RTv1.dir/src/common.c.o: .././includes/rtv1.h
 CMakeFiles/RTv1.dir/src/common.c.o: .././libft/includes/get_next_line.h
 CMakeFiles/RTv1.dir/src/common.c.o: .././libft/includes/libft.h
-CMakeFiles/RTv1.dir/src/common.c.o: .././minilibx/mlx.h
 CMakeFiles/RTv1.dir/src/common.c.o: ../src/common.c
 
 CMakeFiles/RTv1.dir/src/composed.c.o: .././includes/rtv1.h
 CMakeFiles/RTv1.dir/src/composed.c.o: .././libft/includes/get_next_line.h
 CMakeFiles/RTv1.dir/src/composed.c.o: .././libft/includes/libft.h
-CMakeFiles/RTv1.dir/src/composed.c.o: .././minilibx/mlx.h
 CMakeFiles/RTv1.dir/src/composed.c.o: ../src/composed.c
 
 CMakeFiles/RTv1.dir/src/cone.c.o: .././includes/rtv1.h
 CMakeFiles/RTv1.dir/src/cone.c.o: .././libft/includes/get_next_line.h
 CMakeFiles/RTv1.dir/src/cone.c.o: .././libft/includes/libft.h
-CMakeFiles/RTv1.dir/src/cone.c.o: .././minilibx/mlx.h
 CMakeFiles/RTv1.dir/src/cone.c.o: ../src/cone.c
 
 CMakeFiles/RTv1.dir/src/cylinder.c.o: .././includes/rtv1.h
 CMakeFiles/RTv1.dir/src/cylinder.c.o: .././libft/includes/get_next_line.h
 CMakeFiles/RTv1.dir/src/cylinder.c.o: .././libft/includes/libft.h
-CMakeFiles/RTv1.dir/src/cylinder.c.o: .././minilibx/mlx.h
 CMakeFiles/RTv1.dir/src/cylinder.c.o: ../src/cylinder.c
+
+CMakeFiles/RTv1.dir/src/hooks.c.o: .././includes/rtv1.h
+CMakeFiles/RTv1.dir/src/hooks.c.o: .././libft/includes/get_next_line.h
+CMakeFiles/RTv1.dir/src/hooks.c.o: .././libft/includes/libft.h
+CMakeFiles/RTv1.dir/src/hooks.c.o: ../src/hooks.c
 
 CMakeFiles/RTv1.dir/src/main.c.o: .././includes/rtv1.h
 CMakeFiles/RTv1.dir/src/main.c.o: .././libft/includes/get_next_line.h
 CMakeFiles/RTv1.dir/src/main.c.o: .././libft/includes/libft.h
-CMakeFiles/RTv1.dir/src/main.c.o: .././minilibx/mlx.h
 CMakeFiles/RTv1.dir/src/main.c.o: ../src/main.c
+
+CMakeFiles/RTv1.dir/src/matrix_func.c.o: .././includes/rtv1.h
+CMakeFiles/RTv1.dir/src/matrix_func.c.o: .././libft/includes/get_next_line.h
+CMakeFiles/RTv1.dir/src/matrix_func.c.o: .././libft/includes/libft.h
+CMakeFiles/RTv1.dir/src/matrix_func.c.o: ../src/matrix_func.c
 
 CMakeFiles/RTv1.dir/src/object_parameters.c.o: .././includes/rtv1.h
 CMakeFiles/RTv1.dir/src/object_parameters.c.o: .././libft/includes/get_next_line.h
 CMakeFiles/RTv1.dir/src/object_parameters.c.o: .././libft/includes/libft.h
-CMakeFiles/RTv1.dir/src/object_parameters.c.o: .././minilibx/mlx.h
 CMakeFiles/RTv1.dir/src/object_parameters.c.o: ../src/object_parameters.c
+
+CMakeFiles/RTv1.dir/src/objects_intersection.c.o: .././includes/rtv1.h
+CMakeFiles/RTv1.dir/src/objects_intersection.c.o: .././libft/includes/get_next_line.h
+CMakeFiles/RTv1.dir/src/objects_intersection.c.o: .././libft/includes/libft.h
+CMakeFiles/RTv1.dir/src/objects_intersection.c.o: ../src/objects_intersection.c
 
 CMakeFiles/RTv1.dir/src/plane.c.o: .././includes/rtv1.h
 CMakeFiles/RTv1.dir/src/plane.c.o: .././libft/includes/get_next_line.h
 CMakeFiles/RTv1.dir/src/plane.c.o: .././libft/includes/libft.h
-CMakeFiles/RTv1.dir/src/plane.c.o: .././minilibx/mlx.h
 CMakeFiles/RTv1.dir/src/plane.c.o: ../src/plane.c
 
 CMakeFiles/RTv1.dir/src/sphere.c.o: .././includes/rtv1.h
 CMakeFiles/RTv1.dir/src/sphere.c.o: .././libft/includes/get_next_line.h
 CMakeFiles/RTv1.dir/src/sphere.c.o: .././libft/includes/libft.h
-CMakeFiles/RTv1.dir/src/sphere.c.o: .././minilibx/mlx.h
 CMakeFiles/RTv1.dir/src/sphere.c.o: ../src/sphere.c
 
 CMakeFiles/RTv1.dir/src/vector_count.c.o: .././includes/rtv1.h
 CMakeFiles/RTv1.dir/src/vector_count.c.o: .././libft/includes/get_next_line.h
 CMakeFiles/RTv1.dir/src/vector_count.c.o: .././libft/includes/libft.h
-CMakeFiles/RTv1.dir/src/vector_count.c.o: .././minilibx/mlx.h
 CMakeFiles/RTv1.dir/src/vector_count.c.o: ../src/vector_count.c
 
 CMakeFiles/RTv1.dir/src/vector_operations_1.c.o: .././includes/rtv1.h
 CMakeFiles/RTv1.dir/src/vector_operations_1.c.o: .././libft/includes/get_next_line.h
 CMakeFiles/RTv1.dir/src/vector_operations_1.c.o: .././libft/includes/libft.h
-CMakeFiles/RTv1.dir/src/vector_operations_1.c.o: .././minilibx/mlx.h
 CMakeFiles/RTv1.dir/src/vector_operations_1.c.o: ../src/vector_operations_1.c
 
 CMakeFiles/RTv1.dir/src/vector_operations_2.c.o: .././includes/rtv1.h
 CMakeFiles/RTv1.dir/src/vector_operations_2.c.o: .././libft/includes/get_next_line.h
 CMakeFiles/RTv1.dir/src/vector_operations_2.c.o: .././libft/includes/libft.h
-CMakeFiles/RTv1.dir/src/vector_operations_2.c.o: .././minilibx/mlx.h
 CMakeFiles/RTv1.dir/src/vector_operations_2.c.o: ../src/vector_operations_2.c
 

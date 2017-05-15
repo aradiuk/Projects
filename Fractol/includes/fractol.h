@@ -20,8 +20,8 @@
 # include <stdio.h>
 # include <pthread.h>
 
-# define WIDTH 800
-# define HEIGHT 600
+# define WIDTH 1440
+# define HEIGHT 810
 # define MAX_ITER 100
 # define NUM_THREADS 81
 # define ZOOM_IN 1.1

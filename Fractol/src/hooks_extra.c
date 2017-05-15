@@ -16,7 +16,7 @@ void	xyz_output(t_fract *fr, int x, int y)
 {
 	fr->out.itoaed[3] = ft_itoa(x);
 	fr->out.itoaed[4] = ft_itoa(y);
-	if (fr->fr_d.zoom >= 2147483467)
+	if (fr->fr_d.zoom >= INT32_MAX)
 		fr->out.itoaed[5] = ft_strdup("Maxed");
 	else
 		fr->out.itoaed[5] = ft_itoa_double(fr->fr_d.zoom);

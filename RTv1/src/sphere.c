@@ -28,27 +28,27 @@ double	s_t_count(t_ray *ray, double disc, double b, double a)
 	return (0);
 }
 
-double	s_intersection_find(t_rtv *rtv, t_ray *ray)
+double	s_intersection_find(t_rtv *rtv, t_sphere *sphere, t_ray *ray)
 {
 	double	disc;
 	double	b;
 	double	a;
 	double	c;
 
-	b = vec3_dp(ray->dir, vec3_sub(ray->pos, rtv->sphere->pos));
+	b = vec3_dp(ray->dir, vec3_sub(ray->pos, sphere->pos));
 	a = vec3_dp(ray->dir, ray->dir);
-	c = vec3_dp(vec3_sub(ray->pos, rtv->sphere->pos),
-				vec3_sub(ray->pos, rtv->sphere->pos)) -
-				rtv->sphere->rad * rtv->sphere->rad;
+	c = vec3_dp(vec3_sub(ray->pos, sphere->pos),
+				vec3_sub(ray->pos, sphere->pos)) -
+				sphere->rad * sphere->rad;
 	disc = b * b - a * c;
 	if (disc < 0.0 || s_t_count(ray, disc, b, a) == -1)
 		return (0);
 	if (rtv->type == 1)
-		sphere_vectors(rtv, ray);
+		sphere_vectors(rtv, sphere, ray);
 	return (ray->t);
 }
 
-void	sphere_entry(t_rtv *rtv)
+void	sphere_entry(t_rtv *rtv, int i)
 {
 	int		x;
 	int		y;
@@ -63,12 +63,13 @@ void	sphere_entry(t_rtv *rtv)
 		{
 			pixel_coor.x = (2 * (x + 0.5) / WIDTH - 1) * ASPECT * tan(FOV / 2.);
 			pixel_coor.y = (1 - 2 * (y + 0.5) / HEIGHT) * tan(FOV / 2.);
-			pixel_coor.z = rtv->cam->pos.z - 1;
+			pixel_coor.z = rtv->cam->start.z - 1;
 			rtv->cam->ray.dir = vec3_norm(vec3_sub(pixel_coor,
-												rtv->cam->ray.pos));
-			if (s_intersection_find(rtv, &rtv->cam->ray) != 0.0)
-				mlx_pixel_put(rtv->mlx->mlx, rtv->mlx->window, x, y,
-							color_count(rtv, rtv->sphere->color));
+												rtv->cam->start));
+			rtv->cam->ray.dir = m_apply(rtv->mxs.rot_cam, rtv->cam->ray.dir);
+			rtv->cam->ray.dir = m_apply(rtv->mxs.rot_dir, rtv->cam->ray.dir);
+			if (s_intersection_find(rtv, &rtv->sphere[i], &rtv->cam->ray) != 0)
+				ipp_fill(rtv, x, y, color_count(rtv, rtv->sphere->color));
 			x++;
 		}
 		y++;

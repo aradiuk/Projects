@@ -44,259 +44,257 @@ string.h
 get_next_line.h
 .././libft/includes/get_next_line.h
 
-.././minilibx/mlx.h
-
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_atoi.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_atoi.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_bzero.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_bzero.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_isalnum.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_isalnum.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_isalpha.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_isalpha.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_isascii.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_isascii.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_isdigit.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_isdigit.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_isprint.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_isprint.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_itoa.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_itoa.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_list_reverse.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_list_reverse.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_lstadd.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_lstadd.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_lstdel.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_lstdel.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_lstdelone.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_lstdelone.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_lstiter.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_lstiter.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_lstmap.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_lstmap.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_lstnew.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_lstnew.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_map.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_map.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_memalloc.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_memalloc.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_memccpy.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_memccpy.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_memchr.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_memchr.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_memcmp.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_memcmp.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_memcpy.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_memcpy.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_memdel.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_memdel.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_memmove.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_memmove.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_memset.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_memset.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_putchar.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_putchar.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_putchar_fd.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_putchar_fd.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_putendl.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_putendl.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_putendl_fd.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_putendl_fd.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_putnbr.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_putnbr.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_putnbr_fd.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_putnbr_fd.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_putstr.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_putstr.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_putstr_fd.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_putstr_fd.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strcapitalize.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strcapitalize.c
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strcat.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strcat.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strchr.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strchr.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strclr.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strclr.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strcmp.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strcmp.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strcpy.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strcpy.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strdel.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strdel.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strdup.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strdup.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strequ.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strequ.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_striter.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_striter.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_striteri.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_striteri.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strjoin.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strjoin.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strlcat.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strlcat.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strlen.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strlen.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strlowcase.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strlowcase.c
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strmap.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strmap.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strmapi.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strmapi.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strncat.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strncat.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strncmp.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strncmp.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strncpy.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strncpy.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strnequ.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strnequ.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strnew.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strnew.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strnstr.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strnstr.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strrchr.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strrchr.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strsplit.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strsplit.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strstr.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strstr.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strsub.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strsub.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strtrim.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strtrim.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_strupcase.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_strupcase.c
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_tolower.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_tolower.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/ft_toupper.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/ft_toupper.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/get_next_line.c
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/get_next_line.c
 includes/libft.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/get_next_line.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/get_next_line.h
 unistd.h
 -
 fcntl.h
@@ -304,7 +302,7 @@ fcntl.h
 stdlib.h
 -
 
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/libft.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/libft.h
 stdlib.h
 -
 unistd.h
@@ -312,49 +310,61 @@ unistd.h
 string.h
 -
 get_next_line.h
-/home/andrew/Projects/unit/bitbucket/RTv1/libft/includes/get_next_line.h
+/nfs/2016/a/aradiuk/Projects/RTv1/libft/includes/get_next_line.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/src/common.c
+/nfs/2016/a/aradiuk/Projects/RTv1/src/common.c
 rtv1.h
-/home/andrew/Projects/unit/bitbucket/RTv1/src/rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/src/composed.c
+/nfs/2016/a/aradiuk/Projects/RTv1/src/composed.c
 rtv1.h
-/home/andrew/Projects/unit/bitbucket/RTv1/src/rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/src/cone.c
+/nfs/2016/a/aradiuk/Projects/RTv1/src/cone.c
 rtv1.h
-/home/andrew/Projects/unit/bitbucket/RTv1/src/rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/src/cylinder.c
+/nfs/2016/a/aradiuk/Projects/RTv1/src/cylinder.c
 rtv1.h
-/home/andrew/Projects/unit/bitbucket/RTv1/src/rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/src/main.c
+/nfs/2016/a/aradiuk/Projects/RTv1/src/hooks.c
 rtv1.h
-/home/andrew/Projects/unit/bitbucket/RTv1/src/rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/src/object_parameters.c
+/nfs/2016/a/aradiuk/Projects/RTv1/src/main.c
 rtv1.h
-/home/andrew/Projects/unit/bitbucket/RTv1/src/rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/src/plane.c
+/nfs/2016/a/aradiuk/Projects/RTv1/src/matrix_func.c
 rtv1.h
-/home/andrew/Projects/unit/bitbucket/RTv1/src/rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/src/sphere.c
+/nfs/2016/a/aradiuk/Projects/RTv1/src/object_parameters.c
 rtv1.h
-/home/andrew/Projects/unit/bitbucket/RTv1/src/rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/src/vector_count.c
+/nfs/2016/a/aradiuk/Projects/RTv1/src/objects_intersection.c
 rtv1.h
-/home/andrew/Projects/unit/bitbucket/RTv1/src/rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/src/vector_operations_1.c
+/nfs/2016/a/aradiuk/Projects/RTv1/src/plane.c
 rtv1.h
-/home/andrew/Projects/unit/bitbucket/RTv1/src/rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
 
-/home/andrew/Projects/unit/bitbucket/RTv1/src/vector_operations_2.c
+/nfs/2016/a/aradiuk/Projects/RTv1/src/sphere.c
 rtv1.h
-/home/andrew/Projects/unit/bitbucket/RTv1/src/rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
+
+/nfs/2016/a/aradiuk/Projects/RTv1/src/vector_count.c
+rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
+
+/nfs/2016/a/aradiuk/Projects/RTv1/src/vector_operations_1.c
+rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
+
+/nfs/2016/a/aradiuk/Projects/RTv1/src/vector_operations_2.c
+rtv1.h
+/nfs/2016/a/aradiuk/Projects/RTv1/src/rtv1.h
 

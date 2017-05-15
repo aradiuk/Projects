@@ -6,14 +6,14 @@
 /*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 12:16:54 by aradiuk           #+#    #+#             */
-/*   Updated: 2017/03/22 14:17:34 by aradiuk          ###   ########.fr       */
+/*   Updated: 2017/02/02 13:04:24 by aradiuk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 10000
+# define BUFF_SIZE 100
 
 # include <unistd.h>
 # include <fcntl.h>

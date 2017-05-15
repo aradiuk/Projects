@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/andrew/CLion/bin/cmake/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/andrew/CLion/bin/cmake/bin/cmake -E remove -f
+RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/andrew/Projects/unit/bitbucket/RTv1
+CMAKE_SOURCE_DIR = /nfs/2016/a/aradiuk/Projects/RTv1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/andrew/Projects/unit/bitbucket/RTv1/cmake-build-debug
+CMAKE_BINARY_DIR = /nfs/2016/a/aradiuk/Projects/RTv1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/andrew/Projects/unit/bitbucket/RTv1/cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/andrew/CLion/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -70,7 +70,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/andrew/CLion/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrew/Projects/unit/bitbucket/RTv1/cmake-build-debug/CMakeFiles /home/andrew/Projects/unit/bitbucket/RTv1/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/a/aradiuk/Projects/RTv1/cmake-build-debug/CMakeFiles /nfs/2016/a/aradiuk/Projects/RTv1/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrew/Projects/unit/bitbucket/RTv1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/a/aradiuk/Projects/RTv1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -1959,6 +1959,33 @@ src/cylinder.c.s:
 	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/cylinder.c.s
 .PHONY : src/cylinder.c.s
 
+src/hooks.o: src/hooks.c.o
+
+.PHONY : src/hooks.o
+
+# target to build an object file
+src/hooks.c.o:
+	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/hooks.c.o
+.PHONY : src/hooks.c.o
+
+src/hooks.i: src/hooks.c.i
+
+.PHONY : src/hooks.i
+
+# target to preprocess a source file
+src/hooks.c.i:
+	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/hooks.c.i
+.PHONY : src/hooks.c.i
+
+src/hooks.s: src/hooks.c.s
+
+.PHONY : src/hooks.s
+
+# target to generate assembly for a file
+src/hooks.c.s:
+	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/hooks.c.s
+.PHONY : src/hooks.c.s
+
 src/main.o: src/main.c.o
 
 .PHONY : src/main.o
@@ -1986,32 +2013,32 @@ src/main.c.s:
 	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/main.c.s
 .PHONY : src/main.c.s
 
-src/matrices.o: src/matrices.c.o
+src/matrix_func.o: src/matrix_func.c.o
 
-.PHONY : src/matrices.o
+.PHONY : src/matrix_func.o
 
 # target to build an object file
-src/matrices.c.o:
-	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/matrices.c.o
-.PHONY : src/matrices.c.o
+src/matrix_func.c.o:
+	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/matrix_func.c.o
+.PHONY : src/matrix_func.c.o
 
-src/matrices.i: src/matrices.c.i
+src/matrix_func.i: src/matrix_func.c.i
 
-.PHONY : src/matrices.i
+.PHONY : src/matrix_func.i
 
 # target to preprocess a source file
-src/matrices.c.i:
-	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/matrices.c.i
-.PHONY : src/matrices.c.i
+src/matrix_func.c.i:
+	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/matrix_func.c.i
+.PHONY : src/matrix_func.c.i
 
-src/matrices.s: src/matrices.c.s
+src/matrix_func.s: src/matrix_func.c.s
 
-.PHONY : src/matrices.s
+.PHONY : src/matrix_func.s
 
 # target to generate assembly for a file
-src/matrices.c.s:
-	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/matrices.c.s
-.PHONY : src/matrices.c.s
+src/matrix_func.c.s:
+	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/matrix_func.c.s
+.PHONY : src/matrix_func.c.s
 
 src/object_parameters.o: src/object_parameters.c.o
 
@@ -2039,6 +2066,33 @@ src/object_parameters.s: src/object_parameters.c.s
 src/object_parameters.c.s:
 	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/object_parameters.c.s
 .PHONY : src/object_parameters.c.s
+
+src/objects_intersection.o: src/objects_intersection.c.o
+
+.PHONY : src/objects_intersection.o
+
+# target to build an object file
+src/objects_intersection.c.o:
+	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/objects_intersection.c.o
+.PHONY : src/objects_intersection.c.o
+
+src/objects_intersection.i: src/objects_intersection.c.i
+
+.PHONY : src/objects_intersection.i
+
+# target to preprocess a source file
+src/objects_intersection.c.i:
+	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/objects_intersection.c.i
+.PHONY : src/objects_intersection.c.i
+
+src/objects_intersection.s: src/objects_intersection.c.s
+
+.PHONY : src/objects_intersection.s
+
+# target to generate assembly for a file
+src/objects_intersection.c.s:
+	$(MAKE) -f CMakeFiles/RTv1.dir/build.make CMakeFiles/RTv1.dir/src/objects_intersection.c.s
+.PHONY : src/objects_intersection.c.s
 
 src/plane.o: src/plane.c.o
 
@@ -2388,15 +2442,21 @@ help:
 	@echo "... src/cylinder.o"
 	@echo "... src/cylinder.i"
 	@echo "... src/cylinder.s"
+	@echo "... src/hooks.o"
+	@echo "... src/hooks.i"
+	@echo "... src/hooks.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/matrices.o"
-	@echo "... src/matrices.i"
-	@echo "... src/matrices.s"
+	@echo "... src/matrix_func.o"
+	@echo "... src/matrix_func.i"
+	@echo "... src/matrix_func.s"
 	@echo "... src/object_parameters.o"
 	@echo "... src/object_parameters.i"
 	@echo "... src/object_parameters.s"
+	@echo "... src/objects_intersection.o"
+	@echo "... src/objects_intersection.i"
+	@echo "... src/objects_intersection.s"
 	@echo "... src/plane.o"
 	@echo "... src/plane.i"
 	@echo "... src/plane.s"
