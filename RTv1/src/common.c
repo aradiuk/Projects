@@ -57,16 +57,16 @@ int		color_count(t_rtv *rtv, t_color color)
 	ray = rtv->cam->ray;
 	while (i < LIGHT_SOURCES)
 	{
-		color.r += color.rgb.x * (AMBIENT_R + DIFF_R * (1 -
-				rtv->light[i].block) * vec3_dp(ray.n[i], ray.l[i])) +
+		color.r += color.rgb.x * DIFF_R * (1 -
+				rtv->light[i].block) * vec3_dp(ray.n[i], ray.l[i]) +
 				rtv->light[i].color.rgb.x * SP_R * (1 - rtv->light[i].block) *
 				pow(vec3_dp(ray.n[i], ray.h[i]), GL);
-		color.g += color.rgb.y * (AMBIENT_G + DIFF_G * (1 -
-				rtv->light[i].block) * vec3_dp(ray.n[i], ray.l[i])) +
+		color.g += color.rgb.y * DIFF_G * (1 -
+				rtv->light[i].block) * vec3_dp(ray.n[i], ray.l[i]) +
 				rtv->light[i].color.rgb.y * SP_G * (1 - rtv->light[i].block) *
 				pow(vec3_dp(ray.n[i], ray.h[i]), GL);
-		color.b += color.rgb.z * (AMBIENT_B + DIFF_B * (1 -
-				rtv->light[i].block) * vec3_dp(ray.n[i], ray.l[i])) +
+		color.b += color.rgb.z * DIFF_B * (1 -
+				rtv->light[i].block) * vec3_dp(ray.n[i], ray.l[i]) +
 				rtv->light[i].color.rgb.z * SP_B * (1 - rtv->light[i].block) *
 				pow(vec3_dp(ray.n[i], ray.h[i]), GL);
 		i++;

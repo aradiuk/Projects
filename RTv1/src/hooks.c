@@ -46,7 +46,7 @@ void	new_image(t_rtv *rtv)
 	rtv->mlx->ipp = mlx_get_data_addr(rtv->mlx->image, &rtv->mlx->bpp,
 									&rtv->mlx->size_line, &rtv->mlx->endian);
 	cam_params(rtv);
-	obj_func(rtv);
+	composed_entry(rtv);
 	mlx_clear_window(rtv->mlx->mlx, rtv->mlx->window);
 	mlx_put_image_to_window(rtv->mlx->mlx, rtv->mlx->window, rtv->mlx->image,
 							0, 0);
@@ -61,9 +61,9 @@ void	cam_check(t_rtv *rtv)
 	int		i;
 
 	i = -1;
-	j = -1;
 	while (++i < LIGHT_SOURCES)
 	{
+		j = -1;
 		cam_to_light = vec3_sub(rtv->light[i].pos, rtv->cam->pos);
 		rtv->light[i].sh_ray.pos = rtv->cam->pos;
 		rtv->light[i].sh_ray.dir = vec3_norm(cam_to_light);

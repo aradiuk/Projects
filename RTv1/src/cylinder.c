@@ -61,31 +61,3 @@ double	cl_intersection_find(t_rtv *rtv, t_cylinder *cyl, t_ray *ray)
 		cylinder_vectors(rtv, cyl, ray);
 	return (ray->t);
 }
-
-void	cylinder_entry(t_rtv *rtv, int i)
-{
-	int		x;
-	int		y;
-	t_vec3	pixel_coor;
-
-	cylinder_params(rtv);
-	y = 0;
-	while (y < HEIGHT)
-	{
-		x = 0;
-		while (x < WIDTH)
-		{
-			pixel_coor.x = (2 * (x + 0.5) / WIDTH - 1) * ASPECT * tan(FOV / 2);
-			pixel_coor.y = (1 - 2 * (y + 0.5) / HEIGHT) * tan(FOV / 2);
-			pixel_coor.z = rtv->cam->start.z - 1;
-			rtv->cam->ray.dir = vec3_norm(vec3_sub(pixel_coor,
-												rtv->cam->start));
-			rtv->cam->ray.dir = m_apply(rtv->mxs.rot_cam, rtv->cam->ray.dir);
-			rtv->cam->ray.dir = m_apply(rtv->mxs.rot_dir, rtv->cam->ray.dir);
-			if (cl_intersection_find(rtv, &rtv->cyl[i], &rtv->cam->ray) != 0)
-				ipp_fill(rtv, x, y, color_count(rtv, rtv->cyl->color));
-			x++;
-		}
-		y++;
-	}
-}

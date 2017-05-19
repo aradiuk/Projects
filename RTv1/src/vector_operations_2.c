@@ -49,8 +49,3 @@ double	vec3_length(t_vec3 vec)
 	result = sqrt(vec3_dp(vec, vec));
 	return (result);
 }
-
-void	vec3_print(char *str, t_vec3 vec)
-{
-	printf("%s: x = %f, y = %f, z = %f\n", str, vec.x, vec.y, vec.z);
-}

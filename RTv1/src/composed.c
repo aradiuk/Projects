@@ -123,8 +123,8 @@ void	composed_entry(t_rtv *rtv)
 	y = -1;
 	while (++y < HEIGHT)
 	{
-		x = 0;
-		while (x < WIDTH)
+		x = -1;
+		while (++x < WIDTH)
 		{
 			pixel_coor.x = (2 * (x + 0.5) / WIDTH - 1) * ASPECT * tan(FOV / 2);
 			pixel_coor.y = (1 - 2 * (y + 0.5) / HEIGHT) * tan(FOV / 2);
@@ -136,7 +136,6 @@ void	composed_entry(t_rtv *rtv)
 			if (cp_intersection_find(rtv, &rtv->cam->ray) != 0.0)
 				ipp_fill(rtv, x, y, color_count(rtv,
 											*obj_color(rtv, &rtv->cam->ray)));
-			x++;
 		}
 	}
 }

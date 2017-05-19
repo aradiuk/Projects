@@ -28,18 +28,18 @@
 # define ASPECT (double)WIDTH / (double)HEIGHT
 # define FOV 30. * M_PI / 180.
 # define LIGHT_SOURCES 1
-# define AMBIENT_R 0.2
-# define AMBIENT_G 0.2
-# define AMBIENT_B 0.2
+# define AMBIENT_R 0.25
+# define AMBIENT_G 0.25
+# define AMBIENT_B 0.25
 # define DIFF_R 0.5
 # define DIFF_G 0.5
 # define DIFF_B 0.5
-# define SP_R 0.3
-# define SP_G 0.3
-# define SP_B 0.3
+# define SP_R 0.2
+# define SP_G 0.2
+# define SP_B 0.2
 # define GL 100
 # define SHADOW 0.2
-# define ROT_ANGLE 35 * M_PI / 180
+# define ROT_ANGLE 15 * M_PI / 180
 
 typedef struct		s_vec3
 {
@@ -52,10 +52,10 @@ typedef struct		s_ray
 {
 	t_vec3	pos;
 	t_vec3	dir;
-	t_vec3	v;
 	t_vec3	n[3];
 	t_vec3	l[3];
 	t_vec3	h[3];
+	t_vec3	v;
 	double	t;
 }					t_ray;
 
@@ -73,15 +73,14 @@ typedef	struct		s_camera
 	t_vec3	pos;
 	t_vec3	start;
 	t_ray	ray;
-	int		light_block;
 }					t_camera;
 
 typedef	struct		s_light
 {
 	t_vec3	pos;
 	t_color	color;
-	double	sh_t[4];
 	t_ray	sh_ray;
+	double	sh_t[4];
 	int		block;
 }					t_light;
 
@@ -95,8 +94,8 @@ typedef struct		s_plane
 typedef	struct		s_sphere
 {
 	t_vec3		pos;
-	double		rad;
 	t_color		color;
+	double		rad;
 }					t_sphere;
 
 typedef	struct		s_cylinder
@@ -106,8 +105,8 @@ typedef	struct		s_cylinder
 	t_vec3	axis;
 	t_vec3	a;
 	t_vec3	c;
-	double	rad;
 	t_color	color;
+	double	rad;
 }					t_cylinder;
 
 typedef struct		s_cone
@@ -117,12 +116,12 @@ typedef struct		s_cone
 	t_vec3	axis;
 	t_vec3	a_c;
 	t_vec3	c_c;
+	t_color	color;
 	double	a_s;
 	double	c_s;
 	double	a;
 	double	b;
 	double	angle;
-	t_color	color;
 }					t_cone;
 
 typedef struct		s_composed
@@ -180,21 +179,21 @@ typedef struct		s_rtv
 	t_camera	*cam;
 	t_light		light[3];
 	t_matrices	mxs;
+	char		**types;
 	int			num[4];
 	int			type;
-	char		**types;
 }					t_rtv;
 
 int					obj_type(char *str);
+int					color_count(t_rtv *rtv, t_color color);
+double				find_max(double *t_object, int size);
 void				obj_alloc(t_rtv	*rtv);
-void				obj_func(t_rtv *rtv);
+void				start_alloc(t_rtv *rtv);
 void				error(int type);
 void				common(t_rtv *rtv);
-int					color_count(t_rtv *rtv, t_color color);
 void				cam_params(t_rtv *rtv);
 void				ipp_fill(t_rtv *rtv, int x, int y, int color);
 void				camera_rotation(t_rtv *rtv, int dir);
-double				find_max(double *t_object, int size);
 void				new_image(t_rtv *rtv);
 void				free_func(t_rtv *rtv);
 void				null_rgb(t_color *color);
@@ -214,7 +213,6 @@ void				composed_params(t_rtv *rtv);
 ** Plane functions
 */
 
-void				plane_entry(t_rtv *rtv, int i);
 double				p_intersection_find(t_rtv *rtv, t_plane	*plane, t_ray *ray);
 void				plane_vectors(t_rtv *rtv, t_plane *plane, t_ray *ray);
 
@@ -222,7 +220,6 @@ void				plane_vectors(t_rtv *rtv, t_plane *plane, t_ray *ray);
 ** Sphere functions
 */
 
-void				sphere_entry(t_rtv *rtv, int i);
 double				s_intersection_find(t_rtv *rtv, t_sphere *sphere,
 																	t_ray *ray);
 double				s_t_count(t_ray *ray, double disc, double b, double a);
@@ -232,19 +229,17 @@ void				sphere_vectors(t_rtv *rtv, t_sphere *sphere, t_ray *ray);
 ** Cylinder functions
 */
 
-void				cylinder_entry(t_rtv *rtv, int i);
+int					cl_color_count(t_rtv *rtv);
 double				cl_intersection_find(t_rtv *rtv, t_cylinder *cyl,
 																	t_ray *ray);
-t_vec3				cl_disk_center(t_cylinder *cyl, t_ray *ray);
-int					cl_color_count(t_rtv *rtv);
-void				cylinder_vectors(t_rtv *rtv, t_cylinder *cyl, t_ray *ray);
 double				cl_t_count(t_ray *ray, double disc, double b, double a);
+void				cylinder_vectors(t_rtv *rtv, t_cylinder *cyl, t_ray *ray);
+t_vec3				cl_disk_center(t_cylinder *cyl, t_ray *ray);
 
 /*
 ** Cone funtions
 */
 
-void				cone_entry(t_rtv *rtv, int i);
 double				cn_intersection_find(t_rtv *rtv, t_cone *cone, t_ray *ray);
 double				cn_disk_count(t_cone *cone);
 double				cn_t_count(t_ray *ray, double disc, double b, double a);
@@ -254,26 +249,26 @@ void				cone_vectors(t_rtv *rtv, t_cone *cone, t_ray *ray);
 ** Composed funtions
 */
 
-void				composed_entry(t_rtv *rtv);
 double				cp_intersection_find(t_rtv *rtv, t_ray *ray);
 double				cp_t_count(t_rtv *rtv);
-t_color				*obj_color(t_rtv *rtv, t_ray *ray);
 double				shadowed(t_rtv *rtv, int i);
-void				shadow_count(t_rtv *rtv, double *r, double *g, double *b);
 double				planes_intersection(t_rtv *rtv, t_ray *ray);
 double				spheres_intersection(t_rtv *rtv, t_ray *ray);
 double				cylinders_intersection(t_rtv *rtv, t_ray *ray);
 double				cones_intersection(t_rtv *rtv, t_ray *ray);
+void				composed_entry(t_rtv *rtv);
+void				shadow_count(t_rtv *rtv, double *r, double *g, double *b);
+t_color				*obj_color(t_rtv *rtv, t_ray *ray);
 
 /*
 **	Functions for vector operations
 */
 
+double				vec3_length(t_vec3 vec);
+double				vec3_dp(t_vec3 vec1, t_vec3 vec2);
 t_vec3				vec3_create(double x, double y, double z);
 t_vec3				vec3_norm(t_vec3 vector);
 t_vec3				vec3_invert(t_vec3	vector);
-double				vec3_length(t_vec3 vec);
-double				vec3_dp(t_vec3 vec1, t_vec3 vec2);
 t_vec3				vec3_add(t_vec3 vec1, t_vec3 vec2);
 t_vec3				vec3_sub(t_vec3 vec1, t_vec3 vec2);
 t_vec3				vec3_mult(t_vec3 vec, double multiplier);
@@ -282,6 +277,7 @@ t_vec3				vec3_mult(t_vec3 vec, double multiplier);
 ** 	Matrix functions
 */
 
+void				matrices(t_rtv *rtv);
 t_matrix			m_tr(t_vec3 vec);
 t_matrix			m_rot(t_vec3 u, t_vec3 v, t_vec3 w);
 t_matrix			m_mult(t_matrix m1, t_matrix m2);
@@ -289,10 +285,5 @@ t_matrix			x_rot(double angle);
 t_matrix			y_rot(double angle);
 t_matrix			z_rot(double angle);
 t_vec3				m_apply(t_matrix matrix, t_vec3 vec);
-void				matrices(t_rtv *rtv);
-
-/*
-** 	REMOVE THIS AT THE END!!!
-*/
 
 #endif

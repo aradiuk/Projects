@@ -87,14 +87,25 @@ void	cone_vectors(t_rtv *rtv, t_cone *cone, t_ray *ray)
 
 void	composed_params(t_rtv *rtv)
 {
-	rtv->comp = (t_composed *)malloc(sizeof(t_composed));
 	rtv->comp->type = 0;
 	rtv->comp->plane_num = 0;
 	rtv->comp->sphere_num = 0;
 	rtv->comp->cyl_num = 0;
 	rtv->comp->cone_num = 0;
-	plane_params(rtv);
-	sphere_params(rtv);
-	cylinder_params(rtv);
-	cone_params(rtv);
+	if (rtv->type == 0 || rtv->type == 4)
+		plane_params(rtv);
+	if (rtv->type == 0)
+		rtv->num[0] = 1;
+	if (rtv->type == 1 || rtv->type == 4)
+		sphere_params(rtv);
+	if (rtv->type == 1)
+		rtv->num[1] = 1;
+	if (rtv->type == 2 || rtv->type == 4)
+		cylinder_params(rtv);
+	if (rtv->type == 2)
+		rtv->num[2] = 1;
+	if (rtv->type == 3 || rtv->type == 4)
+		cone_params(rtv);
+	if (rtv->type == 3)
+		rtv->num[3] = 1;
 }

@@ -49,7 +49,7 @@ double	vec3_dp(t_vec3 vec1, t_vec3 vec2)
 
 void	null_rgb(t_color *color)
 {
-	color->r = 0;
-	color->g = 0;
-	color->b = 0;
+	color->r = color->rgb.x * AMBIENT_R;
+	color->g = color->rgb.y * AMBIENT_G;
+	color->b = color->rgb.z * AMBIENT_B;
 }

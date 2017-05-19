@@ -6,7 +6,7 @@
 /*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 13:26:10 by aradiuk           #+#    #+#             */
-/*   Updated: 2017/04/05 13:26:16 by aradiuk          ###   ########.fr       */
+/*   Updated: 2017/05/17 11:54:18 by aradiuk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,33 @@ void	error(int type)
 		exit(0);
 }
 
-void	obj_alloc(t_rtv *rtv)
+void	start_alloc(t_rtv *rtv)
 {
 	rtv->mlx = (t_mlx *)malloc(sizeof(t_mlx));
 	rtv->types = (char **)malloc(sizeof(char *) * 6);
 	rtv->cam = (t_camera *)malloc(sizeof(t_camera));
+	obj_alloc(rtv);
 	rtv->types[0] = ft_strdup("plane");
 	rtv->types[1] = ft_strdup("sphere");
 	rtv->types[2] = ft_strdup("cylinder");
 	rtv->types[3] = ft_strdup("cone");
 	rtv->types[4] = ft_strdup("composed");
 	rtv->types[5] = 0;
+}
+
+void	cam_params(t_rtv *rtv)
+{
+	rtv->cam->pos = vec3_create(0. / WIDTH, 0 / HEIGHT, 100);
+	rtv->light[0].pos = vec3_create(15, 15, 50);
+	rtv->light[0].color.rgb = vec3_create(100, 100, 100);
+	rtv->light[1].pos = vec3_create(15, -10, 50);
+	rtv->light[1].color.rgb = vec3_create(100, 100, 100);
+	rtv->light[2].pos = vec3_create(-15, 10, 50);
+	rtv->light[2].color.rgb = vec3_create(200, 200, 200);
+	matrices(rtv);
+	rtv->cam->start = rtv->cam->pos;
+	rtv->cam->pos = m_apply(rtv->mxs.rot_cam, rtv->cam->pos);
+	rtv->cam->ray.pos = rtv->cam->pos;
 }
 
 int		obj_type(char *str)
@@ -51,20 +67,6 @@ int		obj_type(char *str)
 		return (-1);
 }
 
-void	obj_func(t_rtv *rtv)
-{
-	if (rtv->type == 0)
-		plane_entry(rtv, 0);
-	else if (rtv->type == 1)
-		sphere_entry(rtv, 0);
-	else if (rtv->type == 2)
-		cylinder_entry(rtv, 0);
-	else if (rtv->type == 3)
-		cone_entry(rtv, 0);
-	else if (rtv->type == 4)
-		composed_entry(rtv);
-}
-
 int		main(int argc, char **argv)
 {
 	t_rtv	*rtv;
@@ -74,7 +76,7 @@ int		main(int argc, char **argv)
 	rtv = (t_rtv *)malloc(sizeof(t_rtv));
 	if ((rtv->type = obj_type(argv[1])) != -1)
 	{
-		obj_alloc(rtv);
+		start_alloc(rtv);
 		common(rtv);
 	}
 	else
