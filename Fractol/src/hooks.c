@@ -99,8 +99,8 @@ void	key_react(t_fract *fr, int code)
 {
 	if (code == 1 || code == -1)
 	{
-		if (code == 1 && fr->fr_d.max_iter > INT32_MAX - 25)
-			fr->fr_d.max_iter = INT32_MAX;
+		if (code == 1 && fr->fr_d.max_iter > 2147483647 - 25)
+			fr->fr_d.max_iter = 2147483647;
 		else
 			fr->fr_d.max_iter += 25 * code;
 		fr->fr_d.max_iter = fr->fr_d.max_iter <= 0 ? 1 : fr->fr_d.max_iter;
