@@ -1,0 +1,5 @@
+/home/andriiradiuk/Projects/MS_CPPLTRP_03/message_queue/build/CMakeFiles/edit_cache.dir
+/home/andriiradiuk/Projects/MS_CPPLTRP_03/message_queue/build/CMakeFiles/regenerate.dir
+/home/andriiradiuk/Projects/MS_CPPLTRP_03/message_queue/build/CMakeFiles/mq_server.dir
+/home/andriiradiuk/Projects/MS_CPPLTRP_03/message_queue/build/CMakeFiles/mq_client.dir
+/home/andriiradiuk/Projects/MS_CPPLTRP_03/message_queue/build/CMakeFiles/rebuild_cache.dir

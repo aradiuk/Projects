@@ -1,0 +1,6 @@
+<config>
+		<address>127.0.0.1</address>
+		<path>/home/andriiradiuk/Projects/MS_CPPLTRP_03/HTTP_server/webroot</path>
+		<port>8080</port>
+		<threads>1</threads>
+</config>

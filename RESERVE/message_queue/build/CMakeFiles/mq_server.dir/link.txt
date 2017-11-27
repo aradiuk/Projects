@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11 -Wall   CMakeFiles/mq_server.dir/src_server/server.cpp.o CMakeFiles/mq_server.dir/common/message_info.pb.cc.o  -o mq_server -rdynamic -lprotobuf -pthread -lrt 

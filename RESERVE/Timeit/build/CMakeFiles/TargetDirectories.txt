@@ -1,0 +1,3 @@
+/home/andriiradiuk/Projects/RESERVE/Timeit/build/CMakeFiles/edit_cache.dir
+/home/andriiradiuk/Projects/RESERVE/Timeit/build/CMakeFiles/rebuild_cache.dir
+/home/andriiradiuk/Projects/RESERVE/Timeit/build/CMakeFiles/timeit.dir

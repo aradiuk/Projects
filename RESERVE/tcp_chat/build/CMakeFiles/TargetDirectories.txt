@@ -1,0 +1,3 @@
+/home/andriiradiuk/Projects/MS_CPPLTRP_03/tcp_chat/build/CMakeFiles/edit_cache.dir
+/home/andriiradiuk/Projects/MS_CPPLTRP_03/tcp_chat/build/CMakeFiles/rebuild_cache.dir
+/home/andriiradiuk/Projects/MS_CPPLTRP_03/tcp_chat/build/CMakeFiles/tcp_chat.dir

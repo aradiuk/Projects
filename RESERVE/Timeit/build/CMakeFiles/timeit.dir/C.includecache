@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/andriiradiuk/Projects/RESERVE/Timeit/main.c
+timeit.h
+/home/andriiradiuk/Projects/RESERVE/Timeit/timeit.h
+
+/home/andriiradiuk/Projects/RESERVE/Timeit/timeit.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+sys/types.h
+-
+sys/wait.h
+-
+time.h
+-
+

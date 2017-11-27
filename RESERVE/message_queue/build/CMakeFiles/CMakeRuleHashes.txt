@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+ba0120e32b6529c1507287b3a741dd2f ../common/message_info.pb.h
+ba0120e32b6529c1507287b3a741dd2f CMakeFiles/regenerate
