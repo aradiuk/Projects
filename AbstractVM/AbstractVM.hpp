@@ -10,7 +10,7 @@
 class AbstractVM {
     private:
         std::vector<std::string> commands;
-        std::vector<std::string> values; // not a vector of strings but instead a bector of IOperands
+        std::vector<std::string> stack; // not a vector of strings but instead a bector of IOperands
 
     public:
         AbstractVM();

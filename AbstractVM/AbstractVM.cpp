@@ -40,45 +40,45 @@ void AbstractVM::fileInput(std::string filename) {
 
 const char *AbstractVM::AssemblyErrors::what() const throw()
 {
-        return "Assembly has some errors";
+        return "Assembly has some ERRORS";
 }
 
 const char *AbstractVM::UnknownInstruction::what() const throw()
 {
-        return "Assembly has some errors";
+        return "Assembly contains an UNKNOWN INSTRUCTION";
 }
 
 const char *AbstractVM::ValueOverflow::what() const throw()
 {
-        return "Assembly has some errors";
+        return "One of the values got OVERFLOWED";
 }
 
 const char *AbstractVM::ValueUnderflow::what() const throw()
 {
-        return "Assembly has some errors";
+        return "One of the values got UNDERFLOWED";
 }
 
 const char *AbstractVM::PopOnEmptyStack::what() const throw()
 {
-        return "Assembly has some errors";
+        return "POP was used on an EMPTY STACK";
 }
 
 const char *AbstractVM::DivisionByZero::what() const throw()
 {
-        return "Assembly has some errors";
+        return "Do not EVER divide by ZERO. Unless you are using a floating point value";
 }
 
 const char *AbstractVM::NoExitInstruction::what() const throw()
 {
-        return "Assembly has some errors";
+        return "Assembly has not EXIT instruction";
 }
 
 const char *AbstractVM::AssertIsNotTrue::what() const throw()
 {
-        return "Assembly has some errors";
+        return "ASSERT is not true";
 }
 
 const char *AbstractVM::LessThenTwoValues::what() const throw()
 {
-        return "Assembly has some errors";
+        return "ARITHMETIC INCTRUTION was used on less than TWO values";
 }
