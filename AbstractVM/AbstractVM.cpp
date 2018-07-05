@@ -16,25 +16,49 @@ AbstractVM& AbstractVM::operator=(const AbstractVM &obj) {
 
 }
 
-void AbstractVM::start(int argc, char **argv) {
+void AbstractVM::Start(int argc, char **argv) {
     if (argc == 1) {
-        stdInput();
+        StdInput();
     } else if (argc == 2) {
-        fileInput(argv[1]);
+        FileInput(argv[1]);
     }
 
     Logger(__FUNCTION__, "Started!\n");
 }
 
-void AbstractVM::stdInput() {
+void AbstractVM::StdInput() {
     Logger(__FUNCTION__, "Not supported for now.\n");
 }
 
-void AbstractVM::fileInput(std::string filename) {
-    
+void AbstractVM::FileInput(std::string filename) {
+    int lineCount = 0;
+    std::string error = "Error was encountered on line ";
+    std::string readLine;
+    std::ifstream fileStream(filename.c_str());
+
+    if (!fileStream.is_open() || fileStream.peek() == std::ifstream::traits_type::eof()) {
+        std::cout << "File is empty or there is a problem opening it.\n";    
+        exit(1);
+    }
+
+    while(std::getline(fileStream, readLine)) {
+        ++lineCount;
+        ValidateLine(readLine, lineCount);
+    }
+
 }
 
-
+void AbstractVM::ValidateLine(std::string str, int lineCount) {
+    try {
+        if (str == "hey")
+            throw AssemblyErrors();
+    
+    } catch (std::out_of_range &o) {
+        std::cout << o.what() << "OOR";
+    } catch (std::exception &e) {
+        std::cout << e.what();
+    }
+}
 
 
 

@@ -5,6 +5,8 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <cstdlib>
 
 
 class AbstractVM {
@@ -17,10 +19,10 @@ class AbstractVM {
         ~AbstractVM();
         AbstractVM(const AbstractVM& obj);
         AbstractVM& operator=(const AbstractVM& obj);
-        void start(int argc, char **argv);
-        void stdInput();
-        void fileInput(std::string filename);
-
+        void Start(int argc, char **argv);
+        void StdInput();
+        void FileInput(std::string filename);
+        void ValidateLine(std::string str, int lineCount);
 
 
         struct AssemblyErrors : public std::exception {

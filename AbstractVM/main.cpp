@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 
     AbstractVM vm;
 
-    vm.start(argc, argv);
+    vm.Start(argc, argv);
 
     return 0;
 }
