@@ -17,7 +17,7 @@ class AbstractVM {
         std::vector<std::regex> allowedCommands_ = {
                 std::regex("^pop[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^dump[\\s\\t]*((?=;+);.*|)"),
-                std::regex("^assert[\\s\\t]*((?=;+);.*|)"),
+                std::regex("^assert\\s(((int8|int16|int32)\\([-]?\\d+\\))|((float|double)\\([-]?\\d+\\.\\d+\\)))"),
                 std::regex("^add[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^sub[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^mul[\\s\\t]*((?=;+);.*|)"),

@@ -55,7 +55,7 @@ void AbstractVM::FileInput(std::string filename) {
 
 bool AbstractVM::ValidateLine(std::string str, int lineCount) {
     for (std::string::iterator it = str.begin(); it != str.end(); it++) {
-        if (std::regex_match(str, std::regex("^push\\s(((int8|int16|int32)\\(\\d*\\))|((float|double)\\(\\d*\\.{0,1}\\d*\\)))"))) {
+        if (std::regex_match(str, std::regex("^push\\s(((int8|int16|int32)\\([-]?\\d+\\))|((float|double)\\([-]?\\d+\\.\\d+\\)))"))) {
             return ValidateAndPush(str);
         }
     }
