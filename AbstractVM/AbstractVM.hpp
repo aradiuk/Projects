@@ -37,6 +37,7 @@ class AbstractVM {
         void StdInput();
         void FileInput(std::string filename);
         bool ValidateLine(std::string str, int lineCount);
+        void ProcessCommands();
 
         int GetLineCount() const;
         void IncrLineCount();

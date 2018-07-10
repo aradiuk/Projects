@@ -17,17 +17,26 @@ AbstractVM& AbstractVM::operator=(const AbstractVM &obj) {
 }
 
 void AbstractVM::Start(int argc, char **argv) {
-    if (argc == 1) {
-        StdInput();
-    } else if (argc == 2) {
-        FileInput(argv[1]);
+    try {
+        if (argc == 1) {
+            StdInput();
+        } else if (argc == 2) {
+            FileInput(argv[1]);
+        }
+    } catch (const std::exception & e) {
+        std::cout << e.what() << std::endl;
     }
 
     Logger(__FUNCTION__, "Started!\n");
 }
 
+void AbstractVM::ProcessCommands() {
+
+}
+
 void AbstractVM::StdInput() {
     std::string readLine;
+    bool exitFound = false;
 
     while (std::cin) {
         IncrLineCount();
@@ -37,29 +46,26 @@ void AbstractVM::StdInput() {
         }
 
         if (readLine == ";;") {
+            exitFound = true;
             break;
         }
 
-        if (ValidateLine(readLine, GetLineCount())){
-            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is VALID.");
-        } else {
-            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is INVALID.");
-        }
+//        if (ValidateLine(readLine, GetLineCount())){
+//            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is VALID.");
+//        } else {
+//            throw UnknownInstruction();
+//            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is INVALID.");
+//        }
     }
 
-    if (std::cin.eof()) {   // Do I need that? Error or just the end of input?
-        Logger(__FUNCTION__, "EOF");
-        exit(1);
-    }
-
-    for (auto it = commands_.begin(); it != commands_.end(); it++) {
-        std::cout << *it << std::endl;
-    }
+    if (!exitFound)
+        throw NoExitInstruction();
 }
 
 void AbstractVM::FileInput(std::string filename) {
     std::string readLine;
     std::ifstream fileStream(filename.c_str());
+    bool exitFound = false;
 
     Logger(__FUNCTION__);
     if (!fileStream.is_open() || fileStream.peek() == std::ifstream::traits_type::eof()) {
@@ -74,19 +80,18 @@ void AbstractVM::FileInput(std::string filename) {
         }
 
         if (std::regex_match(readLine, std::regex("^exit[\\s\\t]*((?=;+);.*|)"))) {
+            exitFound = true;
             break;
         }
-
-        if (ValidateLine(readLine, GetLineCount())){
-            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is VALID.");
-        } else {
-            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is INVALID.");
-        }
+//        if (ValidateLine(readLine, GetLineCount())){
+//            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is VALID.");
+//        } else {
+//            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is INVALID.");
+//        }
     }
 
-    for (auto it = commands_.begin(); it != commands_.end(); it++) {
-        std::cout << *it << std::endl;
-    }
+    if (!exitFound)
+        throw NoExitInstruction();
 }
 
 
