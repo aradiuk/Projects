@@ -25,7 +25,7 @@ class AbstractVM {
                 std::regex("^div[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^mod[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^print[\\s\\t]*((?=;+);.*|)"),
-                std::regex("^exit[\\s\\t]*((?=;+);.*|)")
+                std::regex("^;.*")
         };
 
     public:

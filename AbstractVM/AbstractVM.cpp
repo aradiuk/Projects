@@ -27,17 +27,38 @@ void AbstractVM::Start(int argc, char **argv) {
 }
 
 void AbstractVM::StdInput() {
-    Logger(__FUNCTION__, "Not supported for now.\n");
+    std::string readLine;
+
+    while (std::cin) {
+        IncrLineCount();
+        std::getline(std::cin, readLine);
+        if (readLine.empty()) {
+            continue;
+        }
+
+        if (readLine == ";;") {
+            break;
+        }
+
+        if (ValidateLine(readLine, GetLineCount())){
+            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is VALID.");
+        } else {
+            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is INVALID.");
+        }
+    }
+
+    for (auto it = commands_.begin(); it != commands_.end(); it++) {
+        std::cout << *it << std::endl;
+    }
 }
 
 void AbstractVM::FileInput(std::string filename) {
-    std::string error = "Error was encountered on line ";
     std::string readLine;
     std::ifstream fileStream(filename.c_str());
 
     Logger(__FUNCTION__);
     if (!fileStream.is_open() || fileStream.peek() == std::ifstream::traits_type::eof()) {
-        std::cout << "File is empty or there is a problem opening it.\n";    
+        std::cout << "File is empty or there was a problem opening it.\n";
         exit(1);
     }
 
@@ -47,13 +68,20 @@ void AbstractVM::FileInput(std::string filename) {
             continue;
         }
 
-        if (ValidateLine(readLine, lineCount_)){
+        if (std::regex_match(readLine, std::regex("^exit[\\s\\t]*((?=;+);.*|)"))) {
+            break;
+        }
+
+        if (ValidateLine(readLine, GetLineCount())){
             Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is VALID.");
         } else {
             Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is INVALID.");
         }
     }
 
+    for (auto it = commands_.begin(); it != commands_.end(); it++) {
+        std::cout << *it << std::endl;
+    }
 }
 
 

@@ -18,7 +18,7 @@ assert double(5.1)
 assert int8(5)
 assert float(5.1)
 assert double(5.0)
-
+exit;asdasd
 add            ;aa;asda
 sub ;aa;asda
 mul            ;aa;asda
