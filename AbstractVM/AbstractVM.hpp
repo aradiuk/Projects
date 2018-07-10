@@ -7,12 +7,25 @@
 #include <vector>
 #include <fstream>
 #include <cstdlib>
-
+#include <regex>
 
 class AbstractVM {
     private:
-        std::vector<std::string> commands;
-        std::vector<std::string> stack; // not a vector of strings but instead a bector of IOperands
+        std::vector<std::string> commands_;
+        std::vector<std::string> stack_; // not a vector of strings but instead a bector of IOperands
+        int lineCount_;
+        std::vector<std::regex> allowedCommands_ = {
+                std::regex("^pop[\\s\\t]*((?=;+);.*|)"),
+                std::regex("^dump[\\s\\t]*((?=;+);.*|)"),
+                std::regex("^assert[\\s\\t]*((?=;+);.*|)"),
+                std::regex("^add[\\s\\t]*((?=;+);.*|)"),
+                std::regex("^sub[\\s\\t]*((?=;+);.*|)"),
+                std::regex("^mul[\\s\\t]*((?=;+);.*|)"),
+                std::regex("^div[\\s\\t]*((?=;+);.*|)"),
+                std::regex("^mod[\\s\\t]*((?=;+);.*|)"),
+                std::regex("^print[\\s\\t]*((?=;+);.*|)"),
+                std::regex("^exit[\\s\\t]*((?=;+);.*|)")
+        };
 
     public:
         AbstractVM();
@@ -22,8 +35,12 @@ class AbstractVM {
         void Start(int argc, char **argv);
         void StdInput();
         void FileInput(std::string filename);
-        void ValidateLine(std::string str, int lineCount);
+        bool ValidateLine(std::string str, int lineCount);
+        bool ValidateAndPush(std::string str);
 
+
+        int GetLineCount() const;
+        void IncrLineCount();
 
         struct AssemblyErrors : public std::exception {
             virtual const char * what() const throw();
@@ -52,6 +69,8 @@ class AbstractVM {
         struct LessThenTwoValues: public std::exception {
             virtual const char * what() const throw();
         };
+
+
 };
 
 

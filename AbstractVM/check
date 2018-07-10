@@ -1,0 +1,21 @@
+push int8(5)
+push int16(5)
+push int32(5)
+push float(5)
+push double(5)
+push int8(5.0)
+push float(5.)
+push double(5.0)
+
+
+pop        ;aa;asdas
+dump ;aa;asdas
+assert        ;aa;asda
+
+add            ;aa;asda
+sub ;aa;asda
+mul            ;aa;asda
+div  t          ;aa;asda
+mod            ;aa;asda
+printt            ;aa;asda
+exit;aa;asda
