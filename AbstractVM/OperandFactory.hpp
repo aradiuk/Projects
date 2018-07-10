@@ -3,7 +3,7 @@
 
 #include "Operand.hpp"
 
-class OperandFactory : public IOperand {
+class OperandFactory {
     public:
         IOperand const * createOperand(eOperandType type, std::string const & value);
 
