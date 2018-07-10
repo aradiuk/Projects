@@ -43,6 +43,10 @@ void AbstractVM::FileInput(std::string filename) {
 
     while(std::getline(fileStream, readLine)) {
         IncrLineCount();
+        if (readLine.empty()) {
+            continue;
+        }
+
         if (ValidateLine(readLine, lineCount_)){
             Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is VALID.");
         } else {
@@ -54,12 +58,6 @@ void AbstractVM::FileInput(std::string filename) {
 
 
 bool AbstractVM::ValidateLine(std::string str, int lineCount) {
-    for (std::string::iterator it = str.begin(); it != str.end(); it++) {
-        if (std::regex_match(str, std::regex("^push\\s(((int8|int16|int32)\\([-]?\\d+\\))|((float|double)\\([-]?\\d+\\.\\d+\\)))"))) {
-            return ValidateAndPush(str);
-        }
-    }
-
     for (std::vector<std::regex>::iterator it = allowedCommands_.begin(); it != allowedCommands_.end(); it++) {
         if (std::regex_match(str, *it)) {
             commands_.push_back(str);
@@ -67,11 +65,6 @@ bool AbstractVM::ValidateLine(std::string str, int lineCount) {
         }
     }
     return false;
-}
-
-bool AbstractVM::ValidateAndPush(std::string str) {
-    // ADD VALUES TO THE "STACK_"
-    return true;
 }
 
 int AbstractVM::GetLineCount() const {

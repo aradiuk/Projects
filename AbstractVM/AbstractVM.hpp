@@ -15,9 +15,10 @@ class AbstractVM {
         std::vector<std::string> stack_; // not a vector of strings but instead a bector of IOperands
         int lineCount_;
         std::vector<std::regex> allowedCommands_ = {
+                std::regex("^push\\s(((int8|int16|int32)\\([-]?\\d+\\))|((float|double)\\([-]?\\d+\\.\\d+\\)))[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^pop[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^dump[\\s\\t]*((?=;+);.*|)"),
-                std::regex("^assert\\s(((int8|int16|int32)\\([-]?\\d+\\))|((float|double)\\([-]?\\d+\\.\\d+\\)))"),
+                std::regex("^assert\\s(((int8|int16|int32)\\([-]?\\d+\\))|((float|double)\\([-]?\\d+\\.\\d+\\)))[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^add[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^sub[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^mul[\\s\\t]*((?=;+);.*|)"),
@@ -36,8 +37,6 @@ class AbstractVM {
         void StdInput();
         void FileInput(std::string filename);
         bool ValidateLine(std::string str, int lineCount);
-        bool ValidateAndPush(std::string str);
-
 
         int GetLineCount() const;
         void IncrLineCount();
