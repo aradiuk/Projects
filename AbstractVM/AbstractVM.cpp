@@ -47,6 +47,11 @@ void AbstractVM::StdInput() {
         }
     }
 
+    if (std::cin.eof()) {   // Do I need that? Error or just the end of input?
+        Logger(__FUNCTION__, "EOF");
+        exit(1);
+    }
+
     for (auto it = commands_.begin(); it != commands_.end(); it++) {
         std::cout << *it << std::endl;
     }
