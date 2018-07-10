@@ -9,10 +9,12 @@
 #include <cstdlib>
 #include <regex>
 
+#include "OperandFactory.hpp"
+
 class AbstractVM {
     private:
         std::vector<std::string> commands_;
-        std::vector<std::string> stack_; // not a vector of strings but instead a bector of IOperands
+        std::vector<IOperand *> stack_;
         int lineCount_;
         std::vector<std::regex> allowedCommands_ = {
                 std::regex("^push\\s(((int8|int16|int32)\\([-]?\\d+\\))|((float|double)\\([-]?\\d+\\.\\d+\\)))[\\s\\t]*((?=;+);.*|)"),

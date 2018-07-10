@@ -27,6 +27,7 @@ void AbstractVM::Start(int argc, char **argv) {
         std::cout << e.what() << std::endl;
     }
 
+    OperandFactory::createOperand(Int8, "hey");
     Logger(__FUNCTION__, "Started!\n");
 }
 
