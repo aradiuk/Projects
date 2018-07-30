@@ -31,6 +31,8 @@ class AbstractVM {
         };
 
     public:
+        OperandFactory operandFactory_;
+
         AbstractVM();
         ~AbstractVM();
         AbstractVM(const AbstractVM& obj);
@@ -38,7 +40,7 @@ class AbstractVM {
         void Start(int argc, char **argv);
         void StdInput();
         void FileInput(std::string filename);
-        bool ValidateLine(std::string str, int lineCount);
+        bool ValidateLine(std::string str);
         void ProcessCommands();
 
         int GetLineCount() const;

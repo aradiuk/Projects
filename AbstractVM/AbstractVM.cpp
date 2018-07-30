@@ -56,12 +56,11 @@ void AbstractVM::StdInput() {
             break;
         }
 
-//        if (ValidateLine(readLine, GetLineCount())){
-//            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is VALID.");
-//        } else {
-//            throw UnknownInstruction();
-//            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is INVALID.");
-//        }
+        if (ValidateLine(readLine)) {
+//            if (ProcessCommand(readLine))
+        } else {
+            throw UnknownInstruction();
+        }
     }
 
     if (!exitFound)
@@ -89,11 +88,13 @@ void AbstractVM::FileInput(std::string filename) {
             exitFound = true;
             break;
         }
-//        if (ValidateLine(readLine, GetLineCount())){
-//            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is VALID.");
-//        } else {
-//            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is INVALID.");
-//        }
+
+        if (ValidateLine(readLine)) {
+//            if (ProcessCommand(readLine))
+            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is VALID.");
+        } else {
+            throw UnknownInstruction();
+        }
     }
 
     if (!exitFound)
@@ -101,13 +102,14 @@ void AbstractVM::FileInput(std::string filename) {
 }
 
 
-bool AbstractVM::ValidateLine(std::string str, int lineCount) {
+bool AbstractVM::ValidateLine(std::string str) {
     for (std::vector<std::regex>::iterator it = allowedCommands_.begin(); it != allowedCommands_.end(); it++) {
         if (std::regex_match(str, *it)) {
             commands_.push_back(str);
             return true;
         }
     }
+    std::cout << "Error on line " << GetLineCount() << std::endl;
     return false;
 }
 
