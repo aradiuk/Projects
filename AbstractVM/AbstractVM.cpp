@@ -17,27 +17,14 @@ AbstractVM& AbstractVM::operator=(const AbstractVM &obj) {
 }
 
 void AbstractVM::Start(int argc, char **argv) {
-    try {
-        if (argc == 1) {
-            StdInput();
-        } else if (argc == 2) {
-            FileInput(argv[1]);
-        }
-    } catch (const std::exception & e) {
-        std::cout << e.what() << std::endl;
+
+    if (argc == 1) {
+        StdInput();
+    } else if (argc == 2) {
+        FileInput(argv[1]);
     }
 
-    OperandFactory factory;
-    factory.createOperand(Int8, "hey");
-    factory.createOperand(Int16, "hey");
-    factory.createOperand(Int32, "hey");
-    factory.createOperand(Float, "hey");
-    factory.createOperand(Double, "hey");
     Logger(__FUNCTION__, "Started!\n");
-}
-
-void AbstractVM::ProcessCommands() {
-
 }
 
 void AbstractVM::StdInput() {
@@ -56,16 +43,22 @@ void AbstractVM::StdInput() {
             break;
         }
 
-        if (ValidateLine(readLine)) {
-//            if (ProcessCommand(readLine))
-        } else {
-            throw UnknownInstruction();
+        try {
+            ValidateLine(readLine);
+        } catch (const std::exception &e) {
+            std::cout << "line " << GetLineCount() << ": " << e.what() << std::endl;
         }
     }
 
-    if (!exitFound)
-        throw NoExitInstruction();
+    try {
+        if (!exitFound) {
+            throw NoExitInstruction();
+        }
+    } catch (const std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
 }
+
 
 void AbstractVM::FileInput(std::string filename) {
     std::string readLine;
@@ -89,29 +82,99 @@ void AbstractVM::FileInput(std::string filename) {
             break;
         }
 
-        if (ValidateLine(readLine)) {
-//            if (ProcessCommand(readLine))
-            Logger(__FUNCTION__, "line ", std::to_string(lineCount_), " ", readLine, " is VALID.");
-        } else {
-            throw UnknownInstruction();
+        try {
+            ValidateLine(readLine);
+        } catch (const std::exception &e) {
+            std::cout << "line " << GetLineCount() << ": " << e.what() << std::endl;
         }
     }
 
-    if (!exitFound)
-        throw NoExitInstruction();
+    try {
+        if (!exitFound) {
+            throw NoExitInstruction();
+        }
+    } catch (const std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
 }
 
-
-bool AbstractVM::ValidateLine(std::string str) {
+void AbstractVM::ValidateLine(std::string str) {
     for (std::vector<std::regex>::iterator it = allowedCommands_.begin(); it != allowedCommands_.end(); it++) {
         if (std::regex_match(str, *it)) {
             commands_.push_back(str);
-            return true;
+            ProcessCommand(str, it - allowedCommands_.begin());
+            return ;
         }
     }
-    std::cout << "Error on line " << GetLineCount() << std::endl;
-    return false;
+    throw UnknownInstruction();
 }
+
+void AbstractVM::ProcessCommand(std::string str, int index) {
+    std::cout << str << std::endl;
+    static void (AbstractVM::*commands[10])(std::string const & str) = {
+        &AbstractVM::push,
+        &AbstractVM::pop,
+        &AbstractVM::dump,
+        &AbstractVM::assert,
+        &AbstractVM::add,
+        &AbstractVM::sub,
+        &AbstractVM::mul,
+        &AbstractVM::div,
+        &AbstractVM::mod,
+        &AbstractVM::print,
+    };
+
+    (this->*commands[index])(str);
+}
+
+void AbstractVM::push(std::string const & str) {
+    std::cout << "push command" << std::endl;
+}
+
+void AbstractVM::pop(std::string const & str) {
+    std::cout << "pop command" << std::endl;
+}
+
+void AbstractVM::dump(std::string const & str) {
+    std::cout << "dump command" << std::endl;
+}
+
+void AbstractVM::assert(std::string const & str) {
+    std::cout << "assert command" << std::endl;
+}
+
+void AbstractVM::add(std::string const & str) {
+    std::cout << "add command" << std::endl;
+}
+
+void AbstractVM::sub(std::string const & str) {
+    std::cout << "sub command" << std::endl;
+}
+
+void AbstractVM::mul(std::string const & str) {
+    std::cout << "mul command" << std::endl;
+}
+
+void AbstractVM::div(std::string const & str) {
+    std::cout << "div command" << std::endl;
+}
+
+void AbstractVM::mod(std::string const & str) {
+    std::cout << "mod command" << std::endl;
+}
+
+void AbstractVM::print(std::string const & str) {
+    std::cout << "print command" << std::endl;
+}
+
+
+
+
+
+
+
+
+
 
 int AbstractVM::GetLineCount() const {
     return lineCount_;
@@ -121,8 +184,8 @@ void AbstractVM::IncrLineCount() {
     ++lineCount_;
 }
 
-const char *AbstractVM::AssemblyErrors::what() const throw() {
-        return "Assembly has some ERRORS";
+const char *AbstractVM::LexicalOrSyntactical::what() const throw() {
+        return "Assembly contains LEXICAL or SYNTACTICAL errors";
 }
 
 const char *AbstractVM::UnknownInstruction::what() const throw() {
@@ -146,7 +209,7 @@ const char *AbstractVM::DivisionByZero::what() const throw() {
 }
 
 const char *AbstractVM::NoExitInstruction::what() const throw() {
-        return "Assembly has not EXIT instruction";
+        return "Assembly has no EXIT instruction";
 }
 
 const char *AbstractVM::AssertIsNotTrue::what() const throw() {

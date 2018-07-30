@@ -40,13 +40,24 @@ class AbstractVM {
         void Start(int argc, char **argv);
         void StdInput();
         void FileInput(std::string filename);
-        bool ValidateLine(std::string str);
-        void ProcessCommands();
+        void ValidateLine(std::string str);
+        void ProcessCommand(std::string str, int index);
 
         int GetLineCount() const;
         void IncrLineCount();
 
-        struct AssemblyErrors : public std::exception {
+        void push(std::string const & str);
+        void pop(std::string const & str);
+        void dump(std::string const & str);
+        void assert(std::string const & str);
+        void add(std::string const & str);
+        void sub(std::string const & str);
+        void mul(std::string const & str);
+        void div(std::string const & str);
+        void mod(std::string const & str);
+        void print(std::string const & str);
+
+        struct LexicalOrSyntactical : public std::exception {
             virtual const char * what() const throw();
         };
         struct UnknownInstruction: public std::exception {
