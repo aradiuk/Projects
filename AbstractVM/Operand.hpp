@@ -2,6 +2,7 @@
 #define OPERAND_HPP
 
 #include "IOperand.hpp"
+#include "Exception.hpp"
 
 template<class T>
 class Operand : public IOperand {

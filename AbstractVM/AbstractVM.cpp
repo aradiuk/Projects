@@ -23,8 +23,6 @@ void AbstractVM::Start(int argc, char **argv) {
     } else if (argc == 2) {
         FileInput(argv[1]);
     }
-
-    Logger(__FUNCTION__, "Started!\n");
 }
 
 void AbstractVM::StdInput() {
@@ -52,7 +50,7 @@ void AbstractVM::StdInput() {
 
     try {
         if (!exitFound) {
-            throw NoExitInstruction();
+            throw Exceptions::NoExitInstruction();
         }
     } catch (const std::exception &e) {
         std::cout << e.what() << std::endl;
@@ -91,7 +89,7 @@ void AbstractVM::FileInput(std::string filename) {
 
     try {
         if (!exitFound) {
-            throw NoExitInstruction();
+            throw Exceptions::NoExitInstruction();
         }
     } catch (const std::exception &e) {
         std::cout << e.what() << std::endl;
@@ -108,65 +106,75 @@ void AbstractVM::ValidateLine(std::string str) {
             return ;
         }
     }
-    throw UnknownInstruction();
+    throw Exceptions::UnknownInstruction();
 }
 
 void AbstractVM::ProcessCommand(std::string str, int index) {
     static void (AbstractVM::*commands[10])(std::string const & str) = {
-        &AbstractVM::push,
-        &AbstractVM::pop,
-        &AbstractVM::dump,
-        &AbstractVM::assert,
-        &AbstractVM::add,
-        &AbstractVM::sub,
-        &AbstractVM::mul,
-        &AbstractVM::div,
-        &AbstractVM::mod,
-        &AbstractVM::print,
+        &AbstractVM::Push,
+        &AbstractVM::Pop,
+        &AbstractVM::Dump,
+        &AbstractVM::Assert,
+        &AbstractVM::Add,
+        &AbstractVM::Sub,
+        &AbstractVM::Mul,
+        &AbstractVM::Div,
+        &AbstractVM::Mod,
+        &AbstractVM::Print,
     };
 
     (this->*commands[index])(str);
 }
 
-void AbstractVM::push(std::string const & str) {
+void AbstractVM::Push(std::string const & str) {
+//    std::smatch match;
+//    std::regex_match(str, match, allowedCommands_[0]);
+//    std::string temp = match[1];
+//    std::size_t bracket = temp.find('(');
+//    std::string type = temp.substr(0, bracket);
+//    std::string value = temp.substr(bracket + 1, bracket + 1);
+//    std::cout << type << "|" << value << std::endl;
+//    operandFactory_.createOperand(Int8, str);
     std::cout << "push command" << std::endl;
 }
 
-void AbstractVM::pop(std::string const & str) {
+void AbstractVM::Pop(std::string const & str) {
     std::cout << "pop command" << std::endl;
 }
 
-void AbstractVM::dump(std::string const & str) {
+void AbstractVM::Dump(std::string const & str) {
     std::cout << "dump command" << std::endl;
 }
 
-void AbstractVM::assert(std::string const & str) {
+void AbstractVM::Assert(std::string const & str) {
     std::cout << "assert command" << std::endl;
 }
 
-void AbstractVM::add(std::string const & str) {
+void AbstractVM::Add(std::string const & str) {
     std::cout << "add command" << std::endl;
 }
 
-void AbstractVM::sub(std::string const & str) {
+void AbstractVM::Sub(std::string const & str) {
     std::cout << "sub command" << std::endl;
 }
 
-void AbstractVM::mul(std::string const & str) {
+void AbstractVM::Mul(std::string const & str) {
     std::cout << "mul command" << std::endl;
 }
 
-void AbstractVM::div(std::string const & str) {
+void AbstractVM::Div(std::string const & str) {
     std::cout << "div command" << std::endl;
 }
 
-void AbstractVM::mod(std::string const & str) {
+void AbstractVM::Mod(std::string const & str) {
     std::cout << "mod command" << std::endl;
 }
 
-void AbstractVM::print(std::string const & str) {
+void AbstractVM::Print(std::string const & str) {
     std::cout << "print command" << std::endl;
 }
+
+
 
 
 
@@ -183,40 +191,4 @@ int AbstractVM::GetLineCount() const {
 
 void AbstractVM::IncrLineCount() {
     ++lineCount_;
-}
-
-const char *AbstractVM::LexicalOrSyntactical::what() const throw() {
-        return "Assembly contains LEXICAL or SYNTACTICAL errors";
-}
-
-const char *AbstractVM::UnknownInstruction::what() const throw() {
-        return "Assembly contains an UNKNOWN INSTRUCTION";
-}
-
-const char *AbstractVM::ValueOverflow::what() const throw() {
-        return "One of the values got OVERFLOWED";
-}
-
-const char *AbstractVM::ValueUnderflow::what() const throw() {
-        return "One of the values got UNDERFLOWED";
-}
-
-const char *AbstractVM::PopOnEmptyStack::what() const throw() {
-        return "POP was used on an EMPTY STACK";
-}
-
-const char *AbstractVM::DivisionByZero::what() const throw() {
-        return "Do not EVER divide by ZERO. Unless you are using a floating point value";
-}
-
-const char *AbstractVM::NoExitInstruction::what() const throw() {
-        return "Assembly has no EXIT instruction";
-}
-
-const char *AbstractVM::AssertIsNotTrue::what() const throw() {
-        return "ASSERT is not true";
-}
-
-const char *AbstractVM::LessThenTwoValues::what() const throw() {
-        return "ARITHMETIC INCTRUTION was used on less than TWO values";
 }

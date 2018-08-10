@@ -16,6 +16,7 @@ class AbstractVM {
         std::vector<std::string> commands_;
         std::vector<IOperand *> stack_;
         int lineCount_;
+        Exceptions exceptions;
         std::vector<std::regex> allowedCommands_ = {
                 std::regex("^push\\s(((int8|int16|int32)\\([-]?\\d+\\))|((float|double)\\([-]?\\d+\\.\\d+\\)))[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^pop[\\s\\t]*((?=;+);.*|)"),
@@ -46,45 +47,17 @@ class AbstractVM {
         int GetLineCount() const;
         void IncrLineCount();
 
-        void push(std::string const & str);
-        void pop(std::string const & str);
-        void dump(std::string const & str);
-        void assert(std::string const & str);
-        void add(std::string const & str);
-        void sub(std::string const & str);
-        void mul(std::string const & str);
-        void div(std::string const & str);
-        void mod(std::string const & str);
-        void print(std::string const & str);
-
-        struct LexicalOrSyntactical : public std::exception {
-            virtual const char * what() const throw();
-        };
-        struct UnknownInstruction: public std::exception {
-            virtual const char * what() const throw();
-        };
-        struct ValueOverflow: public std::exception {
-            virtual const char * what() const throw();
-        };
-        struct ValueUnderflow: public std::exception {
-            virtual const char * what() const throw();
-        };
-        struct PopOnEmptyStack: public std::exception {
-            virtual const char * what() const throw();
-        };
-        struct DivisionByZero: public std::exception {
-            virtual const char * what() const throw();
-        };
-        struct NoExitInstruction: public std::exception {
-            virtual const char * what() const throw();
-        };
-        struct AssertIsNotTrue: public std::exception {
-            virtual const char * what() const throw();
-        };
-        struct LessThenTwoValues: public std::exception {
-            virtual const char * what() const throw();
-        };
-
+        void Push(std::string const & str);
+        void Pop(std::string const & str);
+        void Dump(std::string const & str);
+        void Assert(std::string const & str);
+        void Add(std::string const & str);
+        void Sub(std::string const & str);
+        void Mul(std::string const & str);
+        void Div(std::string const & str);
+        void Mod(std::string const & str);
+        void Print(std::string const & str);
+        void Parse(std::string const & str);
 
 };
 

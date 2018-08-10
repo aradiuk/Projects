@@ -2,6 +2,8 @@
 #define OPERANDFACTORY_HPP
 
 #include "Operand.hpp"
+#include <cstdint>
+#include <sstream>
 
 class OperandFactory {
     public:
