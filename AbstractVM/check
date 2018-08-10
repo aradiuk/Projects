@@ -7,6 +7,8 @@ push int8(5)
 push float(5.1)
 push double(5.0)
 
+; HEY IT IS A COMMENT
+asas
 
 pop        ;aa;asdas
 dump;aa;asdas

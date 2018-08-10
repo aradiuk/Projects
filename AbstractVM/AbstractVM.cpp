@@ -101,6 +101,8 @@ void AbstractVM::FileInput(std::string filename) {
 void AbstractVM::ValidateLine(std::string str) {
     for (std::vector<std::regex>::iterator it = allowedCommands_.begin(); it != allowedCommands_.end(); it++) {
         if (std::regex_match(str, *it)) {
+            if ((it - allowedCommands_.begin()) == 10)
+                return;
             commands_.push_back(str);
             ProcessCommand(str, it - allowedCommands_.begin());
             return ;
@@ -110,7 +112,6 @@ void AbstractVM::ValidateLine(std::string str) {
 }
 
 void AbstractVM::ProcessCommand(std::string str, int index) {
-    std::cout << str << std::endl;
     static void (AbstractVM::*commands[10])(std::string const & str) = {
         &AbstractVM::push,
         &AbstractVM::pop,
