@@ -16,7 +16,6 @@ class AbstractVM {
         std::vector<std::string> commands_;
         std::vector<IOperand *> stack_;
         int lineCount_;
-        Exceptions exceptions;
         std::vector<std::regex> allowedCommands_ = {
                 std::regex("^push\\s(((int8|int16|int32)\\([-]?\\d+\\))|((float|double)\\([-]?\\d+\\.\\d+\\)))[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^pop[\\s\\t]*((?=;+);.*|)"),
@@ -29,6 +28,13 @@ class AbstractVM {
                 std::regex("^mod[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^print[\\s\\t]*((?=;+);.*|)"),
                 std::regex("^;.*")
+        };
+        std::map<std::string, eOperandType> strToEnum_ = {
+                {"int8", Int8},
+                {"int16", Int16},
+                {"int32", Int32},
+                {"float", Float},
+                {"double", Double}
         };
 
     public:

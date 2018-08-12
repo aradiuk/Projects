@@ -127,14 +127,14 @@ void AbstractVM::ProcessCommand(std::string str, int index) {
 }
 
 void AbstractVM::Push(std::string const & str) {
-//    std::smatch match;
-//    std::regex_match(str, match, allowedCommands_[0]);
-//    std::string temp = match[1];
-//    std::size_t bracket = temp.find('(');
-//    std::string type = temp.substr(0, bracket);
-//    std::string value = temp.substr(bracket + 1, bracket + 1);
-//    std::cout << type << "|" << value << std::endl;
-//    operandFactory_.createOperand(Int8, str);
+    std::istringstream iss(str);
+    std::string type;
+    std::string value;
+    std::getline(iss, type, ' ');
+    std::getline(iss, type, '(');
+    std::getline(iss, value, ')');
+    std::cout << type << "|" << value << std::endl;
+    IOperand const * operand = operandFactory_.createOperand(strToEnum_[type], value);
     std::cout << "push command" << std::endl;
 }
 
@@ -147,6 +147,13 @@ void AbstractVM::Dump(std::string const & str) {
 }
 
 void AbstractVM::Assert(std::string const & str) {
+    std::istringstream iss(str);
+    std::string type;
+    std::string value;
+    std::getline(iss, type, ' ');
+    std::getline(iss, type, '(');
+    std::getline(iss, value, ')');
+    std::cout << type << "|" << value << std::endl;
     std::cout << "assert command" << std::endl;
 }
 
