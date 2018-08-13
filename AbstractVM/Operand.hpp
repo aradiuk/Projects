@@ -9,7 +9,11 @@ class Operand : public IOperand {
     public:
         int getPrecision( void ) ;
         eOperandType getType( void );
+        T value_;
 
+        Operand(eOperandType type = Int8, T val = 0);
+        Operand(const Operand& obj);
+        Operand& operator=(const Operand& obj);
         IOperand const * operator+( IOperand const & rhs );
         IOperand const * operator-( IOperand const & rhs );
         IOperand const * operator*( IOperand const & rhs );
