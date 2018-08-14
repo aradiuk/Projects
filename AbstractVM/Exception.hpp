@@ -32,6 +32,9 @@ public:
     struct LessThenTwoValues: public std::exception {
         virtual const char * what() const throw();
     };
+    struct DifferentOperandTypes: public std::exception {
+        virtual const char * what() const throw();
+    };
 };
 
 #endif

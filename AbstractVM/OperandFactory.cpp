@@ -21,7 +21,7 @@ IOperand const * OperandFactory::createInt8(std::string const & val) const {
             throw Exceptions::ValueOverflow();
         } else {
             std::cout << "Creating int8 operand with value: " << value << std::endl;
-//            return (new Operand<Int8>(value));
+            return (new Operand<signed char>(Int8, value, val));
         }
     } catch (const Exceptions::ValueOverflow& e) {
         throw Exceptions::ValueOverflow();

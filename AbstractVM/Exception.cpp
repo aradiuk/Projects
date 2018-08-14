@@ -35,3 +35,7 @@ const char *Exceptions::AssertIsNotTrue::what() const throw() {
 const char *Exceptions::LessThenTwoValues::what() const throw() {
         return "ARITHMETIC INCTRUTION was used on less than TWO values";
 }
+
+const char *Exceptions::DifferentOperandTypes::what() const throw() {
+        return "Operands have DIFFERENT TYPES.";
+}

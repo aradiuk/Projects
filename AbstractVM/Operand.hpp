@@ -3,26 +3,82 @@
 
 #include "IOperand.hpp"
 #include "Exception.hpp"
+#include <sstream>
 
 template<class T>
 class Operand : public IOperand {
-    public:
-        int getPrecision( void ) ;
-        eOperandType getType( void );
+private:
         T value_;
+        eOperandType type_;
+        std::string strValue_;
 
-        Operand(eOperandType type = Int8, T val = 0);
-        Operand(const Operand& obj);
-        Operand& operator=(const Operand& obj);
-        IOperand const * operator+( IOperand const & rhs );
-        IOperand const * operator-( IOperand const & rhs );
-        IOperand const * operator*( IOperand const & rhs );
-        IOperand const * operator/( IOperand const & rhs );
-        IOperand const * operator%( IOperand const & rhs );
+public:
+        Operand(eOperandType type = Int8, T val = 0, std::string str ="") : type_(type), value_(val), strValue_(str) {};
+        Operand(const Operand& obj) {
+            if (type_ != obj.getType()) {
+                throw Exceptions::DifferentOperandTypes();
+            }
 
-        std::string const & toString( void );
+            std::stringstream ss;
+            type_ = obj.getType();
+            strValue_ = obj.toString();
+            ss << strValue_;
+            ss >> value_;
+        };
+        Operand& operator=(const Operand& obj) {
+            if (this == &obj)
+                return (*this);
 
-        virtual ~Operand();
+            if (type_ != obj.getType()) {
+                throw Exceptions::DifferentOperandTypes();
+            }
+
+            std::stringstream ss;
+            type_ = obj.getType();
+            strValue_ = obj.toString();
+            ss << strValue_;
+            ss >> value_;
+            return (*this);
+        };
+
+        IOperand const * operator+( IOperand const & rha ) const {
+            eOperandType resType = std::max(type_, rha.getType());
+
+        };
+
+        IOperand const * operator-( IOperand const & rha ) const {
+            eOperandType resType = std::max(type_, rha.getType());
+
+        };
+
+        IOperand const * operator*( IOperand const & rha ) const {
+            eOperandType resType = std::max(type_, rha.getType());
+
+        };
+
+        IOperand const * operator/( IOperand const & rha ) const {
+            eOperandType resType = std::max(type_, rha.getType());
+
+        };
+
+        IOperand const * operator%( IOperand const & rha ) const {
+            eOperandType resType = std::max(type_, rha.getType());
+
+        };
+
+        int getPrecision( void ) const {
+            return type_;
+        };
+
+        eOperandType getType( void ) const {
+            return type_;
+        };
+
+        std::string const & toString( void ) const {
+            return strValue_;
+        }
+
+        virtual ~Operand() {};
 };
 
 #endif // OPERAND_HPP
