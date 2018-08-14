@@ -43,27 +43,49 @@ public:
 
         IOperand const * operator+( IOperand const & rha ) const {
             eOperandType resType = std::max(type_, rha.getType());
-
+            std::stringstream ss(rha.toString());
+            long double rightValue;
+            ss >> rightValue;
+            long double resValue = value_ + rightValue;
+            // Create new operand
         };
 
         IOperand const * operator-( IOperand const & rha ) const {
             eOperandType resType = std::max(type_, rha.getType());
-
+            std::stringstream ss(rha.toString());
+            long double rightValue;
+            ss >> rightValue;
+            long double resValue = value_ - rightValue;
+            // Create new operand
         };
 
         IOperand const * operator*( IOperand const & rha ) const {
             eOperandType resType = std::max(type_, rha.getType());
-
+            std::stringstream ss(rha.toString());
+            long double rightValue;
+            ss >> rightValue;
+            long double resValue = value_ * rightValue;
+            // Create new operand
         };
 
         IOperand const * operator/( IOperand const & rha ) const {
             eOperandType resType = std::max(type_, rha.getType());
-
+            std::stringstream ss(rha.toString());
+            long double rightValue;
+            ss >> rightValue;
+            long double resValue = value_ + rightValue;
+            // Add exception about division by zero
+            // Create new operand
         };
 
         IOperand const * operator%( IOperand const & rha ) const {
             eOperandType resType = std::max(type_, rha.getType());
-
+            std::stringstream ss(rha.toString());
+            long double rightValue;
+            ss >> rightValue;
+            long double resValue = value_ + rightValue;
+            // Add exception about division by zero
+            // Create new operand
         };
 
         int getPrecision( void ) const {
