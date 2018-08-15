@@ -47,7 +47,9 @@ public:
             long double rightValue;
             ss >> rightValue;
             long double resValue = value_ + rightValue;
-            // Create new operand
+            std::stringstream resSs;
+            resSs << resValue;
+            return (new Operand<T>(resType, resValue, resSs.str()));
         };
 
         IOperand const * operator-( IOperand const & rha ) const {
@@ -56,8 +58,9 @@ public:
             long double rightValue;
             ss >> rightValue;
             long double resValue = value_ - rightValue;
-            // Create new operand
-        };
+            std::stringstream resSs;
+            resSs << resValue;
+            return (new Operand<T>(resType, resValue, resSs.str()));        };
 
         IOperand const * operator*( IOperand const & rha ) const {
             eOperandType resType = std::max(type_, rha.getType());
@@ -65,8 +68,9 @@ public:
             long double rightValue;
             ss >> rightValue;
             long double resValue = value_ * rightValue;
-            // Create new operand
-        };
+            std::stringstream resSs;
+            resSs << resValue;
+            return (new Operand<T>(resType, resValue, resSs.str()));        };
 
         IOperand const * operator/( IOperand const & rha ) const {
             eOperandType resType = std::max(type_, rha.getType());
@@ -74,9 +78,12 @@ public:
             long double rightValue;
             ss >> rightValue;
             long double resValue = value_ + rightValue;
-            // Add exception about division by zero
-            // Create new operand
-        };
+            if (rightValue == 0) {
+                throw Exceptions::DivisionByZero();
+            }
+            std::stringstream resSs;
+            resSs << resValue;
+            return (new Operand<T>(resType, resValue, resSs.str()));        };
 
         IOperand const * operator%( IOperand const & rha ) const {
             eOperandType resType = std::max(type_, rha.getType());
@@ -84,9 +91,12 @@ public:
             long double rightValue;
             ss >> rightValue;
             long double resValue = value_ + rightValue;
-            // Add exception about division by zero
-            // Create new operand
-        };
+            if (rightValue == 0) {
+                throw Exceptions::DivisionByZero();
+            }
+            std::stringstream resSs;
+            resSs << resValue;
+            return (new Operand<T>(resType, resValue, resSs.str()));        };
 
         int getPrecision( void ) const {
             return type_;

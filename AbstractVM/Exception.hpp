@@ -20,13 +20,19 @@ public:
     struct PopOnEmptyStack: public std::exception {
         virtual const char * what() const throw();
     };
+    struct AssertOnEmptyStack: public std::exception {
+        virtual const char * what() const throw();
+    };
     struct DivisionByZero: public std::exception {
         virtual const char * what() const throw();
     };
     struct NoExitInstruction: public std::exception {
         virtual const char * what() const throw();
     };
-    struct AssertIsNotTrue: public std::exception {
+    struct AssertDifferentTypes: public std::exception {
+        virtual const char * what() const throw();
+    };
+    struct AssertDifferentValues: public std::exception {
         virtual const char * what() const throw();
     };
     struct LessThenTwoValues: public std::exception {

@@ -135,18 +135,31 @@ void AbstractVM::Push(std::string const & str) {
     std::getline(iss, value, ')');
     std::cout << type << "|" << value << std::endl;
     IOperand const * operand = operandFactory_.createOperand(strToEnum_[type], value);
+    stack_.push_back(operand);
     std::cout << "push command" << std::endl;
 }
 
 void AbstractVM::Pop(std::string const & str) {
-    std::cout << "pop command" << std::endl;
+    if (stack_.empty()) {
+        throw Exceptions::PopOnEmptyStack();
+    }
+    IOperand const *lastElement = stack_.back();
+    stack_.pop_back();
+    delete lastElement;
+    std::cout << "pop command, size: " << stack_.size() << std::endl;
 }
 
 void AbstractVM::Dump(std::string const & str) {
     std::cout << "dump command" << std::endl;
+    for (std::vector<IOperand const *>::reverse_iterator it = stack_.rbegin(); it != stack_.rend(); ++it) {
+        std::cout << (*it)->toString()  << std::endl;
+    }
 }
 
 void AbstractVM::Assert(std::string const & str) {
+    if (stack_.empty()) {
+        throw Exceptions::AssertOnEmptyStack();
+    }
     std::istringstream iss(str);
     std::string type;
     std::string value;
@@ -154,26 +167,54 @@ void AbstractVM::Assert(std::string const & str) {
     std::getline(iss, type, '(');
     std::getline(iss, value, ')');
     std::cout << type << "|" << value << std::endl;
+    if (strToEnum_[type] != stack_.back()->getType()) {
+        throw Exceptions::AssertDifferentTypes();
+    }
+    if (value != stack_.back()->toString()) {
+        throw Exceptions::AssertDifferentValues();
+    }
     std::cout << "assert command" << std::endl;
 }
 
 void AbstractVM::Add(std::string const & str) {
-    std::cout << "add command" << std::endl;
+    if (stack_.size() < 2) {
+        throw Exceptions::LessThenTwoValues();
+    }
+    IOperand const *v1 = stack_.back();
+    IOperand const *v2 = stack_.rbegin()[1];
+    std::cout << "add command. " << v2->toString() << " + " << v1->toString() << std::endl;
+    IOperand const *result = *v2 + *v1;
+    Pop("");
+    Pop("");
+    stack_.push_back(result);
+    std::cout << "result: " << result->toString();
 }
 
 void AbstractVM::Sub(std::string const & str) {
+    if (stack_.size() < 2) {
+        throw Exceptions::LessThenTwoValues();
+    }
     std::cout << "sub command" << std::endl;
 }
 
 void AbstractVM::Mul(std::string const & str) {
+    if (stack_.size() < 2) {
+        throw Exceptions::LessThenTwoValues();
+    }
     std::cout << "mul command" << std::endl;
 }
 
 void AbstractVM::Div(std::string const & str) {
+    if (stack_.size() < 2) {
+        throw Exceptions::LessThenTwoValues();
+    }
     std::cout << "div command" << std::endl;
 }
 
 void AbstractVM::Mod(std::string const & str) {
+    if (stack_.size() < 2) {
+        throw Exceptions::LessThenTwoValues();
+    }
     std::cout << "mod command" << std::endl;
 }
 

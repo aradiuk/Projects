@@ -14,7 +14,7 @@
 class AbstractVM {
     private:
         std::vector<std::string> commands_;
-        std::vector<IOperand *> stack_;
+        std::vector<IOperand const *> stack_;
         int lineCount_;
         std::vector<std::regex> allowedCommands_ = {
                 std::regex("^push\\s(((int8|int16|int32)\\([-]?\\d+\\))|((float|double)\\([-]?\\d+\\.\\d+\\)))[\\s\\t]*((?=;+);.*|)"),
