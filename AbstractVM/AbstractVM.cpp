@@ -194,28 +194,52 @@ void AbstractVM::Sub(std::string const & str) {
     if (stack_.size() < 2) {
         throw Exceptions::LessThenTwoValues();
     }
-    std::cout << "sub command" << std::endl;
+    IOperand const *v1 = stack_.back();
+    IOperand const *v2 = stack_.rbegin()[1];
+    std::cout << "sub command. " << v2->toString() << " - " << v1->toString() << std::endl;
+    IOperand const *result = *v2 - *v1;
+    Pop("");
+    Pop("");
+    stack_.push_back(result);
 }
 
 void AbstractVM::Mul(std::string const & str) {
     if (stack_.size() < 2) {
         throw Exceptions::LessThenTwoValues();
     }
-    std::cout << "mul command" << std::endl;
+    IOperand const *v1 = stack_.back();
+    IOperand const *v2 = stack_.rbegin()[1];
+    std::cout << "mul command. " << v2->toString() << " * " << v1->toString() << std::endl;
+    IOperand const *result = *v2 * *v1;
+    Pop("");
+    Pop("");
+    stack_.push_back(result);
 }
 
 void AbstractVM::Div(std::string const & str) {
     if (stack_.size() < 2) {
         throw Exceptions::LessThenTwoValues();
     }
-    std::cout << "div command" << std::endl;
+    IOperand const *v1 = stack_.back();
+    IOperand const *v2 = stack_.rbegin()[1];
+    std::cout << "div command. " << v2->toString() << " / " << v1->toString() << std::endl;
+    IOperand const *result = *v2 / *v1;
+    Pop("");
+    Pop("");
+    stack_.push_back(result);
 }
 
 void AbstractVM::Mod(std::string const & str) {
     if (stack_.size() < 2) {
         throw Exceptions::LessThenTwoValues();
     }
-    std::cout << "mod command" << std::endl;
+    IOperand const *v1 = stack_.back();
+    IOperand const *v2 = stack_.rbegin()[1];
+    std::cout << "mod command. " << v2->toString() << " % " << v1->toString() << std::endl;
+    IOperand const *result = *v2 % *v1;
+    Pop("");
+    Pop("");
+    stack_.push_back(result);
 }
 
 void AbstractVM::Print(std::string const & str) {

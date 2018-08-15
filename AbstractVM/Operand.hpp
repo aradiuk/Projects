@@ -77,10 +77,10 @@ public:
             std::stringstream ss(rha.toString());
             long double rightValue;
             ss >> rightValue;
-            long double resValue = value_ + rightValue;
             if (rightValue == 0) {
                 throw Exceptions::DivisionByZero();
             }
+            long double resValue = value_ / rightValue;
             std::stringstream resSs;
             resSs << resValue;
             return (new Operand<T>(resType, resValue, resSs.str()));        };
@@ -90,10 +90,10 @@ public:
             std::stringstream ss(rha.toString());
             long double rightValue;
             ss >> rightValue;
-            long double resValue = value_ + rightValue;
             if (rightValue == 0) {
                 throw Exceptions::DivisionByZero();
             }
+            long double resValue = value_ / rightValue; // CHANGE TO MODULO
             std::stringstream resSs;
             resSs << resValue;
             return (new Operand<T>(resType, resValue, resSs.str()));        };
