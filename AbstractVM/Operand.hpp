@@ -4,6 +4,7 @@
 #include "IOperand.hpp"
 #include "Exception.hpp"
 #include <sstream>
+#include <cmath>
 
 template<class T>
 class Operand : public IOperand {
@@ -48,7 +49,7 @@ public:
             ss >> rightValue;
             long double resValue = value_ + rightValue;
             std::stringstream resSs;
-            resSs << resValue;
+            resSs << static_cast<T>(resValue);
             return (new Operand<T>(resType, resValue, resSs.str()));
         };
 
@@ -59,7 +60,7 @@ public:
             ss >> rightValue;
             long double resValue = value_ - rightValue;
             std::stringstream resSs;
-            resSs << resValue;
+            resSs << static_cast<T>(resValue);
             return (new Operand<T>(resType, resValue, resSs.str()));        };
 
         IOperand const * operator*( IOperand const & rha ) const {
@@ -69,7 +70,7 @@ public:
             ss >> rightValue;
             long double resValue = value_ * rightValue;
             std::stringstream resSs;
-            resSs << resValue;
+            resSs << static_cast<T>(resValue);
             return (new Operand<T>(resType, resValue, resSs.str()));        };
 
         IOperand const * operator/( IOperand const & rha ) const {
@@ -82,7 +83,7 @@ public:
             }
             long double resValue = value_ / rightValue;
             std::stringstream resSs;
-            resSs << resValue;
+            resSs << static_cast<T>(resValue);
             return (new Operand<T>(resType, resValue, resSs.str()));        };
 
         IOperand const * operator%( IOperand const & rha ) const {
@@ -93,9 +94,9 @@ public:
             if (rightValue == 0) {
                 throw Exceptions::DivisionByZero();
             }
-            long double resValue = value_ / rightValue; // CHANGE TO MODULO
+            long double resValue = std::fmod(value_, rightValue); // CHANGE TO MODULO
             std::stringstream resSs;
-            resSs << resValue;
+            resSs << static_cast<T>(resValue);
             return (new Operand<T>(resType, resValue, resSs.str()));        };
 
         int getPrecision( void ) const {

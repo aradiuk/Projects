@@ -41,7 +41,7 @@ IOperand const * OperandFactory::createInt16(std::string const & val) const {
             throw Exceptions::ValueOverflow();
         } else {
             std::cout << "Creating int16 operand with value: " << value << std::endl;
-//            return (new Operand<Int16>(value));
+            return (new Operand<short>(Int16, value, val));
         }
     } catch (const Exceptions::ValueOverflow& e) {
         throw Exceptions::ValueOverflow();
@@ -61,7 +61,7 @@ IOperand const * OperandFactory::createInt32(std::string const & val) const {
             throw Exceptions::ValueOverflow();
         } else {
             std::cout << "Creating int32 operand with value: " << value << std::endl;
-//            return (new Operand<Int32>(value));
+            return (new Operand<int>(Int32, value, val));
         }
     } catch (const Exceptions::ValueOverflow& e) {
         throw Exceptions::ValueOverflow();
@@ -81,7 +81,7 @@ IOperand const * OperandFactory::createFloat(std::string const & val) const {
             throw Exceptions::ValueOverflow();
         } else {
             std::cout << "Creating float operand with value: " << value << std::endl;
-//            return (new Operand<Float>(value));
+            return (new Operand<float>(Float, value, val));
         }
     } catch (const Exceptions::ValueOverflow& e) {
         throw Exceptions::ValueOverflow();
@@ -101,7 +101,7 @@ IOperand const * OperandFactory::createDouble(std::string const & val) const {
             throw Exceptions::ValueOverflow();
         } else {
             std::cout << "Creating double operand with value: " << value << std::endl;
-//            return (new Operand<Double>(value));
+            return (new Operand<double>(Double, value, val));
         }
     } catch (const Exceptions::ValueOverflow& e) {
         throw Exceptions::ValueOverflow();

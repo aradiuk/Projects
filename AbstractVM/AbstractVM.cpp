@@ -100,7 +100,7 @@ void AbstractVM::ValidateLine(std::string str) {
     for (std::vector<std::regex>::iterator it = allowedCommands_.begin(); it != allowedCommands_.end(); it++) {
         if (std::regex_match(str, *it)) {
             if ((it - allowedCommands_.begin()) == 10)
-                return;
+                return ;
             commands_.push_back(str);
             ProcessCommand(str, it - allowedCommands_.begin());
             return ;
