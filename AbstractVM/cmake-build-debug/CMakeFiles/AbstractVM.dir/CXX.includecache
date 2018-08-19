@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/AbstractVM/Exception.hpp
+exception
+-
+stdexcept
+-
+
+/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/AbstractVM/IOperand.hpp
+string
+-
+iostream
+-
+
+/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/AbstractVM/OperandFactory.hpp
+cstdint
+-
+sstream
+-
+IOperand.hpp
+-
+Exception.hpp
+/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/AbstractVM/Exception.hpp
+
+/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/AbstractVM/Parser.cpp
+Parser.hpp
+/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/AbstractVM/Parser.hpp
+
+/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/AbstractVM/Parser.hpp
+iostream
+-
+vector
+-
+regex
+-
+OperandFactory.hpp
+/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/AbstractVM/OperandFactory.hpp
+IOperand.hpp
+/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/AbstractVM/IOperand.hpp
+

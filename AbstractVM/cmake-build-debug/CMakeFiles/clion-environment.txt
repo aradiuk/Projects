@@ -1,0 +1,4 @@
+ToolSet: 2.10.0@C:\Users\aradiuk\Downloads\cygwin
+Options: 
+
+Options:-DCMAKE_MAKE_PROGRAM=C:/Users/aradiuk/Downloads/cygwin/bin/make.exe

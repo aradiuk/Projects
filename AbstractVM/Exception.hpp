@@ -2,6 +2,7 @@
 #define EXCEPTION_HPP
 
 #include <exception>
+#include <stdexcept>
 
 class Exceptions {
 public:
@@ -11,7 +12,7 @@ public:
     struct UnknownInstruction: public std::exception {
         virtual const char * what() const throw();
     };
-    struct ValueOverflow: public std::exception {
+    struct ValueOverflow: public std::exception  {
         virtual const char * what() const throw();
     };
     struct ValueUnderflow: public std::exception {

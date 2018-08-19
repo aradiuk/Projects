@@ -5,6 +5,9 @@
 #include "Exception.hpp"
 #include <sstream>
 #include <cmath>
+#include "OperandFactory.hpp"
+#include <limits>
+#include <iomanip>
 
 template<class T>
 class Operand : public IOperand {
@@ -49,9 +52,9 @@ public:
             ss >> rightValue;
             long double resValue = value_ + rightValue;
             std::stringstream resSs;
-            resSs << static_cast<T>(resValue);
-            return (new Operand<T>(resType, resValue, resSs.str()));
-        };
+            resSs << std::setprecision(std::numeric_limits<double>::digits10 + 1) << resValue;
+            return (OperandFactory::getInstance()->createOperand(resType, resSs.str()));
+        }
 
         IOperand const * operator-( IOperand const & rha ) const {
             eOperandType resType = std::max(type_, rha.getType());
@@ -60,8 +63,9 @@ public:
             ss >> rightValue;
             long double resValue = value_ - rightValue;
             std::stringstream resSs;
-            resSs << static_cast<T>(resValue);
-            return (new Operand<T>(resType, resValue, resSs.str()));        };
+            resSs << std::setprecision(std::numeric_limits<double>::digits10 + 1) << resValue;
+            return (OperandFactory::getInstance()->createOperand(resType, resSs.str()));
+        }
 
         IOperand const * operator*( IOperand const & rha ) const {
             eOperandType resType = std::max(type_, rha.getType());
@@ -70,21 +74,23 @@ public:
             ss >> rightValue;
             long double resValue = value_ * rightValue;
             std::stringstream resSs;
-            resSs << static_cast<T>(resValue);
-            return (new Operand<T>(resType, resValue, resSs.str()));        };
+            resSs << std::setprecision(std::numeric_limits<double>::digits10 + 1) << resValue;
+            return (OperandFactory::getInstance()->createOperand(resType, resSs.str()));
+        }
 
         IOperand const * operator/( IOperand const & rha ) const {
             eOperandType resType = std::max(type_, rha.getType());
             std::stringstream ss(rha.toString());
             long double rightValue;
             ss >> rightValue;
-            if (rightValue == 0) {
-                throw Exceptions::DivisionByZero();
-            }
+//            if (rightValue == 0) {
+//                throw Exceptions::DivisionByZero();
+//            }
             long double resValue = value_ / rightValue;
             std::stringstream resSs;
-            resSs << static_cast<T>(resValue);
-            return (new Operand<T>(resType, resValue, resSs.str()));        };
+            resSs << std::setprecision(std::numeric_limits<double>::digits10 + 1) << resValue;
+            return (OperandFactory::getInstance()->createOperand(resType, resSs.str()));
+        }
 
         IOperand const * operator%( IOperand const & rha ) const {
             eOperandType resType = std::max(type_, rha.getType());
@@ -94,10 +100,12 @@ public:
             if (rightValue == 0) {
                 throw Exceptions::DivisionByZero();
             }
-            long double resValue = std::fmod(value_, rightValue); // CHANGE TO MODULO
+            long double resValue = std::fmod(value_, rightValue);
             std::stringstream resSs;
-            resSs << static_cast<T>(resValue);
-            return (new Operand<T>(resType, resValue, resSs.str()));        };
+            resSs << std::setprecision(std::numeric_limits<double>::digits10 + 1) << resValue;
+            std::cout << resSs.str() << std::endl;
+            return (OperandFactory::getInstance()->createOperand(resType, resSs.str()));
+        }
 
         int getPrecision( void ) const {
             return type_;
