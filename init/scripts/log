@@ -1,0 +1,29 @@
+Hit:1 http://ua.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://ua.archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]
+Get:3 http://ua.archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]
+Hit:4 http://ppa.launchpad.net/webupd8team/atom/ubuntu xenial InRelease
+Get:5 http://security.ubuntu.com/ubuntu xenial-security InRelease [107 kB]
+Hit:6 http://ppa.launchpad.net/webupd8team/java/ubuntu xenial InRelease
+Err:7 http://il-edge-builder1/debrepo/host/precise-tools/ubuntu precise/i386/ InRelease
+  Could not connect to il-edge-builder1:80 (10.40.1.185), connection timed out
+Err:8 http://il-edge-builder1/debrepo/host/precise-tools/ubuntu precise/all/ InRelease
+  Unable to connect to il-edge-builder1:http:
+Err:9 http://il-edge-builder1/debrepo/host/precise-tools/ubuntu precise/source/ InRelease
+  Unable to connect to il-edge-builder1:http:
+Err:10 http://il-edge-builder7/~bpedos/cos-tests ./ InRelease
+  Could not connect to il-edge-builder7:80 (10.40.1.189), connection timed out
+Fetched 323 kB in 2min 0s (2 686 B/s)
+Reading package lists...
+bglib2.0-0 libglib2.0-bin libglib2.0-data libnux-4.0-0
+  libnux-4.0-common libpam-systemd libreoffice-avmedia-backend-gstreamer
+  libreoffice-base-core libreoffice-calc libreoffice-common libreoffice-core
+  libreoffice-draw libreoffice-gnome libreoffice-gtk libreoffice-impress
+  libreoffice-math libreoffice-ogltrans libreoffice-pdfimport
+  libreoffice-style-breeze libreoffice-style-galaxy libreoffice-writer
+  libsystemd0 libudev-dev libudev1 nux-tools python3-uno squashfs-tools
+  systemd systemd-sysv udev uno-libs3 ure x11-common xorg xserver-common
+36 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 81,5 MB of archives.
+After this operation, 9 216 B of additional disk space will be used.
+Do you want to continue? [Y/n] Abort.
+hey

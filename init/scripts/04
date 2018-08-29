@@ -1,0 +1,19 @@
+if [[ ! -f /etc/crontabsum ]];then
+    cat /etc/crontab | md5sum > crontabsum
+    sudo mv crontabsum /etc/crontabsum
+    exit
+fi
+
+old=`cat /etc/crontabsum`
+new=`cat /etc/crontab | md5sum`
+
+    
+if [[ $old != $new ]]; then
+    $new > /etc/crontabsum
+    mail -s "The crontab has been modified" root
+fi
+
+chmod 755 04
+sudo cp 04 /etc/cron.daily/check_crontab.sh
+echo "0 0 * * * root /etc/cron.daily/check_crontab.sh" | crontab
+crontab -l

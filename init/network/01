@@ -1,0 +1,2 @@
+ip link show | grep ^[0-9] | cut -d : -f 2
+ifconfig -s | grep -v Iface | awk '{print $1}'
