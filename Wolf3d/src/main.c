@@ -19,19 +19,7 @@ void    starting_parameters(t_env *env)
 	env->rayc.old_time = 0;
 }
 
-
-void    create_the_environment(t_env *env)
-{
-    env->mlx = mlx_init();
-    env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, "Wolf3d");
-    mlx_expose_hook(env->win, expose, env);
-    mlx_hook(env->win, 17, 1L << 17, cross_exit, env);
-    mlx_hook(env->win, 6, 1L << 6, mouse_rotation, env);
-    mlx_hook(env->win, 2, 1L << 2, keyhooks, env);
-    mlx_loop(env->mlx);
-}
-
-int main(int argc, char **argv) {
+int 	main(int argc, char **argv) {
 
     if (argc != 1)
     {
@@ -40,10 +28,9 @@ int main(int argc, char **argv) {
     }
 
     t_env env;
-
     starting_parameters(&env);
     read_map(&env);
-//    create_the_environment(&env);
+	create_the_environment(&env);
 
     return 0;
 }

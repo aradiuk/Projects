@@ -34,7 +34,7 @@ typedef struct		s_list_g
 }					t_list_g;
 
 int					get_next_line(const int fd, char **line);
-void				connect(char **line, t_read *text, int inter,
+void				connect1(char **line, t_read *text, int inter,
 							char *line_save);
 void				read_buf(char **line, t_read *text, int fd, int *ret_val);
 int					buf_inter(t_read *text, int *inter);

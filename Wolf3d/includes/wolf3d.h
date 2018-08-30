@@ -48,8 +48,8 @@ typedef struct	s_rayc
 
 typedef struct	s_env
 {
-    void   		*mlx;
-    void    	*win;
+    void		*mlx;
+    void		*win;
     t_img		img;
     char		*data;
     char		*name;

@@ -26,12 +26,12 @@ INC =	-I includes/ \
 OBJ_FILES = $(SRC_FILES:.c=.o)
 OBJ = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
-GCC = gcc -Wall -Werror -Wextra
+GCC = gcc #-Wall -Werror -Wextra
 
 all: $(NAME)
 
 $(NAME): $(OBJ) ./libft/libft.a
-	$(GCC) $(OBJ) -L./libft/ -lft -L./libmlx -lmlx -lm -lXext -lX11 -o $(NAME)
+	$(GCC) $(OBJ) -L./libmlx -lmlx -L./libft/ -lft -lm -lXext -lX11 -o $(NAME)
 
 ./libft/libft.a:
 	make -C libft

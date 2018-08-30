@@ -71,17 +71,17 @@ void		read_buf(char **line, t_read *text, int fd, int *ret_val)
 		free(*line);
 		if (buf_inter(text, &inter) != -1)
 		{
-			connect(line, text, inter, line_save);
+			connect1(line, text, inter, line_save);
 			break ;
 		}
 		else
-			connect(line, text, -1, line_save);
+			connect1(line, text, -1, line_save);
 	}
 	if (text->end == -1)
 		*ret_val = -1;
 }
 
-void		connect(char **line, t_read *text, int inter, char *line_save)
+void		connect1(char **line, t_read *text, int inter, char *line_save)
 {
 	char *temp;
 

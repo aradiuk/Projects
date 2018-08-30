@@ -6,6 +6,17 @@ int		expose(t_env *env)
 	return (0);
 }
 
+void    create_the_environment(t_env *env)
+{
+	env->mlx = mlx_init();
+	env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, "Wolf3d");
+	mlx_expose_hook(env->win, expose, env);
+	mlx_hook(env->win, 17, 1L << 17, cross_exit, env);
+	mlx_hook(env->win, 6, 1L << 6, mouse_rotation, env);
+	mlx_hook(env->win, 2, 1L << 2, keyhooks, env);
+	mlx_loop(env->mlx);
+}
+
 void	create_image(t_env *env)
 {
 	env->img.img = mlx_new_image(env->mlx, WIDTH, HEIGHT);
