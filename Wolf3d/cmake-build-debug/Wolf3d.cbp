@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Wolf3d"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Wolf3d">
+				<Option output="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Wolf3d.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/libft/includes,"/>
+					<Add directory="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/includes,"/>
+					<Add directory="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 Wolf3d"/>
+					<CompileFile command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Wolf3d/fast">
+				<Option output="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Wolf3d.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/libft/includes,"/>
+					<Add directory="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/includes,"/>
+					<Add directory="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 Wolf3d/fast"/>
+					<CompileFile command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/aradiuk/Desktop/Shared\ folder/AbstractVM/Projects/Wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/includes/wolf3d.h">
+			<Option target="Wolf3d"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/libft/includes/libft.h">
+			<Option target="Wolf3d"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/src/environment.c">
+			<Option target="Wolf3d"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/src/keyhooks.c">
+			<Option target="Wolf3d"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/src/main.c">
+			<Option target="Wolf3d"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/src/map_reading.c">
+			<Option target="Wolf3d"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/src/raycasting.c">
+			<Option target="Wolf3d"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
