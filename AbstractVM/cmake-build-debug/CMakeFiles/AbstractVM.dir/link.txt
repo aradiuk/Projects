@@ -1,1 +1,0 @@
-/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/AbstractVM.dir/Exception.cpp.o CMakeFiles/AbstractVM.dir/main.cpp.o CMakeFiles/AbstractVM.dir/OperandFactory.cpp.o CMakeFiles/AbstractVM.dir/Lexer.cpp.o CMakeFiles/AbstractVM.dir/Parser.cpp.o  -o AbstractVM.exe -Wl,--out-implib,libAbstractVM.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
