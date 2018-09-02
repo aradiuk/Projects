@@ -1,4 +1,0 @@
-C:\Users\aradiuk\.CLion2018.2\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/Users/aradiuk/Downloads/cygwin/bin/make.exe -G "CodeBlocks - Unix Makefiles" "/cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d"
--- Configuring done
--- Generating done
--- Build files have been written to: /cygdrive/c/Users/aradiuk/Desktop/Shared folder/AbstractVM/Projects/Wolf3d/cmake-build-debug

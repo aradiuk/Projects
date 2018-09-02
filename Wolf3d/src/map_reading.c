@@ -24,7 +24,6 @@ void	get_map_dimensions(int fd, t_env *env)
 	if (env->map.y_dim < 3 || env->map.y_dim > 199)
 		error("y dimension is out of range");
 	free(free_line);
-	printf("%d %d\n", env->map.x_dim, env->map.y_dim);
 }
 
 void	validate_line(char *line, t_env *env, int line_num)
@@ -75,9 +74,6 @@ void	get_map(int fd, t_env *env)
 		free(line);
 		error("map has too many lines");
 	}
-	i = 0;
-	while (env->map.map[i] != 0)
-		printf("%s\n", env->map.map[i++]);
 }
 
 void	read_map(t_env *env)

@@ -1,1 +1,0 @@
-/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/Wolf3d.dir/src/main.c.o CMakeFiles/Wolf3d.dir/src/keyhooks.c.o CMakeFiles/Wolf3d.dir/src/map_reading.c.o CMakeFiles/Wolf3d.dir/src/environment.c.o CMakeFiles/Wolf3d.dir/src/raycasting.c.o  -o Wolf3d.exe -Wl,--out-implib,libWolf3d.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
