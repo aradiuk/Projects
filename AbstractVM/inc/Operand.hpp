@@ -83,9 +83,9 @@ public:
             std::stringstream ss(rha.toString());
             long double rightValue;
             ss >> rightValue;
-//            if (rightValue == 0) {
-//                throw Exceptions::DivisionByZero();
-//            }
+            if (rightValue == 0) {
+                throw Exceptions::DivisionByZero();
+            }
             long double resValue = value_ / rightValue;
             std::stringstream resSs;
             resSs << std::setprecision(std::numeric_limits<double>::digits10 + 1) << resValue;
@@ -103,7 +103,6 @@ public:
             long double resValue = std::fmod(value_, rightValue);
             std::stringstream resSs;
             resSs << std::setprecision(std::numeric_limits<double>::digits10 + 1) << resValue;
-            std::cout << resSs.str() << std::endl;
             return (OperandFactory::getInstance()->createOperand(resType, resSs.str()));
         }
 
