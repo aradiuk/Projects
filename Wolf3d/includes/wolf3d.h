@@ -45,6 +45,8 @@ typedef struct	s_cast
 	t_entity	ray;
 	t_vec		side_dist;
 	t_vec		delta_dist;
+	t_vec		map;
+	t_vec		step;
 	double		time;
 	double		old_time;
 
@@ -59,6 +61,8 @@ typedef struct	s_env
     t_map		map;
     t_cast		cast;
 	t_entity	player;
+	double		x;
+	double		y;
 }               t_env;
 
 	/* Main */
@@ -80,14 +84,19 @@ int		mouse_rotation(int x, int y, t_env *env);
 	/*	Environment */
 int		expose(t_env *env);
 void	create_image(t_env *env);
-void	fill_image(t_env *env);
 
     /*  Vectors */
 t_vec create_vec(double x, double y);
 
 
 	/*	castasting	*/
-void	ipp_fill(t_env *env, int x, int y, int color);
-int		raycast(t_env *env, int x, int y);
+int		raycast(t_env *env);
+void	init_geom(t_env *env);
+void	calculate_step(t_env *env);
+
+	/*	Image	*/
+void	ipp_fill(t_env *env, int color);
+void	fill_image(t_env *env);
+
 
 #endif 

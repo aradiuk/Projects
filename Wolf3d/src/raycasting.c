@@ -1,47 +1,53 @@
 #include "../includes/wolf3d.h"
 
-void	ipp_fill(t_env *env, int x, int y, int color)
+void	init_geom(t_env *env)
 {
-	*((int *)(env->img.ipp + x * env->img.bpp / 8 +
-			  y * env->img.sizeline)) = color;
-}
+	t_cast	*cast;
+	double	cam_x;
 
-int		raycast(t_env *env, int x, int y)
-{
-	t_cast	*cast = &env->cast;
-	double	cam_x = 2 * x / (double)WIDTH - 1;
+	cast = &env->cast;
+	cam_x = 2 * env->x / (double)WIDTH - 1;
+
+	cast->ray.pos.x = env->player.pos.x;
+	cast->ray.pos.y = env->player.pos.y;
 	cast->ray.dir.x = env->player.dir.x + cast->plane.x * cam_x;
 	cast->ray.dir.y = env->player.dir.y + cast->plane.y * cam_x;
-
-	int map_x = (int)env->player.pos.x;
-	int map_y = (int)env->player.pos.y;
-
+	cast->map.x = (int)env->player.pos.x;
+	cast->map.y = (int)env->player.pos.y;
 	cast->delta_dist.x = fabs(1 / cast->ray.dir.x);
 	cast->delta_dist.y = fabs(1 / cast->ray.dir.y);
+}
 
-	int	step_x;
-	int step_y;
+void	calculate_step(t_env *env)
+{
+	t_cast	*cast;
+
+	cast = &env->cast;
 	if (cast->ray.dir.x < 0)
 	{
-		step_x = -1;
+		cast->step.x = -1;
 		cast->side_dist.x = (env->player.pos.x - map_x) * cast->delta_dist.x;
 	}
 	else
 	{
-		step_x = 1;
+		cast->step.x = 1;
 		cast->side_dist.x = (map_x + 1.0 - env->player.pos.x) * cast->delta_dist.x;
 	}
 	if (cast->ray.dir.y < 0)
 	{
-		step_y = -1;
+		cast->step.y = -1;
 		cast->side_dist.y = (env->player.pos.y - map_y) * cast->delta_dist.y;
 	}
 	else
 	{
-		step_y = 1;
+		cast->step.y = 1;
 		cast->side_dist.y = (map_y + 1.0 - env->player.pos.y) *
-				cast->delta_dist.y;
+							cast->delta_dist.y;
 	}
+}
+
+int		raycast(t_env *env)
+{
 
 	int hit = 0;
 	int side;
@@ -66,20 +72,4 @@ int		raycast(t_env *env, int x, int y)
 		return (0);
 	}
 	return (1073741822);
-}
-
-void	fill_image(t_env *env)
-{
-	int x;
-	int y;
-
-	y = -1;
-	while (++y < HEIGHT)
-	{
-		x = -1;
-		while (++x < WIDTH)
-		{
-			ipp_fill(env, x, y, raycast(env, x, y));
-		}
-	}
 }
