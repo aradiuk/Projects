@@ -1,1 +1,1 @@
-nmcli dev show | grep DNS
+nslookup slash16.org | grep Server | awk '{print $2}'

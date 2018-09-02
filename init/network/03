@@ -1,1 +1,1 @@
-ifconfig | grep Ethernet | awk '{print }'
+ifconfig en0 | grep ether | head -n 1 | awk '{print $2}'

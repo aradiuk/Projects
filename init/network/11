@@ -1,0 +1,8 @@
+# You can find a list of devices the information passes trouth by typing: traceroute slash16.org.
+# The first record there will be the device that makes link between us and the outside world.
+# Name (IP)
+
+traceroute slash16.org | grep '^ 1'
+
+178.214.196.33 (178.214.196.33)  0.861 ms  0.555 ms  0.554 ms
+

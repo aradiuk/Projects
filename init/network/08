@@ -1,0 +1,3 @@
+#Using nslookup slash16.org we can find the adrress of the site. And then writing 'whois <IP>' we can find the 'organisation' behind it.
+
+whois `nslookup slash16.org | grep Address | tail -n 1 | awk '{print $2}'` | grep -i organization
