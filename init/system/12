@@ -1,1 +1,1 @@
-echo "du -h /var OR du -sh /var"
+sudo du -sh /var/*
