@@ -27,6 +27,12 @@ typedef struct	s_map
 	char **map;
 }				t_map;
 
+typedef struct  s_i_vec
+{
+    int x;
+    int y;
+}               t_i_vec;
+
 typedef struct 	s_vec
 {
 	double	x;
@@ -45,8 +51,8 @@ typedef struct	s_cast
 	t_entity	ray;
 	t_vec		side_dist;
 	t_vec		delta_dist;
-	t_vec		map;
-	t_vec		step;
+	t_i_vec 	map;
+	t_i_vec		step;
 	double		time;
 	double		old_time;
 
@@ -86,7 +92,8 @@ int		expose(t_env *env);
 void	create_image(t_env *env);
 
     /*  Vectors */
-t_vec create_vec(double x, double y);
+t_i_vec create_i_vec(int x, int y);
+t_vec   create_vec(double x, double y);
 
 
 	/*	castasting	*/

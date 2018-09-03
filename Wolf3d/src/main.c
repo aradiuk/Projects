@@ -12,6 +12,8 @@ void    starting_parameters(t_env *env)
 	env->player.pos = create_vec(3, 3);
 	env->player.dir = create_vec(-1, 0);
 	env->cast.plane = create_vec(0, 0.66);
+    env->cast.map = create_i_vec(0, 0);
+    env->cast.step = create_i_vec(0, 0);
 	env->cast.time = 0;
 	env->cast.old_time = 0;
 }
