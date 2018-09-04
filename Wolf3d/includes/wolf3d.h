@@ -11,7 +11,7 @@
 # define WIDTH 800
 # define HEIGHT 600
 # define FOV 90 * (180 / M_PI)
-# define MOV_SP 0.5
+# define MOV_SP 0.01
 # define ROT_SP 5 * M_PI / 180.
 # define RED 16711680
 # define GREEN 65280

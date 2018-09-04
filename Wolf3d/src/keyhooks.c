@@ -30,9 +30,6 @@ int cross_exit(t_env *env)
 
 int     mouse_rotation(int x, int y, t_env *env)
 {
-    (void)env;
-    x = y;
-    y = x;
-//    printf("I'm rotating!\n");
+    printf("x: %d, y: %d\n", x, y);
     return (0);
 }
