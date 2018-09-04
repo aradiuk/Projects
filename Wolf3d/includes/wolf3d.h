@@ -2,6 +2,7 @@
 # define WOLF3D_H
 
 # include <stdio.h>
+# include <time.h>
 # include <stdlib.h>
 # include <math.h>
 # include "../libft/includes/libft.h"
@@ -9,7 +10,17 @@
 
 # define WIDTH 800
 # define HEIGHT 600
-# define FOV 90 * (180 / PI)
+# define FOV 90 * (180 / M_PI)
+# define MOV_SP 0.5
+# define ROT_SP 5 * M_PI / 180.
+# define RED 16711680
+# define GREEN 65280
+# define BLUE 10000
+
+typedef struct	s_mat
+{
+	double	m[2][2];
+}				t_mat;
 
 typedef struct	s_img
 {
@@ -53,9 +64,15 @@ typedef struct	s_cast
 	t_vec		delta_dist;
 	t_i_vec 	map;
 	t_i_vec		step;
-	double		time;
-	double		old_time;
-
+	t_i_vec		it;
+	int			hit;
+	int			side;
+	int			line_height;
+	int			draw_start;
+	int			draw_end;
+	double		p_wall_dist;
+	time_t		time;
+	time_t		old_time;
 }				t_cast;
 
 typedef struct	s_env
@@ -67,8 +84,6 @@ typedef struct	s_env
     t_map		map;
     t_cast		cast;
 	t_entity	player;
-	double		x;
-	double		y;
 }               t_env;
 
 	/* Main */
@@ -96,14 +111,27 @@ t_i_vec create_i_vec(int x, int y);
 t_vec   create_vec(double x, double y);
 
 
-	/*	castasting	*/
-int		raycast(t_env *env);
+	/*	Raycasting	*/
 void	init_geom(t_env *env);
 void	calculate_step(t_env *env);
+void	check_hit(t_env *env);
+void	calculate_height(t_env *env);
 
 	/*	Image	*/
 void	ipp_fill(t_env *env, int color);
 void	fill_image(t_env *env);
+void	vertical_line(t_env *env);
 
 
-#endif 
+	/*	Movement	*/
+void	move_forward(t_env *env);
+void	move_right(t_env *env);
+void	move_backwards(t_env *env);
+void	move_left(t_env *env);
+
+	/*	Matrix	*/
+t_mat	init_matrix(double angle);
+t_vec	m_apply(t_vec vec);
+t_vec	m_perp_apply(t_vec vec, int dir);
+
+#endif

@@ -6,7 +6,7 @@ void	init_geom(t_env *env)
 	double	cam_x;
 
 	cast = &env->cast;
-	cam_x = 2 * env->x / (double)WIDTH - 1;
+	cam_x = 2 * cast->it.x / (double)WIDTH - 1;
 
 	cast->ray.pos.x = env->player.pos.x;
 	cast->ray.pos.y = env->player.pos.y;
@@ -26,17 +26,20 @@ void	calculate_step(t_env *env)
 	if (cast->ray.dir.x < 0)
 	{
 		cast->step.x = -1;
-		cast->side_dist.x = (env->player.pos.x - cast->map.x) * cast->delta_dist.x;
+		cast->side_dist.x = (env->player.pos.x - cast->map.x) *
+				cast->delta_dist.x;
 	}
 	else
 	{
 		cast->step.x = 1;
-		cast->side_dist.x = (cast->map.x + 1.0 - env->player.pos.x) * cast->delta_dist.x;
+		cast->side_dist.x = (cast->map.x + 1.0 - env->player.pos.x) *
+				cast->delta_dist.x;
 	}
 	if (cast->ray.dir.y < 0)
 	{
 		cast->step.y = -1;
-		cast->side_dist.y = (env->player.pos.y - cast->map.y) * cast->delta_dist.y;
+		cast->side_dist.y = (env->player.pos.y - cast->map.y) *
+				cast->delta_dist.y;
 	}
 	else
 	{
@@ -46,33 +49,50 @@ void	calculate_step(t_env *env)
 	}
 }
 
-int		raycast(t_env *env)
+void	check_hit(t_env *env)
 {
 	t_cast	*cast;
-	int hit;
-	int side;
 
-    hit = 0;
-    cast = &env->cast;
-
-	while (hit == 0)
+	cast = &env->cast;
+	cast->hit = 0;
+	while (cast->hit == 0)
 	{
 		if (cast->side_dist.x < cast->side_dist.y)
 		{
 			cast->side_dist.x += cast->delta_dist.x;
 			cast->map.x += cast->step.x;
-			side = 0;
+			cast->side = 0;
 		}
 		else
 		{
 			cast->side_dist.y += cast->delta_dist.y;
 			cast->map.y += cast->step.y;
-			side = 1;
+			cast->side = 1;
 		}
-		printf("x: %d, y: %d\n", cast->map.x, cast->map.y);
-		if (env->map.map[cast->map.x][cast->map.y] > 0)
-			hit = 1;
-		return (0);
+			//	Add boundaries check
+		if (env->map.map[cast->map.x][cast->map.y] > '0')
+			cast->hit = 1;
 	}
-	return (1073741822);
 }
+
+void	calculate_height(t_env *env)
+{	t_cast	*cast;
+
+	cast = &env->cast;
+	if (cast->side == 0)
+		cast->p_wall_dist = (cast->map.x - env->player.pos.x + (1 -
+				cast->step.x) / 2.) / cast->ray.dir.x;
+	else
+		cast->p_wall_dist = (cast->map.y - env->player.pos.y + (1 -
+				cast->step.y) / 2.) / cast->ray.dir.y;
+
+	cast->line_height = (int)(HEIGHT / cast->p_wall_dist);
+	cast->draw_start = -cast->line_height / 2 + HEIGHT / 2;
+	cast->draw_end = cast->line_height / 2 + HEIGHT / 2;
+	if (cast->draw_start < 0)
+		cast->draw_start = 0;
+	if (cast->draw_end >= HEIGHT)
+		cast->draw_end = HEIGHT - 1;
+}
+
+
