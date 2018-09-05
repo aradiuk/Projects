@@ -6,7 +6,7 @@ void	ipp_fill(t_env *env, int color)
 
 	cast = &env->cast;
 	*((int *)(env->img.ipp + cast->it.x * env->img.bpp / 8 + cast->it.y *
-			env->img.sizeline)) = color;
+			env->img.sline)) = color;
 }
 
 void	vertical_line(t_env *env)
@@ -18,15 +18,22 @@ void	vertical_line(t_env *env)
 	cast->it.y = cast->draw_start;
 	while (cast->it.y <= cast->draw_end)
 	{
-		tx_num = env->map.map[cast->map.x][cast->map.y] - '0';
-		if (tx_num == 1)
-			ipp_fill(env, BLUE);
-		else if (tx_num == 2)
-			ipp_fill(env, GREEN);
-		else if (tx_num == 3)
-			ipp_fill(env, RED);
+		tx_num = env->map.map[cast->map.x][cast->map.y] - '1';
+		if (env->cast.side == 0)
+			double wallx = env->cast.ray.pos.y + env->cast
+					.p_wall_dist*env->cast.ray.dir.y;
 		else
-			ipp_fill(env, 1048575);
+			double wallx = env->cast.ray.pos.x + env->cast
+					.p_wall_dist*env->cast.ray.dir.x;
+		wallx -= floor(wallx);
+		int texx = (int)(wallx*64.0);
+		if (env->cast.side == 0 && env->cast.ray.dir.x > 0)
+			texx = 64 - texx - 1;
+		if (env->cast.side == 1 && env->cast.ray.dir.y > 0)
+			texx = 64 - texx - 1;
+		int d = cast->it.y * 256 - HEIGHT * 128 + cast->line_height * 128;
+		int texy = ((d * 64) / cast->line_height) / 256;
+		
 		++cast->it.y;
 	}
 }

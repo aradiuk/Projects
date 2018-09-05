@@ -8,11 +8,11 @@
 # include "../libft/includes/libft.h"
 # include "mlx.h"
 
-# define WIDTH 800
-# define HEIGHT 600
+# define WIDTH 1200
+# define HEIGHT 768
 # define FOV 90 * (180 / M_PI)
 # define MOV_SP 0.25
-# define ROT_SP 1.5 * M_PI / 180.
+# define ROT_SP 3 * M_PI / 180.
 # define RED 16711680
 # define GREEN 65280
 # define BLUE 10000
@@ -27,8 +27,8 @@ typedef struct	s_img
 	void	*img;
 	char	*ipp;
 	int		bpp;
-	int		endian;
-	int		sizeline;
+	int		endn;
+	int		sline;
 }				t_img;
 
 typedef struct	s_map
@@ -55,6 +55,17 @@ typedef struct	s_entity
 	t_vec	pos;
 	t_vec	dir;
 }				t_entity;
+
+typedef struct	s_texture
+{
+	void	*img;
+	char	*ipp;
+	int		width;
+	int		height;
+	int		bpp;
+	int		endn;
+	int		sline;
+}				t_texture;
 
 typedef struct	s_cast
 {
@@ -83,6 +94,7 @@ typedef struct	s_env
     t_map		map;
     t_cast		cast;
 	t_entity	player;
+	t_texture	text[4];
 }               t_env;
 
 	/* Main */
@@ -100,10 +112,13 @@ void	validate_line(char *line, t_env *env, int line_num);
 int		keyhooks(int keycode, t_env *env);
 int     cross_exit(t_env *env);
 int		mouse_rotation(int x, int y, t_env *env);
+void	rotate_right(t_env *env);
+void	rotate_left(t_env *env);
 
 	/*	Environment */
 int		expose(t_env *env);
 void	create_image(t_env *env);
+void	prepare_textures(t_env *env);
 
     /*  Vectors */
 t_i_vec create_i_vec(int x, int y);

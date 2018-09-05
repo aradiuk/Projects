@@ -16,6 +16,10 @@ int keyhooks(int keycode, t_env *env)
         move_backwards(env);
     else if (keycode == 97) // left
         move_left(env);
+    else if (keycode == 65363) // rot_right
+      rotate_right(env);
+    else if (keycode == 65361) // rot_right
+        rotate_left(env);
     create_image(env);
     return (0);
 }
@@ -51,4 +55,16 @@ int     mouse_rotation(int x, int y, t_env *env)
     }
     create_image(env);
     return (0);
+}
+
+void    rotate_right(t_env *env)
+{
+    env->player.dir = m_apply(env->player.dir, -ROT_SP);
+    env->cast.plane = m_apply(env->cast.plane, -ROT_SP);
+}
+
+void    rotate_left(t_env *env)
+{
+    env->player.dir = m_apply(env->player.dir, ROT_SP);
+    env->cast.plane = m_apply(env->cast.plane, ROT_SP);
 }

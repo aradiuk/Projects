@@ -10,6 +10,7 @@ void    create_the_environment(t_env *env)
 {
 	env->mlx = mlx_init();
 	env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, "Wolf3d");
+	prepare_textures(env);
 //	mlx_expose_hook(env->win, expose, env);
     create_image(env);
 	mlx_hook(env->win, 17, 1L << 17, cross_exit, env);
@@ -22,7 +23,7 @@ void	create_image(t_env *env)
 {
 	env->img.img = mlx_new_image(env->mlx, WIDTH, HEIGHT);
 	env->img.ipp = mlx_get_data_addr(env->img.img, &env->img.bpp,
-							&env->img.sizeline, &env->img.endian);
+							&env->img.sline, &env->img.endn);
 	fill_image(env);
 
 	mlx_clear_window(env->mlx, env->win);

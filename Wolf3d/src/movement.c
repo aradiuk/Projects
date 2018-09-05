@@ -11,6 +11,17 @@ void	move_forward(t_env *env)
 		p->pos.y += p->dir.y * MOV_SP;
 }
 
+void	move_backwards(t_env *env)
+{
+	t_entity	*p;
+
+	p = &env->player;
+	if (env->map.map[(int)(p->pos.x - p->dir.x * MOV_SP)][(int)p->pos.y] == '0')
+		p->pos.x -= p->dir.x * MOV_SP;
+	if (env->map.map[(int)p->pos.x][(int)(p->pos.y - p->dir.y * MOV_SP)] == '0')
+		p->pos.y -= p->dir.y * MOV_SP;
+}
+
 void	move_right(t_env *env)
 {
 	t_entity	*p;
@@ -23,17 +34,6 @@ void	move_right(t_env *env)
 	if (env->map.map[(int)p->pos.x][(int)(p->pos.y + r->dir.y * MOV_SP)] == '0')
 		p->pos.y += r->dir.y * MOV_SP;
 }
-
-void	move_backwards(t_env *env)
-{
-	t_entity	*p;
-
-	p = &env->player;
-	if (env->map.map[(int)(p->pos.x - p->dir.x * MOV_SP)][(int)p->pos.y] == '0')
-		p->pos.x -= p->dir.x * MOV_SP;
-	if (env->map.map[(int)p->pos.x][(int)(p->pos.y - p->dir.y * MOV_SP)] == '0')
-		p->pos.y -= p->dir.y * MOV_SP;}
-
 
 void	move_left(t_env *env)
 {
