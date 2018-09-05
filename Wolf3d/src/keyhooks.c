@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include "wolf3d.h"
+#include "../includes/wolf3d.h"
 
 int keyhooks(int keycode, t_env *env)
 {
-//    printf("keycode: %d\n", keycode);
     if (keycode == 53 || keycode == 65307)
     {
         mlx_destroy_window(env->mlx, env->win);
@@ -30,6 +29,26 @@ int cross_exit(t_env *env)
 
 int     mouse_rotation(int x, int y, t_env *env)
 {
-    printf("x: %d, y: %d\n", x, y);
+    t_cast	*cast;
+
+    cast = &env->cast;
+    if (x > 0 && x < WIDTH && y > 0 && y < HEIGHT)
+    {
+        if (x > cast->x_aim)
+        {
+            env->player.dir = m_apply(env->player.dir, atan((cast->x_aim - x)
+            / 100.));
+            cast->plane = m_apply(cast->plane, atan((cast->x_aim - x) / 100.));
+            cast->x_aim = x;
+        }
+        else if (x < cast->x_aim)
+        {
+            env->player.dir = m_apply(env->player.dir, atan((cast->x_aim - x)
+            / 100.));
+            cast->plane = m_apply(cast->plane, atan((cast->x_aim - x) / 100.));
+            cast->x_aim = x;
+        }
+    }
+    create_image(env);
     return (0);
 }

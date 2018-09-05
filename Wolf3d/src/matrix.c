@@ -12,14 +12,15 @@ t_mat	init_matrix(double angle)
 	return (mat);
 }
 
-t_vec	m_apply(t_vec vec)
+t_vec	m_apply(t_vec vec, double angle)
 {
 	t_mat	mat;
 	t_vec	res;
 
-	mat = init_matrix(ROT_SP);
+	mat = init_matrix(angle);
 	res.x = mat.m[0][0] * vec.x + mat.m[0][1] * vec.y;
 	res.y = mat.m[1][0] * vec.x + mat.m[1][1] * vec.y;
+
 	return (res);
 }
 

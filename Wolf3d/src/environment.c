@@ -23,7 +23,6 @@ void	create_image(t_env *env)
 	env->img.img = mlx_new_image(env->mlx, WIDTH, HEIGHT);
 	env->img.ipp = mlx_get_data_addr(env->img.img, &env->img.bpp,
 							&env->img.sizeline, &env->img.endian);
-	env->cast.old_time = env->cast.time;
 	fill_image(env);
 
 	mlx_clear_window(env->mlx, env->win);

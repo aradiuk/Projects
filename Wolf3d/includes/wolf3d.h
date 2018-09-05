@@ -11,8 +11,8 @@
 # define WIDTH 800
 # define HEIGHT 600
 # define FOV 90 * (180 / M_PI)
-# define MOV_SP 0.01
-# define ROT_SP 5 * M_PI / 180.
+# define MOV_SP 0.25
+# define ROT_SP 1.5 * M_PI / 180.
 # define RED 16711680
 # define GREEN 65280
 # define BLUE 10000
@@ -70,9 +70,8 @@ typedef struct	s_cast
 	int			line_height;
 	int			draw_start;
 	int			draw_end;
+	int			x_aim;
 	double		p_wall_dist;
-	time_t		time;
-	time_t		old_time;
 }				t_cast;
 
 typedef struct	s_env
@@ -131,7 +130,7 @@ void	move_left(t_env *env);
 
 	/*	Matrix	*/
 t_mat	init_matrix(double angle);
-t_vec	m_apply(t_vec vec);
+t_vec	m_apply(t_vec vec, double angle);
 t_vec	m_perp_apply(t_vec vec, int dir);
 
 #endif

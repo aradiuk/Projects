@@ -34,6 +34,7 @@ void	move_backwards(t_env *env)
 	if (env->map.map[(int)p->pos.x][(int)(p->pos.y - p->dir.y * MOV_SP)] == '0')
 		p->pos.y -= p->dir.y * MOV_SP;}
 
+
 void	move_left(t_env *env)
 {
 	t_entity	*p;
