@@ -9,13 +9,11 @@
 # include "mlx.h"
 
 # define WIDTH 1200
-# define HEIGHT 768
+# define HEIGHT 760
 # define FOV 90 * (180 / M_PI)
 # define MOV_SP 0.25
 # define ROT_SP 3 * M_PI / 180.
-# define RED 16711680
-# define GREEN 65280
-# define BLUE 10000
+# define TEXTURES 1
 
 typedef struct	s_mat
 {
@@ -83,6 +81,10 @@ typedef struct	s_cast
 	int			draw_end;
 	int			x_aim;
 	double		p_wall_dist;
+	double		wall_x;
+	int			tx_num;
+	int			tx_x;
+	int			tx_y;
 }				t_cast;
 
 typedef struct	s_env
@@ -94,7 +96,7 @@ typedef struct	s_env
     t_map		map;
     t_cast		cast;
 	t_entity	player;
-	t_texture	text[4];
+	t_texture	tx[4];
 }               t_env;
 
 	/* Main */
@@ -133,6 +135,7 @@ void	calculate_height(t_env *env);
 
 	/*	Image	*/
 void	ipp_fill(t_env *env, int color);
+void	find_texture(t_env *env);
 void	fill_image(t_env *env);
 void	vertical_line(t_env *env);
 

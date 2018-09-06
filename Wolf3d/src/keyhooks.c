@@ -8,11 +8,11 @@ int keyhooks(int keycode, t_env *env)
         mlx_destroy_window(env->mlx, env->win);
         exit(0);
     }
-    else if (keycode == 119) // forward
+    else if (keycode == 119 || keycode == 65362) // forward
         move_forward(env);
     else if (keycode == 100) // right
         move_right(env);
-    else if (keycode == 115) // backwards
+    else if (keycode == 115 || keycode == 65364) // backwards
         move_backwards(env);
     else if (keycode == 97) // left
         move_left(env);
