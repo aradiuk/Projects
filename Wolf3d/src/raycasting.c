@@ -16,8 +16,6 @@ void	init_geom(t_env *env)
 	cast->map.y = (int)env->player.pos.y;
 	cast->delta_dist.x = fabs(1 / cast->ray.dir.x);
 	cast->delta_dist.y = fabs(1 / cast->ray.dir.y);
-//	printf("POS: x: %f, y: %f\n", env->player.pos.x, env->player.pos.y);
-
 }
 
 void	calculate_step(t_env *env)
@@ -56,7 +54,8 @@ void	check_hit(t_env *env) {
 
 	cast = &env->cast;
 	cast->hit = 0;
-	while (cast->hit == 0)
+	while (cast->hit == 0 && cast->map.x < env->map.x_dim &&
+							cast->map.y < env->map.y_dim)
 	{
 		if (cast->side_dist.x < cast->side_dist.y)
 		{
@@ -71,8 +70,6 @@ void	check_hit(t_env *env) {
 			cast->side = 1;
 		}
 			//	Add boundaries check
-//			printf("x: %f, y: %f\n", env->player.pos.x, env->player.pos
-//			.y);
 		if (env->map.map[cast->map.x][cast->map.y] > '0')
 			cast->hit = 1;
 	}

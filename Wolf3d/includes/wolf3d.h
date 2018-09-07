@@ -12,7 +12,7 @@
 # define HEIGHT 760
 # define FOV 90 * (180 / M_PI)
 # define MOV_SP 0.25
-# define ROT_SP 3 * M_PI / 180.
+# define ROT_SP 1 * M_PI / 180.
 # define TEXTURES 1
 
 typedef struct	s_mat
@@ -118,7 +118,6 @@ void	rotate_right(t_env *env);
 void	rotate_left(t_env *env);
 
 	/*	Environment */
-int		expose(t_env *env);
 void	create_image(t_env *env);
 void	prepare_textures(t_env *env);
 

@@ -85,5 +85,8 @@ void	read_map(t_env *env)
 		error("can't open map file");
 	get_map_dimensions(fd, env);
 	get_map(fd, env);
+		// CHECK FOR POSITION TO BE CLEAR
+	if (env->map.map[(int)env->player.pos.x][(int)env->player.pos.y] != '0')
+		error("player position isn't empty");
 }
 

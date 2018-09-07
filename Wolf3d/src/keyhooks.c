@@ -36,23 +36,24 @@ int     mouse_rotation(int x, int y, t_env *env)
     t_cast	*cast;
 
     cast = &env->cast;
-    if (x > 0 && x < WIDTH && y > 0 && y < HEIGHT)
-    {
+//    if (x > 0 && x < WIDTH && y > 0 && y < HEIGHT)
+//    {
         if (x > cast->x_aim)
         {
-            env->player.dir = m_apply(env->player.dir, atan((cast->x_aim - x)
-            / 100.));
-            cast->plane = m_apply(cast->plane, atan((cast->x_aim - x) / 100.));
+            env->player.dir = m_apply(env->player.dir, -ROT_SP);//atan(
+                    // (cast->x_aim - x) / 125.));
+            cast->plane = m_apply(cast->plane, -ROT_SP); //atan((cast->x_aim -
+            // x) / 125.));
             cast->x_aim = x;
         }
         else if (x < cast->x_aim)
         {
-            env->player.dir = m_apply(env->player.dir, atan((cast->x_aim - x)
-            / 100.));
-            cast->plane = m_apply(cast->plane, atan((cast->x_aim - x) / 100.));
+            env->player.dir = m_apply(env->player.dir, ROT_SP); //atan(              (cast->x_aim - x)/ 125.));
+            cast->plane = m_apply(cast->plane, ROT_SP); //atan((cast->x_aim -
+            // x) / 125 .));
             cast->x_aim = x;
         }
-    }
+//    }
     create_image(env);
     return (0);
 }
