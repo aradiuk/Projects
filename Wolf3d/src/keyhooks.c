@@ -20,6 +20,8 @@ int keyhooks(int keycode, t_env *env)
       rotate_right(env);
     else if (keycode == 123 || keycode == 65361) // rot_right
         rotate_left(env);
+    else if (keycode == 14) //  Door activator
+        open_door(env);
     create_image(env);
     return (0);
 }

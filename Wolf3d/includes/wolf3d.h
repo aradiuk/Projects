@@ -125,6 +125,7 @@ void	rotate_left(t_env *env);
 	/*	Environment */
 void	create_image(t_env *env);
 void	prepare_textures(t_env *env);
+void	open_door(t_env *env);
 
     /*  Vectors */
 t_i_vec create_i_vec(int x, int y);

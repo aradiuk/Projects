@@ -93,8 +93,7 @@ void    fill_sky_and_floor(t_env *env)
         tx_coor = (env->tx[SKY].sline * cast->sky_tx.y +
                         cast->sky_tx.x * env->tx[SKY].bpp / 8);
         fill_ipp(env, img_coor, tx_coor, FLOOR);
-        img_coor = cast->it.x * env->img.bpp / 8 + (HEIGHT - y) * env->img
-                                                                           .sline;
+        img_coor = cast->it.x * env->img.bpp / 8 + (HEIGHT - y) * env->img.sline;
         fill_ipp(env, img_coor, tx_coor, SKY);
         ++y;
     }

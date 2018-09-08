@@ -22,3 +22,8 @@ void	create_image(t_env *env)
 	mlx_put_image_to_window(env->mlx, env->win, env->img.img, 0, 0);
 	mlx_destroy_image(env->mlx, env->img.img);
 }
+
+void	open_door(t_env *env)
+{
+	//	If near the door - check if it's open and do the opposite.
+}
