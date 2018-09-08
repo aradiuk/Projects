@@ -11,9 +11,11 @@
 # define WIDTH 1200
 # define HEIGHT 760
 # define FOV 90 * (180 / M_PI)
-# define MOV_SP 0.25
-# define ROT_SP 1 * M_PI / 180.
-# define TEXTURES 1
+# define MOV_SP 0.2
+# define ROT_SP 4 * M_PI / 180.
+# define TEXTURES 7
+# define SKY 6
+# define FLOOR 7
 
 typedef struct	s_mat
 {
@@ -71,6 +73,9 @@ typedef struct	s_cast
 	t_entity	ray;
 	t_vec		side_dist;
 	t_vec		delta_dist;
+    t_vec       sky_wall;
+    t_vec       sky_curr;
+    t_i_vec     sky_tx;
 	t_i_vec 	map;
 	t_i_vec		step;
 	t_i_vec		it;
@@ -96,7 +101,7 @@ typedef struct	s_env
     t_map		map;
     t_cast		cast;
 	t_entity	player;
-	t_texture	tx[4];
+	t_texture	tx[7];
 }               t_env;
 
 	/* Main */
@@ -133,7 +138,8 @@ void	check_hit(t_env *env);
 void	calculate_height(t_env *env);
 
 	/*	Image	*/
-void	ipp_fill(t_env *env, int color);
+void    fill_ipp(t_env *env, int img_coor, int tx_coor, int tx_num);
+void    fill_middle(t_env *env, int tx_coor);
 void	find_texture(t_env *env);
 void	fill_image(t_env *env);
 void	vertical_line(t_env *env);
@@ -149,5 +155,10 @@ void	move_left(t_env *env);
 t_mat	init_matrix(double angle);
 t_vec	m_apply(t_vec vec, double angle);
 t_vec	m_perp_apply(t_vec vec, int dir);
+
+	/*	Textures */
+void    prepare_textures(t_env *env);
+void    init_sky(t_env *env);
+void	fill_sky_and_floor(t_env *env);
 
 #endif

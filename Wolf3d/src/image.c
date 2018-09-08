@@ -1,12 +1,32 @@
 #include "../includes/wolf3d.h"
 
-void	ipp_fill(t_env *env, int color)
+void    fill_ipp(t_env *env, int img_coor, int tx_coor, int tx_num)
 {
-	t_cast *cast;
+    char	*img_ipp;
+
+    img_ipp = env->img.ipp;
+    img_ipp[img_coor] = env->tx[tx_num].ipp[tx_coor];
+    img_ipp[img_coor + 1] = env->tx[tx_num].ipp[tx_coor + 1];
+    img_ipp[img_coor + 2] = env->tx[tx_num].ipp[tx_coor + 2];
+}
+
+void    fill_middle(t_env *env, int tx_coor)
+{
+    int     img_coor;
+    char	*img_ipp;
+    t_cast	*cast;
 
 	cast = &env->cast;
-	*((int *)(env->img.ipp + cast->it.x * env->img.bpp / 8 + cast->it.y *
-			env->img.sline)) = color;
+    img_ipp = env->img.ipp;
+    img_coor = cast->it.x * env->img.bpp / 8 + cast->it.y * env->img.sline;
+    fill_ipp(env, img_coor, tx_coor, cast->tx_num);
+
+    if (env->cast.side == 1)
+    {
+		img_ipp[img_coor] = (env->img.ipp[img_coor] >> 1) & 8355711;
+		img_ipp[img_coor + 1] = (env->img.ipp[img_coor + 1] >> 1) & 8355711;
+		img_ipp[img_coor + 2] = (env->img.ipp[img_coor + 2] >> 1) & 8355711;
+    }
 }
 
 void	find_texture(t_env *env)
@@ -34,26 +54,19 @@ void	vertical_line(t_env *env)
 {
 	t_cast	*cast;
 	int		d;
-	int		color;
 	int		tx_coor;
-	char	*tx_ipp;
 
 	cast = &env->cast;
 	cast->it.y = cast->draw_start;
 	find_texture(env);
-	tx_ipp = env->tx[cast->tx_num].ipp;
 	while (cast->it.y <= cast->draw_end)
 	{
 		d = cast->it.y * 256 - HEIGHT * 128 + cast->line_height * 128;
 		cast->tx_y = ((d * env->tx[cast->tx_num].height) / cast->line_height)
 														/ 256;
-		tx_coor = (int)(env->tx[cast->tx_num].sline * cast->tx_y + cast->tx_x *
+		tx_coor = (env->tx[cast->tx_num].sline * cast->tx_y + cast->tx_x *
 				env->tx[cast->tx_num].bpp / 8);
-		color = tx_ipp[tx_coor] + (tx_ipp[tx_coor + 1] << 8) +
-				(tx_ipp[tx_coor + 2] << 16);
-		if (cast->side == 1)
-			color = (color >> 1) & 8355711;
-		ipp_fill(env, color);
+        fill_middle(env, tx_coor);
 		++cast->it.y;
 	}
 }
@@ -68,6 +81,7 @@ void	fill_image(t_env *env)
 		check_hit(env);
 		calculate_height(env);
 		vertical_line(env);
+        fill_sky_and_floor(env);
 		++env->cast.it.x;
 	}
 }

@@ -8,7 +8,7 @@ void    create_the_environment(t_env *env)
     create_image(env);
 	mlx_hook(env->win, 17, 1L << 17, cross_exit, env);
 	mlx_hook(env->win, 6, 1L << 6, mouse_rotation, env);
-	mlx_hook(env->win, 2, 3, keyhooks, env);
+	mlx_hook(env->win, 2, 1L << 2, keyhooks, env);
 	mlx_loop(env->mlx);
 }
 

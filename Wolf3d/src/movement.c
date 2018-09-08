@@ -33,6 +33,7 @@ void	move_right(t_env *env)
 		p->pos.x += r->dir.x * MOV_SP;
 	if (env->map.map[(int)p->pos.x][(int)(p->pos.y + r->dir.y * MOV_SP)] == '0')
 		p->pos.y += r->dir.y * MOV_SP;
+
 }
 
 void	move_left(t_env *env)
