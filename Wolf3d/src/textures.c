@@ -32,6 +32,10 @@ void	prepare_textures(t_env *env)
     t[6].img = mlx_xpm_file_to_image(env->mlx, "textures/sky.xpm",
                                      &t[6].width, &t[6].height);
     t[6].ipp = mlx_get_data_addr(t[6].img, &t[6].bpp, &t[6].sline, &t[6].endn);
+
+    t[7].img = mlx_xpm_file_to_image(env->mlx, "textures/grass.xpm",
+                                     &t[7].width, &t[7].height);
+    t[7].ipp = mlx_get_data_addr(t[7].img, &t[7].bpp, &t[7].sline, &t[7].endn);
 }
 
 void    init_sky(t_env *env)
@@ -73,7 +77,7 @@ void    fill_sky_and_floor(t_env *env)
     init_sky(env);
     if (cast->draw_end < 0)
         cast->draw_end = HEIGHT;
-    y = cast->draw_end + 1;
+    y = cast->draw_end - 1;
     while (y < HEIGHT)
     {
         weight = HEIGHT / (2.0 * y - HEIGHT) / cast->p_wall_dist;
@@ -81,15 +85,16 @@ void    fill_sky_and_floor(t_env *env)
                 env->player.pos.x;
         cast->sky_curr.y = weight * cast->sky_wall.y + (1.0 - weight) *
                 env->player.pos.y;
-        cast->sky_tx.x = (int)(cast->sky_curr.x * env->tx[SKY].width) %
+        cast->sky_tx.x = (int)(cast->sky_curr.x * env->tx[SKY].width / 4) %
                 env->tx[SKY].width;
-        cast->sky_tx.y = (int)(cast->sky_curr.y * env->tx[SKY].height) %
+        cast->sky_tx.y = (int)(cast->sky_curr.y * env->tx[SKY].height / 4) %
                 env->tx[SKY].height;
         img_coor = cast->it.x * env->img.bpp / 8 + y * env->img.sline;
         tx_coor = (env->tx[SKY].sline * cast->sky_tx.y +
                         cast->sky_tx.x * env->tx[SKY].bpp / 8);
-        fill_ipp(env, img_coor, tx_coor, 4);
-        img_coor = cast->it.x * env->img.bpp / 8 + (HEIGHT - y) * env->img.sline;
+        fill_ipp(env, img_coor, tx_coor, FLOOR);
+        img_coor = cast->it.x * env->img.bpp / 8 + (HEIGHT - y) * env->img
+                                                                           .sline;
         fill_ipp(env, img_coor, tx_coor, SKY);
         ++y;
     }

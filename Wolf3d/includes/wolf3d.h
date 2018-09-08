@@ -13,7 +13,7 @@
 # define FOV 90 * (180 / M_PI)
 # define MOV_SP 0.2
 # define ROT_SP 4 * M_PI / 180.
-# define TEXTURES 7
+# define TEXTURES 8
 # define SKY 6
 # define FLOOR 7
 

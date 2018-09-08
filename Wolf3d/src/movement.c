@@ -29,11 +29,12 @@ void	move_right(t_env *env)
 
 	p = &env->player;
 	r->dir = m_perp_apply(p->dir, 1);
-	if (env->map.map[(int)(p->pos.x + r->dir.x * MOV_SP)][(int)p->pos.y] == '0')
+	if (env->map.map[(int)(p->pos.x +
+            r->dir.x * (MOV_SP + 0.05))][(int)p->pos.y] == '0')
 		p->pos.x += r->dir.x * MOV_SP;
-	if (env->map.map[(int)p->pos.x][(int)(p->pos.y + r->dir.y * MOV_SP)] == '0')
+	if (env->map.map[(int)p->pos.x][(int)(p->pos.y +
+            r->dir.y * (MOV_SP + 0.05))] == '0')
 		p->pos.y += r->dir.y * MOV_SP;
-
 }
 
 void	move_left(t_env *env)
@@ -43,8 +44,10 @@ void	move_left(t_env *env)
 
 	p = &env->player;
 	r->dir = m_perp_apply(p->dir, -1);
-	if (env->map.map[(int)(p->pos.x + r->dir.x * MOV_SP)][(int)p->pos.y] == '0')
+	if (env->map.map[(int)(p->pos.x +
+            r->dir.x * (MOV_SP + 0.05))][(int)p->pos.y] == '0')
 		p->pos.x += r->dir.x * MOV_SP;
-	if (env->map.map[(int)p->pos.x][(int)(p->pos.y + r->dir.y * MOV_SP)] == '0')
+	if (env->map.map[(int)p->pos.x][(int)(p->pos.y +
+            r->dir.y * (MOV_SP + 0.05))] == '0')
 		p->pos.y += r->dir.y * MOV_SP;
 }
