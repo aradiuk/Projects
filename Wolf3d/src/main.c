@@ -9,7 +9,7 @@ void	error(char *str)
 void	starting_parameters(t_env *env)
 {
 	env->name = ft_strdup("maps/level_1");
-	env->player.pos = create_vec(3, 3);
+	env->player.pos = create_vec(4, 4);
 	env->player.dir = create_vec(0, 1);
 	env->cast.plane = create_vec(1, 0);
 	env->cast.map = create_i_vec(0, 0);

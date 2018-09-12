@@ -8,19 +8,19 @@ int keyhooks(int keycode, t_env *env)
         mlx_destroy_window(env->mlx, env->win);
         exit(0);
     }
-    else if (keycode == 13 || keycode == 65362 || keycode == 126) // forward
+    else if (keycode == 13 || keycode == 119 || keycode == 126) // forward
         move_forward(env);
-    else if (keycode == 2) // right
+    else if (keycode == 2 || keycode == 100) // right
         move_right(env);
-    else if (keycode == 1 || keycode == 65364 || keycode == 125) // backwards
+    else if (keycode == 1 || keycode == 115 || keycode == 125) // backwards
         move_backwards(env);
-    else if (keycode == 0) // left
+    else if (keycode == 0 || keycode == 97) // left
         move_left(env);
     else if (keycode == 124 || keycode == 65363) // rot_right
       rotate_right(env);
     else if (keycode == 123 || keycode == 65361) // rot_right
         rotate_left(env);
-    else if (keycode == 14) //  Door activator
+    else if (keycode == 1 || keycode == 32) //  Door activator
         open_door(env);
     create_image(env);
     return (0);

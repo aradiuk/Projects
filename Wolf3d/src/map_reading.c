@@ -33,13 +33,17 @@ void	validate_line(char *line, t_env *env, int line_num)
 	i = 0;
 	if ((int)ft_strlen(line) != env->map.x_dim)
 		error("one of the map lines is out of range");
-	if (!ft_isdigit(line[0]) || line[0] == '0' ||
-		!ft_isdigit(line[env->map.x_dim - 1]) || line[env->map.x_dim - 1] == '0')
+	if (!ft_isdigit(line[0]) || line[0] == '0' || line[0] == DOOR + '1' ||
+		line[0] == SC_DOOR + '1' || !ft_isdigit(line[env->map.x_dim - 1]) ||
+		line[env->map.x_dim - 1] == '0' ||
+		line[env->map.x_dim - 1] == DOOR + '1' ||
+		line[env->map.x_dim - 1] == SC_DOOR + '1')
 		error("your side walls are broken");
 	if (line_num == 0 || line_num == env->map.y_dim - 1)
 	{
 		while (++i < env->map.x_dim - 1)
-			if (!ft_isdigit(line[i]) || line[i] == '0')
+			if (!ft_isdigit(line[i]) || line[i] == '0' || line[i] == DOOR + '1' ||
+				line[i] == SC_DOOR + '1')
 				error("top or bottom wall is broken");
 	}
 	else
@@ -85,8 +89,19 @@ void	read_map(t_env *env)
 		error("can't open map file");
 	get_map_dimensions(fd, env);
 	get_map(fd, env);
-		// CHECK FOR POSITION TO BE CLEAR
-	if (env->map.map[(int)env->player.pos.x][(int)env->player.pos.y] != '0')
+	validate_position(env);
+}
+
+void	validate_position(t_env *env)
+{
+	t_entity	*p;
+
+	p = &env->player;
+	if (env->map.map[(int)p->pos.x][(int)p->pos.y] != '0' ||
+		env->map.map[(int)p->pos.x + 1][(int)p->pos.y] != '0' ||
+		env->map.map[(int)p->pos.x - 1][(int)p->pos.y] != '0' ||
+		env->map.map[(int)p->pos.x][(int)p->pos.y + 1] != '0' ||
+		env->map.map[(int)p->pos.x][(int)p->pos.y - 1] != '0')
 		error("player position isn't empty");
 }
 

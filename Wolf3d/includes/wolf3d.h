@@ -8,14 +8,16 @@
 # include "../libft/includes/libft.h"
 # include "mlx.h"
 
-# define WIDTH 1200
-# define HEIGHT 760
+# define WIDTH 800
+# define HEIGHT 600
 # define FOV 90 * (180 / M_PI)
 # define MOV_SP 0.2
 # define ROT_SP 4 * M_PI / 180.
-# define TEXTURES 8
+# define TEXTURES 9
 # define SKY 6
 # define FLOOR 7
+# define DOOR 8
+# define SC_DOOR 3
 
 typedef struct	s_mat
 {
@@ -114,6 +116,7 @@ void	read_map(t_env *env);
 void	get_map_dimensions(int fd, t_env *env);
 void	get_map(int fd, t_env *env);
 void	validate_line(char *line, t_env *env, int line_num);
+void	validate_position(t_env *env);
 
 	/*	Keyhooks */
 int		keyhooks(int keycode, t_env *env);
