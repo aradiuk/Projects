@@ -62,8 +62,6 @@ typedef struct	s_entity
 typedef struct	s_sprite
 {
 	t_vec	pos;
-	t_vec	cam_spr;
-	t_vec	transf;
 	double	dist;
 	int		index;
 	int		tx;
@@ -91,13 +89,15 @@ typedef struct	s_cast
 	t_vec		delta_dist;
 	t_vec		sky_wall;
 	t_vec		sky_curr;
+	t_vec		spr;
+	t_vec		transf;
 	t_i_vec		sky_tx;
 	t_i_vec 	map;
 	t_i_vec		step;
 	t_i_vec		it;
 	double		p_wall_dist;
 	double		wall_x;
-	double	inv_det;
+	double		inv;
 	int			hit;
 	int			side;
 	int			line_height;
@@ -187,5 +187,5 @@ void		fill_sky_and_floor(t_env *env);
 	/*	Sprites */
 void		sprites(t_env *env);
 void		sort_sprites(t_env *env);
-
+void		calculate_sprites(t_env *env);
 #endif

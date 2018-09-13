@@ -19,16 +19,33 @@ void	sort_sprites(t_env *env)
 	qsort((void *)env->spr, SPRITES, sizeof(t_sprite), compare_sprites);
 }
 
-void	sprites(t_env *env)
+void	calculate_sprites(t_env *env)
 {
-	int i;
+	int 		i;
+	t_sprite	*s;
+	t_entity	*p;
+	t_cast		*c;
 
 	i = 0;
-	define_sprites(env);
-	sort_sprites(env);
+	s = &env->spr[0];
+	p = &env->player;
+	c = &env->cast;
 	while (i < SPRITES)
 	{
+		c->spr.x = s[s[i].index].pos.x - p->pos.x;
+		c->spr.y = s[s[i].index].pos.y - p->pos.y;
+		c->inv = 1.0 / (c->plane.x * p->dir.y - p->dir.x * c->plane.y);
+		c->transf.x = c->inv * (p->dir.y * c->spr.x - p->dir.x * c->spr.y);
+		c->transf.y = c->inv * (-c->plane.y * c->spr.x + c->plane.x * c->spr.y);
 		
 		++i;
 	}
+}
+
+void	sprites(t_env *env)
+{
+	define_sprites(env);
+	sort_sprites(env);
+	calculate_sprites(env);
+
 }
