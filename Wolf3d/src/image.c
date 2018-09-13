@@ -81,7 +81,9 @@ void	fill_image(t_env *env)
 		check_hit(env);
 		calculate_height(env);
 		vertical_line(env);
-        fill_sky_and_floor(env);
+		env->z_buf[env->cast.it.x] = env->cast.p_wall_dist;
+		fill_sky_and_floor(env);
+		sprites(env);
 		++env->cast.it.x;
 	}
 }

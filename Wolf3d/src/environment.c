@@ -40,16 +40,4 @@ void	open_door(t_env *env)
 	else if (m[(int)(p->pos.x + p->dir.x)][(int)(p->pos.y + p->dir.y)] ==
 																SC_DOOR + '1')
 		m[(int)(p->pos.x + p->dir.x)][(int)(p->pos.y + p->dir.y)] = '*';
-
-	int i = -1;
-	int j;
-	while (++i < env->map.y_dim)
-	{
-		j = -1;
-		while (++j < env->map.x_dim)
-			printf("%c ", env->map.map[j][i]);
-		printf("\n");
-	}
-	printf("\n");
-
 }

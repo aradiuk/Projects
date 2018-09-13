@@ -13,6 +13,7 @@
 # define FOV 90 * (180 / M_PI)
 # define MOV_SP 0.2
 # define ROT_SP 4 * M_PI / 180.
+# define SPRITES 5
 # define TEXTURES 9
 # define SKY 6
 # define FLOOR 7
@@ -58,6 +59,19 @@ typedef struct	s_entity
 	t_vec	dir;
 }				t_entity;
 
+typedef struct	s_sprite
+{
+	t_vec	pos;
+	t_vec	cam_spr;
+	t_vec	transf;
+	double	dist;
+	int		index;
+	int		tx;
+	int		height;
+	int		width;
+	t_i_vec	draw_start;
+}				t_sprite;
+
 typedef struct	s_texture
 {
 	void	*img;
@@ -75,20 +89,21 @@ typedef struct	s_cast
 	t_entity	ray;
 	t_vec		side_dist;
 	t_vec		delta_dist;
-    t_vec       sky_wall;
-    t_vec       sky_curr;
-    t_i_vec     sky_tx;
+	t_vec		sky_wall;
+	t_vec		sky_curr;
+	t_i_vec		sky_tx;
 	t_i_vec 	map;
 	t_i_vec		step;
 	t_i_vec		it;
+	double		p_wall_dist;
+	double		wall_x;
+	double	inv_det;
 	int			hit;
 	int			side;
 	int			line_height;
 	int			draw_start;
 	int			draw_end;
 	int			x_aim;
-	double		p_wall_dist;
-	double		wall_x;
 	int			tx_num;
 	int			tx_x;
 	int			tx_y;
@@ -96,73 +111,81 @@ typedef struct	s_cast
 
 typedef struct	s_env
 {
-    void		*mlx;
-    void		*win;
-    t_img		img;
-    char		*name;
-    t_map		map;
-    t_cast		cast;
+	void		*mlx;
+	void		*win;
+	char		*name;
+	double		z_buf[WIDTH];
+	t_img		img;
+	t_map		map;
+	t_cast		cast;
 	t_entity	player;
-	t_texture	tx[7];
-}               t_env;
+	t_sprite	spr[SPRITES];
+	t_texture	tx[TEXTURES];
+}				t_env;
 
 	/* Main */
-void	error(char *str);
-void    starting_parameters(t_env *env);
-void    create_the_environment(t_env *env);
+void		error(char *str);
+void		starting_parameters(t_env *env);
+void		create_the_environment(t_env *env);
+void		define_sprites(t_env *env);
 
 	/*	Map reading */
-void	read_map(t_env *env);
-void	get_map_dimensions(int fd, t_env *env);
-void	get_map(int fd, t_env *env);
-void	validate_line(char *line, t_env *env, int line_num);
-void	validate_position(t_env *env);
+void		read_map(t_env *env);
+void		get_map_dimensions(int fd, t_env *env);
+void		get_map(int fd, t_env *env);
+void		validate_line(char *line, t_env *env, int line_num);
+void		validate_position(t_env *env);
 
 	/*	Keyhooks */
-int		keyhooks(int keycode, t_env *env);
-int     cross_exit(t_env *env);
-int		mouse_rotation(int x, int y, t_env *env);
-void	rotate_right(t_env *env);
-void	rotate_left(t_env *env);
+int			keyhooks(int keycode, t_env *env);
+int			cross_exit(t_env *env);
+int			mouse_rotation(int x, int y, t_env *env);
+void		rotate_right(t_env *env);
+void		rotate_left(t_env *env);
 
 	/*	Environment */
-void	create_image(t_env *env);
-void	prepare_textures(t_env *env);
-void	open_door(t_env *env);
+void		create_image(t_env *env);
+void		prepare_textures(t_env *env);
+void		open_door(t_env *env);
 
-    /*  Vectors */
-t_i_vec create_i_vec(int x, int y);
-t_vec   create_vec(double x, double y);
+	/*	Vectors */
+t_i_vec		create_i_vec(int x, int y);
+t_vec		create_vec(double x, double y);
+t_sprite	define_sprite(double x, double y, int tx);
+int			compare_sprites(const void *first, const void *second);
 
 
 	/*	Raycasting	*/
-void	init_geom(t_env *env);
-void	calculate_step(t_env *env);
-void	check_hit(t_env *env);
-void	calculate_height(t_env *env);
+void		init_geom(t_env *env);
+void		calculate_step(t_env *env);
+void		check_hit(t_env *env);
+void		calculate_height(t_env *env);
 
 	/*	Image	*/
-void    fill_ipp(t_env *env, int img_coor, int tx_coor, int tx_num);
-void    fill_middle(t_env *env, int tx_coor);
-void	find_texture(t_env *env);
-void	fill_image(t_env *env);
-void	vertical_line(t_env *env);
-
+void		fill_ipp(t_env *env, int img_coor, int tx_coor, int tx_num);
+void		fill_middle(t_env *env, int tx_coor);
+void		find_texture(t_env *env);
+void		fill_image(t_env *env);
+void		vertical_line(t_env *env);
 
 	/*	Movement	*/
-void	move_forward(t_env *env);
-void	move_right(t_env *env);
-void	move_backwards(t_env *env);
-void	move_left(t_env *env);
+void		move_forward(t_env *env);
+void		move_right(t_env *env);
+void		move_backwards(t_env *env);
+void		move_left(t_env *env);
 
 	/*	Matrix	*/
-t_mat	init_matrix(double angle);
-t_vec	m_apply(t_vec vec, double angle);
-t_vec	m_perp_apply(t_vec vec, int dir);
+t_mat		init_matrix(double angle);
+t_vec		m_apply(t_vec vec, double angle);
+t_vec		m_perp_apply(t_vec vec, int dir);
 
 	/*	Textures */
-void    prepare_textures(t_env *env);
-void    init_sky(t_env *env);
-void	fill_sky_and_floor(t_env *env);
+void		prepare_textures(t_env *env);
+void		init_sky(t_env *env);
+void		fill_sky_and_floor(t_env *env);
+
+	/*	Sprites */
+void		sprites(t_env *env);
+void		sort_sprites(t_env *env);
 
 #endif

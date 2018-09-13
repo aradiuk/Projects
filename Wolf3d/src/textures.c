@@ -23,10 +23,10 @@ void	prepare_textures(t_env *env)
 	t[5].img = mlx_xpm_file_to_image(env->mlx, "textures/wood.xpm",
 									&t[5].width, &t[5].height);
 	t[5].ipp = mlx_get_data_addr(t[5].img, &t[5].bpp, &t[5].sline, &t[5].endn);
-	t[6].img = mlx_xpm_file_to_image(env->mlx, "textures/sky.xpm",
+	t[6].img = mlx_xpm_file_to_image(env->mlx, "textures/wood.xpm",
 									&t[6].width, &t[6].height);
 	t[6].ipp = mlx_get_data_addr(t[6].img, &t[6].bpp, &t[6].sline, &t[6].endn);
-	t[7].img = mlx_xpm_file_to_image(env->mlx, "textures/grass.xpm",
+	t[7].img = mlx_xpm_file_to_image(env->mlx, "textures/redbrick.xpm",
 									&t[7].width, &t[7].height);
 	t[7].ipp = mlx_get_data_addr(t[7].img, &t[7].bpp, &t[7].sline, &t[7].endn);
 	t[8].img = mlx_xpm_file_to_image(env->mlx, "textures/eagle.xpm",
