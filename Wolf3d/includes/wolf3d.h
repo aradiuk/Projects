@@ -13,7 +13,8 @@
 # define FOV 90 * (180 / M_PI)
 # define MOV_SP 0.2
 # define ROT_SP 4 * M_PI / 180.
-# define SPRITES 5
+# define SPRITES 2
+# define SPR_TX 2
 # define TEXTURES 9
 # define SKY 6
 # define FLOOR 7
@@ -61,13 +62,14 @@ typedef struct	s_entity
 
 typedef struct	s_sprite
 {
-	t_vec	pos;
-	double	dist;
-	int		index;
-	int		tx;
-	int		height;
-	int		width;
-	t_i_vec	draw_start;
+	t_vec		pos;
+	double		dist;
+	int			index;
+	int			tx;
+	int			height;
+	int			width;
+	t_i_vec		draw_start;
+	t_i_vec		draw_end;
 }				t_sprite;
 
 typedef struct	s_texture
@@ -121,6 +123,7 @@ typedef struct	s_env
 	t_entity	player;
 	t_sprite	spr[SPRITES];
 	t_texture	tx[TEXTURES];
+	t_texture	spr_tx[SPR_TX];
 }				t_env;
 
 	/* Main */
@@ -153,7 +156,7 @@ t_i_vec		create_i_vec(int x, int y);
 t_vec		create_vec(double x, double y);
 t_sprite	define_sprite(double x, double y, int tx);
 int			compare_sprites(const void *first, const void *second);
-
+void		fill_sprite(t_env *env, t_i_vec img_c, int tx_coor, int tx_num);
 
 	/*	Raycasting	*/
 void		init_geom(t_env *env);
@@ -183,9 +186,14 @@ t_vec		m_perp_apply(t_vec vec, int dir);
 void		prepare_textures(t_env *env);
 void		init_sky(t_env *env);
 void		fill_sky_and_floor(t_env *env);
+void		prepare_sprites(t_env *env);
 
 	/*	Sprites */
 void		sprites(t_env *env);
 void		sort_sprites(t_env *env);
-void		calculate_sprites(t_env *env);
+void		iterate_sprites(t_env *env);
+void		calculate_sprites(t_env *env, t_sprite *s, t_i_vec spr_scr);
+void		draw_sprites(t_env *env, t_sprite *s, t_i_vec spr_scr);
+
+
 #endif

@@ -94,3 +94,16 @@ void    fill_sky_and_floor(t_env *env)
         ++y;
     }
 }
+
+void	prepare_sprites(t_env *env)
+{
+	t_texture *t;
+
+	t = &env->spr_tx[0];
+	t[0].img = mlx_xpm_file_to_image(env->mlx, "textures/barrel.xpm",
+													&t[0].width, &t[0].height);
+	t[0].ipp = mlx_get_data_addr(t[0].img, &t[0].bpp, &t[0].sline, &t[0].endn);
+	t[1].img = mlx_xpm_file_to_image(env->mlx, "textures/pillar.xpm",
+													&t[1].width, &t[1].height);
+	t[1].ipp = mlx_get_data_addr(t[1].img, &t[1].bpp, &t[1].sline, &t[1].endn);
+}

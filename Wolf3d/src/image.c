@@ -83,7 +83,7 @@ void	fill_image(t_env *env)
 		vertical_line(env);
 		env->z_buf[env->cast.it.x] = env->cast.p_wall_dist;
 		fill_sky_and_floor(env);
-		sprites(env);
 		++env->cast.it.x;
 	}
+	sprites(env);
 }
