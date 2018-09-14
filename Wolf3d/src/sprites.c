@@ -98,7 +98,6 @@ void		draw_sprites(t_env *env, t_sprite *s, t_i_vec spr_scr)
 
 void	sprites(t_env *env)
 {
-	define_sprites(env);
 	sort_sprites(env);
 	iterate_sprites(env);
 }

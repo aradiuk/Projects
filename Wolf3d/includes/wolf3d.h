@@ -14,13 +14,15 @@
 # define MOV_SP 0.2
 # define ROT_SP 4 * M_PI / 180.
 # define SPRITES 5
-# define SPR_TX 2
+# define SPR_TX 4
 # define TEXTURES 9
 # define SKY 6
 # define FLOOR 7
 # define DOOR 8
 # define SC_DOOR 3
-# define PROXIMITY 0.075
+# define PROX 0.075
+# define TWO_P 2
+# define TEN_P 3
 
 typedef struct	s_mat
 {
@@ -59,6 +61,7 @@ typedef struct	s_entity
 {
 	t_vec	pos;
 	t_vec	dir;
+	int		points;
 }				t_entity;
 
 typedef struct	s_sprite
@@ -151,6 +154,7 @@ void		rotate_left(t_env *env);
 void		create_image(t_env *env);
 void		prepare_textures(t_env *env);
 void		open_door(t_env *env);
+void		remove_object(t_env *env, int i);
 
 	/*	Vectors */
 t_i_vec		create_i_vec(int x, int y);

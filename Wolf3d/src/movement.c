@@ -63,20 +63,22 @@ void	move_left(t_env *env)
 int		hit_object(t_env *env, t_vec dir)
 {
 	int		i;
-	double		x;
-	double		y;
-	t_entity	*p;
+	t_vec	pos;
 
 
 	i = 0;
-	p = &env->player;
+	pos.x = env->player.pos.x + dir.x * (MOV_SP + 0.05);
+	pos.y = env->player.pos.y + dir.y * (MOV_SP + 0.05);
 	while (i < SPRITES)
 	{
-		x = p->pos.x + dir.x * (MOV_SP + 0.05);
-		y = p->pos.y + dir.y * (MOV_SP + 0.05);
-		if ((x - env->spr[i].pos.x) * (x - env->spr[i].pos.x) +
-			(y - env->spr[i].pos.y) * (y - env->spr[i].pos.y) <= PROXIMITY)
-			return (1);
+		if ((pos.x - env->spr[i].pos.x) * (pos.x - env->spr[i].pos.x) +
+			(pos.y - env->spr[i].pos.y) * (pos.y - env->spr[i].pos.y) <= PROX)
+		{
+			if (env->spr[i].tx == TWO_P || env->spr[i].tx == TEN_P)
+				remove_object(env, i);
+			else
+				return (1);
+		}
 		++i;
 	}
 	return (0);

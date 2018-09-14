@@ -106,4 +106,10 @@ void	prepare_sprites(t_env *env)
 	t[1].img = mlx_xpm_file_to_image(env->mlx, "textures/pillar.xpm",
 													&t[1].width, &t[1].height);
 	t[1].ipp = mlx_get_data_addr(t[1].img, &t[1].bpp, &t[1].sline, &t[1].endn);
+	t[2].img = mlx_xpm_file_to_image(env->mlx, "textures/2points.xpm",
+									 &t[2].width, &t[2].height);
+	t[2].ipp = mlx_get_data_addr(t[2].img, &t[2].bpp, &t[2].sline, &t[2].endn);
+	t[3].img = mlx_xpm_file_to_image(env->mlx, "textures/10points.xpm",
+									 &t[3].width, &t[3].height);
+	t[3].ipp = mlx_get_data_addr(t[3].img, &t[3].bpp, &t[3].sline, &t[3].endn);
 }
