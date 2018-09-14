@@ -32,7 +32,7 @@ void	iterate_sprites(t_env *env)
 	c = &env->cast;
 	while (i < SPRITES)
 	{
-		s = &env->spr[env->spr[i].index];
+		s = &env->spr[i];
 		c->spr.x = s->pos.x - p->pos.x;
 		c->spr.y = s->pos.y - p->pos.y;
 		c->inv = 1.0 / (c->plane.x * p->dir.y - p->dir.x * c->plane.y);

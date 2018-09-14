@@ -13,13 +13,14 @@
 # define FOV 90 * (180 / M_PI)
 # define MOV_SP 0.2
 # define ROT_SP 4 * M_PI / 180.
-# define SPRITES 2
+# define SPRITES 5
 # define SPR_TX 2
 # define TEXTURES 9
 # define SKY 6
 # define FLOOR 7
 # define DOOR 8
 # define SC_DOOR 3
+# define PROXIMITY 0.075
 
 typedef struct	s_mat
 {
@@ -176,6 +177,7 @@ void		move_forward(t_env *env);
 void		move_right(t_env *env);
 void		move_backwards(t_env *env);
 void		move_left(t_env *env);
+int			hit_object(t_env *env, t_vec dir);
 
 	/*	Matrix	*/
 t_mat		init_matrix(double angle);
