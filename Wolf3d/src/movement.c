@@ -7,9 +7,9 @@ void	move_forward(t_env *env)
 	p = &env->player;
 	if (hit_object(env, p->dir))
 		return ;
-	if (env->map.map[(int)(p->pos.x + p->dir.x * (MOV_SP + 0.05))][(int)p->pos.y] <= '0')
+	if (env->map.map[(int)(p->pos.x + p->dir.x * MOV_SP * 1.5)][(int)p->pos.y] <= '0')
 		p->pos.x += p->dir.x * MOV_SP;
-	if (env->map.map[(int)p->pos.x][(int)(p->pos.y + p->dir.y * (MOV_SP + 0.05))] <= '0')
+	if (env->map.map[(int)p->pos.x][(int)(p->pos.y + p->dir.y * MOV_SP * 1.5)] <= '0')
 		p->pos.y += p->dir.y * MOV_SP;
 }
 
@@ -20,9 +20,9 @@ void	move_backwards(t_env *env)
 	p = &env->player;
 	if (hit_object(env, create_vec(-p->dir.x, -p->dir.y)))
 		return ;
-	if (env->map.map[(int)(p->pos.x - p->dir.x * (MOV_SP + 0.05))][(int)p->pos.y] <= '0')
+	if (env->map.map[(int)(p->pos.x - p->dir.x * MOV_SP * 1.5)][(int)p->pos.y] <= '0')
 		p->pos.x -= p->dir.x * MOV_SP;
-	if (env->map.map[(int)p->pos.x][(int)(p->pos.y - p->dir.y * (MOV_SP + 0.05))] <= '0')
+	if (env->map.map[(int)p->pos.x][(int)(p->pos.y - p->dir.y * MOV_SP * 1.5)] <= '0')
 		p->pos.y -= p->dir.y * MOV_SP;
 }
 
@@ -36,10 +36,10 @@ void	move_right(t_env *env)
 	if (hit_object(env, r->dir))
 		return ;
 	if (env->map.map[(int)(p->pos.x +
-            r->dir.x * (MOV_SP + 0.05))][(int)p->pos.y] <= '0')
+            r->dir.x * MOV_SP * 1.5)][(int)p->pos.y] <= '0')
 		p->pos.x += r->dir.x * MOV_SP;
 	if (env->map.map[(int)p->pos.x][(int)(p->pos.y +
-			r->dir.y * (MOV_SP + 0.05))] <= '0')
+			r->dir.y * MOV_SP * 1.5)] <= '0')
 		p->pos.y += r->dir.y * MOV_SP;
 }
 
@@ -53,10 +53,10 @@ void	move_left(t_env *env)
 	if (hit_object(env, r->dir))
 		return ;
 	if (env->map.map[(int)(p->pos.x +
-            r->dir.x * (MOV_SP + 0.05))][(int)p->pos.y] <= '0')
+            r->dir.x * MOV_SP * 1.5)][(int)p->pos.y] <= '0')
 		p->pos.x += r->dir.x * MOV_SP;
 	if (env->map.map[(int)p->pos.x][(int)(p->pos.y +
-            r->dir.y * (MOV_SP + 0.05))] <= '0')
+            r->dir.y * MOV_SP * 1.5)] <= '0')
 		p->pos.y += r->dir.y * MOV_SP;
 }
 
@@ -67,8 +67,8 @@ int		hit_object(t_env *env, t_vec dir)
 
 
 	i = 0;
-	pos.x = env->player.pos.x + dir.x * (MOV_SP + 0.05);
-	pos.y = env->player.pos.y + dir.y * (MOV_SP + 0.05);
+	pos.x = env->player.pos.x + dir.x * MOV_SP * 1.5;
+	pos.y = env->player.pos.y + dir.y * MOV_SP * 1.5;
 	while (i < SPRITES)
 	{
 		if ((pos.x - env->spr[i].pos.x) * (pos.x - env->spr[i].pos.x) +
