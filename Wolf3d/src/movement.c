@@ -65,7 +65,6 @@ int		hit_object(t_env *env, t_vec dir)
 	int		i;
 	t_vec	pos;
 
-
 	i = 0;
 	pos.x = env->player.pos.x + dir.x * MOV_SP * 1.5;
 	pos.y = env->player.pos.y + dir.y * MOV_SP * 1.5;
@@ -76,6 +75,12 @@ int		hit_object(t_env *env, t_vec dir)
 		{
 			if (env->spr[i].tx == TWO_P || env->spr[i].tx == TEN_P)
 				remove_object(env, i);
+			else if (env->player.points == -42 && env->spr[i].tx == 0)
+			{
+				prepare_level(env, env->level + 1);
+				create_image(env);
+				return (1);
+			}
 			else
 				return (1);
 		}

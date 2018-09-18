@@ -121,6 +121,7 @@ typedef struct	s_env
 	void		*win;
 	char		*name;
 	double		z_buf[WIDTH];
+	int			level;
 	t_img		img;
 	t_map		map;
 	t_cast		cast;
@@ -132,9 +133,8 @@ typedef struct	s_env
 
 	/* Main */
 void		error(char *str);
-void		starting_parameters(t_env *env);
 void		create_the_environment(t_env *env);
-void		define_sprites(t_env *env);
+void		level_1(t_env *env);
 
 	/*	Map reading */
 void		read_map(t_env *env);
@@ -200,6 +200,13 @@ void		sort_sprites(t_env *env);
 void		iterate_sprites(t_env *env);
 void		calculate_sprites(t_env *env, t_sprite *s, t_i_vec spr_scr);
 void		draw_sprites(t_env *env, t_sprite *s, t_i_vec spr_scr);
+
+	/*	Levels */
+void		define_sprites(t_env *env);
+void		starting_parameters_1(t_env *env);
+void		starting_parameters_2(t_env *env);
+void		prepare_level(t_env *env, int level);
+void		end_game(t_env *env);
 
 
 #endif

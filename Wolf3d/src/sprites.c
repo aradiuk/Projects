@@ -59,7 +59,7 @@ void	calculate_sprites(t_env *env, t_sprite *s, t_i_vec spr_scr)
 		s->draw_start.y = 0;
 	if (s->draw_end.y >= HEIGHT)
 		s->draw_end.y = HEIGHT - 1;
-	s->width = abs((int)(HEIGHT / c->transf.y)); // Maybe transfrom.x ??
+	s->width = abs((int)(HEIGHT / c->transf.y));
 	s->draw_start.x = -s->width / 2. + spr_scr.x;
 	s->draw_end.x = s->width / 2. + spr_scr.x;
 	if (s->draw_start.x < 0)
