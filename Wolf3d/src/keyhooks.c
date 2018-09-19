@@ -17,11 +17,14 @@ int keyhooks(int keycode, t_env *env)
     else if (keycode == 0 || keycode == 97) // left
         move_left(env);
     else if (keycode == 124 || keycode == 65363) // rot_right
-      rotate_right(env);
+        rotate_right(env);
     else if (keycode == 123 || keycode == 65361) // rot_right
         rotate_left(env);
     else if (keycode == 1 || keycode == 32) //  Door activator
         open_door(env);
+    else
+        return (0);
+        // TODO: hook while already hooking
     create_image(env);
     return (0);
 }

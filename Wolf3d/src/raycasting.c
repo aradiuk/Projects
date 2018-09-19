@@ -54,8 +54,8 @@ void	check_hit(t_env *env) {
 
 	cast = &env->cast;
 	cast->hit = 0;
-	while (cast->hit == 0 && cast->map.x < env->map.x_dim &&
-							cast->map.y < env->map.y_dim)
+	while (cast->hit == 0 && cast->map.x <= env->map.y_dim &&
+							cast->map.y <= env->map.x_dim)
 	{
 		if (cast->side_dist.x < cast->side_dist.y)
 		{
@@ -69,7 +69,7 @@ void	check_hit(t_env *env) {
 			cast->map.y += cast->step.y;
 			cast->side = 1;
 		}
-			//	Add boundaries check
+			//	TODO: Add boundaries check
 		if (env->map.map[cast->map.x][cast->map.y] > '0')
 			cast->hit = 1;
 	}
