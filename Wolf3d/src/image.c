@@ -35,6 +35,8 @@ void	find_texture(t_env *env)
 
 	cast = &env->cast;
 	cast->tx_num = env->map.map[cast->map.x][cast->map.y] - '1';
+	if (cast->tx_num < 0)
+		error("something strange happened")
 	if (cast->tx_num > TEXTURES)
 		error("too high texture number");
 	if (cast->side == 0)
