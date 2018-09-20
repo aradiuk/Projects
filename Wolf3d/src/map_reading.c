@@ -19,9 +19,9 @@ void	get_map_dimensions(int fd, t_env *env)
 	while (*line && ft_isdigit(*line))
 		++line;
 	env->map.y_dim = ft_atoi(line);
-	if (env->map.x_dim < 3 || env->map.x_dim > 199)
+	if (env->map.x_dim < 3 || env->map.x_dim > 99)
 		error("x dimension is out of range");
-	if (env->map.y_dim < 3 || env->map.y_dim > 199)
+	if (env->map.y_dim < 3 || env->map.y_dim > 99)
 		error("y dimension is out of range");
 	free(free_line);
 }

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "../includes/wolf3d.h"
 
-int keyhooks(int keycode, t_env *env)
+int     keyhooks(int keycode, t_env *env)
 {
     if (keycode == 53 || keycode == 65307)
     {
@@ -29,7 +29,7 @@ int keyhooks(int keycode, t_env *env)
     return (0);
 }
 
-int cross_exit(t_env *env)
+int     cross_exit(t_env *env)
 {
     mlx_destroy_window(env->mlx, env->win);
     exit(0);
@@ -43,19 +43,21 @@ int     mouse_rotation(int x, int y, t_env *env)
     cast = &env->cast;
     if (x > 0 && x < WIDTH && y > 0 && y < HEIGHT)
     {
+        printf("x: %d, x_aim: %d\n", x, cast->x_aim);
         if (x > cast->x_aim)
         {
-            env->player.dir = m_apply(env->player.dir, -ROT_SP);
-            cast->plane = m_apply(cast->plane, -ROT_SP);
+            env->player.dir = m_apply(env->player.dir, atan(cast->x_aim - x) * M_PI / 180.);
+            cast->plane = m_apply(cast->plane, atan(cast->x_aim - x) * M_PI / 180.);
             cast->x_aim = x;
         }
         else if (x < cast->x_aim)
         {
-            env->player.dir = m_apply(env->player.dir, ROT_SP);
-            cast->plane = m_apply(cast->plane, ROT_SP);
+            env->player.dir = m_apply(env->player.dir, atan(cast->x_aim - x) * M_PI / 180.);
+            cast->plane = m_apply(cast->plane, atan(cast->x_aim - x) * M_PI / 180.);
             cast->x_aim = x;
         }
         create_image(env);
+        mlx_hook(env->win, 2, 3, keyhooks, env);
     }
     return (0);
 }
