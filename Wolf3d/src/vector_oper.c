@@ -33,7 +33,7 @@ int         compare_sprites(const void *first, const void *second)
     t_sprite    *sprite_1 = (t_sprite *)first;
     t_sprite    *sprite_2 = (t_sprite *)second;
 
-    return (sprite_1->dist < sprite_2->dist);
+    return ((*(t_sprite *)second).dist - (*(t_sprite *)first).dist);
 }
 
 void    fill_sprite(t_env *env, t_i_vec img_c, int tx_coor, int tx_num)

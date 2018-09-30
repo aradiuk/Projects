@@ -8,13 +8,13 @@
 # include "../libft/includes/libft.h"
 # include "mlx.h"
 
-# define WIDTH 800
-# define HEIGHT 600
+# define WIDTH 1200
+# define HEIGHT 720
 # define FOV 90 * (180 / M_PI)
 # define MOV_SP 0.2
 # define ROT_SP 4 * M_PI / 180.
-# define SPRITES 5
-# define SPR_TX 4
+# define SPRITES 13
+# define SPR_TX 5
 # define TEXTURES 9
 # define SKY 6
 # define FLOOR 7

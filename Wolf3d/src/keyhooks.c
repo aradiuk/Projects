@@ -20,11 +20,10 @@ int     keyhooks(int keycode, t_env *env)
         rotate_right(env);
     else if (keycode == 123 || keycode == 65361) // rot_right
         rotate_left(env);
-    else if (keycode == 1 || keycode == 32) //  Door activator
+    else if (keycode == 49 || keycode == 32) //  Door activator
         open_door(env);
     else
         return (0);
-        // TODO: hook while already hooking
     create_image(env);
     return (0);
 }
@@ -43,17 +42,20 @@ int     mouse_rotation(int x, int y, t_env *env)
     cast = &env->cast;
     if (x > 0 && x < WIDTH && y > 0 && y < HEIGHT)
     {
-        printf("x: %d, x_aim: %d\n", x, cast->x_aim);
         if (x > cast->x_aim)
         {
-            env->player.dir = m_apply(env->player.dir, atan(cast->x_aim - x) * M_PI / 180.);
-            cast->plane = m_apply(cast->plane, atan(cast->x_aim - x) * M_PI / 180.);
+            env->player.dir = m_apply(env->player.dir, atan(cast->x_aim - x)
+            * M_PI / 50.);
+            cast->plane = m_apply(cast->plane, atan(cast->x_aim - x) * M_PI /
+            50.);
             cast->x_aim = x;
         }
         else if (x < cast->x_aim)
         {
-            env->player.dir = m_apply(env->player.dir, atan(cast->x_aim - x) * M_PI / 180.);
-            cast->plane = m_apply(cast->plane, atan(cast->x_aim - x) * M_PI / 180.);
+            env->player.dir = m_apply(env->player.dir, atan(cast->x_aim - x)
+            * M_PI / 50.);
+            cast->plane = m_apply(cast->plane, atan(cast->x_aim - x) * M_PI /
+            50.);
             cast->x_aim = x;
         }
         create_image(env);
