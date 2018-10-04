@@ -112,7 +112,7 @@ void	prepare_sprites(t_env *env)
 	t[3].img = mlx_xpm_file_to_image(env->mlx, "textures/10points.xpm",
 									 &t[3].width, &t[3].height);
 	t[3].ipp = mlx_get_data_addr(t[3].img, &t[3].bpp, &t[3].sline, &t[3].endn);
-	t[4].img = mlx_xpm_file_to_image(env->mlx, "textures/10points.xpm",
+	t[4].img = mlx_xpm_file_to_image(env->mlx, "textures/exit.xpm",
 									 &t[4].width, &t[4].height);
 	t[4].ipp = mlx_get_data_addr(t[4].img, &t[4].bpp, &t[4].sline, &t[4].endn);
 }

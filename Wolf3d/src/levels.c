@@ -40,7 +40,7 @@ void	define_sprites(t_env *env)
 	env->spr[9] = define_sprite(14, 8, TEN_P);
 	env->spr[10] = define_sprite(18, 4, 1);
 	env->spr[11] = define_sprite(18, 6, 1);
-	env->spr[12] = define_sprite(18, 5, 0);
+	env->spr[12] = define_sprite(18, 5, 4);
 }
 
 void	prepare_level(t_env *env, int level)
