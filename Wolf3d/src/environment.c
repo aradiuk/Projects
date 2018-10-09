@@ -5,9 +5,11 @@ void    create_the_environment(t_env *env)
 	env->mlx = mlx_init();
 	env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, "Wolf3d");
 	prepare_textures(env);
-	define_sprites(env);
+	define_sprites_1(env);
 	prepare_sprites(env);
 	create_image(env);
+	system("leaks wolf3d");
+
 	mlx_hook(env->win, 17, 1L << 17, cross_exit, env);
 	mlx_hook(env->win, 6, 1L << 6, mouse_rotation, env);
 	mlx_hook(env->win, 2, 3, keyhooks, env);
@@ -60,6 +62,6 @@ void	remove_object(t_env *env, int i)
 		env->player.points -= 10;
 	if (env->player.points < -42)
 		env->player.points = -42;
-	env->spr[i].pos.x = -1000;
-	env->spr[i].pos.y = -1000;
+	env->spr[i].pos.x = 0;
+	env->spr[i].pos.y = 0;
 }

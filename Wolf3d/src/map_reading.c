@@ -5,10 +5,10 @@ void	get_map_dimensions(int fd, t_env *env)
 {
 	char	*line;
 	char	*free_line;
-	get_next_line(fd, &line);
 	int i;
 
 	i = -1;
+	get_next_line(fd, &line);
 	free_line = line;
 	while (line[++i] != '\0')
 		if (!ft_isdigit(line[i]) && line[i] != ' ')
@@ -71,10 +71,11 @@ void	get_map(int fd, t_env *env)
 		free(line);
 		++i;
 	}
+
 	if (i != env->map.y_dim)
 		error("one of the map columns is out of range");
-	if (get_next_line(fd, &line) > 0)
-	{
+
+	if (get_next_line(fd, &line) > 0) {
 		free(line);
 		error("map has too many lines");
 	}
@@ -90,6 +91,7 @@ void	read_map(t_env *env)
 	get_map_dimensions(fd, env);
 	get_map(fd, env);
 	validate_position(env);
+
 }
 
 void	validate_position(t_env *env)

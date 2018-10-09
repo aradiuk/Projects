@@ -6,7 +6,8 @@ int     keyhooks(int keycode, t_env *env)
     if (keycode == 53 || keycode == 65307)
     {
         mlx_destroy_window(env->mlx, env->win);
-        exit(0);
+		system("killall afplay");
+		exit(0);
     }
     else if (keycode == 13 || keycode == 119 || keycode == 126) // forward
         move_forward(env);
@@ -25,12 +26,13 @@ int     keyhooks(int keycode, t_env *env)
     else
         return (0);
     create_image(env);
-    return (0);
+	return (0);
 }
 
 int     cross_exit(t_env *env)
 {
     mlx_destroy_window(env->mlx, env->win);
+	system("killall afplay");
     exit(0);
     return (0);
 }
@@ -40,27 +42,23 @@ int     mouse_rotation(int x, int y, t_env *env)
     t_cast	*cast;
 
     cast = &env->cast;
-    if (x > 0 && x < WIDTH && y > 0 && y < HEIGHT)
-    {
-        if (x > cast->x_aim)
-        {
-            env->player.dir = m_apply(env->player.dir, atan(cast->x_aim - x)
-            * M_PI / 50.);
-            cast->plane = m_apply(cast->plane, atan(cast->x_aim - x) * M_PI /
-            50.);
-            cast->x_aim = x;
-        }
-        else if (x < cast->x_aim)
-        {
-            env->player.dir = m_apply(env->player.dir, atan(cast->x_aim - x)
-            * M_PI / 50.);
-            cast->plane = m_apply(cast->plane, atan(cast->x_aim - x) * M_PI /
-            50.);
-            cast->x_aim = x;
-        }
-        create_image(env);
-        mlx_hook(env->win, 2, 3, keyhooks, env);
-    }
+	if (x > cast->x_aim)
+	{
+		env->player.dir = m_apply(env->player.dir, atan(cast->x_aim - x)
+		* M_PI / 50.);
+		cast->plane = m_apply(cast->plane, atan(cast->x_aim - x) * M_PI /
+		50.);
+		cast->x_aim = x;
+	}
+	else if (x < cast->x_aim)
+	{
+		env->player.dir = m_apply(env->player.dir, atan(cast->x_aim - x)
+		* M_PI / 50.);
+		cast->plane = m_apply(cast->plane, atan(cast->x_aim - x) * M_PI /
+		50.);
+		cast->x_aim = x;
+	}
+	create_image(env);
     return (0);
 }
 

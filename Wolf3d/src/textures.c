@@ -14,19 +14,19 @@ void	prepare_textures(t_env *env)
 	t[2].img = mlx_xpm_file_to_image(env->mlx, "textures/greystone.xpm",
 									&t[2].width, &t[2].height);
 	t[2].ipp = mlx_get_data_addr(t[2].img, &t[2].bpp, &t[2].sline, &t[2].endn);
-	t[3].img = mlx_xpm_file_to_image(env->mlx, "textures/mossy.xpm",
+	t[3].img = mlx_xpm_file_to_image(env->mlx, "textures/secret.xpm",
 									&t[3].width, &t[3].height);
 	t[3].ipp = mlx_get_data_addr(t[3].img, &t[3].bpp, &t[3].sline, &t[3].endn);
 	t[4].img = mlx_xpm_file_to_image(env->mlx, "textures/redbrick.xpm",
 									&t[4].width, &t[4].height);
 	t[4].ipp = mlx_get_data_addr(t[4].img, &t[4].bpp, &t[4].sline, &t[4].endn);
-	t[5].img = mlx_xpm_file_to_image(env->mlx, "textures/wood.xpm",
+	t[5].img = mlx_xpm_file_to_image(env->mlx, "textures/mossy.xpm",
 									&t[5].width, &t[5].height);
 	t[5].ipp = mlx_get_data_addr(t[5].img, &t[5].bpp, &t[5].sline, &t[5].endn);
 	t[6].img = mlx_xpm_file_to_image(env->mlx, "textures/wood.xpm",
 									&t[6].width, &t[6].height);
 	t[6].ipp = mlx_get_data_addr(t[6].img, &t[6].bpp, &t[6].sline, &t[6].endn);
-	t[7].img = mlx_xpm_file_to_image(env->mlx, "textures/redbrick.xpm",
+	t[7].img = mlx_xpm_file_to_image(env->mlx, "textures/grass.xpm",
 									&t[7].width, &t[7].height);
 	t[7].ipp = mlx_get_data_addr(t[7].img, &t[7].bpp, &t[7].sline, &t[7].endn);
 	t[8].img = mlx_xpm_file_to_image(env->mlx, "textures/eagle.xpm",
@@ -73,7 +73,7 @@ void    fill_sky_and_floor(t_env *env)
     init_sky(env);
     if (cast->draw_end < 0)
         cast->draw_end = HEIGHT;
-    y = cast->draw_end + 1;
+    y = cast->draw_end;
     while (y < HEIGHT)
     {
         weight = HEIGHT / (2.0 * y - HEIGHT) / cast->p_wall_dist;

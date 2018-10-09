@@ -14,8 +14,8 @@ void	init_geom(t_env *env)
 	cast->ray.dir.y = env->player.dir.y + cast->plane.y * cam_x;
 	cast->map.x = (int)env->player.pos.x;
 	cast->map.y = (int)env->player.pos.y;
-	cast->delta_dist.x = fabs(1 / cast->ray.dir.x);
-	cast->delta_dist.y = fabs(1 / cast->ray.dir.y);
+	cast->delta_dist.x = fabs(1. / cast->ray.dir.x);
+	cast->delta_dist.y = fabs(1. / cast->ray.dir.y);
 }
 
 void	calculate_step(t_env *env)
@@ -69,7 +69,6 @@ void	check_hit(t_env *env) {
 			cast->map.y += cast->step.y;
 			cast->side = 1;
 		}
-			//	TODO: Add boundaries check
 		if (env->map.map[cast->map.x][cast->map.y] > '0')
 			cast->hit = 1;
 	}
