@@ -48,5 +48,7 @@ int		main(int argc, char **argv)
 	prepare_level(&env, 1);
 	create_the_environment(&env);
 
+
+    CHECK POSSIBLE SEGFAULT ON THE DOORS, LOOKING OVER THE END!
 	return (0);
 }
