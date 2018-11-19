@@ -6,7 +6,7 @@ int main(int argc, char **argv) {
 		std::cout << "No equation - no output.\n";
 		return 1;
 	} else if (argc > 2) {
-		std::cout << "Woah! One equation at a time, please! I am only a machine!\n";
+		std::cout << "Woah! One equation at a time, please! I am just a machine!\n";
 		return 1;
 	}
 
