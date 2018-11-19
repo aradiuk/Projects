@@ -22,8 +22,7 @@ private:
 			std::regex("[-+]*\\d+(\\.\\d+)?"),
 			std::regex("[\\+\\-\\*\\/]"),
 			std::regex("[-+]?X(\\^\\d+)?")};
-	std::map<int, int> lhPowerCoefficients_;
-	std::map<int, int> rhPowerCoefficients_;
+	std::map<int, int> powerCoefficients_;
 	bool valid_ = true;
 
 

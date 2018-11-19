@@ -34,7 +34,7 @@ bool ComputorV1::FormEntity(const char &symb)
 {
 	static bool action = false;
 	static bool isPositive = true;
-	std::cout << __FUNCTION__ << " " << symb << std::endl;
+//	std::cout << __FUNCTION__ << " " << symb << std::endl;
 	if (symb == ' ') {
 		return true;
 	}
@@ -92,25 +92,34 @@ void ComputorV1::ParseXPart(bool isPositive, bool isLeftHand)
 {
 	std::cout << __FUNCTION__ << ": " << xPart << std::endl;
 	int partPower = 0;
+	double coef = 1;
+	bool isMult = false;
+
 	std::stringstream ss(xPart);
 	std::string str;
 	while (ss >> str) {
-		double coef = 0;
 		if (str.find('X') != std::string::npos) {
 			int newPower = DeterminePower(str);
 			partPower = newPower > partPower ? newPower : partPower;
-		} else if (str == "*" || str == "/") {
-			continue;
+		} else if (str == "*") {
+			isMult = true;
+		} else if (str == "/") {
+			isMult = false;
 		} else {
-			std::cout << "stoing: " << str << std::endl;
-			coef += std::stoi(RemoveUnneededSigns(str));
-			std::cout << "coef: " << coef << std::endl;
+			if (isMult) {
+				coef *= std::stoi(RemoveUnneededSigns(str));
+			}
+			else {
+				coef /= std::stoi(RemoveUnneededSigns(str));
+			}
 		}
-
-
-		std::cout << "PART: " << str << std::endl;
 	}
 
+	if (!isLeftHand) {
+		coef *= -1;
+	}
+	powerCoefficients_[partPower] += coef;
+	std::cout << "power: " << partPower << ", coef: " << coef << std::endl;
 	xPart.clear();
 }
 
@@ -135,6 +144,8 @@ void ComputorV1::processEquation()
 		std::cout << "Sorry, your equation is not valid. Try again.\n";
 		return;
 	}
+	for (const auto &it : powerCoefficients_)
+		std::cout << "power: " << it.first << ", coef: " << it.second << std::endl;
 }
 
 std::string ComputorV1::RemoveUnneededSigns(const std::string &str)
@@ -156,7 +167,7 @@ std::string ComputorV1::RemoveUnneededSigns(const std::string &str)
 	} else {
 		result = "-" + str.substr(pos);
 	}
-	std::cout << "res: " << result;
+	std::cout << __FUNCTION__ << ": " << result << std::endl;
 	return result;
 }
 
