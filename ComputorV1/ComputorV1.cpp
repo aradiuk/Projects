@@ -34,22 +34,21 @@ bool ComputorV1::FormEntity(const char &symb)
 {
 	static bool action = false;
 	static bool isPositive = true;
+	static bool isLeftHand = true;
 //	std::cout << __FUNCTION__ << " " << symb << std::endl;
 	if (symb == ' ') {
 		return true;
 	}
 
 	if (symb == '=') {
-		if (isLeftHand) {
-			isLeftHand = false;
-		} else {
-			return false;
-		}
 		action = true;
 		xPart += " " + entity;
 		if (IsEntityValid()) {
 			entity.clear();
 			ParseXPart(isPositive, isLeftHand);
+			if (isLeftHand) {
+				isLeftHand = false;
+			}
 			return true;
 		} else {
 			return false;
@@ -93,11 +92,12 @@ void ComputorV1::ParseXPart(bool isPositive, bool isLeftHand)
 	std::cout << __FUNCTION__ << ": " << xPart << std::endl;
 	int partPower = 0;
 	double coef = 1;
-	bool isMult = false;
+	bool isMult = true;
 
 	std::stringstream ss(xPart);
 	std::string str;
 	while (ss >> str) {
+		std::cout << "before: " << str << std::endl;
 		if (str.find('X') != std::string::npos) {
 			int newPower = DeterminePower(str);
 			partPower = newPower > partPower ? newPower : partPower;
@@ -106,13 +106,15 @@ void ComputorV1::ParseXPart(bool isPositive, bool isLeftHand)
 		} else if (str == "/") {
 			isMult = false;
 		} else {
-			if (isMult) {
-				coef *= std::stoi(RemoveUnneededSigns(str));
-			}
-			else {
+			if (!isMult) {
 				coef /= std::stoi(RemoveUnneededSigns(str));
 			}
+			else {
+				coef *= std::stoi(RemoveUnneededSigns(str));
+			}
 		}
+		std::cout << "Ppower: " << partPower << std::endl;
+		std::cout << "Ccoef: " << coef << std::endl;
 	}
 
 	if (!isLeftHand) {
@@ -176,6 +178,8 @@ int ComputorV1::DeterminePower(const std::string &str)
 	size_t pos = str.find('^');
 	if (pos != std::string::npos) {
 		return std::stoi(str.substr(pos + 1));
+	} else {
+		return 1;
 	}
 }
 

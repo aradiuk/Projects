@@ -13,7 +13,6 @@
 class ComputorV1 {
 private:
 	const std::string equation_;
-	bool isLeftHand = true;
 	std::string entity;
 	std::string xPart;
 	std::string reducedEq_;
