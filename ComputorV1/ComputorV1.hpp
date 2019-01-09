@@ -10,6 +10,8 @@
 #include <regex>
 #include <cctype>
 
+#include "math_functions.hpp"
+
 class ComputorV1 {
 private:
 	const std::string equation_;
@@ -20,8 +22,8 @@ private:
 	const std::vector<std::regex> allowedEntities_ = {
 			std::regex("[-+]*\\d+(\\.\\d+)?"),
 			std::regex("[\\+\\-\\*\\/]"),
-			std::regex("[-+]?X(\\^\\d+)?")};
-	std::map<int, int> powerCoefficients_;
+			std::regex("[-+]*X(\\^\\d+)?")};
+	std::map<int, double> powerCoefficients_;
 	bool valid_ = true;
 
 
@@ -37,8 +39,11 @@ public:
 	void ParseXPart(bool isPositive, bool isLeftHand);
 	int  DeterminePower(const std::string &str);
 	std::string RemoveUnneededSigns(const std::string &str);
-	void processEquation();
-
+	void ProcessEquation();
+	void PrintSimplifiedEquation();
+	void PrintPolynomialDegree();
+	double CalculateDiscriminant();
+	std::pair<double, double> FindSolution(double discr);
 
 };
 #endif //COMPUTORV1_COMPUTORV1_HPP

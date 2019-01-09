@@ -107,10 +107,10 @@ void ComputorV1::ParseXPart(bool isPositive, bool isLeftHand)
 			isMult = false;
 		} else {
 			if (!isMult) {
-				coef /= std::stoi(RemoveUnneededSigns(str));
+				coef /= std::stod(RemoveUnneededSigns(str));
 			}
 			else {
-				coef *= std::stoi(RemoveUnneededSigns(str));
+				coef *= std::stod(RemoveUnneededSigns(str));
 			}
 		}
 		std::cout << "Ppower: " << partPower << std::endl;
@@ -140,14 +140,90 @@ bool ComputorV1::IsEntityValid()
 	return false;
 }
 
-void ComputorV1::processEquation()
+void ComputorV1::PrintPolynomialDegree()
+{
+    std::stringstream degree;
+
+    degree << "Polynomial degree: " << powerCoefficients_.rbegin()->first;
+    std::cout << degree.str() << std::endl;
+}
+
+void ComputorV1::PrintSimplifiedEquation()
+{
+    std::stringstream reduced;
+
+    reduced << "Reduced from: ";
+    for (const auto &it : powerCoefficients_) {
+        if (it.first == 0) {
+            reduced << it.second << " * X^" << it.first << " ";
+        } else {
+            if (it.second < 0) {
+                reduced << "- " << -it.second << " * X^" << it.first << " ";
+            } else {
+                reduced << "+ " << it.second << " * X^" << it.first << " ";
+            }
+        }
+    }
+    reduced << "= 0";
+
+    std::cout << reduced.str() << std::endl;
+}
+
+double ComputorV1::CalculateDiscriminant()
+{
+    std::stringstream discrInfo;
+
+    double a = powerCoefficients_[2];
+    double b = powerCoefficients_[1];
+    double c = powerCoefficients_[0];
+    double discr = Pow(b, 2) - 4 * a * c;
+    if (discr < 0) {
+        discrInfo << "Discriminant is negative.";
+        std::cout << discrInfo.str() << std::endl;
+        return 0;
+    } else if (discr == 0) {
+        discrInfo << "Discriminant is equal 0. There is only one solution";
+    } else {
+        discrInfo << "Discriminant is positive. There are two solutions.";
+    }
+
+    std::cout << discrInfo.str() << std::endl;
+
+    return discr;
+}
+
+std::pair<double, double> ComputorV1::FindSolution(double discr)
+{
+    double b = powerCoefficients_[1];
+    double denominator = 2 * powerCoefficients_[2];
+
+    if (discr == 0) {
+        return std::make_pair(-b / denominator, 0);
+    } else {
+        return std::make_pair((-b + Sqrt(discr)) / denominator, (-b - Sqrt(discr)) / denominator);
+    }
+}
+
+void ComputorV1::ProcessEquation()
 {
 	if (!IsEquationValid()) {
 		std::cout << "Sorry, your equation is not valid. Try again.\n";
 		return;
 	}
 	for (const auto &it : powerCoefficients_)
-		std::cout << "power: " << it.first << ", coef: " << it.second << std::endl;
+		std::cout << "MAP: power: " << it.first << ", coef: " << it.second << std::endl;
+
+	PrintSimplifiedEquation();
+	PrintPolynomialDegree();
+
+	if (powerCoefficients_.rbegin()->first > 2) {
+	    std::cout << "The polynomial degree is stricly greater than 2. Take it easy!" << std::endl;
+	    return;
+	}
+
+	double discr = CalculateDiscriminant();
+	std::pair<double, double> solution = FindSolution(discr);
+	std::cout << solution.first << ", " << solution.second << std::endl;
 }
 
 std::string ComputorV1::RemoveUnneededSigns(const std::string &str)
