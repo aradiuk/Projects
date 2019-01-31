@@ -28,6 +28,18 @@ private:
 	bool valid_ = true;
 
 public:
+    struct SolutionResults {
+        bool infinite_;
+        std::pair<bool, double> first_;
+        std::pair<bool, double> second_;
+
+        SolutionResults()
+            : infinite_(false)
+            , first_(std::make_pair(false, 0))
+            , second_(std::make_pair(false, 0))
+        {}
+    };
+
 	ComputorV1();
 	ComputorV1(const std::string &eq);
 	~ComputorV1();
@@ -44,7 +56,7 @@ public:
 	void PrintSimplifiedEquation();
 	void PrintPolynomialDegree();
 	double CalculateDiscriminant();
-	std::pair<double, double> FindSolution(double discr);
+	SolutionResults FindSolution(double discr);
 
 };
 #endif //COMPUTORV1_COMPUTORV1_HPP

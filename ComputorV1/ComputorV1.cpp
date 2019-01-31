@@ -164,10 +164,6 @@ bool ComputorV1::IsEntityValid(const std::string &ent)
         str += ssStr;
     }
 
-#ifdef LOG
-    std::cout << __FUNCTION__ << ": after trimming |" << str << "|" << std::endl;
-#endif
-
 	if (str.empty()) {
 		return true;
 	}
@@ -238,22 +234,29 @@ double ComputorV1::CalculateDiscriminant()
     return discr;
 }
 
-std::pair<double, double> ComputorV1::FindSolution(double discr)
+ComputorV1::SolutionResults ComputorV1::FindSolution(double discr)
 {
     double a = powerCoefficients_[2];
     double b = powerCoefficients_[1];
     double c = powerCoefficients_[0];
     double denominator = 2 * a;
 
+    SolutionResults result;
+
     if (a == 0) {
         if (b == 0) {
-            return std::make_pair(std::numeric_limits<double>::max(), std::numeric_limits<double>::max());    // infinite amount of solutions
+            result.infinite_ = true;
+            return result;
         }
-        return std::make_pair(-c / b, 0);
+        result.first_ = std::make_pair(true, -c / b);
+        return result;
     } else if (discr == 0) {
-        return std::make_pair(-b / denominator, 0);
+        result.first_ = std::make_pair(true, -b / denominator);
+        return result;
     } else {
-        return std::make_pair((-b + Sqrt(discr)) / denominator, (-b - Sqrt(discr)) / denominator);
+        result.first_ = std::make_pair(true, (-b + Sqrt(discr)) / denominator);
+        result.second_ = std::make_pair(true, (-b - Sqrt(discr)) / denominator);
+        return result;
     }
 }
 
@@ -279,17 +282,19 @@ void ComputorV1::ProcessEquation()
 	}
 
 	double discr = CalculateDiscriminant();
-	std::pair<double, double> solution = FindSolution(discr);
-    if (solution.first == std::numeric_limits<double>::max() &&
-        solution.second == std::numeric_limits<double>::max()) {
+	SolutionResults result = FindSolution(discr);
+    if (result.infinite_) {
         std::cout << "Infinite number of solutions" << std::endl;
     } else {
-	    std::cout << "Solution: " << solution.first;
-	    if (discr > 0) {
-	        std::cout << ", " << solution.second << std::endl;
+        std::cout << "Solution: ";
+        if (result.first_.first) {
+            std::cout << result.first_.second;
+        }
+        if (result.second_.first) {
+	        std::cout << ", " << result.second_.second;
 	    }
+        std::cout << std::endl;
     }
-
 }
 
 std::string ComputorV1::RemoveUnneededSigns(const std::string &str)
