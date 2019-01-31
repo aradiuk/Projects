@@ -1,5 +1,7 @@
 #include "ComputorV1.hpp"
 
+#define LOG
+
 ComputorV1::ComputorV1() : equation_("")
 {}
 
@@ -17,6 +19,10 @@ ComputorV1::~ComputorV1()
 
 bool ComputorV1::IsEquationValid()
 {
+#ifdef LOG
+    std::cout << __FUNCTION__ << std::endl;
+#endif
+
 	if (equation_.empty() || equation_.find('=') == std::string::npos) {
 		return false;
 	}
@@ -24,6 +30,7 @@ bool ComputorV1::IsEquationValid()
 	std::string eq = equation_ + "\n";
 	for (const auto &it : eq) {
 		if (!FormEntity(it)) {
+		    std::cout << "Entity: " << entity << std::endl;
 			return false;
 		}
 	}
@@ -32,10 +39,14 @@ bool ComputorV1::IsEquationValid()
 
 bool ComputorV1::FormEntity(const char &symb)
 {
-	static bool action = false;
+#ifdef LOG
+    std::cout << __FUNCTION__ << "| " << symb << " |" << std::endl;
+#endif
+
+	static bool action = true;
 	static bool isPositive = true;
 	static bool isLeftHand = true;
-//	std::cout << __FUNCTION__ << " " << symb << std::endl;
+
 	if (symb == ' ') {
 		return true;
 	}
@@ -43,9 +54,9 @@ bool ComputorV1::FormEntity(const char &symb)
 	if (symb == '=') {
 		action = true;
 		xPart += " " + entity;
-		if (IsEntityValid()) {
+		if (IsEntityValid(entity)) {
 			entity.clear();
-			ParseXPart(isPositive, isLeftHand);
+            ParseXPart(isPositive, isLeftHand);
 			if (isLeftHand) {
 				isLeftHand = false;
 			}
@@ -59,7 +70,7 @@ bool ComputorV1::FormEntity(const char &symb)
 	if (symb == '*' || symb == '/') {
 		action = true;
 		xPart += " " + entity + " " + symb;
-		bool result = IsEntityValid();
+		bool result = IsEntityValid(entity);
 		entity.clear();
 		return result;
 	}
@@ -71,7 +82,7 @@ bool ComputorV1::FormEntity(const char &symb)
 		}
 		action = true;
 		xPart += " " + entity;
-		bool result = IsEntityValid();
+		bool result = IsEntityValid(entity);
 		if (result) {
 			ParseXPart(isPositive, isLeftHand);
 			entity.clear();
@@ -84,59 +95,94 @@ bool ComputorV1::FormEntity(const char &symb)
 	entity += symb;
 	action = false;
 
+#ifdef LOG
+    std::cout << __FUNCTION__ << " " << entity << std::endl;
+#endif
 	return true;
 }
 
 void ComputorV1::ParseXPart(bool isPositive, bool isLeftHand)
 {
-	std::cout << __FUNCTION__ << ": " << xPart << std::endl;
-	int partPower = 0;
-	double coef = 1;
-	bool isMult = true;
+#ifdef LOG
+	std::cout << __FUNCTION__ << xPart << ": positive?" << isPositive << ", left hand?" << isLeftHand << std::endl;
+#endif
 
-	std::stringstream ss(xPart);
-	std::string str;
-	while (ss >> str) {
-		std::cout << "before: " << str << std::endl;
-		if (str.find('X') != std::string::npos) {
-			int newPower = DeterminePower(str);
-			partPower = newPower > partPower ? newPower : partPower;
-		} else if (str == "*") {
-			isMult = true;
-		} else if (str == "/") {
-			isMult = false;
-		} else {
-			if (!isMult) {
-				coef /= std::stod(RemoveUnneededSigns(str));
-			}
-			else {
-				coef *= std::stod(RemoveUnneededSigns(str));
-			}
-		}
-		std::cout << "Ppower: " << partPower << std::endl;
-		std::cout << "Ccoef: " << coef << std::endl;
+	if (!IsEntityValid(xPart)) {
+	    throw "xPart is invalid.";
 	}
+    int partPower = 0;
+    double coef = 1;
+    bool isMult = true;
 
-	if (!isLeftHand) {
-		coef *= -1;
-	}
-	powerCoefficients_[partPower] += coef;
-	std::cout << "power: " << partPower << ", coef: " << coef << std::endl;
-	xPart.clear();
+    std::stringstream ss(xPart);
+    std::string str;
+    while (ss >> str) {
+        if (str.find('X') != std::string::npos) {
+            int newPower = DeterminePower(str);
+            partPower = newPower > partPower ? newPower : partPower;
+        } else if (str == "*") {
+            isMult = true;
+        } else if (str == "/") {
+            isMult = false;
+        } else {
+            std::string clearString = RemoveUnneededSigns(str);
+            if (IsStrNumber(clearString)) {
+                if (!isMult) {
+                    std::cout << clearString << std::endl;
+                    coef /= std::stod(clearString);
+                }
+                else {
+                    std::cout << clearString << std::endl;
+                    coef *= std::stod(clearString);
+                }
+            } else {
+                throw "Your equation is invalid. Possibly because of: " + str;
+            }
+        }
+    }
+
+    if (!isLeftHand) {
+        coef *= -1;
+    }
+    powerCoefficients_[partPower] += coef;
+    xPart.clear();
+#ifdef LOG
+    std::cout << "power: " << partPower << ", coef: " << coef << std::endl;
+#endif
 }
 
-bool ComputorV1::IsEntityValid()
+bool ComputorV1::IsEntityValid(const std::string &ent)
 {
-	if (entity.empty()) {
-		return false;
+#ifdef LOG
+    std::cout << __FUNCTION__ << ": before trimming |" << ent << "|" << std::endl;
+#endif
+
+    std::stringstream ss(ent);
+    std::string ssStr;
+    std::string str;
+    while (ss >> ssStr) {
+        str += ssStr;
+    }
+
+#ifdef LOG
+    std::cout << __FUNCTION__ << ": after trimming |" << str << "|" << std::endl;
+#endif
+
+	if (str.empty()) {
+		return true;
 	}
 
-	std::cout << __FUNCTION__ << ": " << entity << std::endl;
 	for (const auto &it : allowedEntities_) {
-		if (std::regex_match(entity, it)) {
+		if (std::regex_match(str, it)) {
+#ifdef LOG
+		    std::cout << __FUNCTION__ << ": " << str << " is valid." << std::endl;
+#endif
 			return true;
 		}
 	}
+#ifdef LOG
+    std::cout << __FUNCTION__ << ": " << str << " is NOT valid." << std::endl;
+#endif
 	return false;
 }
 
@@ -182,9 +228,9 @@ double ComputorV1::CalculateDiscriminant()
         std::cout << discrInfo.str() << std::endl;
         return 0;
     } else if (discr == 0) {
-        discrInfo << "Discriminant is equal 0. There is only one solution";
+        discrInfo << "Discriminant is equal 0.";
     } else {
-        discrInfo << "Discriminant is positive. There are two solutions.";
+        discrInfo << "Discriminant is positive.";
     }
 
     std::cout << discrInfo.str() << std::endl;
@@ -194,10 +240,17 @@ double ComputorV1::CalculateDiscriminant()
 
 std::pair<double, double> ComputorV1::FindSolution(double discr)
 {
+    double a = powerCoefficients_[2];
     double b = powerCoefficients_[1];
-    double denominator = 2 * powerCoefficients_[2];
+    double c = powerCoefficients_[0];
+    double denominator = 2 * a;
 
-    if (discr == 0) {
+    if (a == 0) {
+        if (b == 0) {
+            return std::make_pair(std::numeric_limits<double>::max(), std::numeric_limits<double>::max());    // infinite amount of solutions
+        }
+        return std::make_pair(-c / b, 0);
+    } else if (discr == 0) {
         return std::make_pair(-b / denominator, 0);
     } else {
         return std::make_pair((-b + Sqrt(discr)) / denominator, (-b - Sqrt(discr)) / denominator);
@@ -206,13 +259,17 @@ std::pair<double, double> ComputorV1::FindSolution(double discr)
 
 void ComputorV1::ProcessEquation()
 {
+#ifdef LOG
+    std::cout << __FUNCTION__ << ": " << equation_ << std::endl;
+#endif
 	if (!IsEquationValid()) {
 		std::cout << "Sorry, your equation is not valid. Try again.\n";
 		return;
 	}
+#ifdef LOG
 	for (const auto &it : powerCoefficients_)
 		std::cout << "MAP: power: " << it.first << ", coef: " << it.second << std::endl;
-
+#endif
 	PrintSimplifiedEquation();
 	PrintPolynomialDegree();
 
@@ -223,11 +280,23 @@ void ComputorV1::ProcessEquation()
 
 	double discr = CalculateDiscriminant();
 	std::pair<double, double> solution = FindSolution(discr);
-	std::cout << solution.first << ", " << solution.second << std::endl;
+    if (solution.first == std::numeric_limits<double>::max() &&
+        solution.second == std::numeric_limits<double>::max()) {
+        std::cout << "Infinite number of solutions" << std::endl;
+    } else {
+	    std::cout << "Solution: " << solution.first;
+	    if (discr > 0) {
+	        std::cout << ", " << solution.second << std::endl;
+	    }
+    }
+
 }
 
 std::string ComputorV1::RemoveUnneededSigns(const std::string &str)
 {
+#ifdef LOG
+    std::cout << __FUNCTION__ << ": " << str << std::endl;
+#endif
 	int minuses = 0;
 	size_t pos = 0;
 
@@ -245,20 +314,34 @@ std::string ComputorV1::RemoveUnneededSigns(const std::string &str)
 	} else {
 		result = "-" + str.substr(pos);
 	}
+#ifdef LOG
 	std::cout << __FUNCTION__ << ": " << result << std::endl;
+#endif
 	return result;
 }
 
 int ComputorV1::DeterminePower(const std::string &str)
 {
 	size_t pos = str.find('^');
+
 	if (pos != std::string::npos) {
 		return std::stoi(str.substr(pos + 1));
 	} else {
-		return 1;
+	    return 1;
 	}
 }
 
+bool ComputorV1::IsStrNumber(const std::string &strStart) const
+{
+    std::string str {strStart};
 
+    if (str.front() == '-' || str.front() == '+')
+        str = str.substr(1);
 
-
+    for (const auto it : str) {
+        if (!std::isdigit(it) && it != '.') {
+            return false;
+        }
+    }
+    return true;
+}

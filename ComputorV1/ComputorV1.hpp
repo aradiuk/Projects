@@ -20,12 +20,12 @@ private:
 	std::string reducedEq_;
 	std::string solution_;
 	const std::vector<std::regex> allowedEntities_ = {
-			std::regex("[-+]*\\d+(\\.\\d+)?"),
-			std::regex("[\\+\\-\\*\\/]"),
-			std::regex("[-+]*X(\\^\\d+)?")};
+			std::regex("\\s*[-+]*\\d+(\\.\\d+)?\\s*"),
+			std::regex("\\s*[\\+\\-\\*\\/]\\s*"),
+			std::regex("\\s*X(\\^\\d+)?\\s*"),
+			std::regex("\\s*[-+]*\\d+(\\.\\d+)?\\*X(\\^\\d+)?\\s*")};
 	std::map<int, double> powerCoefficients_;
 	bool valid_ = true;
-
 
 public:
 	ComputorV1();
@@ -35,7 +35,8 @@ public:
 	ComputorV1& operator=(const ComputorV1 &obj);
 	bool IsEquationValid();
 	bool FormEntity(const char &symb);
-	bool IsEntityValid();
+	bool IsEntityValid(const std::string &ent);
+	bool IsStrNumber(const std::string &str) const;
 	void ParseXPart(bool isPositive, bool isLeftHand);
 	int  DeterminePower(const std::string &str);
 	std::string RemoveUnneededSigns(const std::string &str);

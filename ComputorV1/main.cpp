@@ -13,12 +13,13 @@ int main(int argc, char **argv) {
 	ComputorV1 computor(argv[1]);
 	try {
 		computor.ProcessEquation();
-	} catch (std::out_of_range &e) {
+	} catch (const std::out_of_range &e) {
 		std::cout << "Your input caused 'out of range' exception.\n";
-	} catch (std::exception &e) {
+	} catch (char const *str) {
+	    std::cout << str << std::endl;
+	} catch (const std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
-
 
 	return 0;
 }
