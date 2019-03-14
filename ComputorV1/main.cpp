@@ -17,6 +17,8 @@ int main(int argc, char **argv) {
 		std::cout << "Your input caused 'out of range' exception. Change it! \n";
 	} catch (char const *str) {
 	    std::cout << str << std::endl;
+	} catch (const std::string &str) {
+	    std::cout << str << std::endl;
 	} catch (const std::exception &e) {
 		std::cout << "Your input caused exception: " << e.what() << std::endl;
 	}

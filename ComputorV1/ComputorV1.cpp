@@ -1,6 +1,6 @@
 #include "ComputorV1.hpp"
 
-#define LOG
+//#define LOG
 
 ComputorV1::ComputorV1() : equation_("")
 {}
@@ -189,7 +189,7 @@ void ComputorV1::PrintSimplifiedEquation()
 {
     std::stringstream reduced;
 
-    reduced << "Reduced from: ";
+    reduced << "Reduced form: ";
     for (const auto &it : powerCoefficients_) {
         if (it.first == 0) {
             reduced << it.second << " * X^" << it.first << " ";
@@ -216,8 +216,7 @@ double ComputorV1::CalculateDiscriminant()
     double discr = Pow(b, 2) - 4 * a * c;
     if (discr < 0) {
         discrInfo << "Discriminant is negative.";
-        std::cout << discrInfo.str() << std::endl;
-        return 0;
+        throw discrInfo.str();
     } else if (discr == 0) {
         discrInfo << "Discriminant is equal 0.";
     } else {
