@@ -110,7 +110,7 @@ void ComputorV1::ParseXPart(bool isPositive, bool isLeftHand)
 	if (!IsEntityValid(xPart)) {
 	    throw "xPart is invalid.";
 	}
-    int partPower = 0;
+    int power = 0;
     double coef = 1;
     bool isMult = true;
 
@@ -118,38 +118,29 @@ void ComputorV1::ParseXPart(bool isPositive, bool isLeftHand)
     std::string str;
     while (ss >> str) {
         if (str.find('X') != std::string::npos) {
-            int newPower = DeterminePower(str);
-            partPower = newPower > partPower ? newPower : partPower;
-            coef = isPositive ? 1 : -1;
-        } else if (str == "*") {
-            isMult = true;
-        } else if (str == "/") {
-            isMult = false;
-        } else {
-            std::string clearString = RemoveUnneededSigns(str);
-            if (IsStrNumber(clearString)) {
-                if (!isMult) {
-                    std::cout << clearString << std::endl;
-                    coef /= std::stod(clearString);
-                }
-                else {
-                    std::cout << clearString << std::endl;
-                    coef *= std::stod(clearString);
-                }
+            power = DeterminePower(str);
+        } else if (str != "*") {
+            if (IsStrNumber(str)) {
+                std::cout << str << std::endl;
+                coef = std::stod(str);
             } else {
                 throw "Your equation is invalid. Possibly because of: " + str;
             }
         }
     }
-    std::cout << "power: " << partPower << ", coef: " << coef << std::endl;
+    std::cout << "power: " << power << ", coef: " << coef << std::endl;
+
+    if ((coef > 0) != isPositive) {
+        coef *= -1;
+    }
 
     if (!isLeftHand) {
         coef *= -1;
     }
-    powerCoefficients_[partPower] += coef;
+    powerCoefficients_[power] += coef;
     xPart.clear();
 #ifdef LOG
-    std::cout << "power: " << partPower << ", coef: " << coef << std::endl;
+    std::cout << "power: " << power << ", coef: " << coef << std::endl;
 #endif
 }
 
@@ -301,33 +292,6 @@ void ComputorV1::ProcessEquation()
     }
 }
 
-std::string ComputorV1::RemoveUnneededSigns(const std::string &str)
-{
-#ifdef LOG
-    std::cout << __FUNCTION__ << ": " << str << std::endl;
-#endif
-	int minuses = 0;
-	size_t pos = 0;
-
-	for (const auto &it : str) {
-		if (it == '-') {
-			++minuses;
-		} else if (isdigit(it)) {
-			pos = str.find(it);
-			break;
-		}
-	}
-	std::string result;
-	if (minuses % 2 == 0) {
-		result = str.substr(pos);
-	} else {
-		result = "-" + str.substr(pos);
-	}
-#ifdef LOG
-	std::cout << __FUNCTION__ << ": " << result << std::endl;
-#endif
-	return result;
-}
 
 int ComputorV1::DeterminePower(const std::string &str)
 {

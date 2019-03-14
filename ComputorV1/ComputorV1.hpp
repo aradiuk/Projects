@@ -51,7 +51,6 @@ public:
 	bool IsStrNumber(const std::string &str) const;
 	void ParseXPart(bool isPositive, bool isLeftHand);
 	int  DeterminePower(const std::string &str);
-	std::string RemoveUnneededSigns(const std::string &str);
 	void ProcessEquation();
 	void PrintSimplifiedEquation();
 	void PrintPolynomialDegree();
