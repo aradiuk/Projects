@@ -49,7 +49,7 @@ public:
 	bool FormEntity(const char &symb);
 	bool IsEntityValid(const std::string &ent);
 	bool IsStrNumber(const std::string &str) const;
-	void ParseXPart(bool isPositive, bool isLeftHand);
+	void ParseXPart(bool isLeftHand);
 	int  DeterminePower(const std::string &str);
 	void ProcessEquation();
 	void PrintSimplifiedEquation();

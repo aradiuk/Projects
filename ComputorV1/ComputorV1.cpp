@@ -44,7 +44,6 @@ bool ComputorV1::FormEntity(const char &symb)
 #endif
 
 	static bool action = true;
-	static bool isPositive = true;
 	static bool isLeftHand = true;
 
 	if (symb == ' ') {
@@ -56,7 +55,7 @@ bool ComputorV1::FormEntity(const char &symb)
 		xPart += " " + entity;
 		if (IsEntityValid(entity)) {
 			entity.clear();
-            ParseXPart(isPositive, isLeftHand);
+            ParseXPart(isLeftHand);
 			if (isLeftHand) {
 				isLeftHand = false;
 			}
@@ -84,11 +83,10 @@ bool ComputorV1::FormEntity(const char &symb)
 		xPart += " " + entity;
 		bool result = IsEntityValid(entity);
 		if (result) {
-			ParseXPart(isPositive, isLeftHand);
+			ParseXPart(isLeftHand);
 			entity.clear();
 			entity += symb;
 		}
-		isPositive = symb == '+';
 		return result;
 	}
 
@@ -101,10 +99,10 @@ bool ComputorV1::FormEntity(const char &symb)
 	return true;
 }
 
-void ComputorV1::ParseXPart(bool isPositive, bool isLeftHand)
+void ComputorV1::ParseXPart(bool isLeftHand)
 {
 #ifdef LOG
-	std::cout << __FUNCTION__ << xPart << ": positive?" << isPositive << ", left hand?" << isLeftHand << std::endl;
+	std::cout << __FUNCTION__ << xPart << ": left hand?" << isLeftHand << std::endl;
 #endif
 
 	if (!IsEntityValid(xPart)) {
@@ -119,6 +117,9 @@ void ComputorV1::ParseXPart(bool isPositive, bool isLeftHand)
     while (ss >> str) {
         if (str.find('X') != std::string::npos) {
             power = DeterminePower(str);
+            if (str.find('-') != std::string::npos) {
+                coef *= -1;
+            }
         } else if (str != "*") {
             if (IsStrNumber(str)) {
                 std::cout << str << std::endl;
@@ -129,10 +130,6 @@ void ComputorV1::ParseXPart(bool isPositive, bool isLeftHand)
         }
     }
     std::cout << "power: " << power << ", coef: " << coef << std::endl;
-
-    if ((coef > 0) != isPositive) {
-        coef *= -1;
-    }
 
     if (!isLeftHand) {
         coef *= -1;
