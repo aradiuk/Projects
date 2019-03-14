@@ -274,7 +274,7 @@ void ComputorV1::ProcessEquation()
 	PrintPolynomialDegree();
 
 	if (powerCoefficients_.rbegin()->first > 2) {
-	    std::cout << "The polynomial degree is stricly greater than 2. Take it easy!" << std::endl;
+	    std::cout << "The polynomial degree is greater than 2. Take it easy!" << std::endl;
 	    return;
 	}
 

@@ -21,6 +21,7 @@ private:
 	std::string solution_;
 	const std::vector<std::regex> allowedEntities_ = {
 			std::regex("\\s*[-+]?\\d+(\\.\\d+)?\\s*"),
+            std::regex("\\s*[-+]?\\d+(\\.\\d+)?\\*X(\\^\\d+)?\\s*"),
 			std::regex("\\s*[-+]?X(\\^\\d+)?\\s*")};
 	std::map<int, double> powerCoefficients_;
 	bool valid_ = true;
