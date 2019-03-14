@@ -14,11 +14,11 @@ int main(int argc, char **argv) {
 	try {
 		computor.ProcessEquation();
 	} catch (const std::out_of_range &e) {
-		std::cout << "Your input caused 'out of range' exception.\n";
+		std::cout << "Your input caused 'out of range' exception. Change it! \n";
 	} catch (char const *str) {
 	    std::cout << str << std::endl;
 	} catch (const std::exception &e) {
-		std::cout << e.what() << std::endl;
+		std::cout << "Your input caused exception: " << e.what() << std::endl;
 	}
 
 	return 0;

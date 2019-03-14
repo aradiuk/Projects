@@ -45,12 +45,17 @@ bool ComputorV1::FormEntity(const char &symb)
 
 	static bool action = true;
 	static bool isLeftHand = true;
+	static int equals = 0;
 
 	if (symb == ' ') {
 		return true;
 	}
 
 	if (symb == '=') {
+	    if (equals) {
+	        throw "Too many '=' symbols. Do you even know how equations look?";
+	    }
+	    ++equals;
 		action = true;
 		xPart += " " + entity;
 		if (IsEntityValid(entity)) {
