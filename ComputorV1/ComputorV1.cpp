@@ -120,6 +120,7 @@ void ComputorV1::ParseXPart(bool isPositive, bool isLeftHand)
         if (str.find('X') != std::string::npos) {
             int newPower = DeterminePower(str);
             partPower = newPower > partPower ? newPower : partPower;
+            coef = isPositive ? 1 : -1;
         } else if (str == "*") {
             isMult = true;
         } else if (str == "/") {
@@ -140,6 +141,7 @@ void ComputorV1::ParseXPart(bool isPositive, bool isLeftHand)
             }
         }
     }
+    std::cout << "power: " << partPower << ", coef: " << coef << std::endl;
 
     if (!isLeftHand) {
         coef *= -1;
@@ -249,6 +251,8 @@ ComputorV1::SolutionResults ComputorV1::FindSolution(double discr)
             return result;
         }
         result.first_ = std::make_pair(true, -c / b);
+        if (result.first_.second == -0)
+            result.first_.second = 0;
         return result;
     } else if (discr == 0) {
         result.first_ = std::make_pair(true, -b / denominator);
