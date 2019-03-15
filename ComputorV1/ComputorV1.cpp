@@ -53,7 +53,7 @@ bool ComputorV1::FormEntity(const char &symb)
 
 	if (symb == '=') {
 	    if (equals) {
-	        throw "Too many '=' symbols. Do you even know how equations look?";
+	        throw "Too many '=' symbols. Do you even know how equations look like?";
 	    }
 	    ++equals;
 		action = true;
@@ -213,7 +213,7 @@ double ComputorV1::CalculateDiscriminant()
     double a = powerCoefficients_[2];
     double b = powerCoefficients_[1];
     double c = powerCoefficients_[0];
-    double discr = Pow(b, 2) - 4 * a * c;
+    double discr = b * b - 4 * a * c;
     if (discr < 0) {
         discrInfo << "Discriminant is negative.";
         throw discrInfo.str();
