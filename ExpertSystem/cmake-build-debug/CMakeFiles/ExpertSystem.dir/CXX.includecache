@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/aradiuk/Projects/Projects/ExpertSystem/ExpertSystem.cpp
+ExpertSystem.hpp
+/Users/aradiuk/Projects/Projects/ExpertSystem/ExpertSystem.hpp
+
+/Users/aradiuk/Projects/Projects/ExpertSystem/ExpertSystem.hpp
+iostream
+-
+Lexer.hpp
+/Users/aradiuk/Projects/Projects/ExpertSystem/Lexer.hpp
+Parser.hpp
+/Users/aradiuk/Projects/Projects/ExpertSystem/Parser.hpp
+
+/Users/aradiuk/Projects/Projects/ExpertSystem/Lexer.cpp
+Lexer.hpp
+/Users/aradiuk/Projects/Projects/ExpertSystem/Lexer.hpp
+
+/Users/aradiuk/Projects/Projects/ExpertSystem/Lexer.hpp
+iostream
+-
+map
+-
+regex
+-
+fstream
+-
+
+/Users/aradiuk/Projects/Projects/ExpertSystem/Parser.cpp
+Parser.hpp
+/Users/aradiuk/Projects/Projects/ExpertSystem/Parser.hpp
+
+/Users/aradiuk/Projects/Projects/ExpertSystem/Parser.hpp
+
+/Users/aradiuk/Projects/Projects/ExpertSystem/main.cpp
+ExpertSystem.hpp
+/Users/aradiuk/Projects/Projects/ExpertSystem/ExpertSystem.hpp
+
