@@ -1,1 +1,0 @@
-Cygwin not found at: C:\Users\aradiuk\Downloads\cygwin Configure

@@ -1,6 +1,7 @@
 #include "ComputorV1.hpp"
 
-//#define LOG
+// #define LOG
+#define STEPS
 
 ComputorV1::ComputorV1() : equation_("")
 {}
@@ -9,10 +10,15 @@ ComputorV1::ComputorV1(const std::string &eq) : equation_(eq)
 {}
 
 ComputorV1::ComputorV1(const ComputorV1 &obj)
-{}
+{
+    entity = obj.entity;
+}
 
 ComputorV1& ComputorV1::operator=(const ComputorV1 &obj)
-{}
+{
+    entity = obj.entity;
+    return *this;  
+}
 
 ComputorV1::~ComputorV1()
 {}
@@ -58,7 +64,7 @@ bool ComputorV1::FormEntity(const char &symb)
 	    ++equals;
 		action = true;
 		xPart += " " + entity;
-		if (IsEntityValid(entity)) {
+		if (!entity.empty() && IsEntityValid(entity)) {
 			entity.clear();
             ParseXPart(isLeftHand);
 			if (isLeftHand) {
@@ -115,7 +121,6 @@ void ComputorV1::ParseXPart(bool isLeftHand)
 	}
     int power = 0;
     double coef = 1;
-    bool isMult = true;
 
     std::stringstream ss(xPart);
     std::string str;
@@ -127,21 +132,22 @@ void ComputorV1::ParseXPart(bool isLeftHand)
             }
         } else if (str != "*") {
             if (IsStrNumber(str)) {
-                std::cout << str << std::endl;
                 coef = std::stod(str);
             } else {
                 throw "Your equation is invalid. Possibly because of: " + str;
             }
         }
     }
-    std::cout << "power: " << power << ", coef: " << coef << std::endl;
 
     if (!isLeftHand) {
         coef *= -1;
     }
+    if (coef == -0) {
+        coef = 0;
+    }
     powerCoefficients_[power] += coef;
     xPart.clear();
-#ifdef LOG
+#if defined(LOG) || defined(STEPS)
     std::cout << "power: " << power << ", coef: " << coef << std::endl;
 #endif
 }
@@ -165,13 +171,13 @@ bool ComputorV1::IsEntityValid(const std::string &ent)
 
 	for (const auto &it : allowedEntities_) {
 		if (std::regex_match(str, it)) {
-#ifdef LOG
+#if defined(LOG) || defined(STEPS)
 		    std::cout << __FUNCTION__ << ": " << str << " is valid." << std::endl;
 #endif
 			return true;
 		}
 	}
-#ifdef LOG
+#if defined(LOG) || defined(STEPS)
     std::cout << __FUNCTION__ << ": " << str << " is NOT valid." << std::endl;
 #endif
 	return false;
@@ -214,9 +220,12 @@ double ComputorV1::CalculateDiscriminant()
     double b = powerCoefficients_[1];
     double c = powerCoefficients_[0];
     double discr = b * b - 4 * a * c;
+#if defined(LOG) || defined(STEPS)
+    std::cout << __FUNCTION__ << ": " << discr << std::endl;
+#endif    
+
     if (discr < 0) {
         discrInfo << "Discriminant is negative.";
-        throw discrInfo.str();
     } else if (discr == 0) {
         discrInfo << "Discriminant is equal 0.";
     } else {
@@ -238,27 +247,31 @@ ComputorV1::SolutionResults ComputorV1::FindSolution(double discr)
     SolutionResults result;
 
     if (a == 0) {
-        if (b == 0) {
+        if (b == 0 && c == 0) {
             result.infinite_ = true;
             return result;
+        } else if (b == 0 && c != 0) {
+            throw "There are no solutions";
         }
         result.first_ = std::make_pair(true, -c / b);
         if (result.first_.second == -0)
             result.first_.second = 0;
-        return result;
     } else if (discr == 0) {
         result.first_ = std::make_pair(true, -b / denominator);
-        return result;
-    } else {
+    } else if (discr > 0 ) {
         result.first_ = std::make_pair(true, (-b + Sqrt(discr)) / denominator);
         result.second_ = std::make_pair(true, (-b - Sqrt(discr)) / denominator);
-        return result;
+    } else if (discr < 0) {
+        result.complex_ = true;
+        result.solutionOne_ = (b == 0 ? "\b" : std::to_string(-b / denominator)) + " + " + std::to_string(Sqrt(-discr) / denominator) + " * i";
+        result.solutionTwo_ = (b == 0 ? "\b" : std::to_string(-b / denominator)) + " - " + std::to_string(Sqrt(-discr) / denominator) + " * i";
     }
+    return result;
 }
 
 void ComputorV1::ProcessEquation()
 {
-#ifdef LOG
+#if defined(LOG) || defined(STEPS)
     std::cout << __FUNCTION__ << ": " << equation_ << std::endl;
 #endif
 	if (!IsEquationValid()) {
@@ -281,7 +294,7 @@ void ComputorV1::ProcessEquation()
 	SolutionResults result = FindSolution(discr);
     if (result.infinite_) {
         std::cout << "Infinite number of solutions" << std::endl;
-    } else {
+    } else if (!result.complex_) {
         std::cout << "Solution: ";
         if (result.first_.first) {
             std::cout << result.first_.second;
@@ -289,6 +302,11 @@ void ComputorV1::ProcessEquation()
         if (result.second_.first) {
 	        std::cout << ", " << result.second_.second;
 	    }
+        std::cout << std::endl;
+    } else if (result.complex_) {
+        std::cout << "Solution: ";
+        std::cout << result.solutionOne_;
+        std::cout << ", " << result.solutionTwo_;
         std::cout << std::endl;
     }
 }

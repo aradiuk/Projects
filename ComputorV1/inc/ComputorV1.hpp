@@ -9,6 +9,7 @@
 #include <map>
 #include <regex>
 #include <cctype>
+#include <sstream>
 
 #include "math_functions.hpp"
 
@@ -24,13 +25,15 @@ private:
             std::regex("\\s*[-+]?\\d+(\\.\\d+)?\\*X(\\^\\d+)?\\s*"),
 			std::regex("\\s*[-+]?X(\\^\\d+)?\\s*")};
 	std::map<int, double> powerCoefficients_;
-	bool valid_ = true;
 
 public:
     struct SolutionResults {
         bool infinite_;
+        bool complex_ = false;
         std::pair<bool, double> first_;
         std::pair<bool, double> second_;
+        std::string solutionOne_;
+        std::string solutionTwo_;
 
         SolutionResults()
             : infinite_(false)
