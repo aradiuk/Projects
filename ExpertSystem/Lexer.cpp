@@ -19,21 +19,23 @@ Lexer& Lexer::operator=(const Lexer &obj)
 }
 
 std::vector<std::vector<TokenType>> Lexer::TokeniseFile(const std::string
-&fileName)
+&fileName) const
 {
 	std::ifstream ifs(fileName.c_str());
 	if (!ifs.good()) {
 		throw "Couldn't open your file. Try another one.";
 	}
 
-	std::vector<TokenType> tokens;
+	std::vector<std::vector<TokenType>> tokens;
 	std::string line;
 	while (getline(ifs, line)) {
 		std::cout << line << std::endl;
 	}
+
+	return tokens;
 }
 
-std::string Lexer::TokenToString(TokenType token)
+std::string Lexer::TokenToString(TokenType token) const
 {
 	std::string result;
 
@@ -44,7 +46,8 @@ std::string Lexer::TokenToString(TokenType token)
 	return result;
 }
 
-std::pair<TokenType, bool> Lexer::IsTokenValid(const std::string &checkToken) {
+std::pair<TokenType, bool> Lexer::IsTokenValid(const std::string &checkToken)
+const {
 	for (const auto &it : allowedTokens_) {
 		if (std::regex_match(checkToken, it.second)) {
 			return std::make_pair(it.first, true);
