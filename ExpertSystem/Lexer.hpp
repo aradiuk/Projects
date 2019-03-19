@@ -76,8 +76,7 @@ class Lexer {
 		Lexer(const Lexer &obj);
 	    Lexer &operator=(const Lexer &obj);
 		std::string TokenToString(TokenType token) const;
-		std::pair<Token, bool> IsTokenValid(const std::string
-		&checkToken) const;
+		std::pair<Token, bool> IsTokenValid(const std::string &checkToken) const;
 
 		std::vector<std::vector<Token>> TokeniseFile(const std::string &fileName);
 		std::vector<Token> TokeniseLine(const std::string &line);

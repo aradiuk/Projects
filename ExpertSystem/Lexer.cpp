@@ -52,17 +52,29 @@ std::vector<Token> Lexer::TokeniseLine(const std::string &line)
 
     std::vector<Token> tokens;
     std::stringstream ss(line);
-    std::string token;
+    std::string tokenLine;
 
-    while (ss >> token) {
-        if (token.front() == '#') {
+    while (ss >> tokenLine) {
+        if (tokenLine.front() == '#') {
             break;
         }
-        const auto checkToken = IsTokenValid(token);
+
+        const auto checkToken = IsTokenValid(tokenLine);
         if (checkToken.second) {
             tokens.push_back(checkToken.first);
         } else {
-            throw "Invalid token: " + token;
+            std::string tokenStr;
+            for (const auto &token : tokenLine) {
+                tokenStr += token;
+                const auto checkToken = IsTokenValid(tokenStr);
+                if (checkToken.second) {
+                    tokens.push_back(checkToken.first);
+                    tokenStr.clear();
+                }
+            }
+            if (!tokenStr.empty()) {
+                throw "Invalid token: " + tokenLine;
+            }
         }
     }
 
