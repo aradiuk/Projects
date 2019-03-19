@@ -12,8 +12,8 @@
 #include "Validator.hpp"
 
 class ExpertSystem {
-	private:
-		std::vector<TokenType> tokens_;
+    private:
+        std::vector<std::vector<Token>> tokens_;
 
 	public:
 		Parser parser_;
@@ -25,7 +25,7 @@ class ExpertSystem {
 		ExpertSystem(const ExpertSystem& obj);
 		ExpertSystem &operator=(const ExpertSystem &obj);
 
-		void Evaluate();
+		void StartEngine(const std::string &fileName);
 };
 
 

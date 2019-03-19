@@ -20,7 +20,9 @@ class Validator {
         Validator &operator=(const Validator &obj);
 
         void ValidateTokens(const std::vector<std::vector<Token>> &tokens);
-        void ValidateRule(const Rule &rule);
+        void ValidateTokensQuantity(int rules, int initialFacts, int queries);
+        void ValidateRules(const std::vector<Rule> &rules);
+        void ValidateOneSide(const std::vector<Token> &tokens);
 
 };
 

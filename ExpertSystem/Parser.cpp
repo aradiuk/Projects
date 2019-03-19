@@ -47,6 +47,8 @@ std::map<std::string, bool> Parser::FindAllFacts(const std::vector<std::vector<T
                 facts.emplace(itt.value_, false);
             } else if (itt.type_ == TokenType::InitialFact) {
                 initialFacts = itt;
+            } else if (itt.type_ == TokenType::Query) {
+                query_ = itt;
             }
         }
     }
@@ -59,7 +61,7 @@ std::map<std::string, bool> Parser::FindAllFacts(const std::vector<std::vector<T
     }
 
     if (facts.empty()) {
-        throw "No facts.";
+        throw "No facts or rules.";
     }
 
     return facts;

@@ -1,14 +1,5 @@
 #include "ExpertSystem.hpp"
 
-void PrintAllTokens(const std::vector<std::vector<Token>> &tokens) {
-    for (const auto &it : tokens) {
-        for (const auto &itt : it) {
-            std::cout << itt.type_ << ": " << itt.value_ << ", ";
-        }
-        std::cout << std::endl;
-    }
-}
-
 int main(int argc, char **argv) {
     if (argc == 1) {
         std::cout << "Hey, you forgot an input file!" << std::endl;
@@ -27,16 +18,13 @@ int main(int argc, char **argv) {
 
     try {
         ExpertSystem expertSystem;
-        const auto tokens = expertSystem.lexer_.TokeniseFile(fileName);
-        expertSystem.parser_.ParseTokens(tokens);
-        expertSystem.validator_.ValidateTokens(tokens);
-        PrintAllTokens(tokens);
+        expertSystem.StartEngine(fileName);
     } catch (const std::string &ex) {
-        std::cout << ex << std::endl;
+        std::cout << std::endl << ex << std::endl;
     } catch (const char *ex) {
-        std::cout << ex << std::endl;
+        std::cout << std::endl << ex << std::endl;
     } catch (const std::exception &ex) {
-        std::cout << ex.what() << std::endl;
+        std::cout << std::endl << ex.what() << std::endl;
     }
 
 	return 0;

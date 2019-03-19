@@ -11,7 +11,6 @@
 #include <map>
 #include <algorithm>
 
-#include "Parser.hpp"
 #include "Lexer.hpp"
 
 struct Rule {
@@ -33,12 +32,15 @@ class Parser {
     private:
         std::map<std::string, bool> facts_;
         std::vector<Rule> rules_;
+        Token query_;
 
     public:
         Parser();
         ~Parser();
         Parser(const Parser &obj);
         Parser &operator=(const Parser &obj);
+        std::map<std::string, bool> GetFacts() const {return facts_;};
+        std::vector<Rule> GetRules() const {return rules_;};
 
         void ParseTokens(const std::vector<std::vector<Token>> &tokens);
         std::map<std::string, bool> FindAllFacts(const std::vector<std::vector<Token>> &tokens);

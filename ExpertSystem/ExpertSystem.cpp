@@ -18,3 +18,21 @@ ExpertSystem& ExpertSystem::operator=(const ExpertSystem &obj)
 	return *this;
 }
 
+void PrintAllTokens(const std::vector<std::vector<Token>> &tokens) {
+    for (const auto &it : tokens) {
+        for (const auto &itt : it) {
+            std::cout << itt.type_ << ": " << itt.value_ << ", ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+
+void ExpertSystem::StartEngine(const std::string &fileName)
+{
+    tokens_ = lexer_.TokeniseFile(fileName);
+    parser_.ParseTokens(tokens_);
+    validator_.ValidateTokens(tokens_);
+    validator_.ValidateRules(parser_.GetRules());
+    PrintAllTokens(tokens_);
+}

@@ -59,6 +59,11 @@ void Validator::ValidateTokens(const std::vector<std::vector<Token>> &tokens)
         }
     }
 
+    ValidateTokensQuantity(rules, initialFacts, queries);
+}
+
+void Validator::ValidateTokensQuantity(int rules, int initialFacts, int queries)
+{
     if (!rules || initialFacts != 1 || queries != 1) {
         std::stringstream ss;
         ss << "(" << rules << ", " << initialFacts << ", " << queries << ")";
@@ -66,7 +71,26 @@ void Validator::ValidateTokens(const std::vector<std::vector<Token>> &tokens)
     }
 }
 
-void Validator::ValidateRule(const Rule &rule)
-{
 
+void Validator::ValidateRules(const std::vector<Rule> &rules)
+{
+    for (const auto &rule : rules) {
+        if ((rule.operand_.type_ != TokenType::Implies &&
+             rule.operand_.type_ != TokenType::IfAndOnlyIf) ||
+             rule.lhs_.empty() || rule.rhs_.empty()) {
+            throw "Part of a rule is empty or operand is wrong.";
+        }
+
+        ValidateOneSide(rule.lhs_);
+        ValidateOneSide(rule.rhs_);
+    }
+}
+
+void Validator::ValidateOneSide(const std::vector<Token> &tokens)
+{
+    for (const auto &token : tokens) {
+        if (token.type_ >= TokenType::Implies && token.type_ != TokenType::Fact) {
+            throw "Unexoected token type in a rule encountered.";
+        }
+    }
 }
