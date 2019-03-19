@@ -2,6 +2,8 @@
 // Created by Andrew Radiuk on 2019-03-17.
 //
 
+#define LOG
+
 #include "Lexer.hpp"
 
 Lexer::Lexer()
@@ -18,21 +20,53 @@ Lexer& Lexer::operator=(const Lexer &obj)
 	return *this;
 }
 
-std::vector<std::vector<TokenType>> Lexer::TokeniseFile(const std::string
-&fileName) const
+std::vector<std::vector<Token>> Lexer::TokeniseFile(const std::string &fileName)
 {
-	std::ifstream ifs(fileName.c_str());
-	if (!ifs.good()) {
-		throw "Couldn't open your file. Try another one.";
-	}
+#ifdef LOG
+    std::cout << __FUNCTION__ << ": " << fileName << std::endl;
+#endif
 
-	std::vector<std::vector<TokenType>> tokens;
-	std::string line;
-	while (getline(ifs, line)) {
-		std::cout << line << std::endl;
-	}
+    std::ifstream ifs(fileName.c_str());
+    if (!ifs.good()) {
+        throw "Couldn't open file. Try another one.";
+    }
 
-	return tokens;
+    std::vector<std::vector<Token>> tokens;
+    std::string line;
+    while (getline(ifs, line)) {
+        std::cout << line << std::endl;
+        if (line.front() == '#' || line.empty()) {
+            continue;
+        }
+        tokens.push_back(TokeniseLine(line));
+    }
+
+    return tokens;
+}
+
+std::vector<Token> Lexer::TokeniseLine(const std::string &line)
+{
+#ifdef LOG
+    std::cout << __FUNCTION__ << ": " << line << std::endl;
+#endif
+
+    std::vector<Token> tokens;
+    std::stringstream ss(line);
+    std::string token;
+
+    while (ss >> token) {
+        if (token.front() == '#') {
+            break;
+        }
+        const auto checkToken = IsTokenValid(token);
+        if (checkToken.second) {
+            tokens.push_back(checkToken.first);
+        } else {
+            throw "Invalid token: " + token;
+        }
+    }
+
+    return tokens;
 }
 
 std::string Lexer::TokenToString(TokenType token) const
@@ -43,15 +77,68 @@ std::string Lexer::TokenToString(TokenType token) const
 	if (it != tokenSymbols_.end()) {
 		result = it->second;
 	}
+
+#ifdef LOG
+    std::cout << __FUNCTION__ << ": " << result << std::endl;
+#endif
 	return result;
 }
 
-std::pair<TokenType, bool> Lexer::IsTokenValid(const std::string &checkToken)
-const {
+std::pair<Token, bool> Lexer::IsTokenValid(const std::string &checkToken) const {
+#ifdef LOG
+    std::cout << __FUNCTION__ << ": " << checkToken << std::endl;
+#endif
+
 	for (const auto &it : allowedTokens_) {
 		if (std::regex_match(checkToken, it.second)) {
-			return std::make_pair(it.first, true);
+#ifdef LOG
+    std::cout << __FUNCTION__ << " VALID: " << checkToken << std::endl;
+#endif
+			return std::make_pair(Token(it.first, checkToken), true);
 		}
 	}
-	return std::make_pair(TokenType::Not, false);
+#ifdef LOG
+    std::cout << __FUNCTION__ << " NOT valid: " << checkToken << std::endl;
+#endif
+	return std::make_pair(Token(TokenType::Not, ""), false);
+}
+
+std::ostream &operator<<(std::ostream &os, TokenType token) {
+    switch (token) {
+        case TokenType::OpenParentheses:
+            os << "(";
+            break;
+        case TokenType::CloseParentheses:
+            os << ")";
+            break;
+        case TokenType::Not:
+            os << "!";
+            break;
+        case TokenType::And:
+            os << "+";
+            break;
+        case TokenType::Or:
+            os << "|";
+            break;
+        case TokenType::Xor:
+            os << "^";
+            break;
+        case TokenType::Implies:
+            os << "=>";
+            break;
+        case TokenType::IfAndOnlyIf:
+            os << "<=>";
+            break;
+        case TokenType::Fact:
+            os << "Fact";
+            break;
+        case TokenType::InitialFact:
+            os << "InitFact";
+            break;
+        case TokenType::Query:
+            os << "Query";
+            break;
+    }
+
+    return os;
 }

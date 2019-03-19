@@ -6,8 +6,10 @@
 #define EXPERTSYSTEM_EXPERTSYSTEM_HPP
 
 #include <iostream>
+
 #include "Lexer.hpp"
 #include "Parser.hpp"
+#include "Validator.hpp"
 
 class ExpertSystem {
 	private:
@@ -16,6 +18,7 @@ class ExpertSystem {
 	public:
 		Parser parser_;
 		Lexer lexer_;
+		Validator validator_;
 
 		ExpertSystem();
 		~ExpertSystem();

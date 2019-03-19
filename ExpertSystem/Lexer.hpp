@@ -10,7 +10,6 @@
 #include <regex>
 #include <fstream>
 
-
 enum class TokenType { // in order of decreased priority
 	OpenParentheses,
 	CloseParentheses,
@@ -22,9 +21,28 @@ enum class TokenType { // in order of decreased priority
 	IfAndOnlyIf,
 	Fact,
 	InitialFact,
-	Comment,
 	Query
 };
+
+struct Token {
+    Token()
+        : type_(TokenType::Not)
+        , value_("")
+    {}
+    Token(TokenType type, const std::string &value)
+        : type_(type)
+        , value_(value)
+    {}
+    Token(const Token &token)
+        : type_(token.type_)
+        , value_(token.value_)
+    {}
+
+    TokenType type_;
+    std::string value_;
+};
+
+std::ostream &operator<<(std::ostream &os, TokenType token);
 
 class Lexer {
 	private:
@@ -39,7 +57,6 @@ class Lexer {
 				{TokenType::IfAndOnlyIf, std::regex(R"(^<=>)")},
 				{TokenType::Fact, std::regex(R"(^[A-Z])")},
 				{TokenType::InitialFact, std::regex(R"(^=[A-Z]*)")},
-				{TokenType::Comment, std::regex(R"(^#)")},
 				{TokenType::Query, std::regex(R"(^\?[A-Z]+)")}
 				};
 		const std::map<TokenType, std::string> tokenSymbols_ = {
@@ -59,11 +76,12 @@ class Lexer {
 		Lexer(const Lexer &obj);
 	    Lexer &operator=(const Lexer &obj);
 		std::string TokenToString(TokenType token) const;
-		std::pair<TokenType, bool> IsTokenValid(const std::string
+		std::pair<Token, bool> IsTokenValid(const std::string
 		&checkToken) const;
 
-		std::vector<std::vector<TokenType>> TokeniseFile(const std::string
-		&fileName) const;
+		std::vector<std::vector<Token>> TokeniseFile(const std::string &fileName);
+		std::vector<Token> TokeniseLine(const std::string &line);
+
 };
 
 
