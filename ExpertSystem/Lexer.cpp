@@ -117,10 +117,10 @@ std::pair<Token, bool> Lexer::IsTokenValid(const std::string &checkToken) const 
 
 std::ostream &operator<<(std::ostream &os, TokenType token) {
     switch (token) {
-        case TokenType::OpenParentheses:
+        case TokenType::OpenParenthesis:
             os << "(";
             break;
-        case TokenType::CloseParentheses:
+        case TokenType::CloseParenthesis:
             os << ")";
             break;
         case TokenType::Not:

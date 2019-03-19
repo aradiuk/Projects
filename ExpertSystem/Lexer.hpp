@@ -11,8 +11,8 @@
 #include <fstream>
 
 enum class TokenType { // in order of decreased priority
-	OpenParentheses,
-	CloseParentheses,
+	OpenParenthesis,
+	CloseParenthesis,
 	Not,
 	And,
 	Or,
@@ -47,8 +47,8 @@ std::ostream &operator<<(std::ostream &os, TokenType token);
 class Lexer {
 	private:
 		const std::map<TokenType, std::regex> allowedTokens_ = {
-				{TokenType::OpenParentheses, std::regex(R"(^\()")},
-				{TokenType::CloseParentheses, std::regex(R"(^\))")},
+				{TokenType::OpenParenthesis, std::regex(R"(^\()")},
+				{TokenType::CloseParenthesis, std::regex(R"(^\))")},
 				{TokenType::Not, std::regex(R"(^\!)")},
 				{TokenType::And, std::regex(R"(^\+)")},
 				{TokenType::Or, std::regex(R"(^\|)")},
@@ -60,8 +60,8 @@ class Lexer {
 				{TokenType::Query, std::regex(R"(^\?[A-Z]+)")}
 				};
 		const std::map<TokenType, std::string> tokenSymbols_ = {
-				{TokenType::OpenParentheses, "("},
-				{TokenType::CloseParentheses, ")"},
+				{TokenType::OpenParenthesis, "("},
+				{TokenType::CloseParenthesis, ")"},
 				{TokenType::Not, "!"},
 				{TokenType::And, "+"},
 				{TokenType::Or, "|"},
