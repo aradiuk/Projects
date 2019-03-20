@@ -1,6 +1,6 @@
 # A COMMENT
 #ANOTHER COMMENT
 ######
-A + B => C
+BA + !(A + B) => C
 =CCC
 ?C

@@ -21,12 +21,13 @@ enum class TokenType { // in order of decreased priority
 	IfAndOnlyIf,
 	Fact,
 	InitialFact,
-	Query
+	Query,
+	Invalid
 };
 
 struct Token {
     Token()
-        : type_(TokenType::Not)
+        : type_(TokenType::Invalid)
         , value_("")
     {}
     Token(TokenType type, const std::string &value)

@@ -12,6 +12,8 @@
 #include "Parser.hpp"
 
 class Validator {
+    private:
+        std::set<TokenType> operands_ = {TokenType::And, TokenType::Or, TokenType::Xor};
 
     public:
         Validator();
@@ -23,6 +25,9 @@ class Validator {
         void ValidateTokensQuantity(int rules, int initialFacts, int queries);
         void ValidateRules(const std::vector<Rule> &rules);
         void ValidateOneSide(const std::vector<Token> &tokens);
+        void ValidateParentheses(const Token &previous, const Token &current, const Token &next);
+        void ValidateNot(const Token &previous, const Token &current, const Token &next);
+        void ValidateFact(const Token &previous, const Token &current, const Token &next);
 
 };
 

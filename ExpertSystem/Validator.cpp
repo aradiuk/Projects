@@ -55,6 +55,9 @@ void Validator::ValidateTokens(const std::vector<std::vector<Token>> &tokens)
                 ++queries;
             }
         } else {
+            if (initialFacts && queries) {
+                throw "Input after a query";
+            }
             ++rules;
         }
     }
@@ -100,7 +103,6 @@ void Validator::ValidateOneSide(const std::vector<Token> &tokens)
     std::cout << __FUNCTION__  << std::endl;
 #endif
 
-    std::set<TokenType> operands_ = {TokenType::And, TokenType::Or, TokenType::Xor};
     if (operands_.find(tokens.front().type_) != operands_.end() ||
         operands_.find(tokens.back().type_) != operands_.end()) {
         throw "Rule part begins or ends with an operand.";
@@ -115,11 +117,78 @@ void Validator::ValidateOneSide(const std::vector<Token> &tokens)
     if (openParentheses != closeParentheses) {
         throw "No parenthesis to form a parentheses.";
     }
-    for (const auto &token : tokens) {
-        if (token.type_ >= TokenType::Implies && token.type_ != TokenType::Fact) {
-            throw "Unexoected token type in a rule encountered.";
+
+    for (int i = 0; i < tokens.size(); ++i) {
+        if (tokens[i].type_ >= TokenType::Implies && tokens[i].type_ != TokenType::Fact) {
+            throw "Unexpected token type in a rule encountered.";
         }
 
-
+        Token previous = i > 0 ? tokens[i - 1] : Token(TokenType::Invalid, "");
+        Token current = tokens[i];
+        Token next = i < tokens.size() - 1 ? tokens[i + 1] : Token(TokenType::Invalid, "");
+        ValidateParentheses(previous, current, next);
+        ValidateNot(previous, current, next);
+        ValidateFact(previous, current, next);
     }
 }
+
+void Validator::ValidateParentheses(const Token &previous, const Token &current, const Token &next)
+{
+    if (current.type_ == TokenType::OpenParenthesis) {
+        if (next.type_ != TokenType::Invalid &&
+            operands_.find(next.type_) != operands_.end() ||
+            next.type_ == TokenType::CloseParenthesis) {
+                throw "Invalid token after '('.";
+        }
+        if (previous.type_ != TokenType::Invalid &&
+            (previous.type_ == TokenType::Fact ||
+             previous.type_ == TokenType::CloseParenthesis)) {
+                throw "Invalid token before '('.";
+        }
+    } else if (current.type_ == TokenType::CloseParenthesis) {
+        if (next.type_ != TokenType::Invalid &&
+            operands_.find(next.type_) == operands_.end() &&
+            next.type_ != TokenType::CloseParenthesis) {
+                throw "Invalid token after '('.";
+        }
+        if (previous.type_ != TokenType::Invalid &&
+            previous.type_ != TokenType::CloseParenthesis &&
+            previous.type_ != TokenType::Fact) {
+                throw "Invalid token before ')'";
+        }
+    }
+
+}
+
+void Validator::ValidateNot(const Token &previous, const Token &current, const Token &next)
+{
+    if (current.type_ == TokenType::Not) {
+        if (next.type_ != TokenType::Invalid &&
+            operands_.find(next.type_) != operands_.end() ||
+            next.type_ == TokenType::CloseParenthesis) {
+                throw "Invalid token after '!'.";
+        }
+        if (previous.type_ != TokenType::Invalid &&
+            (previous.type_ == TokenType::CloseParenthesis ||
+             previous.type_ == TokenType::Fact)) {
+                throw "Invalid token before '!'.";
+        }
+    }
+}
+
+void Validator::ValidateFact(const Token &previous, const Token &current, const Token &next)
+{
+    if (current.type_ == TokenType::Fact) {
+        if (next.type_ != TokenType::Invalid &&
+            operands_.find(next.type_) == operands_.end() &&
+            next.type_ != TokenType::CloseParenthesis) {
+                throw "Invalid token after fact.";
+        }
+        if (previous.type_ != TokenType::Invalid &&
+            (previous.type_ == TokenType::CloseParenthesis ||
+             previous.type_ == TokenType::Fact)) {
+                throw "Invalid token before fact.";
+        }
+    }
+}
+

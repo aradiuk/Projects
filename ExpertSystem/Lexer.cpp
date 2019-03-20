@@ -34,11 +34,13 @@ std::vector<std::vector<Token>> Lexer::TokeniseFile(const std::string &fileName)
     std::vector<std::vector<Token>> tokens;
     std::string line;
     while (getline(ifs, line)) {
-        std::cout << line << std::endl;
         if (line.front() == '#' || line.empty()) {
             continue;
         }
-        tokens.push_back(TokeniseLine(line));
+        const auto lineTokens = TokeniseLine(line);
+        if (!lineTokens.empty()) {
+            tokens.push_back(lineTokens);
+        }
     }
 
     return tokens;
@@ -112,7 +114,7 @@ std::pair<Token, bool> Lexer::IsTokenValid(const std::string &checkToken) const 
 #ifdef LOG
     std::cout << __FUNCTION__ << " NOT valid: " << checkToken << std::endl;
 #endif
-	return std::make_pair(Token(TokenType::Not, ""), false);
+	return std::make_pair(Token(TokenType::Invalid, ""), false);
 }
 
 std::ostream &operator<<(std::ostream &os, TokenType token) {
@@ -149,6 +151,9 @@ std::ostream &operator<<(std::ostream &os, TokenType token) {
             break;
         case TokenType::Query:
             os << "Query";
+            break;
+        case TokenType::Invalid:
+            os << "Invalid";
             break;
     }
 
