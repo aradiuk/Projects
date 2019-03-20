@@ -26,6 +26,7 @@ class ExpertSystem {
 		ExpertSystem &operator=(const ExpertSystem &obj);
 
 		void StartEngine(const std::string &fileName);
+		std::vector<Rule> TransformToPolish(const std::vector<Rule> &rules);
 };
 
 

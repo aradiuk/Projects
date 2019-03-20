@@ -34,5 +34,12 @@ void ExpertSystem::StartEngine(const std::string &fileName)
     parser_.ParseTokens(tokens_);
     validator_.ValidateTokens(tokens_);
     validator_.ValidateRules(parser_.GetRules());
+
+    std::vector<Rule> polishRules = TransformToPolish(parser_.GetRules());
     PrintAllTokens(tokens_);
+}
+
+std::vector<Rule> ExpertSystem::TransformToPolish(const std::vector<Rule> &rules)
+{
+
 }

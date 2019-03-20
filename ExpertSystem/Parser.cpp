@@ -28,16 +28,18 @@ void Parser::ParseTokens(const std::vector<std::vector<Token>> &tokens)
 
     facts_ = FindAllFacts(tokens);
     rules_ = FindAllRules(tokens);
+    for (const auto &it : queryFacts_)
+        std::cout << it.name_ << " = " << it.status_ << std::endl;
 }
 
-std::map<std::string, bool> Parser::FindAllFacts(const std::vector<std::vector<Token>> &tokens)
+std::set<Fact> Parser::FindAllFacts(const std::vector<std::vector<Token>> &tokens)
 {
 #ifdef LOG
     std::cout << __FUNCTION__ << std::endl;
 #endif
 
     Token initialFacts;
-    std::map<std::string, bool> facts;
+    std::set<Fact> facts;
     for (const auto &it : tokens) {
         for (const auto &itt : it) {
             if (itt.type_ == TokenType::Fact) {
@@ -48,17 +50,21 @@ std::map<std::string, bool> Parser::FindAllFacts(const std::vector<std::vector<T
             } else if (itt.type_ == TokenType::InitialFact) {
                 initialFacts = itt;
             } else if (itt.type_ == TokenType::Query) {
-                query_ = itt;
+                queryFacts_ = FindAllQueryFacts(itt);
             }
         }
     }
 
-    for (auto &it : facts) {
-        const auto inFact = initialFacts.value_.find(it.first.front());
+    std::set<Fact> initiatedFacts;
+    for (auto &fact : facts) {
+        Fact initFact {fact};
+        const auto inFact = initialFacts.value_.find(fact.name_.front());
         if (inFact != std::string::npos) {
-            it.second = true;
+            initFact.status_ = true;
         }
+        initiatedFacts.insert(initFact);
     }
+    facts_ = initiatedFacts;
 
     if (facts.empty()) {
         throw "No facts or rules.";
@@ -98,4 +104,22 @@ std::vector<Rule> Parser::FindAllRules(const std::vector<std::vector<Token>> &to
     }
 
     return rules;
+}
+
+std::set<Fact> Parser::FindAllQueryFacts(const Token &token)
+{
+    std::set<Fact> facts;
+    if (token.value_.front() != '?') {
+        throw "Query is wrong. Missing '?'";
+    }
+    for (const auto &symb : token.value_) {
+        if (symb == '?') {
+            continue;
+        }
+
+        std::string factName{symb};
+        facts.emplace(factName, false);
+    }
+
+    return facts;
 }
