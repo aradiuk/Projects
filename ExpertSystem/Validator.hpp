@@ -13,7 +13,7 @@
 
 class Validator {
     private:
-        std::set<TokenType> operands_ = {TokenType::And, TokenType::Or, TokenType::Xor};
+        std::set<TokenType> operators_ = {TokenType::And, TokenType::Or, TokenType::Xor};
 
     public:
         Validator();

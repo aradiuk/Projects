@@ -18,13 +18,13 @@ struct Rule {
         : evaluated_(false)
     {}
     Rule(Token token, bool eval = false)
-        : operand_(token)
+        : operator_(token)
         , evaluated_(eval)
     {}
 
     std::vector<Token> lhs_;
     std::vector<Token> rhs_;
-    Token operand_;
+    Token operator_;
     bool evaluated_;
 };
 

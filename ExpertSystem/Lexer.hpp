@@ -29,18 +29,22 @@ struct Token {
     Token()
         : type_(TokenType::Invalid)
         , value_("")
+        , isNegative_(false)
     {}
-    Token(TokenType type, const std::string &value)
+    Token(TokenType type, const std::string &value, bool isNeg = false)
         : type_(type)
         , value_(value)
+        , isNegative_(isNeg)
     {}
     Token(const Token &token)
         : type_(token.type_)
         , value_(token.value_)
+        , isNegative_(token.isNegative_)
     {}
 
     TokenType type_;
     std::string value_;
+    bool isNegative_;
 };
 
 std::ostream &operator<<(std::ostream &os, TokenType token);

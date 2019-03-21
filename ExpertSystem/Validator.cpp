@@ -86,8 +86,8 @@ void Validator::ValidateRules(const std::vector<Rule> &rules)
 #endif
 
     for (const auto &rule : rules) {
-        if ((rule.operand_.type_ != TokenType::Implies &&
-             rule.operand_.type_ != TokenType::IfAndOnlyIf) ||
+        if ((rule.operator_.type_ != TokenType::Implies &&
+             rule.operator_.type_ != TokenType::IfAndOnlyIf) ||
              rule.lhs_.empty() || rule.rhs_.empty()) {
             throw "Part of a rule is empty or operand is wrong.";
         }
@@ -103,8 +103,8 @@ void Validator::ValidateOneSide(const std::vector<Token> &tokens)
     std::cout << __FUNCTION__  << std::endl;
 #endif
 
-    if (operands_.find(tokens.front().type_) != operands_.end() ||
-        operands_.find(tokens.back().type_) != operands_.end()) {
+    if (operators_.find(tokens.front().type_) != operators_.end() ||
+        operators_.find(tokens.back().type_) != operators_.end()) {
         throw "Rule part begins or ends with an operand.";
     }
 
@@ -136,7 +136,7 @@ void Validator::ValidateParentheses(const Token &previous, const Token &current,
 {
     if (current.type_ == TokenType::OpenParenthesis) {
         if (next.type_ != TokenType::Invalid &&
-            operands_.find(next.type_) != operands_.end() ||
+            operators_.find(next.type_) != operators_.end() ||
             next.type_ == TokenType::CloseParenthesis) {
                 throw "Invalid token after '('.";
         }
@@ -147,7 +147,7 @@ void Validator::ValidateParentheses(const Token &previous, const Token &current,
         }
     } else if (current.type_ == TokenType::CloseParenthesis) {
         if (next.type_ != TokenType::Invalid &&
-            operands_.find(next.type_) == operands_.end() &&
+            operators_.find(next.type_) == operators_.end() &&
             next.type_ != TokenType::CloseParenthesis) {
                 throw "Invalid token after '('.";
         }
@@ -164,8 +164,7 @@ void Validator::ValidateNot(const Token &previous, const Token &current, const T
 {
     if (current.type_ == TokenType::Not) {
         if (next.type_ != TokenType::Invalid &&
-            operands_.find(next.type_) != operands_.end() ||
-            next.type_ == TokenType::CloseParenthesis) {
+            next.type_ != TokenType::Fact) {
                 throw "Invalid token after '!'.";
         }
         if (previous.type_ != TokenType::Invalid &&
@@ -180,7 +179,7 @@ void Validator::ValidateFact(const Token &previous, const Token &current, const 
 {
     if (current.type_ == TokenType::Fact) {
         if (next.type_ != TokenType::Invalid &&
-            operands_.find(next.type_) == operands_.end() &&
+            operators_.find(next.type_) == operators_.end() &&
             next.type_ != TokenType::CloseParenthesis) {
                 throw "Invalid token after fact.";
         }

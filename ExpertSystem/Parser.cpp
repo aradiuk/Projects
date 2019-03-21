@@ -28,8 +28,6 @@ void Parser::ParseTokens(const std::vector<std::vector<Token>> &tokens)
 
     facts_ = FindAllFacts(tokens);
     rules_ = FindAllRules(tokens);
-    for (const auto &it : queryFacts_)
-        std::cout << it.name_ << " = " << it.status_ << std::endl;
 }
 
 std::set<Fact> Parser::FindAllFacts(const std::vector<std::vector<Token>> &tokens)
@@ -92,7 +90,7 @@ std::vector<Rule> Parser::FindAllRules(const std::vector<std::vector<Token>> &to
                 token.type_ != TokenType::IfAndOnlyIf) {
                 handSide->push_back(token);
             } else {
-                rule.operand_ = token;
+                rule.operator_ = token;
                 handSide = &rule.rhs_;
             }
         }
