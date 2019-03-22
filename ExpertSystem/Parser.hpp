@@ -15,59 +15,41 @@
 
 struct Rule {
     Rule()
-        : evaluated_(false)
+        : visited_(false)
     {}
     Rule(Token token, bool eval = false)
         : operator_(token)
-        , evaluated_(eval)
+        , visited_(eval)
     {}
 
     std::vector<Token> lhs_;
     std::vector<Token> rhs_;
     Token operator_;
-    bool evaluated_;
+    bool visited_;
 };
 
-struct Fact {
-    Fact()
-        : name_("")
-        , status_(false)
-
-    {}
-    Fact(const std::string &name, bool stat)
-        : name_(name)
-        , status_(stat)
-    {}
-    Fact(const Fact &obj)
-        : name_(obj.name_)
-        , status_(obj.status_)
-    {}
-    bool operator<(const Fact &obj) const {
-        return name_ < obj.name_;
-    }
-
-    std::string name_;
-    bool status_;
-};
 
 class Parser {
     private:
-        std::set<Fact> facts_;
+        std::map<std::string, boost::optional<bool>> facts_;
         std::vector<Rule> rules_;
-        std::set<Fact> queryFacts_;
+        std::map<std::string, boost::optional<bool>> queryFacts_;
+        Token initialFacts_;
 
     public:
         Parser();
         ~Parser();
         Parser(const Parser &obj);
         Parser &operator=(const Parser &obj);
-        std::set<Fact> GetFacts() const {return facts_;};
+        std::map<std::string, boost::optional<bool>> GetFacts() const {return facts_;};
         std::vector<Rule> GetRules() const {return rules_;};
+        std::map<std::string, boost::optional<bool>> GetQueryFacts() const {return queryFacts_;};
+        Token GetInitialFacts() const {return initialFacts_;};
 
         void ParseTokens(const std::vector<std::vector<Token>> &tokens);
-        std::set<Fact> FindAllFacts(const std::vector<std::vector<Token>> &tokens);
+        std::map<std::string, boost::optional<bool>> FindAllFacts(const std::vector<std::vector<Token>> &tokens);
         std::vector<Rule> FindAllRules(const std::vector<std::vector<Token>> &tokens);
-        std::set<Fact> FindAllQueryFacts(const Token &token);
+        std::map<std::string, boost::optional<bool>> FindAllQueryFacts(const Token &token);
 };
 
 

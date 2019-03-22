@@ -7,8 +7,6 @@
 
 #include "Validator.hpp"
 
-#define LOG
-
 Validator::Validator()
 {}
 
@@ -134,6 +132,10 @@ void Validator::ValidateOneSide(const std::vector<Token> &tokens)
 
 void Validator::ValidateParentheses(const Token &previous, const Token &current, const Token &next)
 {
+#ifdef LOG
+    std::cout << __FUNCTION__  << std::endl;
+#endif
+
     if (current.type_ == TokenType::OpenParenthesis) {
         if (next.type_ != TokenType::Invalid &&
             operators_.find(next.type_) != operators_.end() ||
@@ -162,6 +164,10 @@ void Validator::ValidateParentheses(const Token &previous, const Token &current,
 
 void Validator::ValidateNot(const Token &previous, const Token &current, const Token &next)
 {
+#ifdef LOG
+    std::cout << __FUNCTION__  << std::endl;
+#endif
+
     if (current.type_ == TokenType::Not) {
         if (next.type_ != TokenType::Invalid &&
             next.type_ != TokenType::Fact) {
@@ -191,3 +197,18 @@ void Validator::ValidateFact(const Token &previous, const Token &current, const 
     }
 }
 
+void Validator::ValidateQuery(const std::map<std::string, boost::optional<bool>> &facts, const Token &initialFacts, const std::map<std::string, boost::optional<bool>> &queryFacts)
+{
+#ifdef LOG
+    std::cout << __FUNCTION__  << std::endl;
+#endif
+
+    for (const auto &queryFact : queryFacts) {
+        const auto searchResult = facts.find(queryFact.first);
+        if (searchResult == facts.end()) {
+            if (initialFacts.value_.find(queryFact.first.front()) == std::string::npos) {
+                throw "Can't find query fact: " + queryFact.first ;
+            }
+        }
+    }
+}

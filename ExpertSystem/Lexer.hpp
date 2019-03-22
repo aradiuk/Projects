@@ -9,6 +9,8 @@
 #include <map>
 #include <regex>
 #include <fstream>
+#include <boost/optional.hpp>
+#include <boost/optional/optional_io.hpp>
 
 enum class TokenType { // in order of decreased priority
 	OpenParenthesis,
@@ -45,6 +47,7 @@ struct Token {
     TokenType type_;
     std::string value_;
     bool isNegative_;
+    boost::optional<bool> factStatus_;
 };
 
 std::ostream &operator<<(std::ostream &os, TokenType token);

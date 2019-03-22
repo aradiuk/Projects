@@ -12,10 +12,9 @@
 #include "Parser.hpp"
 
 class Validator {
-    private:
+    public:
         std::set<TokenType> operators_ = {TokenType::And, TokenType::Or, TokenType::Xor};
 
-    public:
         Validator();
         ~Validator();
         Validator(const Validator &obj);
@@ -28,6 +27,7 @@ class Validator {
         void ValidateParentheses(const Token &previous, const Token &current, const Token &next);
         void ValidateNot(const Token &previous, const Token &current, const Token &next);
         void ValidateFact(const Token &previous, const Token &current, const Token &next);
+        void ValidateQuery(const std::map<std::string, boost::optional<bool>> &facts, const Token &initialFacts, const std::map<std::string, boost::optional<bool>> &queryFacts);
 
 };
 
