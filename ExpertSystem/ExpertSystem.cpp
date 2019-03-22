@@ -393,11 +393,16 @@ void ExpertSystem::UpdateTokensStatus(Rule &rule)
     std::cout << __FUNCTION__  << std::endl;
 #endif
 
-    for (auto token : rule.lhs_) {
-        token.factStatus_ = facts_[token.value_];
+    for (auto &token : rule.lhs_) {
+        if (token.type_ == TokenType::Fact) {
+            token.factStatus_ = facts_.at(token.value_);
+        }
     }
-    for (auto token : rule.rhs_) {
-        token.factStatus_ = facts_[token.value_];
+    for (auto &token : rule.rhs_) {
+        if (token.type_ == TokenType::Fact)
+        {
+            token.factStatus_ = facts_.at(token.value_);
+        }
     }
 }
 
