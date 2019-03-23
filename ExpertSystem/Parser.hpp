@@ -28,12 +28,11 @@ struct Rule {
     bool visited_;
 };
 
-
 class Parser {
     private:
-        std::map<std::string, boost::optional<bool>> facts_;
+        std::map<std::string, Fact> facts_;
         std::vector<Rule> rules_;
-        std::map<std::string, boost::optional<bool>> queryFacts_;
+        std::map<std::string, Fact> queryFacts_;
         Token initialFacts_;
 
     public:
@@ -41,15 +40,16 @@ class Parser {
         ~Parser();
         Parser(const Parser &obj);
         Parser &operator=(const Parser &obj);
-        std::map<std::string, boost::optional<bool>> GetFacts() const {return facts_;};
+        std::map<std::string, Fact> GetFacts() const {return facts_;};
         std::vector<Rule> GetRules() const {return rules_;};
-        std::map<std::string, boost::optional<bool>> GetQueryFacts() const {return queryFacts_;};
+        std::map<std::string, Fact> GetQueryFacts() const {return queryFacts_;};
         Token GetInitialFacts() const {return initialFacts_;};
 
         void ParseTokens(const std::vector<std::vector<Token>> &tokens);
-        std::map<std::string, boost::optional<bool>> FindAllFacts(const std::vector<std::vector<Token>> &tokens);
+        std::map<std::string, Fact> FindAllFacts(const
+        std::vector<std::vector<Token>> &tokens);
         std::vector<Rule> FindAllRules(const std::vector<std::vector<Token>> &tokens);
-        std::map<std::string, boost::optional<bool>> FindAllQueryFacts(const Token &token);
+        std::map<std::string, Fact> FindAllQueryFacts(const Token &token);
 };
 
 

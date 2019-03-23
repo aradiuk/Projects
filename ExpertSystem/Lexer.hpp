@@ -9,8 +9,7 @@
 #include <map>
 #include <regex>
 #include <fstream>
-#include <boost/optional.hpp>
-#include <boost/optional/optional_io.hpp>
+#include <sstream>
 
 enum class TokenType { // in order of decreased priority
 	OpenParenthesis,
@@ -25,6 +24,25 @@ enum class TokenType { // in order of decreased priority
 	InitialFact,
 	Query,
 	Invalid
+};
+
+struct Fact {
+	Fact()
+		: initialised_(false)
+		, status_(false)
+	{}
+	Fact(bool status)
+			: initialised_(true)
+			, status_(status)
+	{}
+	Fact(const Fact &obj)
+		: initialised_(obj.initialised_)
+		, status_(obj.status_)
+	{}
+	bool IsInitialised() const {return initialised_;};
+
+	bool initialised_ = false;
+	bool status_ = false;
 };
 
 struct Token {
@@ -42,12 +60,13 @@ struct Token {
         : type_(token.type_)
         , value_(token.value_)
         , isNegative_(token.isNegative_)
+        , factStatus_(token.factStatus_)
     {}
 
     TokenType type_;
     std::string value_;
     bool isNegative_;
-    boost::optional<bool> factStatus_;
+    Fact factStatus_;
 };
 
 std::ostream &operator<<(std::ostream &os, TokenType token);

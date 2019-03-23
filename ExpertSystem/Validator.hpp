@@ -27,7 +27,7 @@ class Validator {
         void ValidateParentheses(const Token &previous, const Token &current, const Token &next);
         void ValidateNot(const Token &previous, const Token &current, const Token &next);
         void ValidateFact(const Token &previous, const Token &current, const Token &next);
-        void ValidateQuery(const std::map<std::string, boost::optional<bool>> &facts, const Token &initialFacts, const std::map<std::string, boost::optional<bool>> &queryFacts);
+        void ValidateQuery(std::map<std::string, Fact> &facts, const Token &initialFacts, const std::map<std::string, Fact> &queryFacts);
 
 };
 

@@ -30,20 +30,20 @@ void Parser::ParseTokens(const std::vector<std::vector<Token>> &tokens)
     rules_ = FindAllRules(tokens);
 }
 
-std::map<std::string, boost::optional<bool>> Parser::FindAllFacts(const std::vector<std::vector<Token>> &tokens)
+std::map<std::string, Fact> Parser::FindAllFacts(const std::vector<std::vector<Token>> &tokens)
 {
 #ifdef LOG
     std::cout << __FUNCTION__ << std::endl;
 #endif
 
-    std::map<std::string, boost::optional<bool>> facts;
+    std::map<std::string, Fact> facts;
     for (const auto &it : tokens) {
         for (const auto &itt : it) {
             if (itt.type_ == TokenType::Fact) {
                 if (itt.value_.size() != 1) {
                     throw "Fact is too long: " + itt.value_;
                 }
-                facts.emplace(itt.value_, boost::none);
+                facts.emplace(itt.value_, Fact(false));
             } else if (itt.type_ == TokenType::InitialFact) {
                 initialFacts_ = itt;
             } else if (itt.type_ == TokenType::Query) {
@@ -55,9 +55,14 @@ std::map<std::string, boost::optional<bool>> Parser::FindAllFacts(const std::vec
     for (const auto &fact : initialFacts_.value_) {
         if (fact != '=') {
             std::string factStr {fact};
-            facts[factStr] = true;
+            facts[factStr] = Fact(true);
         }
     }
+
+    for (const auto &fact : queryFacts_) {
+        facts[fact.first] = Fact();
+    }
+
 
     if (facts.empty()) {
         throw "No facts or rules.";
@@ -99,9 +104,9 @@ std::vector<Rule> Parser::FindAllRules(const std::vector<std::vector<Token>> &to
     return rules;
 }
 
-std::map<std::string, boost::optional<bool>> Parser::FindAllQueryFacts(const Token &token)
+std::map<std::string, Fact> Parser::FindAllQueryFacts(const Token &token)
 {
-    std::map<std::string, boost::optional<bool>> facts;
+    std::map<std::string, Fact> facts;
 
     if (token.value_.front() != '?') {
         throw "Query is wrong. Missing '?'";
@@ -112,7 +117,7 @@ std::map<std::string, boost::optional<bool>> Parser::FindAllQueryFacts(const Tok
         }
 
         std::string factName{symb};
-        facts.emplace(factName, boost::none);
+        facts.emplace(factName, Fact());
     }
 
     return facts;

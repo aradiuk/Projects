@@ -138,8 +138,8 @@ void Validator::ValidateParentheses(const Token &previous, const Token &current,
 
     if (current.type_ == TokenType::OpenParenthesis) {
         if (next.type_ != TokenType::Invalid &&
-            operators_.find(next.type_) != operators_.end() ||
-            next.type_ == TokenType::CloseParenthesis) {
+            (operators_.find(next.type_) != operators_.end() ||
+            next.type_ == TokenType::CloseParenthesis)) {
                 throw "Invalid token after '('.";
         }
         if (previous.type_ != TokenType::Invalid &&
@@ -197,7 +197,7 @@ void Validator::ValidateFact(const Token &previous, const Token &current, const 
     }
 }
 
-void Validator::ValidateQuery(const std::map<std::string, boost::optional<bool>> &facts, const Token &initialFacts, const std::map<std::string, boost::optional<bool>> &queryFacts)
+void Validator::ValidateQuery(std::map<std::string, Fact> &facts, const Token &initialFacts, const std::map<std::string, Fact> &queryFacts)
 {
 #ifdef LOG
     std::cout << __FUNCTION__  << std::endl;
@@ -207,7 +207,7 @@ void Validator::ValidateQuery(const std::map<std::string, boost::optional<bool>>
         const auto searchResult = facts.find(queryFact.first);
         if (searchResult == facts.end()) {
             if (initialFacts.value_.find(queryFact.first.front()) == std::string::npos) {
-                throw "Can't find query fact: " + queryFact.first ;
+                facts[queryFact.first] = Fact(false);
             }
         }
     }
