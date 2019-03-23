@@ -251,13 +251,13 @@ bool ExpertSystem::Solve(Rule &rule, const std::string &name)
 #endif
 
     bool factStatus = false;
+    rule.visited_ = true;
     if (IsFactOnThisSide(name, rule.rhs_)) {
         factStatus = FindFactStatus(name, rule.rhs_, GetStatusOfSide(rule.lhs_), rule.operator_);
     } else if (IsFactOnThisSide(name, rule.lhs_)) {
         factStatus = FindFactStatus(name, rule.lhs_, GetStatusOfSide(rule.rhs_), rule.operator_);
     }
 
-    rule.visited_ = true;
     return factStatus;
 }
 

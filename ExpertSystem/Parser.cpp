@@ -43,7 +43,7 @@ std::map<std::string, Fact> Parser::FindAllFacts(const std::vector<std::vector<T
                 if (itt.value_.size() != 1) {
                     throw "Fact is too long: " + itt.value_;
                 }
-                facts.emplace(itt.value_, Fact(false));
+                facts.emplace(itt.value_, Fact());
             } else if (itt.type_ == TokenType::InitialFact) {
                 initialFacts_ = itt;
             } else if (itt.type_ == TokenType::Query) {
