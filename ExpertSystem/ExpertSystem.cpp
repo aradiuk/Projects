@@ -257,7 +257,7 @@ bool ExpertSystem::Solve(Rule &rule, const std::string &name)
     } else if (IsFactOnThisSide(name, rule.lhs_)) {
         factStatus = FindFactStatus(name, rule.lhs_, GetStatusOfSide(rule.rhs_), rule.operator_);
     }
-
+//    rule.visited_ = false;
     return factStatus;
 }
 
@@ -339,10 +339,10 @@ bool ExpertSystem::GetStatusOfSide(std::vector<Token> &tokens)
         throw "Stack size after solving isn't equal to 1.";
     }
     if (!stack.front().factStatus_.IsInitialised()) {
-        throw "Last element on a stack in uninitialised after solving.";
+        return false;
+    } else {
+        return stack.front().factStatus_.status_;
     }
-
-    return stack.front().factStatus_.status_;
 }
 
 Token ExpertSystem::RevertIfNegative(const Token &token)
