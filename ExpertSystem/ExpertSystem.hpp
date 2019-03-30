@@ -41,10 +41,14 @@ class ExpertSystem {
 		bool GetStatusOfSide(std::vector<Token> &tokens);
 		Token RevertIfNegative(const Token &token);
 		bool UseOperator(const Token &first, const Token &second, const Token &operatorToken);
-		void UpdateTokensStatus(std::vector<Token> &tokens);
-		bool FindFactStatus(const std::string &name, const std::vector<Token> &tokens, bool sideStatus, const Token &operatorToken);
+		void UpdateTokensStatus();
+		Token FindFactStatus(const std::string &name, std::vector<Token> &tokens, bool sideStatus, const Token &operatorToken, bool isFactInConclusion);
 		bool IsFactOnThisSide(const std::string &name, const std::vector<Token> &tokens);
-
+        bool DeduceStatus(const std::vector<Token> &tokens, const Token &operatorToken, bool sideStatus, bool isFactInConclusion);
+        bool OnlyAndInTokens(const std::vector<Token> &tokens);
+        bool OnlyOrInTokens(const std::vector<Token> &tokens);
+        bool AllExceptUnknown(const std::string &name, const std::vector<Token> &tokens, bool trueOrFalse);
+        void PrintRequestedFact(const std::string &name, const std::string &status);
 };
 
 

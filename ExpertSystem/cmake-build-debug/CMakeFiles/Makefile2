@@ -50,19 +50,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /snap/clion/67/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
+RM = /snap/clion/67/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/aradiuk/Projects/Projects/ExpertSystem
+CMAKE_SOURCE_DIR = /media/sf_Shared_folder/Projects/ExpertSystem
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug
+CMAKE_BINARY_DIR = /media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/ExpertSystem.dir
@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-deb
 CMakeFiles/ExpertSystem.dir/all:
 	$(MAKE) -f CMakeFiles/ExpertSystem.dir/build.make CMakeFiles/ExpertSystem.dir/depend
 	$(MAKE) -f CMakeFiles/ExpertSystem.dir/build.make CMakeFiles/ExpertSystem.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target ExpertSystem"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target ExpertSystem"
 .PHONY : CMakeFiles/ExpertSystem.dir/all
 
 # Include target in all.
@@ -81,9 +81,9 @@ all: CMakeFiles/ExpertSystem.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ExpertSystem.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExpertSystem.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/ExpertSystem.dir/rule
 
 # Convenience name for target.

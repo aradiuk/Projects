@@ -6,23 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/Users/aradiuk/Projects/Projects/ExpertSystem/ExpertSystem.cpp
+/media/sf_Shared_folder/Projects/ExpertSystem/ExpertSystem.cpp
 ExpertSystem.hpp
-/Users/aradiuk/Projects/Projects/ExpertSystem/ExpertSystem.hpp
+/media/sf_Shared_folder/Projects/ExpertSystem/ExpertSystem.hpp
 
-/Users/aradiuk/Projects/Projects/ExpertSystem/ExpertSystem.hpp
+/media/sf_Shared_folder/Projects/ExpertSystem/ExpertSystem.hpp
 iostream
 -
 Lexer.hpp
-/Users/aradiuk/Projects/Projects/ExpertSystem/Lexer.hpp
+/media/sf_Shared_folder/Projects/ExpertSystem/Lexer.hpp
 Parser.hpp
-/Users/aradiuk/Projects/Projects/ExpertSystem/Parser.hpp
+/media/sf_Shared_folder/Projects/ExpertSystem/Parser.hpp
+Validator.hpp
+/media/sf_Shared_folder/Projects/ExpertSystem/Validator.hpp
 
-/Users/aradiuk/Projects/Projects/ExpertSystem/Lexer.cpp
-Lexer.hpp
-/Users/aradiuk/Projects/Projects/ExpertSystem/Lexer.hpp
-
-/Users/aradiuk/Projects/Projects/ExpertSystem/Lexer.hpp
+/media/sf_Shared_folder/Projects/ExpertSystem/Lexer.hpp
 iostream
 -
 map
@@ -31,14 +29,30 @@ regex
 -
 fstream
 -
+sstream
+-
 
-/Users/aradiuk/Projects/Projects/ExpertSystem/Parser.cpp
+/media/sf_Shared_folder/Projects/ExpertSystem/Parser.hpp
+set
+-
+string
+-
+vector
+-
+map
+-
+algorithm
+-
+Lexer.hpp
+/media/sf_Shared_folder/Projects/ExpertSystem/Lexer.hpp
+
+/media/sf_Shared_folder/Projects/ExpertSystem/Validator.hpp
+Lexer.hpp
+/media/sf_Shared_folder/Projects/ExpertSystem/Lexer.hpp
 Parser.hpp
-/Users/aradiuk/Projects/Projects/ExpertSystem/Parser.hpp
+/media/sf_Shared_folder/Projects/ExpertSystem/Parser.hpp
 
-/Users/aradiuk/Projects/Projects/ExpertSystem/Parser.hpp
-
-/Users/aradiuk/Projects/Projects/ExpertSystem/main.cpp
+/media/sf_Shared_folder/Projects/ExpertSystem/main.cpp
 ExpertSystem.hpp
-/Users/aradiuk/Projects/Projects/ExpertSystem/ExpertSystem.hpp
+/media/sf_Shared_folder/Projects/ExpertSystem/ExpertSystem.hpp
 

@@ -4,12 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/aradiuk/Projects/Projects/ExpertSystem/ExpertSystem.cpp" "/Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug/CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.o"
-  "/Users/aradiuk/Projects/Projects/ExpertSystem/Lexer.cpp" "/Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug/CMakeFiles/ExpertSystem.dir/Lexer.cpp.o"
-  "/Users/aradiuk/Projects/Projects/ExpertSystem/Parser.cpp" "/Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug/CMakeFiles/ExpertSystem.dir/Parser.cpp.o"
-  "/Users/aradiuk/Projects/Projects/ExpertSystem/main.cpp" "/Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug/CMakeFiles/ExpertSystem.dir/main.cpp.o"
+  "/media/sf_Shared_folder/Projects/ExpertSystem/ExpertSystem.cpp" "/media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.o"
+  "/media/sf_Shared_folder/Projects/ExpertSystem/Lexer.cpp" "/media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles/ExpertSystem.dir/Lexer.cpp.o"
+  "/media/sf_Shared_folder/Projects/ExpertSystem/Parser.cpp" "/media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles/ExpertSystem.dir/Parser.cpp.o"
+  "/media/sf_Shared_folder/Projects/ExpertSystem/Validator.cpp" "/media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles/ExpertSystem.dir/Validator.cpp.o"
+  "/media/sf_Shared_folder/Projects/ExpertSystem/main.cpp" "/media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles/ExpertSystem.dir/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

@@ -13,4 +13,6 @@ add_executable(ExpertSystem
         Lexer.hpp
         main.cpp
         Parser.cpp
-        Parser.hpp)
+        Parser.hpp
+        Validator.cpp
+        Validator.hpp)

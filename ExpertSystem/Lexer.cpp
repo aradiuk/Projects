@@ -2,7 +2,7 @@
 // Created by Andrew Radiuk on 2019-03-17.
 //
 
-#define LOG
+//#define LOG
 
 #include "Lexer.hpp"
 

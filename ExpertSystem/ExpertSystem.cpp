@@ -4,7 +4,7 @@
 
 #include "ExpertSystem.hpp"
 
-#define LOG
+//#define LOG
 
 ExpertSystem::ExpertSystem()
 {}
@@ -29,6 +29,19 @@ void PrintAllTokens(const std::vector<std::vector<Token>> &tokens) {
     }
 }
 
+void ExpertSystem::PrintRequestedFact(const std::string &name, const std::string &status)
+{
+    std::cout << "-------------------" << std::endl;
+    if (status == "True") {
+        std::cout << "|" << "\033[1;42m   " << name << "   \033[0m" << "|  ";
+        std::cout << "\033[1;32m" << status << "\033[0m" << "   |" << std::endl;
+    } else {
+        std::cout << "|" << "\033[1;41m   " << name << "   \033[0m" << "|  ";
+        std::cout << "\033[1;31m" << status << "\033[0m" << "  |" << std::endl;
+    }
+
+//    std::cout << "----------------" << std::endl;
+}
 
 void ExpertSystem::StartEngine(const std::string &fileName)
 {
@@ -46,8 +59,8 @@ void ExpertSystem::StartEngine(const std::string &fileName)
     queryFacts_ = parser_.GetQueryFacts();
 
     polishRules_ = TransformRulesToPolish(rules_);
-    Evaluate(polishRules_);
     PrintAllTokens(tokens_);
+    Evaluate(polishRules_);
 }
 
 std::vector<Rule> ExpertSystem::TransformRulesToPolish(const std::vector<Rule> &rules)
@@ -104,15 +117,6 @@ std::vector<Token> ExpertSystem::TransformOneSide(const std::vector<Token> &toke
 
     for (const auto &token : tokens) {
         if (token.type_ == TokenType::CloseParenthesis) {
-#ifdef LOGG
-
-            std::cout << "Close" << std::endl;
-            for (auto it : operators)
-                std::cout << "op: " << it.value_ << std::endl;
-            for (auto it : stack)
-                std::cout << "st: " << it.value_ << std::endl;
-#endif
-
             if (operators.empty()) {
                 throw "Nothing before ')'";
             }
@@ -125,41 +129,14 @@ std::vector<Token> ExpertSystem::TransformOneSide(const std::vector<Token> &toke
             }
             operators.pop_back();
         } else if (IsOperator(token)) {
-#ifdef LOGG
-
-            std::cout << "Operator: " << token.value_ << std::endl;
-            for (auto it : operators)
-                std::cout << "op: " << it.value_ << std::endl;
-            for (auto it : stack)
-                std::cout << "st: " << it.value_ << std::endl;
-#endif
-
             while (!operators.empty() && operators.back().type_ < token.type_ && operators.back().type_ != TokenType::OpenParenthesis) {
                 stack.push_back(operators.back());
                 operators.pop_back();
             }
             operators.push_back(token);
         } else if (token.type_ == TokenType::Not) {
-#ifdef LOGG
-
-            std::cout << "Not" << std::endl;
-            for (auto it : operators)
-                std::cout << "op: " << it.value_ << std::endl;
-            for (auto it : stack)
-                std::cout << "st: " << it.value_ << std::endl;
-#endif
-
             haveNot = true;
         } else {
-#ifdef LOGG
-
-            std::cout << "Else: " << token.value_ << std::endl;
-            for (auto it : operators)
-                std::cout << "op: " << it.value_ << std::endl;
-            for (auto it : stack)
-                std::cout << "st: " << it.value_ << std::endl;
-#endif
-
             if (haveNot && token.type_ != TokenType::Fact) {
                 throw "Somehow missed '!' before not a fact";
             }
@@ -212,9 +189,10 @@ void ExpertSystem::Evaluate(const std::vector<Rule> &polishRules)
             } else if (!factSearch->second.status_) {
                 status = "False";
             }
-            std::cout << "Requested fact '" << factSearch->first << "' is '" << status << std::endl;
+            PrintRequestedFact(factSearch->first, status);
         }
     }
+    std::cout << "-------------------" << std::endl;
 }
 
 Fact ExpertSystem::BackwardChaining(const std::string &name)
@@ -226,8 +204,7 @@ Fact ExpertSystem::BackwardChaining(const std::string &name)
     std::vector<bool> conclusions;
 
     for (auto &rule : polishRules_) {
-        UpdateTokensStatus(rule.lhs_);
-        UpdateTokensStatus(rule.rhs_);
+        UpdateTokensStatus();
         if ((IsFactOnThisSide(name, rule.rhs_) ||
             IsFactOnThisSide(name, rule.lhs_)) &&
             !rule.visited_) {
@@ -239,7 +216,11 @@ Fact ExpertSystem::BackwardChaining(const std::string &name)
         return Fact(false);
     } else {
         const auto it = std::find(conclusions.begin(), conclusions.end(), true);
-        return it != conclusions.end();
+        if (it != conclusions.end()) {
+            return Fact(true);
+        } else {
+            return Fact(false);
+        }
     }
 
 }
@@ -250,57 +231,111 @@ bool ExpertSystem::Solve(Rule &rule, const std::string &name)
     std::cout << __FUNCTION__  << std::endl;
 #endif
 
-    bool factStatus = false;
+    Token result;
+    result.factStatus_ = Fact(false);
     rule.visited_ = true;
     if (IsFactOnThisSide(name, rule.rhs_)) {
-        factStatus = FindFactStatus(name, rule.rhs_, GetStatusOfSide(rule.lhs_), rule.operator_);
+        result = RevertIfNegative(FindFactStatus(name, rule.rhs_, GetStatusOfSide(rule.lhs_), rule.operator_, true));
     } else if (IsFactOnThisSide(name, rule.lhs_)) {
-        factStatus = FindFactStatus(name, rule.lhs_, GetStatusOfSide(rule.rhs_), rule.operator_);
+        result = RevertIfNegative(FindFactStatus(name, rule.lhs_, GetStatusOfSide(rule.rhs_), rule.operator_, false));
     }
-//    rule.visited_ = false;
-    return factStatus;
+    rule.visited_ = false;
+    return result.factStatus_.status_;
 }
 
-bool ExpertSystem::FindFactStatus(const std::string &name, const std::vector<Token> &tokens, bool sideStatus, const Token &operatorToken)
+Token ExpertSystem::FindFactStatus(const std::string &name, std::vector<Token> &tokens, bool sideStatus, const Token &operatorToken, bool isFactInConclusion)
 {
+    Token result;
+    result.factStatus_ = Fact(false);
+
     if (operatorToken.type_ == TokenType::IfAndOnlyIf ||
         operatorToken.type_ == TokenType::Implies) {
-        std::vector<Token> withTrueFact;
-        std::vector<Token> withFalseFact;
-        for (const auto &token : tokens) {
-            withTrueFact.emplace_back(token);
-            withFalseFact.emplace_back(token);
-            if (token.value_ == name) {
-                withTrueFact.back().factStatus_ = Fact(true);
-                withFalseFact.back().factStatus_ = Fact(false);
+        if (tokens.size() == 1) {
+            result.factStatus_.status_ = DeduceStatus(tokens, operatorToken, sideStatus, isFactInConclusion);
+            return result;
+        } else if (OnlyAndInTokens(tokens)) {
+            if (sideStatus) {
+                for (auto &token : tokens) {
+                    if (token.type_ == TokenType::Fact) {
+                        token.factStatus_ = Fact(true);
+                    }
+                }
+                result.factStatus_.status_ = true;
+            } else if (AllExceptUnknown(name, tokens, true)) {
+                result.factStatus_.status_ = false;
             }
-        }
-        std::pair<bool, bool> statusForTrueAndFalse = std::make_pair(
-                                                      GetStatusOfSide(withTrueFact),
-                                                      GetStatusOfSide(withFalseFact));
-        if (sideStatus) {
-            if (statusForTrueAndFalse.first) {
-                return true;
-            } else if (statusForTrueAndFalse.second) {
-                return false;
-            } else {
-                throw "Rule seems to be wrong.";
+        } else if (OnlyOrInTokens(tokens)) {
+            if (!sideStatus) {
+                for (auto &token : tokens) {
+                    if (token.type_ == TokenType::Fact) {
+                        token.factStatus_ = Fact(false);
+                    }
+                }
+                result.factStatus_.status_ = false;
+            } else if (AllExceptUnknown(name, tokens, false)) {
+                result.factStatus_.status_ = true;
             }
-        } else if (operatorToken.type_ == TokenType::IfAndOnlyIf) {
-            if (!statusForTrueAndFalse.first) {
-                return true;
-            } else if (!statusForTrueAndFalse.second) {
-                return false;
-            } else {
-                throw "Rule seems to be wrong.";
-            }
-        } else {
-            return false;
         }
     } else {
         throw "How did this thing get here?! Thing: " + operatorToken.value_;
     }
+
+    return result;
 }
+
+bool ExpertSystem::AllExceptUnknown(const std::string &name, const std::vector<Token> &tokens, bool trueOrFalse)
+{
+    for (const auto &token : tokens) {
+        if (token.value_ == name) {
+            continue;
+        } else if (token.factStatus_.status_ != trueOrFalse) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool ExpertSystem::OnlyAndInTokens(const std::vector<Token> &tokens)
+{
+    for (const auto &token : tokens) {
+        if (token.type_ != TokenType::Fact &&
+            token.type_ != TokenType::And) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool ExpertSystem::OnlyOrInTokens(const std::vector<Token> &tokens)
+{
+    for (const auto &token : tokens) {
+        if (token.type_ != TokenType::Fact &&
+            token.type_ != TokenType::Or) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool ExpertSystem::DeduceStatus(const std::vector<Token> &tokens, const Token &operatorToken, bool sideStatus, bool isFactInConclusion)
+{
+    if (operatorToken.type_ == TokenType::IfAndOnlyIf) {
+        if (sideStatus) {
+            return true;
+        } else {
+            return false;
+        }
+    } else if (operatorToken.type_ == TokenType::Implies) {
+        if (isFactInConclusion && sideStatus) {
+            return true;
+        } else if (!isFactInConclusion && !sideStatus) {
+            return false;
+        }
+    } else {
+        throw "One of the rules is wrong.";
+    }
+}
+
 
 bool ExpertSystem::GetStatusOfSide(std::vector<Token> &tokens)
 {
@@ -318,12 +353,12 @@ bool ExpertSystem::GetStatusOfSide(std::vector<Token> &tokens)
             if (!second.factStatus_.IsInitialised()) {
                 second.factStatus_ = BackwardChaining(second.value_);
                 facts_[second.value_] = second.factStatus_;
-                UpdateTokensStatus(tokens);
+                UpdateTokensStatus();
             }
             if (!first.factStatus_.IsInitialised()) {
                 first.factStatus_ = BackwardChaining(first.value_);
                 facts_[first.value_] = first.factStatus_;
-                UpdateTokensStatus(tokens);
+                UpdateTokensStatus();
             }
 
             Token newToken;
@@ -339,10 +374,11 @@ bool ExpertSystem::GetStatusOfSide(std::vector<Token> &tokens)
         throw "Stack size after solving isn't equal to 1.";
     }
     if (!stack.front().factStatus_.IsInitialised()) {
-        return false;
-    } else {
-        return stack.front().factStatus_.status_;
+        stack.front().factStatus_ = BackwardChaining(stack.front().value_);
+        facts_[stack.front().value_] = stack.front().factStatus_;
+        UpdateTokensStatus();
     }
+    return stack.front().factStatus_.status_;
 }
 
 Token ExpertSystem::RevertIfNegative(const Token &token)
@@ -376,17 +412,25 @@ bool ExpertSystem::UseOperator(const Token &first, const Token &second, const To
 }
 
 
-void ExpertSystem::UpdateTokensStatus(std::vector<Token> &tokens)
+void ExpertSystem::UpdateTokensStatus()
 {
 #ifdef LOG
     std::cout << __FUNCTION__  << std::endl;
 #endif
 
-    for (auto &token : tokens) {
-        if (token.type_ == TokenType::Fact) {
-            token.factStatus_ = facts_.at(token.value_);
+    for (auto &rule : polishRules_) {
+        for (auto &token : rule.lhs_) {
+            if (token.type_ == TokenType::Fact) {
+                token.factStatus_ = facts_.at(token.value_);
+            }
+        }
+        for (auto &token : rule.rhs_) {
+            if (token.type_ == TokenType::Fact) {
+                token.factStatus_ = facts_.at(token.value_);
+            }
         }
     }
+
 }
 
 bool ExpertSystem::IsFactOnThisSide(const std::string &name, const std::vector<Token> &tokens)

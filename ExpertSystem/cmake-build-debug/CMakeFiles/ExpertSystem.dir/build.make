@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /snap/clion/67/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
+RM = /snap/clion/67/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/aradiuk/Projects/Projects/ExpertSystem
+CMAKE_SOURCE_DIR = /media/sf_Shared_folder/Projects/ExpertSystem
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug
+CMAKE_BINARY_DIR = /media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ExpertSystem.dir/depend.make
@@ -59,62 +59,76 @@ include CMakeFiles/ExpertSystem.dir/flags.make
 
 CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.o: CMakeFiles/ExpertSystem.dir/flags.make
 CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.o: ../ExpertSystem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.o -c /Users/aradiuk/Projects/Projects/ExpertSystem/ExpertSystem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.o -c /media/sf_Shared_folder/Projects/ExpertSystem/ExpertSystem.cpp
 
 CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aradiuk/Projects/Projects/ExpertSystem/ExpertSystem.cpp > CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/sf_Shared_folder/Projects/ExpertSystem/ExpertSystem.cpp > CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.i
 
 CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aradiuk/Projects/Projects/ExpertSystem/ExpertSystem.cpp -o CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/sf_Shared_folder/Projects/ExpertSystem/ExpertSystem.cpp -o CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.s
 
 CMakeFiles/ExpertSystem.dir/Lexer.cpp.o: CMakeFiles/ExpertSystem.dir/flags.make
 CMakeFiles/ExpertSystem.dir/Lexer.cpp.o: ../Lexer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ExpertSystem.dir/Lexer.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ExpertSystem.dir/Lexer.cpp.o -c /Users/aradiuk/Projects/Projects/ExpertSystem/Lexer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ExpertSystem.dir/Lexer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ExpertSystem.dir/Lexer.cpp.o -c /media/sf_Shared_folder/Projects/ExpertSystem/Lexer.cpp
 
 CMakeFiles/ExpertSystem.dir/Lexer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ExpertSystem.dir/Lexer.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aradiuk/Projects/Projects/ExpertSystem/Lexer.cpp > CMakeFiles/ExpertSystem.dir/Lexer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/sf_Shared_folder/Projects/ExpertSystem/Lexer.cpp > CMakeFiles/ExpertSystem.dir/Lexer.cpp.i
 
 CMakeFiles/ExpertSystem.dir/Lexer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ExpertSystem.dir/Lexer.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aradiuk/Projects/Projects/ExpertSystem/Lexer.cpp -o CMakeFiles/ExpertSystem.dir/Lexer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/sf_Shared_folder/Projects/ExpertSystem/Lexer.cpp -o CMakeFiles/ExpertSystem.dir/Lexer.cpp.s
 
 CMakeFiles/ExpertSystem.dir/main.cpp.o: CMakeFiles/ExpertSystem.dir/flags.make
 CMakeFiles/ExpertSystem.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ExpertSystem.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ExpertSystem.dir/main.cpp.o -c /Users/aradiuk/Projects/Projects/ExpertSystem/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ExpertSystem.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ExpertSystem.dir/main.cpp.o -c /media/sf_Shared_folder/Projects/ExpertSystem/main.cpp
 
 CMakeFiles/ExpertSystem.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ExpertSystem.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aradiuk/Projects/Projects/ExpertSystem/main.cpp > CMakeFiles/ExpertSystem.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/sf_Shared_folder/Projects/ExpertSystem/main.cpp > CMakeFiles/ExpertSystem.dir/main.cpp.i
 
 CMakeFiles/ExpertSystem.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ExpertSystem.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aradiuk/Projects/Projects/ExpertSystem/main.cpp -o CMakeFiles/ExpertSystem.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/sf_Shared_folder/Projects/ExpertSystem/main.cpp -o CMakeFiles/ExpertSystem.dir/main.cpp.s
 
 CMakeFiles/ExpertSystem.dir/Parser.cpp.o: CMakeFiles/ExpertSystem.dir/flags.make
 CMakeFiles/ExpertSystem.dir/Parser.cpp.o: ../Parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ExpertSystem.dir/Parser.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ExpertSystem.dir/Parser.cpp.o -c /Users/aradiuk/Projects/Projects/ExpertSystem/Parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ExpertSystem.dir/Parser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ExpertSystem.dir/Parser.cpp.o -c /media/sf_Shared_folder/Projects/ExpertSystem/Parser.cpp
 
 CMakeFiles/ExpertSystem.dir/Parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ExpertSystem.dir/Parser.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aradiuk/Projects/Projects/ExpertSystem/Parser.cpp > CMakeFiles/ExpertSystem.dir/Parser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/sf_Shared_folder/Projects/ExpertSystem/Parser.cpp > CMakeFiles/ExpertSystem.dir/Parser.cpp.i
 
 CMakeFiles/ExpertSystem.dir/Parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ExpertSystem.dir/Parser.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aradiuk/Projects/Projects/ExpertSystem/Parser.cpp -o CMakeFiles/ExpertSystem.dir/Parser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/sf_Shared_folder/Projects/ExpertSystem/Parser.cpp -o CMakeFiles/ExpertSystem.dir/Parser.cpp.s
+
+CMakeFiles/ExpertSystem.dir/Validator.cpp.o: CMakeFiles/ExpertSystem.dir/flags.make
+CMakeFiles/ExpertSystem.dir/Validator.cpp.o: ../Validator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ExpertSystem.dir/Validator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ExpertSystem.dir/Validator.cpp.o -c /media/sf_Shared_folder/Projects/ExpertSystem/Validator.cpp
+
+CMakeFiles/ExpertSystem.dir/Validator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ExpertSystem.dir/Validator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/sf_Shared_folder/Projects/ExpertSystem/Validator.cpp > CMakeFiles/ExpertSystem.dir/Validator.cpp.i
+
+CMakeFiles/ExpertSystem.dir/Validator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ExpertSystem.dir/Validator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/sf_Shared_folder/Projects/ExpertSystem/Validator.cpp -o CMakeFiles/ExpertSystem.dir/Validator.cpp.s
 
 # Object files for target ExpertSystem
 ExpertSystem_OBJECTS = \
 "CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.o" \
 "CMakeFiles/ExpertSystem.dir/Lexer.cpp.o" \
 "CMakeFiles/ExpertSystem.dir/main.cpp.o" \
-"CMakeFiles/ExpertSystem.dir/Parser.cpp.o"
+"CMakeFiles/ExpertSystem.dir/Parser.cpp.o" \
+"CMakeFiles/ExpertSystem.dir/Validator.cpp.o"
 
 # External object files for target ExpertSystem
 ExpertSystem_EXTERNAL_OBJECTS =
@@ -123,9 +137,10 @@ ExpertSystem: CMakeFiles/ExpertSystem.dir/ExpertSystem.cpp.o
 ExpertSystem: CMakeFiles/ExpertSystem.dir/Lexer.cpp.o
 ExpertSystem: CMakeFiles/ExpertSystem.dir/main.cpp.o
 ExpertSystem: CMakeFiles/ExpertSystem.dir/Parser.cpp.o
+ExpertSystem: CMakeFiles/ExpertSystem.dir/Validator.cpp.o
 ExpertSystem: CMakeFiles/ExpertSystem.dir/build.make
 ExpertSystem: CMakeFiles/ExpertSystem.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ExpertSystem"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable ExpertSystem"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ExpertSystem.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -138,6 +153,6 @@ CMakeFiles/ExpertSystem.dir/clean:
 .PHONY : CMakeFiles/ExpertSystem.dir/clean
 
 CMakeFiles/ExpertSystem.dir/depend:
-	cd /Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/aradiuk/Projects/Projects/ExpertSystem /Users/aradiuk/Projects/Projects/ExpertSystem /Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug /Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug /Users/aradiuk/Projects/Projects/ExpertSystem/cmake-build-debug/CMakeFiles/ExpertSystem.dir/DependInfo.cmake --color=$(COLOR)
+	cd /media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/sf_Shared_folder/Projects/ExpertSystem /media/sf_Shared_folder/Projects/ExpertSystem /media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug /media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug /media/sf_Shared_folder/Projects/ExpertSystem/cmake-build-debug/CMakeFiles/ExpertSystem.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ExpertSystem.dir/depend
 

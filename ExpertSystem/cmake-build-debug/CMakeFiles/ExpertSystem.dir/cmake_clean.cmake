@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ExpertSystem.dir/Lexer.cpp.o"
   "CMakeFiles/ExpertSystem.dir/main.cpp.o"
   "CMakeFiles/ExpertSystem.dir/Parser.cpp.o"
+  "CMakeFiles/ExpertSystem.dir/Validator.cpp.o"
   "ExpertSystem.pdb"
   "ExpertSystem"
 )

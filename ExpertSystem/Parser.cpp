@@ -3,8 +3,7 @@
 //
 #include "Parser.hpp"
 
-#define LOG
-
+//#define LOG
 
 Parser::Parser()
 {}
@@ -60,7 +59,7 @@ std::map<std::string, Fact> Parser::FindAllFacts(const std::vector<std::vector<T
     }
 
     for (const auto &fact : queryFacts_) {
-        facts[fact.first] = Fact();
+        facts.emplace(fact.first, Fact());
     }
 
 
