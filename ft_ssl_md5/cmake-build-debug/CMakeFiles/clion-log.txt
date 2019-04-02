@@ -1,0 +1,4 @@
+/snap/clion/67/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /media/sf_Shared_folder/Projects/ft_ssl_md5
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug
