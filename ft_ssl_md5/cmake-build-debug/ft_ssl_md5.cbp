@@ -304,6 +304,9 @@
 		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/parse_input.c">
 			<Option target="ft_ssl_md5"/>
 		</Unit>
+		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/print_results.c">
+			<Option target="ft_ssl_md5"/>
+		</Unit>
 		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/reading.c">
 			<Option target="ft_ssl_md5"/>
 		</Unit>

@@ -3,6 +3,7 @@
 void error_found(char *errorText)
 {
     ft_putstr(errorText);
+    ft_putstr("\n");
     exit(1);
 }
 
@@ -25,33 +26,26 @@ void initial_flags(t_flags *flags)
     flags[file].checksum = 0;
 }
 
-void print_results(t_flags *flags)
+void clean_memory(t_flags *flags)
 {
-    if (flags[print].is_initialised)
+    int i;
+
+    i = 0;
+    while (i < MAX_FLAGS_IT)
     {
-        ft_putstr(flags[print].string_or_file);
-        ft_putstr(flags[print].checksum);
-        ft_putstr("\n");
-    }
-    if (flags[string].is_initialised)
-    {
-        ft_putstr(flags[string].string_or_file);
-        ft_putstr(flags[string].checksum);
-        ft_putstr("\n");
-    }
-    if (flags[file].is_initialised)
-    {
-        ft_putstr(flags[file].string_or_file);
-        ft_putstr(flags[file].checksum);
-        ft_putstr("\n");
+        if (flags[i].checksum)
+            ft_strdel(&flags[i].checksum);
+        if (flags[i].string_or_file)
+            ft_strdel(&flags[i].string_or_file);
+        ++i;
     }
 }
 
 int main(int argc, char **argv)
 {
     t_flags flags[5];
-    initial_flags(flags);
 
+    initial_flags(flags);
     if (argc == 1)
     {
         ft_putstr("usage: ft_ssl command [command opts] [command args]\n");
@@ -59,15 +53,9 @@ int main(int argc, char **argv)
     }
     parse_input(argc, argv, flags);
     if (!ft_strcmp(argv[1], "md5"))
-    {
         try_md5(flags);
-        print_results(flags);
-    }
     else if (!ft_strcmp(argv[1], "sha256"))
-    {
         try_sha256(flags);
-        print_results(flags);
-    }
     else
     {
         ft_putstr("ft_ssl: Error: an invalid command.\n"
@@ -76,6 +64,7 @@ int main(int argc, char **argv)
                   "sha256\n");
         return 1;
     }
-
+    print_results(flags);
+    clean_memory(flags);
     return 0;
 }

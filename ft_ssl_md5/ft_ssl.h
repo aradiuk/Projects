@@ -23,7 +23,7 @@ typedef struct  s_flags
 
 void error_found(char *errorText);
 void initial_flags(t_flags *flags);
-void print_results(t_flags *flags);
+void clean_memory(t_flags *flags);
 
 void parse_input(int argc, char **argv, t_flags *flags);
 void init_flag(t_flag_type flagType, char *text, t_flags *flags);
@@ -36,5 +36,10 @@ char* read_data(int fd);
 
 void ft_ssl_md5_checksum(const char *str, t_flags *flag);
 void ft_ssl_sha256_checksum(const char *str, t_flags *flag);
+
+
+void print_results(t_flags *flags);
+void prepare_file_and_string(t_flags *flags, char **file_add, char **string_add);
+void print_file_and_string(t_flags *flags, char *file_add, char *string_add);
 
 #endif

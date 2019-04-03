@@ -81,4 +81,5 @@ add_executable(ft_ssl_md5
         ft_ssl_sha256.c
         main.c
         parse_input.c
-        reading.c)
+        reading.c
+        print_results.c)
