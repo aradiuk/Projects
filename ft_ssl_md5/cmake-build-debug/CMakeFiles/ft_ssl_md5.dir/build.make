@@ -889,9 +889,61 @@ CMakeFiles/ft_ssl_md5.dir/libft/get_next_line.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_ssl_md5.dir/libft/get_next_line.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /media/sf_Shared_folder/Projects/ft_ssl_md5/libft/get_next_line.c -o CMakeFiles/ft_ssl_md5.dir/libft/get_next_line.c.s
 
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.o: CMakeFiles/ft_ssl_md5.dir/flags.make
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.o: ../ft_ssl_md5.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.o   -c /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.c
+
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.c > CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.i
+
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.c -o CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.s
+
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.o: CMakeFiles/ft_ssl_md5.dir/flags.make
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.o: ../ft_ssl_md5_transform.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.o   -c /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5_transform.c
+
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5_transform.c > CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.i
+
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5_transform.c -o CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.s
+
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.o: CMakeFiles/ft_ssl_md5.dir/flags.make
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.o: ../ft_ssl_md5_utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.o   -c /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5_utils.c
+
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5_utils.c > CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.i
+
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5_utils.c -o CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.s
+
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.o: CMakeFiles/ft_ssl_md5.dir/flags.make
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.o: ../ft_ssl_sha256.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.o   -c /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.c
+
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.c > CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.i
+
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.c -o CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.s
+
 CMakeFiles/ft_ssl_md5.dir/main.c.o: CMakeFiles/ft_ssl_md5.dir/flags.make
 CMakeFiles/ft_ssl_md5.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/ft_ssl_md5.dir/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/ft_ssl_md5.dir/main.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_ssl_md5.dir/main.c.o   -c /media/sf_Shared_folder/Projects/ft_ssl_md5/main.c
 
 CMakeFiles/ft_ssl_md5.dir/main.c.i: cmake_force
@@ -904,7 +956,7 @@ CMakeFiles/ft_ssl_md5.dir/main.c.s: cmake_force
 
 CMakeFiles/ft_ssl_md5.dir/parse_input.c.o: CMakeFiles/ft_ssl_md5.dir/flags.make
 CMakeFiles/ft_ssl_md5.dir/parse_input.c.o: ../parse_input.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/ft_ssl_md5.dir/parse_input.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/ft_ssl_md5.dir/parse_input.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_ssl_md5.dir/parse_input.c.o   -c /media/sf_Shared_folder/Projects/ft_ssl_md5/parse_input.c
 
 CMakeFiles/ft_ssl_md5.dir/parse_input.c.i: cmake_force
@@ -915,35 +967,9 @@ CMakeFiles/ft_ssl_md5.dir/parse_input.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_ssl_md5.dir/parse_input.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /media/sf_Shared_folder/Projects/ft_ssl_md5/parse_input.c -o CMakeFiles/ft_ssl_md5.dir/parse_input.c.s
 
-CMakeFiles/ft_ssl_md5.dir/md5.c.o: CMakeFiles/ft_ssl_md5.dir/flags.make
-CMakeFiles/ft_ssl_md5.dir/md5.c.o: ../md5.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/ft_ssl_md5.dir/md5.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_ssl_md5.dir/md5.c.o   -c /media/sf_Shared_folder/Projects/ft_ssl_md5/md5.c
-
-CMakeFiles/ft_ssl_md5.dir/md5.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_ssl_md5.dir/md5.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /media/sf_Shared_folder/Projects/ft_ssl_md5/md5.c > CMakeFiles/ft_ssl_md5.dir/md5.c.i
-
-CMakeFiles/ft_ssl_md5.dir/md5.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_ssl_md5.dir/md5.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /media/sf_Shared_folder/Projects/ft_ssl_md5/md5.c -o CMakeFiles/ft_ssl_md5.dir/md5.c.s
-
-CMakeFiles/ft_ssl_md5.dir/sha256.c.o: CMakeFiles/ft_ssl_md5.dir/flags.make
-CMakeFiles/ft_ssl_md5.dir/sha256.c.o: ../sha256.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/ft_ssl_md5.dir/sha256.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_ssl_md5.dir/sha256.c.o   -c /media/sf_Shared_folder/Projects/ft_ssl_md5/sha256.c
-
-CMakeFiles/ft_ssl_md5.dir/sha256.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_ssl_md5.dir/sha256.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /media/sf_Shared_folder/Projects/ft_ssl_md5/sha256.c > CMakeFiles/ft_ssl_md5.dir/sha256.c.i
-
-CMakeFiles/ft_ssl_md5.dir/sha256.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_ssl_md5.dir/sha256.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /media/sf_Shared_folder/Projects/ft_ssl_md5/sha256.c -o CMakeFiles/ft_ssl_md5.dir/sha256.c.s
-
 CMakeFiles/ft_ssl_md5.dir/reading.c.o: CMakeFiles/ft_ssl_md5.dir/flags.make
 CMakeFiles/ft_ssl_md5.dir/reading.c.o: ../reading.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/ft_ssl_md5.dir/reading.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/ft_ssl_md5.dir/reading.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_ssl_md5.dir/reading.c.o   -c /media/sf_Shared_folder/Projects/ft_ssl_md5/reading.c
 
 CMakeFiles/ft_ssl_md5.dir/reading.c.i: cmake_force
@@ -1020,10 +1046,12 @@ ft_ssl_md5_OBJECTS = \
 "CMakeFiles/ft_ssl_md5.dir/libft/ft_tolower.c.o" \
 "CMakeFiles/ft_ssl_md5.dir/libft/ft_toupper.c.o" \
 "CMakeFiles/ft_ssl_md5.dir/libft/get_next_line.c.o" \
+"CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.o" \
+"CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.o" \
+"CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.o" \
+"CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.o" \
 "CMakeFiles/ft_ssl_md5.dir/main.c.o" \
 "CMakeFiles/ft_ssl_md5.dir/parse_input.c.o" \
-"CMakeFiles/ft_ssl_md5.dir/md5.c.o" \
-"CMakeFiles/ft_ssl_md5.dir/sha256.c.o" \
 "CMakeFiles/ft_ssl_md5.dir/reading.c.o"
 
 # External object files for target ft_ssl_md5
@@ -1093,14 +1121,16 @@ ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/libft/ft_strupcase.c.o
 ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/libft/ft_tolower.c.o
 ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/libft/ft_toupper.c.o
 ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/libft/get_next_line.c.o
+ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.o
+ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.o
+ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.o
+ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.o
 ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/main.c.o
 ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/parse_input.c.o
-ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/md5.c.o
-ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/sha256.c.o
 ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/reading.c.o
 ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/build.make
 ft_ssl_md5: CMakeFiles/ft_ssl_md5.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Linking C executable ft_ssl_md5"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/sf_Shared_folder/Projects/ft_ssl_md5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Linking C executable ft_ssl_md5"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ft_ssl_md5.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

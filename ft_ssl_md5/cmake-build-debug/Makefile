@@ -123,6 +123,114 @@ ft_ssl_md5/fast:
 	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/build
 .PHONY : ft_ssl_md5/fast
 
+ft_ssl_md5.o: ft_ssl_md5.c.o
+
+.PHONY : ft_ssl_md5.o
+
+# target to build an object file
+ft_ssl_md5.c.o:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.o
+.PHONY : ft_ssl_md5.c.o
+
+ft_ssl_md5.i: ft_ssl_md5.c.i
+
+.PHONY : ft_ssl_md5.i
+
+# target to preprocess a source file
+ft_ssl_md5.c.i:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.i
+.PHONY : ft_ssl_md5.c.i
+
+ft_ssl_md5.s: ft_ssl_md5.c.s
+
+.PHONY : ft_ssl_md5.s
+
+# target to generate assembly for a file
+ft_ssl_md5.c.s:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5.c.s
+.PHONY : ft_ssl_md5.c.s
+
+ft_ssl_md5_transform.o: ft_ssl_md5_transform.c.o
+
+.PHONY : ft_ssl_md5_transform.o
+
+# target to build an object file
+ft_ssl_md5_transform.c.o:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.o
+.PHONY : ft_ssl_md5_transform.c.o
+
+ft_ssl_md5_transform.i: ft_ssl_md5_transform.c.i
+
+.PHONY : ft_ssl_md5_transform.i
+
+# target to preprocess a source file
+ft_ssl_md5_transform.c.i:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.i
+.PHONY : ft_ssl_md5_transform.c.i
+
+ft_ssl_md5_transform.s: ft_ssl_md5_transform.c.s
+
+.PHONY : ft_ssl_md5_transform.s
+
+# target to generate assembly for a file
+ft_ssl_md5_transform.c.s:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.s
+.PHONY : ft_ssl_md5_transform.c.s
+
+ft_ssl_md5_utils.o: ft_ssl_md5_utils.c.o
+
+.PHONY : ft_ssl_md5_utils.o
+
+# target to build an object file
+ft_ssl_md5_utils.c.o:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.o
+.PHONY : ft_ssl_md5_utils.c.o
+
+ft_ssl_md5_utils.i: ft_ssl_md5_utils.c.i
+
+.PHONY : ft_ssl_md5_utils.i
+
+# target to preprocess a source file
+ft_ssl_md5_utils.c.i:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.i
+.PHONY : ft_ssl_md5_utils.c.i
+
+ft_ssl_md5_utils.s: ft_ssl_md5_utils.c.s
+
+.PHONY : ft_ssl_md5_utils.s
+
+# target to generate assembly for a file
+ft_ssl_md5_utils.c.s:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.s
+.PHONY : ft_ssl_md5_utils.c.s
+
+ft_ssl_sha256.o: ft_ssl_sha256.c.o
+
+.PHONY : ft_ssl_sha256.o
+
+# target to build an object file
+ft_ssl_sha256.c.o:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.o
+.PHONY : ft_ssl_sha256.c.o
+
+ft_ssl_sha256.i: ft_ssl_sha256.c.i
+
+.PHONY : ft_ssl_sha256.i
+
+# target to preprocess a source file
+ft_ssl_sha256.c.i:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.i
+.PHONY : ft_ssl_sha256.c.i
+
+ft_ssl_sha256.s: ft_ssl_sha256.c.s
+
+.PHONY : ft_ssl_sha256.s
+
+# target to generate assembly for a file
+ft_ssl_sha256.c.s:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.s
+.PHONY : ft_ssl_sha256.c.s
+
 libft/ft_atoi.o: libft/ft_atoi.c.o
 
 .PHONY : libft/ft_atoi.o
@@ -1878,33 +1986,6 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/main.c.s
 .PHONY : main.c.s
 
-md5.o: md5.c.o
-
-.PHONY : md5.o
-
-# target to build an object file
-md5.c.o:
-	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/md5.c.o
-.PHONY : md5.c.o
-
-md5.i: md5.c.i
-
-.PHONY : md5.i
-
-# target to preprocess a source file
-md5.c.i:
-	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/md5.c.i
-.PHONY : md5.c.i
-
-md5.s: md5.c.s
-
-.PHONY : md5.s
-
-# target to generate assembly for a file
-md5.c.s:
-	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/md5.c.s
-.PHONY : md5.c.s
-
 parse_input.o: parse_input.c.o
 
 .PHONY : parse_input.o
@@ -1959,33 +2040,6 @@ reading.c.s:
 	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/reading.c.s
 .PHONY : reading.c.s
 
-sha256.o: sha256.c.o
-
-.PHONY : sha256.o
-
-# target to build an object file
-sha256.c.o:
-	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/sha256.c.o
-.PHONY : sha256.c.o
-
-sha256.i: sha256.c.i
-
-.PHONY : sha256.i
-
-# target to preprocess a source file
-sha256.c.i:
-	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/sha256.c.i
-.PHONY : sha256.c.i
-
-sha256.s: sha256.c.s
-
-.PHONY : sha256.s
-
-# target to generate assembly for a file
-sha256.c.s:
-	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/sha256.c.s
-.PHONY : sha256.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1995,6 +2049,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... ft_ssl_md5"
 	@echo "... edit_cache"
+	@echo "... ft_ssl_md5.o"
+	@echo "... ft_ssl_md5.i"
+	@echo "... ft_ssl_md5.s"
+	@echo "... ft_ssl_md5_transform.o"
+	@echo "... ft_ssl_md5_transform.i"
+	@echo "... ft_ssl_md5_transform.s"
+	@echo "... ft_ssl_md5_utils.o"
+	@echo "... ft_ssl_md5_utils.i"
+	@echo "... ft_ssl_md5_utils.s"
+	@echo "... ft_ssl_sha256.o"
+	@echo "... ft_ssl_sha256.i"
+	@echo "... ft_ssl_sha256.s"
 	@echo "... libft/ft_atoi.o"
 	@echo "... libft/ft_atoi.i"
 	@echo "... libft/ft_atoi.s"
@@ -2190,18 +2256,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... md5.o"
-	@echo "... md5.i"
-	@echo "... md5.s"
 	@echo "... parse_input.o"
 	@echo "... parse_input.i"
 	@echo "... parse_input.s"
 	@echo "... reading.o"
 	@echo "... reading.i"
 	@echo "... reading.s"
-	@echo "... sha256.o"
-	@echo "... sha256.i"
-	@echo "... sha256.s"
 .PHONY : help
 
 

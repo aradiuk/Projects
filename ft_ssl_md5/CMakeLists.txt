@@ -3,6 +3,7 @@ project(ft_ssl_md5 C)
 
 set(CMAKE_C_STANDARD 11)
 
+include_directories(.)
 include_directories(libft/includes)
 
 add_executable(ft_ssl_md5
@@ -72,8 +73,12 @@ add_executable(ft_ssl_md5
         libft/ft_tolower.c
         libft/ft_toupper.c
         libft/get_next_line.c
+        ft_ssl.h
+        ft_ssl_md5.c
+        ft_ssl_md5.h
+        ft_ssl_md5_transform.c
+        ft_ssl_md5_utils.c
+        ft_ssl_sha256.c
         main.c
         parse_input.c
-        md5.c
-        sha256.c
         reading.c)

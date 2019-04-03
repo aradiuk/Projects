@@ -1,6 +1,6 @@
-#include "ft_ssl_md5.h"
+#include "ft_ssl.h"
 
-void ParseInput(int argc, char **argv, t_flags *flags)
+void parse_input(int argc, char **argv, t_flags *flags)
 {
     int i;
 
@@ -8,23 +8,23 @@ void ParseInput(int argc, char **argv, t_flags *flags)
     while (i < argc)
     {
         if (!ft_strcmp(argv[i], "-p"))
-            InitFlag(print, "", flags);
+            init_flag(print, "", flags);
         else if (!ft_strcmp(argv[i], "-q"))
-            InitFlag(quiet, "", flags);
+            init_flag(quiet, "", flags);
         else if (!ft_strcmp(argv[i], "-r"))
-            InitFlag(reverse, "", flags);
+            init_flag(reverse, "", flags);
         else if (!ft_strcmp(argv[i], "-s") && i + 1 < argc)
-            InitFlag(string, argv[++i], flags);
+            init_flag(string, argv[++i], flags);
         else
-            InitFlag(file, argv[i], flags);
+            init_flag(file, argv[i], flags);
         ++i;
     }
 }
 
-void InitFlag(const t_flag_type flag_type, char *text, t_flags *flags)
+void init_flag(const t_flag_type flag_type, char *text, t_flags *flags)
 {
     if (flags[flag_type].is_initialised) {
-        errorFound("Same flag met more than once.\n");
+        error_found("Same flag met more than once.\n");
     }
 
     flags[flag_type].is_initialised = 1;

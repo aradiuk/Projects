@@ -1,4 +1,23 @@
-#include "ft_ssl_md5.h"
+#include "ft_ssl.h"
+
+void ft_ssl_md5_checksum(const char *str, t_flags *flag)
+{
+    t_ssl_md5_ctx context;
+    t_byte digest[16];
+
+    ft_strcpy(flag->string_or_file, str);
+    ft_ssl_md5_init(&context);
+    ft_ssl_md5_update(&context, (unsigned char *)str, ft_strlen(str));
+    ft_ssl_md5_final(digest, &context);
+
+    flag->checksum = ft_strnew(32);
+    ft_ssl_md5_make_string(digest, flag->checksum);
+}
+
+void ft_ssl_sha256_checksum(const char *str, t_flags *flag)
+{
+
+}
 
 void try_md5(t_flags *flags)
 {
@@ -7,13 +26,20 @@ void try_md5(t_flags *flags)
     if (flags[file].is_initialised)
     {
         fd = open(flags[file].string_or_file, O_RDONLY);
-        flags[file].checksum = ft_strdup(md5_checksum(read_data(fd)));
+        if (fd == -1)
+        {
+            error_found("Can't open a file.");
+        }
+        ft_ssl_md5_checksum(read_data(fd), &flags[file]);
         close(fd);
     }
     if (flags[string].is_initialised)
-        flags[string].checksum = ft_strdup(md5_checksum(flags[string].string_or_file));
+        ft_ssl_md5_checksum(flags[string].string_or_file, &flags[string]);
     if (flags[print].is_initialised || !flags[file].is_initialised)
-        flags[file].checksum = ft_strdup(md5_checksum(read_data(0)));
+    {
+        flags[print].string_or_file = read_data(0);
+        ft_ssl_md5_checksum(flags[print].string_or_file, &flags[print]);
+    }
 }
 
 void try_sha256(t_flags *flags)
@@ -23,13 +49,20 @@ void try_sha256(t_flags *flags)
     if (flags[file].is_initialised)
     {
         fd = open(flags[file].string_or_file, O_RDONLY);
-        flags[file].checksum = ft_strdup(sha256_checksum(read_data(fd)));
+        if (fd == -1)
+        {
+            error_found("Can't open a file.");
+        }
+        ft_ssl_sha256_checksum(read_data(fd), &flags[file]);
         close(fd);
     }
     if (flags[string].is_initialised)
-        flags[string].checksum = ft_strdup(sha256_checksum(flags[string].string_or_file));
+        ft_ssl_sha256_checksum(flags[string].string_or_file, &flags[string]);
     if (flags[print].is_initialised || !flags[file].is_initialised)
-        flags[file].checksum = ft_strdup(sha256_checksum(read_data(0)));
+    {
+        flags[print].string_or_file = read_data(0);
+        ft_ssl_sha256_checksum(flags[print].string_or_file, &flags[print]);
+    }
 }
 
 char* read_data(int fd)
@@ -47,6 +80,5 @@ char* read_data(int fd)
         file = ft_strjoin(tmp, "\n");
         free(tmp);
     }
-    printf("%s\n", file);
     return file;
 }

@@ -34,6 +34,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/media/sf_Shared_folder/Projects/ft_ssl_md5/."/>
 					<Add directory="/media/sf_Shared_folder/Projects/ft_ssl_md5/libft/includes"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
 					<Add directory="/usr/local/include"/>
@@ -55,6 +56,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/media/sf_Shared_folder/Projects/ft_ssl_md5/."/>
 					<Add directory="/media/sf_Shared_folder/Projects/ft_ssl_md5/libft/includes"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
 					<Add directory="/usr/local/include"/>
@@ -80,6 +82,24 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl.h">
+			<Option target="ft_ssl_md5"/>
+		</Unit>
+		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.c">
+			<Option target="ft_ssl_md5"/>
+		</Unit>
+		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.h">
+			<Option target="ft_ssl_md5"/>
+		</Unit>
+		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5_transform.c">
+			<Option target="ft_ssl_md5"/>
+		</Unit>
+		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5_utils.c">
+			<Option target="ft_ssl_md5"/>
+		</Unit>
+		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.c">
+			<Option target="ft_ssl_md5"/>
+		</Unit>
 		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/libft/ft_atoi.c">
 			<Option target="ft_ssl_md5"/>
 		</Unit>
@@ -281,16 +301,10 @@
 		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/main.c">
 			<Option target="ft_ssl_md5"/>
 		</Unit>
-		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/md5.c">
-			<Option target="ft_ssl_md5"/>
-		</Unit>
 		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/parse_input.c">
 			<Option target="ft_ssl_md5"/>
 		</Unit>
 		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/reading.c">
-			<Option target="ft_ssl_md5"/>
-		</Unit>
-		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/sha256.c">
 			<Option target="ft_ssl_md5"/>
 		</Unit>
 		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/CMakeLists.txt">

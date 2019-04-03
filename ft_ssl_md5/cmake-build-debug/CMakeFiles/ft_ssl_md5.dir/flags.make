@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu11
 
 C_DEFINES = 
 
-C_INCLUDES = -I/media/sf_Shared_folder/Projects/ft_ssl_md5/libft/includes 
+C_INCLUDES = -I/media/sf_Shared_folder/Projects/ft_ssl_md5/. -I/media/sf_Shared_folder/Projects/ft_ssl_md5/libft/includes 
 
