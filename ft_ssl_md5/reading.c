@@ -29,6 +29,8 @@ void try_md5(t_flags *flags)
     int fd;
     char *input;
 
+    flags[file].add = ft_strdup("MD5 (");
+    flags[string].add = ft_strdup("MD5 (\"");
     if (flags[file].is_initialised)
     {
         fd = open(flags[file].string_or_file, O_RDONLY);
@@ -55,6 +57,8 @@ void try_sha256(t_flags *flags)
     int fd;
     char *input;
 
+    flags[file].add = ft_strdup("SHA256 (");
+    flags[string].add = ft_strdup("SHA256 (\"");
     if (flags[file].is_initialised)
     {
         fd = open(flags[file].string_or_file, O_RDONLY);

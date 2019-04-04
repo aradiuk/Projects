@@ -11,12 +11,24 @@ CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.o
  /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5_transform.c
 CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.o
  ../libft/includes/libft.h
+ /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5_utils.c
+ /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.h
 CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.o
  ../libft/includes/libft.h
- /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.c
+ /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.h
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_transform.c.o
+ ../libft/includes/libft.h
+ /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.h
+ /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256_transform.c
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_utils.c.o
+ ../libft/includes/libft.h
+ /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl.h
+ /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.h
+ /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.h
+ /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256_utils.c
 CMakeFiles/ft_ssl_md5.dir/libft/ft_atoi.c.o
  /media/sf_Shared_folder/Projects/ft_ssl_md5/libft/ft_atoi.c
  /media/sf_Shared_folder/Projects/ft_ssl_md5/libft/includes/libft.h
@@ -210,19 +222,23 @@ CMakeFiles/ft_ssl_md5.dir/main.c.o
  ../libft/includes/libft.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.h
+ /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/main.c
 CMakeFiles/ft_ssl_md5.dir/parse_input.c.o
  ../libft/includes/libft.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.h
+ /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/parse_input.c
 CMakeFiles/ft_ssl_md5.dir/print_results.c.o
  ../libft/includes/libft.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.h
+ /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/print_results.c
 CMakeFiles/ft_ssl_md5.dir/reading.c.o
  ../libft/includes/libft.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.h
+ /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.h
  /media/sf_Shared_folder/Projects/ft_ssl_md5/reading.c

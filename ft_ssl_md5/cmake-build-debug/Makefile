@@ -231,6 +231,60 @@ ft_ssl_sha256.c.s:
 	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.s
 .PHONY : ft_ssl_sha256.c.s
 
+ft_ssl_sha256_transform.o: ft_ssl_sha256_transform.c.o
+
+.PHONY : ft_ssl_sha256_transform.o
+
+# target to build an object file
+ft_ssl_sha256_transform.c.o:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_transform.c.o
+.PHONY : ft_ssl_sha256_transform.c.o
+
+ft_ssl_sha256_transform.i: ft_ssl_sha256_transform.c.i
+
+.PHONY : ft_ssl_sha256_transform.i
+
+# target to preprocess a source file
+ft_ssl_sha256_transform.c.i:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_transform.c.i
+.PHONY : ft_ssl_sha256_transform.c.i
+
+ft_ssl_sha256_transform.s: ft_ssl_sha256_transform.c.s
+
+.PHONY : ft_ssl_sha256_transform.s
+
+# target to generate assembly for a file
+ft_ssl_sha256_transform.c.s:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_transform.c.s
+.PHONY : ft_ssl_sha256_transform.c.s
+
+ft_ssl_sha256_utils.o: ft_ssl_sha256_utils.c.o
+
+.PHONY : ft_ssl_sha256_utils.o
+
+# target to build an object file
+ft_ssl_sha256_utils.c.o:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_utils.c.o
+.PHONY : ft_ssl_sha256_utils.c.o
+
+ft_ssl_sha256_utils.i: ft_ssl_sha256_utils.c.i
+
+.PHONY : ft_ssl_sha256_utils.i
+
+# target to preprocess a source file
+ft_ssl_sha256_utils.c.i:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_utils.c.i
+.PHONY : ft_ssl_sha256_utils.c.i
+
+ft_ssl_sha256_utils.s: ft_ssl_sha256_utils.c.s
+
+.PHONY : ft_ssl_sha256_utils.s
+
+# target to generate assembly for a file
+ft_ssl_sha256_utils.c.s:
+	$(MAKE) -f CMakeFiles/ft_ssl_md5.dir/build.make CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_utils.c.s
+.PHONY : ft_ssl_sha256_utils.c.s
+
 libft/ft_atoi.o: libft/ft_atoi.c.o
 
 .PHONY : libft/ft_atoi.o
@@ -2088,6 +2142,12 @@ help:
 	@echo "... ft_ssl_sha256.o"
 	@echo "... ft_ssl_sha256.i"
 	@echo "... ft_ssl_sha256.s"
+	@echo "... ft_ssl_sha256_transform.o"
+	@echo "... ft_ssl_sha256_transform.i"
+	@echo "... ft_ssl_sha256_transform.s"
+	@echo "... ft_ssl_sha256_utils.o"
+	@echo "... ft_ssl_sha256_utils.i"
+	@echo "... ft_ssl_sha256_utils.s"
 	@echo "... libft/ft_atoi.o"
 	@echo "... libft/ft_atoi.i"
 	@echo "... libft/ft_atoi.s"

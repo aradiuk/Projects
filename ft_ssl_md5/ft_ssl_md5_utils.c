@@ -1,4 +1,4 @@
-#include "ft_ssl_md5.h"
+#include "ft_ssl.h"
 
 void ft_ssl_md5_encode(t_byte *out, uint32_t *in, unsigned int in_len)
 {
@@ -59,3 +59,4 @@ void ft_ssl_md5_make_string(unsigned char digest[16], char *result, unsigned int
     }
     result[j] = 0;
 }
+

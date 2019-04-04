@@ -10,12 +10,24 @@ CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.o: ../ft_ssl_md5.h
 CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_transform.c.o: ../ft_ssl_md5_transform.c
 
 CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.o: ../libft/includes/libft.h
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.o: ../ft_ssl.h
 CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.o: ../ft_ssl_md5.h
 CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.o: ../ft_ssl_md5_utils.c
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_md5_utils.c.o: ../ft_ssl_sha256.h
 
 CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.o: ../libft/includes/libft.h
-CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.o: ../ft_ssl_md5.h
 CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.o: ../ft_ssl_sha256.c
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256.c.o: ../ft_ssl_sha256.h
+
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_transform.c.o: ../libft/includes/libft.h
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_transform.c.o: ../ft_ssl_sha256.h
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_transform.c.o: ../ft_ssl_sha256_transform.c
+
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_utils.c.o: ../libft/includes/libft.h
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_utils.c.o: ../ft_ssl.h
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_utils.c.o: ../ft_ssl_md5.h
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_utils.c.o: ../ft_ssl_sha256.h
+CMakeFiles/ft_ssl_md5.dir/ft_ssl_sha256_utils.c.o: ../ft_ssl_sha256_utils.c
 
 CMakeFiles/ft_ssl_md5.dir/libft/ft_atoi.c.o: ../libft/ft_atoi.c
 CMakeFiles/ft_ssl_md5.dir/libft/ft_atoi.c.o: ../libft/includes/libft.h
@@ -209,20 +221,24 @@ CMakeFiles/ft_ssl_md5.dir/libft/get_next_line.c.o: ../libft/includes/libft.h
 CMakeFiles/ft_ssl_md5.dir/main.c.o: ../libft/includes/libft.h
 CMakeFiles/ft_ssl_md5.dir/main.c.o: ../ft_ssl.h
 CMakeFiles/ft_ssl_md5.dir/main.c.o: ../ft_ssl_md5.h
+CMakeFiles/ft_ssl_md5.dir/main.c.o: ../ft_ssl_sha256.h
 CMakeFiles/ft_ssl_md5.dir/main.c.o: ../main.c
 
 CMakeFiles/ft_ssl_md5.dir/parse_input.c.o: ../libft/includes/libft.h
 CMakeFiles/ft_ssl_md5.dir/parse_input.c.o: ../ft_ssl.h
 CMakeFiles/ft_ssl_md5.dir/parse_input.c.o: ../ft_ssl_md5.h
+CMakeFiles/ft_ssl_md5.dir/parse_input.c.o: ../ft_ssl_sha256.h
 CMakeFiles/ft_ssl_md5.dir/parse_input.c.o: ../parse_input.c
 
 CMakeFiles/ft_ssl_md5.dir/print_results.c.o: ../libft/includes/libft.h
 CMakeFiles/ft_ssl_md5.dir/print_results.c.o: ../ft_ssl.h
 CMakeFiles/ft_ssl_md5.dir/print_results.c.o: ../ft_ssl_md5.h
+CMakeFiles/ft_ssl_md5.dir/print_results.c.o: ../ft_ssl_sha256.h
 CMakeFiles/ft_ssl_md5.dir/print_results.c.o: ../print_results.c
 
 CMakeFiles/ft_ssl_md5.dir/reading.c.o: ../libft/includes/libft.h
 CMakeFiles/ft_ssl_md5.dir/reading.c.o: ../ft_ssl.h
 CMakeFiles/ft_ssl_md5.dir/reading.c.o: ../ft_ssl_md5.h
+CMakeFiles/ft_ssl_md5.dir/reading.c.o: ../ft_ssl_sha256.h
 CMakeFiles/ft_ssl_md5.dir/reading.c.o: ../reading.c
 

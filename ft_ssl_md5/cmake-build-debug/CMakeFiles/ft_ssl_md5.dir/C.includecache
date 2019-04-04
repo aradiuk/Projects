@@ -21,10 +21,10 @@ limits.h
 /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl.h
 ft_ssl_md5.h
 /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.h
+ft_ssl_sha256.h
+/media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.h
 
 /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_md5.h
-stdio.h
--
 stdlib.h
 -
 unistd.h
@@ -34,7 +34,23 @@ stdint.h
 libft.h
 /media/sf_Shared_folder/Projects/ft_ssl_md5/libft.h
 
-/media/sf_Shared_folder/Projects/ft_ssl_md5/print_results.c
+/media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.h
+stdlib.h
+-
+unistd.h
+-
+stdint.h
+-
+libft.h
+/media/sf_Shared_folder/Projects/ft_ssl_md5/libft.h
+
+/media/sf_Shared_folder/Projects/ft_ssl_md5/main.c
 ft_ssl.h
 /media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl.h
+
+/media/sf_Shared_folder/Projects/ft_ssl_md5/parse_input.c
+ft_ssl.h
+/media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl.h
+stdio.h
+-
 

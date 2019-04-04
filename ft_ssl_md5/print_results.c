@@ -30,10 +30,10 @@ void prepare_file_and_string(t_flags *flags, char **file_add, char **string_add)
     {
         if (!flags[reverse].is_initialised)
         {
-            tmp = ft_strjoin("MD5 (", flags[file].string_or_file);
+            tmp = ft_strjoin(flags[file].add, flags[file].string_or_file);
             *file_add = ft_strjoin(tmp, ") = \0");
             ft_strdel(&tmp);
-            tmp = ft_strjoin("MD5 (\"", flags[string].string_or_file);
+            tmp = ft_strjoin(flags[string].add, flags[string].string_or_file);
             *string_add = ft_strjoin(tmp, "\") = \0");
             ft_strdel(&tmp);
         }
@@ -75,3 +75,7 @@ void print_file_and_string(t_flags *flags, char *file_add, char *string_add)
     }
 }
 
+void print_invalid_args(t_list *invalid_arg)
+{
+    ft_putstr((char *)invalid_arg->content);
+}

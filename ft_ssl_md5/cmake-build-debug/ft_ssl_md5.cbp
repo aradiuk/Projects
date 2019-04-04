@@ -100,6 +100,15 @@
 		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.c">
 			<Option target="ft_ssl_md5"/>
 		</Unit>
+		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256.h">
+			<Option target="ft_ssl_md5"/>
+		</Unit>
+		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256_transform.c">
+			<Option target="ft_ssl_md5"/>
+		</Unit>
+		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/ft_ssl_sha256_utils.c">
+			<Option target="ft_ssl_md5"/>
+		</Unit>
 		<Unit filename="/media/sf_Shared_folder/Projects/ft_ssl_md5/libft/ft_atoi.c">
 			<Option target="ft_ssl_md5"/>
 		</Unit>
