@@ -32,9 +32,12 @@ void init_flag(const t_flag_type flag_type, char *text, t_flags *flags, t_list *
             ft_lstadd(invalid_args, ft_lstnew((void *)tmp, ft_strlen(tmp)));
             ft_strdel(&tmp);
         }
-        tmp = ft_strjoin(text, ": No such file or directory\n\0");
-        ft_lstadd(invalid_args, ft_lstnew((void *)tmp, ft_strlen(tmp)));
-        ft_strdel(&tmp);
+        if (ft_strcmp(text, ""))
+        {
+            tmp = ft_strjoin(text, ": No such file or directory\n\0");
+            ft_lstadd(invalid_args, ft_lstnew((void *)tmp, ft_strlen(tmp)));
+            ft_strdel(&tmp);
+        }
         return;
     }
 
