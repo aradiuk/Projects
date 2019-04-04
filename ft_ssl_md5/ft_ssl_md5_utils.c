@@ -34,7 +34,7 @@ void ft_ssl_md5_decode(uint32_t *out, t_byte *in, unsigned int in_len)
     }
 }
 
-void ft_ssl_md5_make_string(unsigned char digest[16], char *result)
+void ft_ssl_md5_make_string(unsigned char digest[16], char *result, unsigned int len)
 {
     unsigned int i;
     unsigned int j;
@@ -42,7 +42,7 @@ void ft_ssl_md5_make_string(unsigned char digest[16], char *result)
 
     i = 0;
     j = 0;
-    while (i < 16)
+    while (i < len)
     {
         tmp = digest[i] / 16;
         if (tmp >= 10)

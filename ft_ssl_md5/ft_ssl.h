@@ -1,7 +1,8 @@
-#ifndef __FT_SSL_MD5__
-#define __FT_SSL_MD5__
+#ifndef __FT_SSL__
+#define __FT_SSL__
 
 # include "ft_ssl_md5.h"
+# include "ft_ssl_sha256.h"
 
 # define MAX_FLAGS_IT 5
 

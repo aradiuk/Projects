@@ -40,9 +40,7 @@ void ft_ssl_md5_update(t_ssl_md5_ctx *context, t_byte *str, unsigned int str_len
         curr_index = 0;
     }
     else
-    {
         i = 0;
-    }
     ft_memcpy(&context->buffer[curr_index], &str[i], str_len - i);
 }
 

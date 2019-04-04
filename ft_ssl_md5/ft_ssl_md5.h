@@ -1,7 +1,5 @@
-#ifndef __MD5_H__
-#define __MD5_H__
-
-#include <stdio.h>
+#ifndef __FT_SSL_MD5_H__
+#define __FT_SSL_MD5_H__
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -72,6 +70,6 @@ static void ft_ssl_md5_round3(uint32_t st[4], uint32_t dec[16]);
 static void ft_ssl_md5_round4(uint32_t st[4], uint32_t dec[16]);
 void        ft_ssl_md5_encode(t_byte *out, uint32_t *in, unsigned int out_len);
 void        ft_ssl_md5_decode(uint32_t *out, t_byte *in, unsigned int in_len);
-void        ft_ssl_md5_make_string(unsigned char digest[16], char *result);
+void        ft_ssl_md5_make_string(unsigned char digest[16], char *result, unsigned int len);
 
 #endif
