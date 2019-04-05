@@ -38,8 +38,8 @@ void initial_flags(t_flags *flags)
 
 void clean_list(void *content, size_t size)
 {
-    size = 0;
-    ft_strdel((char **)&content);
+    if (size)
+        ft_strdel((char **)&content);
 }
 
 void clean_memory(t_flags *flags, t_list **invalid_args)
