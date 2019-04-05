@@ -1,10 +1,22 @@
-#include "ft_ssl_md5.h"
+#include "ft_ssl.h"
 
 static unsigned char g_padding[64] = {
   0x80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 };
+
+void ft_ssl_md5_checksum(const char *str, t_flags *flag)
+{
+    t_ssl_md5_ctx   context;
+    t_byte          digest[16];
+
+    ft_ssl_md5_init(&context);
+    ft_ssl_md5_update(&context, (unsigned char *)str, ft_strlen(str));
+    ft_ssl_md5_final(digest, &context);
+    flag->checksum = ft_strnew(32);
+    ft_ssl_md5_make_string(digest, flag->checksum, 16);
+}
 
 void ft_ssl_md5_init(t_ssl_md5_ctx *context)
 {

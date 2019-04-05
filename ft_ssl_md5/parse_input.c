@@ -28,13 +28,13 @@ void init_flag(const t_flag_type flag_type, char *text, t_flags *flags, t_list *
     if (flags[flag_type].is_initialised) {
         if (flags[flag_type].flag_text)
         {
-            tmp = ft_strjoin(flags[flag_type].flag_text, ": No such file or directory\n\0");
+            tmp = ft_strjoin(flags[flag_type].flag_text, ": No such file or repeated flag\n\0");
             ft_lstadd(invalid_args, ft_lstnew((void *)tmp, ft_strlen(tmp)));
             ft_strdel(&tmp);
         }
         if (ft_strcmp(text, ""))
         {
-            tmp = ft_strjoin(text, ": No such file or directory\n\0");
+            tmp = ft_strjoin(text, ": No such file or repeated flag/name\n\0");
             ft_lstadd(invalid_args, ft_lstnew((void *)tmp, ft_strlen(tmp)));
             ft_strdel(&tmp);
         }

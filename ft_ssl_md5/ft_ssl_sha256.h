@@ -32,6 +32,10 @@ void ft_ssl_sha256_init(t_ssl_sha256_ctx *context);
 void ft_ssl_sha256_update(t_ssl_sha256_ctx *context, t_byte *str, unsigned int str_len);
 void ft_ssl_sha256_final(t_byte digest[32], t_ssl_sha256_ctx *context);
 
+void ft_ssl_sha224_init(t_ssl_sha256_ctx *context);
+void ft_ssl_sha224_update(t_ssl_sha256_ctx *context, t_byte *str, unsigned int str_len);
+void ft_ssl_sha224_final(t_byte digest[32], t_ssl_sha256_ctx *context);
+
 void ft_ssl_sha256_transform(uint32_t st[8], t_byte buffer[FT_SHA256_BUFFER_SIZE]);
 void ft_ssl_sha256_prepare_schedule(uint32_t decoded[FT_SHA256_BUFFER_SIZE]);
 void ft_ssl_sha256_init_temp_st(uint32_t temp_st[8], uint32_t st[8]);

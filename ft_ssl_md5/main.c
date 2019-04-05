@@ -80,6 +80,8 @@ int main(int argc, char **argv)
         try_md5(flags);
     else if (!ft_strcmp(argv[1], "sha256"))
         try_sha256(flags);
+    else if (!ft_strcmp(argv[1], "sha224"))
+        try_sha224(flags);
     else
     {
         error_found("ft_ssl: Error: an invalid command.\nMessage Digest commands:\n"

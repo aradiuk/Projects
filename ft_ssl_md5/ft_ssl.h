@@ -33,13 +33,13 @@ void init_flag(t_flag_type flagType, char *text, t_flags *flags, t_list **invali
 
 
 void try_md5(t_flags *flags);
-void try_sha256(t_flags *flags);
+void try_sha256(t_flags *flag);
+void try_sha224(t_flags *flags);
 char* read_data(int fd);
-
 
 void ft_ssl_md5_checksum(const char *str, t_flags *flag);
 void ft_ssl_sha256_checksum(const char *str, t_flags *flag);
-
+void ft_ssl_sha224_checksum(const char *str, t_flags *flag);
 
 void print_results(t_flags *flags);
 void prepare_file_and_string(t_flags *flags, char **file_add, char **string_add);
