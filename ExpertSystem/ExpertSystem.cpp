@@ -253,13 +253,13 @@ Token ExpertSystem::FindFactStatus(const std::string &name, std::vector<Token> &
             result.factStatus_.status_ = DeduceStatus(tokens, operatorToken, sideStatus, isFactInConclusion);
             return result;
         }
-       result.factStatus_.status_ = DeduceIfAndOnlyIf(tokens, operatorToken, sideStatus, isFactInConclusion);
+       result.factStatus_.status_ = DeduceIfAndOnlyIf(name, tokens, operatorToken, sideStatus, isFactInConclusion);
     } else if (operatorToken.type_ == TokenType::Implies) {
         if (tokens.size() == 1) {
             result.factStatus_.status_ = DeduceStatus(tokens, operatorToken, sideStatus, isFactInConclusion);
             return result;
         }
-       result.factStatus_.status_ = DeduceImplies(tokens, operatorToken, sideStatus, isFactInConclusion);
+       result.factStatus_.status_ = DeduceImplies(name, tokens, operatorToken, sideStatus, isFactInConclusion);
     } else {
         throw "How did this thing get here?! Thing: " + operatorToken.value_;
     }
@@ -301,7 +301,7 @@ bool ExpertSystem::OnlyOrInTokens(const std::vector<Token> &tokens)
     return true;
 }
 
-bool ExpertSystem::DeduceIfAndOnlyIf(std::vector<Token> &tokens, const Token &operatorToken, bool sideStatus, bool isFactInConclusion)
+bool ExpertSystem::DeduceIfAndOnlyIf(const std::string &name, std::vector<Token> &tokens, const Token &operatorToken, bool sideStatus, bool isFactInConclusion)
 {
     bool result = false;
 
@@ -312,9 +312,9 @@ bool ExpertSystem::DeduceIfAndOnlyIf(std::vector<Token> &tokens, const Token &op
                     token.factStatus_ = Fact(true);
                 }
             }
-            result.factStatus_.status_ = true;
+            result = true;
         } else if (AllExceptUnknown(name, tokens, true)) {
-            result.factStatus_.status_ = false;
+            result = false;
         }
     } else if (OnlyOrInTokens(tokens)) {
         if (!sideStatus) {
@@ -323,16 +323,16 @@ bool ExpertSystem::DeduceIfAndOnlyIf(std::vector<Token> &tokens, const Token &op
                     token.factStatus_ = Fact(false);
                 }
             }
-            result.factStatus_.status_ = false;
+            result = false;
         } else if (AllExceptUnknown(name, tokens, false)) {
-            result.factStatus_.status_ = true;
+            result = true;
         }
     }
 
     return result;
 }
 
-bool ExpertSystem::DeduceImplies(std::vector<Token> &tokens, const Token &operatorToken, bool sideStatus, bool isFactInConclusion)
+bool ExpertSystem::DeduceImplies(const std::string &name, std::vector<Token> &tokens, const Token &operatorToken, bool sideStatus, bool isFactInConclusion)
 {
     bool result = false;
 
@@ -343,20 +343,20 @@ bool ExpertSystem::DeduceImplies(std::vector<Token> &tokens, const Token &operat
                     token.factStatus_ = Fact(true);
                 }
             }
-            result.factStatus_.status_ = true;
+            result = true;
         } else if (AllExceptUnknown(name, tokens, true) && !sideStatus && !isFactInConclusion) {
-            result.factStatus_.status_ = false;
+            result = false;
         }
     } else if (OnlyOrInTokens(tokens)) {
         if (sideStatus && isFactInConclusion && AllExceptUnknown(name, tokens, false)) {
-            result.factStatus_.status_ = true;
+            result = true;
         } else if (!sideStatus && !isFactInConclusion) {
             for (auto &token : tokens) {
                 if (token.type_ == TokenType::Fact) {
                     token.factStatus_ = Fact(false);
                 }
             }
-            result.factStatus_.status_ = false;
+            result = false;
         }
     }
 

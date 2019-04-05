@@ -45,8 +45,8 @@ class ExpertSystem {
 		Token FindFactStatus(const std::string &name, std::vector<Token> &tokens, bool sideStatus, const Token &operatorToken, bool isFactInConclusion);
 		bool IsFactOnThisSide(const std::string &name, const std::vector<Token> &tokens);
         bool DeduceStatus(const std::vector<Token> &tokens, const Token &operatorToken, bool sideStatus, bool isFactInConclusion);
-        bool DeduceIfAndOnlyIf(std::vector<Token> &tokens, const Token &operatorToken, bool sideStatus, bool isFactInConclusion);
-        bool DeduceImplies(std::vector<Token> &tokens, const Token &operatorToken, bool sideStatus, bool isFactInConclusion);
+        bool DeduceIfAndOnlyIf(const std::string &name, std::vector<Token> &tokens, const Token &operatorToken, bool sideStatus, bool isFactInConclusion);
+        bool DeduceImplies(const std::string &name, std::vector<Token> &tokens, const Token &operatorToken, bool sideStatus, bool isFactInConclusion);
         bool OnlyAndInTokens(const std::vector<Token> &tokens);
         bool OnlyOrInTokens(const std::vector<Token> &tokens);
         bool AllExceptUnknown(const std::string &name, const std::vector<Token> &tokens, bool trueOrFalse);
