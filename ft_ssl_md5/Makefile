@@ -19,13 +19,13 @@ SRC_FILES = $(shell ls $(SRC_DIR))
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
 
-INC =	-I includes/ \
+INC =	-I inc/ \
 		-I ./libft/includes/ 
 
 OBJ_FILES = $(SRC_FILES:.c=.o)
 OBJ = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
-GCC = gcc #-Wall -Werror -Wextra
+GCC = gcc -Wall -Werror -Wextra
 
 all: $(NAME)
 
