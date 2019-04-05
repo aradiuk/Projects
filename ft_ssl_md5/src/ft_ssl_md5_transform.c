@@ -1,6 +1,6 @@
 #include "ft_ssl_md5.h"
 
-static void ft_ssl_md5_round1(uint32_t st[4], uint32_t dec[16])
+static void	ft_ssl_md5_round1(uint32_t st[4], uint32_t dec[16])
 {
     FF (st[0], st[1], st[2], st[3], dec[ 0], S11, 0xd76aa478);
     FF (st[3], st[0], st[1], st[2], dec[ 1], S12, 0xe8c7b756);
@@ -20,7 +20,7 @@ static void ft_ssl_md5_round1(uint32_t st[4], uint32_t dec[16])
     FF (st[1], st[2], st[3], st[0], dec[15], S14, 0x49b40821);
 }
 
-static void ft_ssl_md5_round2(uint32_t st[4], uint32_t dec[16])
+static void	ft_ssl_md5_round2(uint32_t st[4], uint32_t dec[16])
 {
     GG (st[0], st[1], st[2], st[3], dec[ 1], S21, 0xf61e2562);
     GG (st[3], st[0], st[1], st[2], dec[ 6], S22, 0xc040b340);
@@ -40,7 +40,7 @@ static void ft_ssl_md5_round2(uint32_t st[4], uint32_t dec[16])
     GG (st[1], st[2], st[3], st[0], dec[12], S24, 0x8d2a4c8a);
 }
 
-static void ft_ssl_md5_round3(uint32_t st[4], uint32_t dec[16])
+static void	ft_ssl_md5_round3(uint32_t st[4], uint32_t dec[16])
 {
     HH (st[0], st[1], st[2], st[3], dec[ 5], S31, 0xfffa3942);
     HH (st[3], st[0], st[1], st[2], dec[ 8], S32, 0x8771f681);
@@ -60,7 +60,7 @@ static void ft_ssl_md5_round3(uint32_t st[4], uint32_t dec[16])
     HH (st[1], st[2], st[3], st[0], dec[ 2], S34, 0xc4ac5665);
 }
 
-static void ft_ssl_md5_round4(uint32_t st[4], uint32_t dec[16])
+static void	ft_ssl_md5_round4(uint32_t st[4], uint32_t dec[16])
 {
     II (st[0], st[1], st[2], st[3], dec[ 0], S41, 0xf4292244);
     II (st[3], st[0], st[1], st[2], dec[ 7], S42, 0x432aff97);
@@ -80,25 +80,25 @@ static void ft_ssl_md5_round4(uint32_t st[4], uint32_t dec[16])
     II (st[1], st[2], st[3], st[0], dec[ 9], S44, 0xeb86d391);
 }
 
-void ft_ssl_md5_transform(uint32_t st[4], t_byte buffer[FT_MD5_BUFFER_SIZE])
+void		ft_ssl_md5_transform(uint32_t st[4], t_byte buffer[FT_MD5_BUFFER_SIZE])
 {
-    uint32_t decoded[16];
-    uint32_t temp_st[4];
+	uint32_t	decoded[16];
+	uint32_t	temp_st[4];
 
-    ft_ssl_md5_decode(decoded, buffer, FT_MD5_BUFFER_SIZE);
-    temp_st[0] = st[0];
-    temp_st[1] = st[1];
-    temp_st[2] = st[2];
-    temp_st[3] = st[3];
-    ft_ssl_md5_round1(temp_st, decoded);
-    ft_ssl_md5_round2(temp_st, decoded);
-    ft_ssl_md5_round3(temp_st, decoded);
-    ft_ssl_md5_round4(temp_st, decoded);
-    st[0] += temp_st[0];
-    st[1] += temp_st[1];
-    st[2] += temp_st[2];
-    st[3] += temp_st[3];
-    ft_bzero(decoded, sizeof(decoded));
+	ft_ssl_md5_decode(decoded, buffer, FT_MD5_BUFFER_SIZE);
+	temp_st[0] = st[0];
+	temp_st[1] = st[1];
+	temp_st[2] = st[2];
+	temp_st[3] = st[3];
+	ft_ssl_md5_round1(temp_st, decoded);
+	ft_ssl_md5_round2(temp_st, decoded);
+	ft_ssl_md5_round3(temp_st, decoded);
+	ft_ssl_md5_round4(temp_st, decoded);
+	st[0] += temp_st[0];
+	st[1] += temp_st[1];
+	st[2] += temp_st[2];
+	st[3] += temp_st[3];
+	ft_bzero(decoded, sizeof(decoded));
 }
 
 
