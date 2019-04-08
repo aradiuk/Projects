@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ssl_sha224.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/08 11:26:37 by aradiuk           #+#    #+#             */
+/*   Updated: 2019/04/08 11:26:38 by aradiuk          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ssl.h"
 
 void	ft_ssl_sha224_checksum(const char *str, t_flags *flag)
@@ -26,7 +38,8 @@ void	ft_ssl_sha224_init(t_ssl_sha256_ctx *context)
 	context->num_of_bits[1] = 0;
 }
 
-void	ft_ssl_sha224_update(t_ssl_sha256_ctx *context, t_byte *str, unsigned int str_len)
+void	ft_ssl_sha224_update(t_ssl_sha256_ctx *context, t_byte *str,
+						unsigned int str_len)
 {
 	ft_ssl_sha256_update(context, str, str_len);
 }
@@ -35,4 +48,3 @@ void	ft_ssl_sha224_final(t_byte digest[32], t_ssl_sha256_ctx *context)
 {
 	ft_ssl_sha256_final(digest, context);
 }
-

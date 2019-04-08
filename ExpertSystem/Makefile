@@ -6,11 +6,11 @@
 #    By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/02 20:36:32 by aradiuk           #+#    #+#              #
-#    Updated: 2019/03/17 12:08:08 by aradiuk          ###   ########.fr        #
+#    Updated: 2019/04/08 10:37:10 by aradiuk          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = computor 
+NAME = system 
 
 SRC_DIR = ./src/
 OBJ_DIR = ./obj/

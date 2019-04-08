@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/08 11:27:28 by aradiuk           #+#    #+#             */
+/*   Updated: 2019/04/08 11:27:31 by aradiuk          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ssl.h"
 
-void	error_found(char *errorText)
+void	error_found(char *error_text)
 {
-	ft_putstr(errorText);
+	ft_putstr(error_text);
 	ft_putstr("\n");
 	exit(1);
 }
@@ -62,7 +74,7 @@ void	clean_memory(t_flags *flags, t_list **invalid_args)
 	ft_lstdel(invalid_args, &clean_list);
 }
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_flags	flags[5];
 	t_list	*invalid_args;
@@ -71,7 +83,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 	{
 		ft_putstr("usage: ft_ssl command [command opts] [command args]\n");
-		return 1;
+		return (1);
 	}
 	initial_flags(flags);
 	parse_input(argc, argv, flags, &invalid_args);
@@ -82,13 +94,10 @@ int	main(int argc, char **argv)
 	else if (!ft_strcmp(argv[1], "sha224"))
 		try_sha224(flags);
 	else
-	{
-		error_found("ft_ssl: Error: an invalid command.\nMessage Digest commands:\n"
-				  "md5\nsha256");
-	}
+		wrong_input();
 	print_results(flags);
 	ft_list_reverse(&invalid_args);
 	ft_lstiter(invalid_args, &print_invalid_args);
 	clean_memory(flags, &invalid_args);
-	return 0;
+	return (0);
 }

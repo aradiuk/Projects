@@ -12,8 +12,6 @@
 
 #include "includes/libft.h"
 
-#define OPEN_MAX 4
-
 static char	*my_cat(char *str, char *buf)
 {
 	char		*t;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ssl_md5_utils.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/08 11:26:30 by aradiuk           #+#    #+#             */
+/*   Updated: 2019/04/08 11:26:31 by aradiuk          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ssl.h"
 
 void	ft_ssl_md5_encode(t_byte *out, uint32_t *in, unsigned int in_len)
@@ -33,10 +45,11 @@ void	ft_ssl_md5_decode(uint32_t *out, t_byte *in, unsigned int in_len)
 					(((uint32_t)in[j + 3]) << 24);
 		++i;
 		j += 4;
-}
+	}
 }
 
-void	ft_ssl_md5_make_string(unsigned char digest[16], char *result, unsigned int len)
+void	ft_ssl_md5_make_string(unsigned char digest[16], char *result,
+						unsigned int len)
 {
 	unsigned int	i;
 	unsigned int	j;
@@ -61,4 +74,3 @@ void	ft_ssl_md5_make_string(unsigned char digest[16], char *result, unsigned int
 	}
 	result[j] = 0;
 }
-

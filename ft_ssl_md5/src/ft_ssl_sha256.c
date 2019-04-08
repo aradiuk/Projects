@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ssl_sha256.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/08 11:26:42 by aradiuk           #+#    #+#             */
+/*   Updated: 2019/04/08 11:26:43 by aradiuk          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ssl.h"
 
 static unsigned char	g_padding[64] = {
-  0x80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+	0x80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 };
 
 void	ft_ssl_sha256_checksum(const char *str, t_flags *flag)
@@ -32,14 +44,16 @@ void	ft_ssl_sha256_init(t_ssl_sha256_ctx *context)
 	context->num_of_bits[1] = 0;
 }
 
-void	ft_ssl_sha256_update(t_ssl_sha256_ctx *context, t_byte *str, unsigned int str_len)
+void	ft_ssl_sha256_update(t_ssl_sha256_ctx *context, t_byte *str,
+						unsigned int str_len)
 {
 	unsigned int	i;
 	unsigned int	curr_index;
 	unsigned int	part_length;
 
 	curr_index = (unsigned int)((context->num_of_bits[0] >> 3) & 63);
-	if ((context->num_of_bits[0] += ((uint32_t)str_len << 3)) < ((uint32_t)str_len << 3))
+	if ((context->num_of_bits[0] += ((uint32_t)str_len << 3)) <
+									((uint32_t)str_len << 3))
 		context->num_of_bits[1]++;
 	context->num_of_bits[1] += ((uint32_t)str_len >> 29);
 	part_length = FT_SHA256_BUFFER_SIZE - curr_index;

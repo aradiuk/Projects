@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_input.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/08 11:27:36 by aradiuk           #+#    #+#             */
+/*   Updated: 2019/04/08 11:27:37 by aradiuk          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ssl.h"
 
-void	parse_input(int argc, char **argv, t_flags *flags, t_list **invalid_args)
+void	parse_input(int argc, char **argv, t_flags *flags,
+						t_list **invalid_args)
 {
 	int	i;
 
@@ -21,14 +34,17 @@ void	parse_input(int argc, char **argv, t_flags *flags, t_list **invalid_args)
 	}
 }
 
-void	init_flag(const t_flag_type flag_type, char *text, t_flags *flags, t_list **invalid_args)
+void	init_flag(const t_flag_type flag_type, char *text, t_flags *flags,
+						t_list **invalid_args)
 {
 	char	*tmp;
 
-	if (flags[flag_type].is_initialised) {
+	if (flags[flag_type].is_initialised)
+	{
 		if (flags[flag_type].flag_text)
 		{
-			tmp = ft_strjoin(flags[flag_type].flag_text, ": No such file or repeated flag\n\0");
+			tmp = ft_strjoin(flags[flag_type].flag_text,
+						": No such file or repeated flag\n\0");
 			ft_lstadd(invalid_args, ft_lstnew((void *)tmp, ft_strlen(tmp)));
 			ft_strdel(&tmp);
 		}
@@ -38,10 +54,8 @@ void	init_flag(const t_flag_type flag_type, char *text, t_flags *flags, t_list *
 			ft_lstadd(invalid_args, ft_lstnew((void *)tmp, ft_strlen(tmp)));
 			ft_strdel(&tmp);
 		}
-		return;
+		return ;
 	}
-
 	flags[flag_type].is_initialised = 1;
 	flags[flag_type].string_or_file = ft_strdup(text);
 }
-

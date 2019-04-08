@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reading.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/08 11:27:45 by aradiuk           #+#    #+#             */
+/*   Updated: 2019/04/08 11:27:45 by aradiuk          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ssl.h"
 
 void	try_md5(t_flags *flags)
@@ -21,7 +33,8 @@ void	try_md5(t_flags *flags)
 	}
 	if (flags[string].is_initialised)
 		ft_ssl_md5_checksum(flags[string].string_or_file, &flags[string]);
-	if (flags[print].is_initialised || (!flags[file].is_initialised && !flags[string].is_initialised))
+	if (flags[print].is_initialised || (!flags[file].is_initialised &&
+										!flags[string].is_initialised))
 	{
 		flags[print].string_or_file = read_data(0);
 		ft_ssl_md5_checksum(flags[print].string_or_file, &flags[print]);
@@ -49,7 +62,8 @@ void	try_sha256(t_flags *flags)
 	}
 	if (flags[string].is_initialised)
 		ft_ssl_sha256_checksum(flags[string].string_or_file, &flags[string]);
-	if (flags[print].is_initialised || (!flags[file].is_initialised && !flags[string].is_initialised))
+	if (flags[print].is_initialised || (!flags[file].is_initialised &&
+										!flags[string].is_initialised))
 	{
 		flags[print].string_or_file = read_data(0);
 		ft_ssl_sha256_checksum(flags[print].string_or_file, &flags[print]);
@@ -77,7 +91,8 @@ void	try_sha224(t_flags *flags)
 	}
 	if (flags[string].is_initialised)
 		ft_ssl_sha224_checksum(flags[string].string_or_file, &flags[string]);
-	if (flags[print].is_initialised || (!flags[file].is_initialised && !flags[string].is_initialised))
+	if (flags[print].is_initialised || (!flags[file].is_initialised &&
+										!flags[string].is_initialised))
 	{
 		flags[print].string_or_file = read_data(0);
 		ft_ssl_sha224_checksum(flags[print].string_or_file, &flags[print]);
@@ -99,5 +114,5 @@ char	*read_data(int fd)
 		file = ft_strjoin(tmp, "\n");
 		ft_strdel(&tmp);
 	}
-	return file;
+	return (file);
 }
