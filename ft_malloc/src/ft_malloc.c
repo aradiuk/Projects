@@ -6,7 +6,7 @@
 /*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 14:42:03 by aradiuk           #+#    #+#             */
-/*   Updated: 2019/04/08 14:42:04 by aradiuk          ###   ########.fr       */
+/*   Updated: 2019/04/09 12:02:24 by aradiuk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	*malloc(size_t size)
 	else
 		type = large;
 	if (g_pages)
-		page = get_page(type);
+		page = get_page(type, size);
 	else
 		page = get_new_page(type, size);
 	allocation = get_new_allocation(page, size);
-	return (allocation);
+	return ((void *)get_allocation_address(allocation));
 }
 
 t_info	*allocate_chunk(ptrdiff_t address, size_t size, t_page *page)
@@ -42,6 +42,7 @@ t_info	*allocate_chunk(ptrdiff_t address, size_t size, t_page *page)
 
 	allocation = 0;
 	ft_bzero((void *)address, sizeof(t_info));
+	allocation = (t_info *)address;
 	allocation->address = address;
 	allocation->size = size;
 	allocation->page = page;
@@ -87,6 +88,18 @@ void	*get_new_allocation(t_page *page, size_t size)
 	if (page->empty >= size + sizeof(t_info))
 	{
 		allocation = add_allocation(page, size + sizeof(t_info));
+		if (allocation)
+		{
+			allocation->page = page;
+			page->empty -= allocation->size;
+		}
 	}
+	if (!allocation)
+	{
+		if (!page->next)
+			page->next = get_new_page(page->type, size);
+		allocation = get_new_allocation(page->next, size);
+	}
+
 	return	(allocation);
 }

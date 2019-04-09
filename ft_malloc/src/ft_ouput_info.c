@@ -9,11 +9,14 @@ void	get_allocation_info(t_info *info)
 	char	*address;
 
 	address = ft_itoa_base(info->address, 16, 'A');
+	ft_putstr("0x");
 	ft_putstr(address);
 	ft_putstr(" - ");
 	ft_strdel(&address);
-	address = ft_itoa_base(info->address + info->size, 16, 'A');
+	address = ft_itoa_base((long)(info->address + info->size), 16, 'A');
+	ft_putstr("0x");
 	ft_putstr(address);
+	ft_strdel(&address);
 	ft_putstr(" : ");
 	ft_putnbr((int)info->size);
 	ft_putstr(" bytes\n");
@@ -21,21 +24,21 @@ void	get_allocation_info(t_info *info)
 
 void	get_page_info(t_page *page)
 {
-	char	*type;
 	char	*address;
 
+	address = 0;
 	if (page->type == tiny)
-		type = ft_strdup("TINY");
+		ft_putstr("TINY");
 	else if (page->type == small)
-		type = ft_strdup("SMALL");
+		ft_putstr("SMALL");
 	else
-		type = ft_strdup("LARGE");
-	address = ft_itoa_base(page->address, 16, 'A');
-	ft_putstr(type);
+		ft_putstr("LARGE");
+	address = ft_itoa_base((long)page->address, 16, 'A');
 	ft_putstr(" : ");
+	ft_putstr("0x");
 	ft_putstr(address);
-	ft_strdel(&type);
 	ft_strdel(&address);
+	ft_putstr("\n");
 }
 
 void	show_alloc_mem()
@@ -53,6 +56,7 @@ void	show_alloc_mem()
 			get_allocation_info(allocation);
 			allocation = allocation->next;
 		}
+		page = page->next;
 	}
 	ft_putstr("\n");
 }

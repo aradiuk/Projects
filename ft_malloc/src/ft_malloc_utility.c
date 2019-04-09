@@ -14,26 +14,40 @@
 
 size_t		get_page_size(t_page *page)
 {
-	return (page->size - sizeof(t_page));
+	if (page)
+		return (page->size - sizeof(t_page));
+	else
+		return (0);
 }
 
 ptrdiff_t	get_page_address(t_page *page)
 {
-	return (page->address + sizeof(t_page));
+	if (page)
+		return (page->address + sizeof(t_page));
+	else
+		return (0);
 }
 
 size_t		get_allocation_size(t_info *allocation)
 {
-	return (allocation->size - sizeof(t_info));
+	if (allocation)
+		return (allocation->size - sizeof(t_info));
+	else
+		return (0);
 }
 
 ptrdiff_t	get_allocation_address(t_info *allocation)
 {
-	return (allocation->address + sizeof(t_info));
-
+	if (allocation)
+		return (allocation->address + sizeof(t_info));
+	else
+		return (0);
 }
 
 ptrdiff_t	get_allocation_end(t_info *allocation)
 {
-	return get_allocation_address(allocation) + get_allocation_size(allocation);
+	if (allocation)
+		return get_allocation_address(allocation) + get_allocation_size(allocation);
+	else
+		return (0);
 }

@@ -27,7 +27,7 @@ t_page	*create_new_page(t_type type, size_t in_size)
 	int		page_size;
 
 	size = get_size(type);
-	size = (size + sizeof(t_info)) * ((type == large) ? 1 : MMAP_COEF);
+	size = (size + sizeof(t_info)) * ((type < large) ? MMAP_COEF : 1);
 	size = max_size(size, in_size + sizeof(t_info)) + sizeof(t_page);
 	page_size = getpagesize();
 	if (size % page_size)
@@ -69,7 +69,7 @@ t_page	*get_new_page(t_type type, size_t size)
 	return (page);
 }
 
-t_page	*get_page(t_type type)
+t_page	*get_page(t_type type, size_t size)
 {
 	t_page	*page;
 
@@ -81,6 +81,6 @@ t_page	*get_page(t_type type)
 		page = page->next;
 	}
 	if (!page)
-		page = get_new_page(type, 0);
+		page = get_new_page(type, size);
 	return (page);
 }

@@ -20,7 +20,7 @@
 
 # define TINY 512
 # define SMALL 2048
-# define LARGE 8184
+# define LARGE 2048 * 5
 # define MMAP_COEF 100
 
 typedef enum	e_type
@@ -60,7 +60,7 @@ void		deallocate(ptrdiff_t address);
 void		*realloc(void *ptr, size_t size);
 void		*get_new_reallocation(void *ptr, size_t size);
 void		*reallocate_and_move(void *ptr, size_t size, size_t alloc_size);
-t_page		*get_page(t_type type);
+t_page		*get_page(t_type type, size_t size);
 t_page		*get_new_page(t_type type, size_t size);
 t_page		*create_new_page(t_type type, size_t size);
 size_t		get_size(t_type type);
