@@ -35,7 +35,7 @@ void	*malloc(size_t size)
 		page = get_new_page(type);
 	allocation = get_new_allocation(page, size);
 	((t_info *)allocation)->num = i;
-	allocation->next = 0;
+	((t_info *)allocation)->next = 0;
 	++i;
 	return ((void *)get_allocation_address(allocation));
 }

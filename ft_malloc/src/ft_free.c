@@ -19,6 +19,7 @@ void	free(void *ptr)
 	t_info	*allocation;
 	t_info	*next;
 
+	page = 0;
 	if (!ptr)
 		return ;
 	allocation = find_allocation((ptrdiff_t)ptr, &previous);
@@ -80,6 +81,7 @@ void	delete_page(t_page *page)
 
 	curr = g_pages;
 	prev = 0;
+	next = 0;
 	while (curr)
 	{
 		if (page == curr)
