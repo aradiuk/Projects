@@ -1,18 +1,41 @@
-//
-// Created by Andrew Radiuk on 2019-04-08.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/10 11:22:44 by aradiuk           #+#    #+#             */
+/*   Updated: 2019/04/10 11:26:05 by aradiuk          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_malloc.h"
 
 void	free(void *ptr)
 {
+	t_page	*page;
+	t_info	*previous;
+	t_info	*allocation;
+	t_info	*next;
+
 	if (!ptr)
 		return ;
-
-	deallocate((ptrdiff_t)ptr);
+	allocation = find_allocation((ptrdiff_t)ptr, &previous);
+	if (allocation)
+	{
+		page = allocation->page;
+		next = allocation->next;
+		page->empty += allocation->size;
+		if (!previous)
+			page->allocations = next;
+		else
+			previous->next = next;
+		ft_bzero(allocation, sizeof(t_info));
+	}
 }
 
-t_info *find_allocation(ptrdiff_t address, t_info **previous)
+t_info	*find_allocation(ptrdiff_t address, t_info **previous)
 {
 	t_page	*page;
 	t_info	*allocation;
@@ -35,20 +58,11 @@ t_info *find_allocation(ptrdiff_t address, t_info **previous)
 	return (0);
 }
 
-void deallocate(ptrdiff_t address)
+int		is_enough_size(t_page *page, t_info *allocation, size_t size)
 {
-	t_page	*page;
-	t_info	*previous;
-	t_info	*allocation;
-
-	allocation = find_allocation(address, &previous);
-	if (!allocation)
-		return ;
-	page = allocation->page;
-	page->empty += allocation->size;
-	if (!previous)
-		page->allocations = allocation->next;
+	if ((size_t)(page->address + page->size -
+		get_allocation_end(allocation)) >= size)
+		return (1);
 	else
-		previous->next = allocation->next;
-	ft_bzero(allocation, sizeof(t_info));
+		return (0);
 }

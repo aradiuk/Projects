@@ -6,7 +6,7 @@
 /*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 15:07:48 by aradiuk           #+#    #+#             */
-/*   Updated: 2019/04/08 15:07:50 by aradiuk          ###   ########.fr       */
+/*   Updated: 2019/04/10 11:29:06 by aradiuk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ ptrdiff_t	get_allocation_address(t_info *allocation)
 ptrdiff_t	get_allocation_end(t_info *allocation)
 {
 	if (allocation)
-		return get_allocation_address(allocation) + get_allocation_size(allocation);
+		return (get_allocation_address(allocation) +
+				get_allocation_size(allocation));
 	else
 		return (0);
 }

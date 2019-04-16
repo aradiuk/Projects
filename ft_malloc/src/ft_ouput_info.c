@@ -1,6 +1,14 @@
-//
-// Created by Andrew Radiuk on 2019-04-08.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ouput_info.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/10 11:23:07 by aradiuk           #+#    #+#             */
+/*   Updated: 2019/04/10 11:33:57 by aradiuk          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_malloc.h"
 
@@ -41,7 +49,7 @@ void	get_page_info(t_page *page)
 	ft_putstr("\n");
 }
 
-void	show_alloc_mem()
+void	show_alloc_mem(void)
 {
 	t_page	*page;
 	t_info	*allocation;
@@ -53,6 +61,28 @@ void	show_alloc_mem()
 		allocation = page->allocations;
 		while (allocation)
 		{
+			get_allocation_info(allocation);
+			allocation = allocation->next;
+		}
+		page = page->next;
+	}
+	ft_putstr("\n");
+}
+
+void	show_alloc_mem_ex(void)
+{
+	t_page	*page;
+	t_info	*allocation;
+
+	page = g_pages;
+	while (page)
+	{
+		get_page_info(page);
+		allocation = page->allocations;
+		while (allocation)
+		{
+			ft_putnbr(allocation->num);
+			ft_putstr(": ");
 			get_allocation_info(allocation);
 			allocation = allocation->next;
 		}

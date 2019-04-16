@@ -1,22 +1,29 @@
-//
-// Created by Andrew Radiuk on 2019-04-08.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_page.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aradiuk <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/10 11:23:13 by aradiuk           #+#    #+#             */
+/*   Updated: 2019/04/16 18:46:56 by aradiuk          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_malloc.h"
 
-size_t	max_size(size_t first, size_t second)
+size_t	get_size(t_type type, size_t in_size)
 {
-	return first > second ? first : second;
-}
+	size_t	size;
 
-size_t	get_size(t_type type)
-{
+	size = 0;
 	if (type == tiny)
-		return (TINY);
+		size = (sizeof(t_info) + TINY) * ALLOCS;
 	else if (type == small)
-		return (SMALL);
+		size = (sizeof(t_info) + SMALL) * ALLOCS;
 	else
-		return (LARGE);
+		size = sizeof(t_info) + LARGE;
+	size += sizeof(t_page);
 }
 
 t_page	*create_new_page(t_type type, size_t in_size)
@@ -27,8 +34,6 @@ t_page	*create_new_page(t_type type, size_t in_size)
 	int		page_size;
 
 	size = get_size(type);
-	size = (size + sizeof(t_info)) * ((type < large) ? MMAP_COEF : 1);
-	size = max_size(size, in_size + sizeof(t_info)) + sizeof(t_page);
 	page_size = getpagesize();
 	if (size % page_size)
 		size += page_size - (size % page_size);
@@ -77,7 +82,7 @@ t_page	*get_page(t_type type, size_t size)
 	while (page)
 	{
 		if (page->type == type)
-			break;
+			break ;
 		page = page->next;
 	}
 	if (!page)
