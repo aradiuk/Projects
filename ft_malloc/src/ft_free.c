@@ -33,6 +33,10 @@ void	free(void *ptr)
 			previous->next = next;
 		ft_bzero(allocation, sizeof(t_info));
 	}
+	if (check_page_for_emptiness(page))
+	{
+		delete_page(page);
+	}
 }
 
 t_info	*find_allocation(ptrdiff_t address, t_info **previous)
@@ -65,4 +69,29 @@ int		is_enough_size(t_page *page, t_info *allocation, size_t size)
 		return (1);
 	else
 		return (0);
+}
+
+void	delete_page(t_page *page)
+{
+	t_page	*prev;
+	t_page	*curr;
+	t_page	*next;
+	int		res;
+
+	curr = g_pages;
+	prev = 0;
+	while (curr)
+	{
+		if (page == curr)
+		{
+			if (!prev)
+				g_pages = curr->next;
+			else
+				prev->next = curr->next;
+			res = munmap(page, page->size);
+			return ;
+		}
+		prev = curr;
+		curr = curr->next;
+	}
 }

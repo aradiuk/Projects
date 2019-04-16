@@ -12,7 +12,23 @@
 
 #include "ft_malloc.h"
 
-size_t	get_size(t_type type, size_t in_size)
+int		check_page_for_emptiness(t_page *page)
+{
+	t_page	*curr;
+
+	curr = g_pages;
+	if (page->allocations != 0)
+		return (0);
+	while (curr)
+	{
+		if (curr->type == page->type || page->type == large)
+			return (1);
+		curr = curr->next;
+	}
+	return (0);
+}
+
+size_t	get_size(t_type type)
 {
 	size_t	size;
 
@@ -24,9 +40,10 @@ size_t	get_size(t_type type, size_t in_size)
 	else
 		size = sizeof(t_info) + LARGE;
 	size += sizeof(t_page);
+	return (size);
 }
 
-t_page	*create_new_page(t_type type, size_t in_size)
+t_page	*create_new_page(t_type type)
 {
 	t_page	*page;
 	size_t	size;
@@ -50,12 +67,12 @@ t_page	*create_new_page(t_type type, size_t in_size)
 	return (page);
 }
 
-t_page	*get_new_page(t_type type, size_t size)
+t_page	*get_new_page(t_type type)
 {
 	t_page	*page;
 	t_page	*curr;
 
-	page = create_new_page(type, size);
+	page = create_new_page(type);
 	curr = g_pages;
 	if (!curr)
 		g_pages = page;
@@ -74,7 +91,7 @@ t_page	*get_new_page(t_type type, size_t size)
 	return (page);
 }
 
-t_page	*get_page(t_type type, size_t size)
+t_page	*get_page(t_type type)
 {
 	t_page	*page;
 
@@ -86,6 +103,6 @@ t_page	*get_page(t_type type, size_t size)
 		page = page->next;
 	}
 	if (!page)
-		page = get_new_page(type, size);
+		page = get_new_page(type);
 	return (page);
 }

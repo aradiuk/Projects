@@ -61,9 +61,9 @@ int				is_enough_size(t_page *page, t_info *allocation, size_t size);
 void			*realloc(void *ptr, size_t size);
 void			*get_new_reallocation(void *ptr, size_t size);
 void			*reallocate_and_move(void *ptr, size_t size, size_t alloc_size);
-t_page			*get_page(t_type type, size_t size);
-t_page			*get_new_page(t_type type, size_t size);
-t_page			*create_new_page(t_type type, size_t size);
+t_page			*get_page(t_type type);
+t_page			*get_new_page(t_type type);
+t_page			*create_new_page(t_type type);
 size_t			get_size(t_type type);
 void			show_alloc_mem();
 void			show_alloc_mem_ex();
@@ -73,5 +73,7 @@ ptrdiff_t		get_page_address(t_page *page);
 size_t			get_allocation_size(t_info *allocation);
 ptrdiff_t		get_allocation_address(t_info *allocation);
 ptrdiff_t		get_allocation_end(t_info *allocation);
+int				check_page_for_emptiness(t_page *page);
+void			delete_page(t_page *age);
 
 #endif
