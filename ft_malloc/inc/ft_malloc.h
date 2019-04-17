@@ -18,9 +18,8 @@
 # include <stddef.h>
 # include "libft.h"
 
-# define TINY 1024
-# define SMALL 1024 * 8
-# define LARGE 1024 * 10
+# define TINY 512
+# define SMALL 15 * 1024
 # define ALLOCS 100
 
 typedef enum	e_type
@@ -62,9 +61,9 @@ void			*realloc(void *ptr, size_t size);
 void			*get_new_reallocation(void *ptr, size_t size);
 void			*reallocate_and_move(void *ptr, size_t size, size_t alloc_size);
 t_page			*get_page(t_type type);
-t_page			*get_new_page(t_type type);
-t_page			*create_new_page(t_type type);
-size_t			get_size(t_type type);
+t_page			*get_new_page(t_type type, size_t size);
+t_page			*create_new_page(t_type type, size_t size);
+size_t			get_size(t_type type, size_t size);
 void			show_alloc_mem();
 void			show_alloc_mem_ex();
 void			get_page_info(t_page *page);

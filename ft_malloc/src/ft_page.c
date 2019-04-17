@@ -28,7 +28,7 @@ int		check_page_for_emptiness(t_page *page)
 	return (0);
 }
 
-size_t	get_size(t_type type)
+size_t	get_size(t_type type, size_t in_size)
 {
 	size_t	size;
 
@@ -38,19 +38,19 @@ size_t	get_size(t_type type)
 	else if (type == small)
 		size = (sizeof(t_info) + SMALL) * ALLOCS;
 	else
-		size = sizeof(t_info) + LARGE;
+		size = sizeof(t_info) + in_size;
 	size += sizeof(t_page);
 	return (size);
 }
 
-t_page	*create_new_page(t_type type)
+t_page	*create_new_page(t_type type, size_t size)
 {
 	t_page	*page;
 	size_t	size;
 	void	*address;
 	int		page_size;
 
-	size = get_size(type);
+	size = get_size(type, size);
 	page_size = getpagesize();
 	if (size % page_size)
 		size += page_size - (size % page_size);
@@ -67,12 +67,12 @@ t_page	*create_new_page(t_type type)
 	return (page);
 }
 
-t_page	*get_new_page(t_type type)
+t_page	*get_new_page(t_type type, size_t size)
 {
 	t_page	*page;
 	t_page	*curr;
 
-	page = create_new_page(type);
+	page = create_new_page(type, size);
 	if (!g_pages)
 	{
         g_pages = page;
@@ -106,6 +106,6 @@ t_page	*get_page(t_type type)
 		page = page->next;
 	}
 	if (!page)
-		page = get_new_page(type);
+		page = get_new_page(type, 0);
 	return (page);
 }

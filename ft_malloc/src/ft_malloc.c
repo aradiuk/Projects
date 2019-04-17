@@ -32,7 +32,7 @@ void	*malloc(size_t size)
 	if (g_pages)
 		page = get_page(type);
 	else
-		page = get_new_page(type);
+		page = get_new_page(type, size);
 	allocation = get_new_allocation(page, size);
 	((t_info *)allocation)->num = i;
 	((t_info *)allocation)->next = 0;
@@ -99,7 +99,7 @@ void	*get_new_allocation(t_page *page, size_t size)
 	if (!allocation)
 	{
 		if (!page->next)
-			page->next = get_new_page(page->type);
+			page->next = get_new_page(page->type, size);
 		allocation = get_new_allocation(page->next, size);
 	}
 	return (allocation);
