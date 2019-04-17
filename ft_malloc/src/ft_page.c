@@ -98,6 +98,8 @@ t_page	*get_page(t_type type, size_t size)
 {
 	t_page	*page;
 
+	if (type == large)
+	    return (get_new_page(type, size));
 	page = g_pages;
 	while (page)
 	{
