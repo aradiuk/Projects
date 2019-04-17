@@ -76,12 +76,9 @@ void	delete_page(t_page *page)
 {
 	t_page	*prev;
 	t_page	*curr;
-	t_page	*next;
-	int		res;
 
 	curr = g_pages;
 	prev = 0;
-	next = 0;
 	while (curr)
 	{
 		if (page == curr)
@@ -90,7 +87,7 @@ void	delete_page(t_page *page)
 				g_pages = curr->next;
 			else
 				prev->next = curr->next;
-			res = munmap(page, page->size);
+			munmap(page, page->size);
 			return ;
 		}
 		prev = curr;

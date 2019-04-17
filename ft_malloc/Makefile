@@ -29,12 +29,12 @@ INC =	-I inc/ \
 OBJ_FILES = $(SRC_FILES:.c=.o)
 OBJ = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
-GCC = gcc -Wall -Werror -Wextra
+GCC = gcc -Wall -Werror -Wextra -fPIC
 
 all: $(NAME)
 
 $(NAME): $(OBJ) ./libft/libft.a
-	ar rc $(NAME) $(OBJ)
+	$(GCC) -o $(NAME) $(OBJ) -shared 
 	rm -rf libft_malloc.so
 	ln -s $(NAME) libft_malloc.so 
 
