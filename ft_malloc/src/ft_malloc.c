@@ -30,7 +30,7 @@ void	*malloc(size_t size)
 	else
 		type = large;
 	if (g_pages)
-		page = get_page(type);
+		page = get_page(type, size);
 	else
 		page = get_new_page(type, size);
 	allocation = get_new_allocation(page, size);

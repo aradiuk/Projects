@@ -60,7 +60,7 @@ int				is_enough_size(t_page *page, t_info *allocation, size_t size);
 void			*realloc(void *ptr, size_t size);
 void			*get_new_reallocation(void *ptr, size_t size);
 void			*reallocate_and_move(void *ptr, size_t size, size_t alloc_size);
-t_page			*get_page(t_type type);
+t_page			*get_page(t_type type, size_t size);
 t_page			*get_new_page(t_type type, size_t size);
 t_page			*create_new_page(t_type type, size_t size);
 size_t			get_size(t_type type, size_t size);

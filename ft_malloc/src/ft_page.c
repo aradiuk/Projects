@@ -43,14 +43,14 @@ size_t	get_size(t_type type, size_t in_size)
 	return (size);
 }
 
-t_page	*create_new_page(t_type type, size_t size)
+t_page	*create_new_page(t_type type, size_t in_size)
 {
 	t_page	*page;
 	size_t	size;
 	void	*address;
 	int		page_size;
 
-	size = get_size(type, size);
+	size = get_size(type, in_size);
 	page_size = getpagesize();
 	if (size % page_size)
 		size += page_size - (size % page_size);
@@ -94,7 +94,7 @@ t_page	*get_new_page(t_type type, size_t size)
 	return (page);
 }
 
-t_page	*get_page(t_type type)
+t_page	*get_page(t_type type, size_t size)
 {
 	t_page	*page;
 
@@ -106,6 +106,6 @@ t_page	*get_page(t_type type)
 		page = page->next;
 	}
 	if (!page)
-		page = get_new_page(type, 0);
+		page = get_new_page(type, size);
 	return (page);
 }
