@@ -73,10 +73,13 @@ t_page	*get_new_page(t_type type)
 	t_page	*curr;
 
 	page = create_new_page(type);
+	if (!g_pages)
+	{
+        g_pages = page;
+        return (page);
+	}
 	curr = g_pages;
-	if (!curr)
-		g_pages = page;
-	else if (curr->type > type)
+	if (g_pages->type > type)
 	{
 		g_pages = page;
 		page->next = curr;
