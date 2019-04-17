@@ -18,9 +18,9 @@
 # include <stddef.h>
 # include "libft.h"
 
-# define TINY 512
-# define SMALL 2048
-# define LARGE 2048 * 5
+# define TINY 1024
+# define SMALL 1024 * 8
+# define LARGE 1024 * 10
 # define ALLOCS 100
 
 typedef enum	e_type
